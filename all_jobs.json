@@ -207,6 +207,76 @@
       "salary_min": 115000,
       "salary_max": 175000,
       "demand": "High"
+    },
+    {
+      "title": "Network Engineer",
+      "description": "Designs, implements, and maintains enterprise network infrastructure to ensure reliable and secure data communication across organizations.",
+      "skills": [
+        "Computer Networks",
+        "Business Telecommunication Networks",
+        "Computer Architecture",
+        "Operating Systems",
+        "Digital Systems"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Data Mining Analyst",
+      "description": "Extracts actionable insights from large datasets using search algorithms and statistical techniques to support business decision-making.",
+      "skills": [
+        "Search and Data Mining",
+        "Data Structures",
+        "Introduction to Algorithms",
+        "Statistical Methods",
+        "Discrete Mathematics"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "High Performance Computing Specialist",
+      "description": "Develops and optimizes computationally intensive applications for research institutions and scientific computing environments using parallel and distributed systems.",
+      "skills": [
+        "Parallel Computing",
+        "High-Performance Computing with Commodity Hardware",
+        "Computer Architecture",
+        "Operating Systems",
+        "Computational Mathematics"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Embedded Systems Engineer",
+      "description": "Designs hardware and software integration for microprocessor-based devices used in consumer electronics, automotive, and industrial applications.",
+      "skills": [
+        "Embedded Systems Hardware",
+        "Microprocessor Systems",
+        "Computer Systems Design",
+        "Digital Systems",
+        "Logic for Programming"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Quantum Computing Researcher",
+      "description": "Investigates quantum algorithms and hardware architectures at research labs or universities to advance next-generation computational technologies.",
+      "skills": [
+        "Quantum Mechanics",
+        "Computational Mathematics",
+        "Logic for Programming",
+        "Parallel Computing",
+        "Introduction to Algorithms"
+      ],
+      "salary_min": 100000,
+      "salary_max": 180000,
+      "demand": "Low"
     }
   ],
   "Artificial Intelligence": [
@@ -349,6 +419,146 @@
       "salary_min": 140000,
       "salary_max": 220000,
       "demand": "High"
+    },
+    {
+      "title": "AI Policy Analyst",
+      "description": "Evaluates and develops regulatory frameworks and guidelines for the ethical deployment of artificial intelligence in government and public sectors.",
+      "skills": [
+        "Logic for Programming",
+        "Discrete Mathematics",
+        "Introduction to Algorithms",
+        "Principles of Computing",
+        "Statistical Methods"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computational Neuroscience Researcher",
+      "description": "Models neural processes and brain functions using computational techniques to advance understanding of cognition and neurological disorders.",
+      "skills": [
+        "Computational Mathematics",
+        "Parallel Computing",
+        "Data Structures",
+        "Introduction to Algorithms",
+        "Statistical Methods"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Low"
+    },
+    {
+      "title": "AI Ethics Officer",
+      "description": "Oversees the responsible development and deployment of AI systems by identifying bias, ensuring fairness, and enforcing ethical standards within organizations.",
+      "skills": [
+        "Principles of Computing",
+        "Logic for Programming",
+        "Statistical Methods",
+        "Discrete Mathematics",
+        "Introduction to Algorithms"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Embedded AI Engineer",
+      "description": "Designs and implements machine learning models optimized for deployment on resource-constrained embedded hardware and microprocessor systems.",
+      "skills": [
+        "Embedded Systems Hardware",
+        "Microprocessor Systems",
+        "Computer Systems Design",
+        "Parallel Computing",
+        "Computer Architecture"
+      ],
+      "salary_min": 100000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "Quantum Machine Learning Researcher",
+      "description": "Investigates the intersection of quantum computing and machine learning to develop next-generation algorithms with exponentially greater processing capabilities.",
+      "skills": [
+        "Quantum Mechanics",
+        "Computational Mathematics",
+        "Introduction to Algorithms",
+        "Parallel Computing",
+        "Logic for Programming"
+      ],
+      "salary_min": 110000,
+      "salary_max": 190000,
+      "demand": "Low"
+    },
+    {
+      "title": "AI-Driven Search Engineer",
+      "description": "Builds and refines intelligent search systems and data mining pipelines that leverage AI to improve information retrieval accuracy and relevance.",
+      "skills": [
+        "Search and Data Mining",
+        "Introduction to Algorithms",
+        "Data Structures",
+        "Principles of Computing",
+        "Business Telecommunication Networks"
+      ],
+      "salary_min": 120000,
+      "salary_max": 200000,
+      "demand": "Medium"
+    },
+    {
+      "title": "High-Performance AI Infrastructure Engineer",
+      "description": "Designs and maintains large-scale computing clusters and distributed systems to support the training and inference of massive AI models.",
+      "skills": [
+        "High-Performance Computing",
+        "Parallel Computing",
+        "Operating Systems",
+        "Computer Architecture",
+        "Computer Networks"
+      ],
+      "salary_min": 130000,
+      "salary_max": 210000,
+      "demand": "High"
+    },
+    {
+      "title": "AI Hardware Accelerator Designer",
+      "description": "Develops specialized chips and FPGA-based hardware architectures optimized for accelerating deep learning and AI workloads.",
+      "skills": [
+        "Introduction to VLSI Systems",
+        "PCB & FPGA Hardware",
+        "Computer Systems Design",
+        "Microprocessor Systems",
+        "Nanoelectronic Device Principles"
+      ],
+      "salary_min": 130000,
+      "salary_max": 220000,
+      "demand": "Medium"
+    },
+    {
+      "title": "AI Curriculum Developer",
+      "description": "Creates and designs educational content, courses, and training programs to teach artificial intelligence concepts at universities or corporate learning platforms.",
+      "skills": [
+        "Principles of Computing",
+        "Introduction to Computer Science",
+        "Discrete Mathematics",
+        "Logic for Programming",
+        "Statistical Methods"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Intelligent Systems Biomedical Engineer",
+      "description": "Applies AI and machine learning techniques to biomedical data modeling and pharmaceutical research to accelerate drug discovery and patient diagnostics.",
+      "skills": [
+        "Biomedical and Pharmaceutical Modeling",
+        "Statistical Methods",
+        "Computational Mathematics",
+        "Introduction to Algorithms",
+        "Data Structures"
+      ],
+      "salary_min": 90000,
+      "salary_max": 155000,
+      "demand": "Medium"
     }
   ],
   "Cybersecurity Engineering": [
@@ -519,6 +729,118 @@
       "salary_min": 130000,
       "salary_max": 200000,
       "demand": "High"
+    },
+    {
+      "title": "Threat Intelligence Analyst",
+      "description": "Collects and analyzes data on emerging cyber threats to provide actionable intelligence that helps organizations proactively defend their systems.",
+      "skills": [
+        "Introduction to Cybersecurity",
+        "Computer Networks",
+        "Data Structures",
+        "Search and Data Mining",
+        "Logic for Programming"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Secure Firmware Engineer",
+      "description": "Designs and hardens firmware for embedded hardware devices to ensure they are resistant to low-level attacks and unauthorized access.",
+      "skills": [
+        "Embedded Systems Hardware/Software Co-Design",
+        "Microprocessor Systems",
+        "Introduction to Computer Systems Engineering",
+        "Introduction to Digital Systems",
+        "PCB & FPGA Hardware Prototyping"
+      ],
+      "salary_min": 95000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quantum Cryptography Researcher",
+      "description": "Investigates quantum-resistant encryption algorithms and quantum key distribution protocols to prepare communication systems for post-quantum threats.",
+      "skills": [
+        "Quantum Mechanics",
+        "Computational Mathematics",
+        "Logic for Programming",
+        "Communication Systems Engineering",
+        "Introduction to Cybersecurity"
+      ],
+      "salary_min": 100000,
+      "salary_max": 175000,
+      "demand": "Low"
+    },
+    {
+      "title": "Security Data Scientist",
+      "description": "Applies machine learning and statistical analysis to large security datasets to detect anomalies, predict attacks, and automate threat detection pipelines.",
+      "skills": [
+        "Search and Data Mining",
+        "Computational Mathematics",
+        "Introduction to Algorithms",
+        "Parallel Computing",
+        "Database Management"
+      ],
+      "salary_min": 100000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "Industrial Control Systems Security Engineer",
+      "description": "Protects operational technology and SCADA systems in critical infrastructure sectors such as energy, water, and manufacturing from cyber intrusions.",
+      "skills": [
+        "Digital Control Systems",
+        "Embedded Systems Hardware/Software Co-Design",
+        "Computer Networks",
+        "Introduction to Cybersecurity",
+        "Field Theory"
+      ],
+      "salary_min": 95000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Security Compliance Analyst",
+      "description": "Evaluates organizational IT policies and infrastructure against regulatory frameworks such as NIST, HIPAA, and ISO 27001 to ensure legal and security compliance.",
+      "skills": [
+        "Introduction to Cybersecurity",
+        "Information Technology and Organizational Effectiveness",
+        "Database Management",
+        "Analyzing and Designing IT Solutions",
+        "Management Information Systems in Practice"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Cybersecurity Policy Advisor",
+      "description": "Works within government agencies or nonprofits to develop, analyze, and advocate for public policies that strengthen national and organizational cybersecurity postures.",
+      "skills": [
+        "Introduction to Cybersecurity",
+        "Information Technology and Organizational Effectiveness",
+        "Business Telecommunication Networks",
+        "Analyzing and Designing IT Solutions",
+        "Introduction to Management Information Systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "High-Performance Security Systems Engineer",
+      "description": "Architects and optimizes high-throughput security infrastructure such as firewalls, intrusion detection systems, and encryption engines for large-scale environments.",
+      "skills": [
+        "High-Performance Computing with Commodity Hardware",
+        "Parallel Computing",
+        "Computer Architecture",
+        "Operating Systems",
+        "Computer Networks"
+      ],
+      "salary_min": 110000,
+      "salary_max": 180000,
+      "demand": "Medium"
     }
   ],
   "Data Science": [
@@ -661,6 +983,146 @@
       "salary_min": 95000,
       "salary_max": 155000,
       "demand": "Medium"
+    },
+    {
+      "title": "Statistical Consultant",
+      "description": "Advises organizations on study design, data collection, and statistical analysis to support evidence-based decision making.",
+      "skills": [
+        "Statistical Research Methods",
+        "Regression and Experimental Design",
+        "Introduction to Statistical Methods",
+        "Basic Statistical Practice",
+        "Mathematical Statistics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computational Scientist",
+      "description": "Develops mathematical models and computational algorithms to simulate and solve complex scientific problems.",
+      "skills": [
+        "Computational Mathematics",
+        "Introduction to Algorithms",
+        "Parallel Computing",
+        "Discrete Mathematics",
+        "Logic for Programming"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Data Analyst",
+      "description": "Collects and analyzes environmental datasets to inform policy decisions and sustainability initiatives.",
+      "skills": [
+        "Environmental Statistics",
+        "Statistical Research Methods",
+        "Introduction to Statistical Methods",
+        "Regression and Experimental Design",
+        "Basic Statistical Practice"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Econometrician",
+      "description": "Applies statistical and mathematical models to economic data to forecast trends and evaluate policy impacts.",
+      "skills": [
+        "Intermediate Microeconomic Theory",
+        "Regression and Experimental Design",
+        "Mathematical Statistics",
+        "Probability Theory in Statistics",
+        "Statistical Methods"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Informatics Analyst",
+      "description": "Manages and interprets clinical and public health data to improve patient outcomes and healthcare operations.",
+      "skills": [
+        "Statistical Research Methods",
+        "Data Structures",
+        "Basic Statistical Practice",
+        "Introduction to Algorithms",
+        "Regression and Experimental Design"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "High"
+    },
+    {
+      "title": "NLP Data Scientist",
+      "description": "Builds and fine-tunes natural language processing models to extract insights from unstructured text data.",
+      "skills": [
+        "Introduction to Algorithms",
+        "Data Structures",
+        "Logic for Programming",
+        "Computational Mathematics",
+        "Parallel Computing"
+      ],
+      "salary_min": 105000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Policy Data Analyst",
+      "description": "Analyzes socioeconomic and government datasets to evaluate the effectiveness of public policies and programs.",
+      "skills": [
+        "Economics of Government Spending",
+        "Introduction to Statistical Methods",
+        "Statistical Methods",
+        "Intermediate Macroeconomic Theory",
+        "Basic Statistical Practice"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Sports Analytics Scientist",
+      "description": "Uses statistical modeling and machine learning to analyze athlete performance and inform team strategy decisions.",
+      "skills": [
+        "Probability Theory in Statistics",
+        "Regression and Experimental Design",
+        "Mathematical Statistics",
+        "Introduction to Algorithms",
+        "Statistical Methods"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Cloud Data Architect",
+      "description": "Designs and manages scalable cloud-based data infrastructure to support large-scale data storage and processing.",
+      "skills": [
+        "Parallel Computing",
+        "Operating Systems",
+        "Computer Architecture",
+        "Data Structures",
+        "Business Telecommunication Networks"
+      ],
+      "salary_min": 120000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "Fraud Detection Analyst",
+      "description": "Develops predictive models and monitors transactional data patterns to identify and prevent fraudulent activity.",
+      "skills": [
+        "Probability Theory in Statistics",
+        "Regression and Experimental Design",
+        "Introduction to Algorithms",
+        "Mathematical Statistics",
+        "Statistical Research Methods"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "High"
     }
   ],
   "Computer Engineering": [
@@ -746,6 +1208,202 @@
       ],
       "salary_min": 100000,
       "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Embedded Systems Engineer",
+      "description": "Designs and integrates hardware-software solutions for embedded devices used in consumer electronics, automotive, and industrial applications.",
+      "skills": [
+        "Embedded Systems Hardware",
+        "Microprocessor Systems",
+        "Digital Systems",
+        "Computer Systems Design",
+        "Operating Systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Compiler Engineer",
+      "description": "Develops and optimizes compilers and language toolchains that translate high-level code into efficient machine instructions.",
+      "skills": [
+        "Compiler Design",
+        "Computer Architecture",
+        "Logic for Programming",
+        "Introduction to Algorithms",
+        "Parallel Computing"
+      ],
+      "salary_min": 110000,
+      "salary_max": 185000,
+      "demand": "Medium"
+    },
+    {
+      "title": "High-Performance Computing Engineer",
+      "description": "Builds and maintains large-scale computing clusters and parallel processing systems for scientific and enterprise workloads.",
+      "skills": [
+        "High-Performance Computing",
+        "Parallel Computing",
+        "Computer Architecture",
+        "Operating Systems",
+        "Data Structures"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Semiconductor Design Engineer",
+      "description": "Creates and tests semiconductor devices and integrated circuits for use in processors, sensors, and communications hardware.",
+      "skills": [
+        "Semiconductor Device Design",
+        "Nanoelectronic Device Principles",
+        "Solid State Electronics",
+        "VLSI Systems",
+        "Electronic Circuit Analysis"
+      ],
+      "salary_min": 100000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "PCB Design Engineer",
+      "description": "Designs, prototypes, and validates printed circuit boards for electronic systems ranging from consumer devices to aerospace equipment.",
+      "skills": [
+        "PCB & FPGA Hardware Prototyping",
+        "Electronic Circuit Analysis",
+        "Digital Systems",
+        "Computer Systems Design",
+        "Microprocessor Systems"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Antenna and RF Systems Engineer",
+      "description": "Designs and analyzes radio frequency systems and antenna arrays for wireless communications, radar, and satellite applications.",
+      "skills": [
+        "Antenna Theory and Design",
+        "Communication Systems Engineering",
+        "Field Theory",
+        "Opto-electronics",
+        "Digital Control Systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quantum Computing Engineer",
+      "description": "Researches and develops quantum hardware and algorithms to solve computational problems beyond classical computing capabilities.",
+      "skills": [
+        "Quantum Mechanics",
+        "Nanoelectronic Device Principles",
+        "Solid State Electronics",
+        "Computational Mathematics",
+        "Computer Architecture"
+      ],
+      "salary_min": 115000,
+      "salary_max": 195000,
+      "demand": "Low"
+    },
+    {
+      "title": "Data Mining Engineer",
+      "description": "Develops algorithms and pipelines to extract meaningful patterns and insights from large datasets for business or research use.",
+      "skills": [
+        "Search and Data Mining",
+        "Introduction to Algorithms",
+        "Computational Mathematics",
+        "Data Structures",
+        "Parallel Computing"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Control Systems Engineer",
+      "description": "Designs feedback and control systems for robotics, manufacturing automation, and aerospace applications.",
+      "skills": [
+        "Digital Control Systems",
+        "Microprocessor Systems",
+        "Electronic Circuit Analysis",
+        "Computer Systems Design",
+        "Computational Mathematics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Optoelectronics Engineer",
+      "description": "Develops light-based electronic devices such as LEDs, laser systems, and optical sensors for telecommunications and medical imaging.",
+      "skills": [
+        "Opto-electronics",
+        "Optical Properties of Solids",
+        "Semiconductor Device Design",
+        "Field Theory",
+        "Solid State Electronics"
+      ],
+      "salary_min": 90000,
+      "salary_max": 155000,
+      "demand": "Low"
+    },
+    {
+      "title": "Telecommunications Systems Engineer",
+      "description": "Plans and optimizes communication networks and protocols for carriers, enterprises, and government infrastructure.",
+      "skills": [
+        "Communication Systems Engineering",
+        "Computer Networks",
+        "Antenna Theory and Design",
+        "Business Telecommunication Networks",
+        "Operating Systems"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biomedical Systems Engineer",
+      "description": "Applies computer engineering principles to design medical devices, diagnostic equipment, and healthcare data systems.",
+      "skills": [
+        "Advanced Biomedical and Pharmaceutical Modeling",
+        "Embedded Systems Hardware",
+        "Digital Control Systems",
+        "Microprocessor Systems",
+        "Electronic Circuit Analysis"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Operating Systems Developer",
+      "description": "Engineers low-level system software including kernels, device drivers, and schedulers for embedded, desktop, or cloud platforms.",
+      "skills": [
+        "Operating Systems",
+        "Computer Architecture",
+        "Microprocessor Systems",
+        "Introduction to Algorithms",
+        "Data Structures"
+      ],
+      "salary_min": 110000,
+      "salary_max": 185000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computational Research Scientist",
+      "description": "Conducts academic or national laboratory research applying computational modeling and algorithms to solve complex scientific problems.",
+      "skills": [
+        "Computational Mathematics",
+        "High-Performance Computing",
+        "Parallel Computing",
+        "Search and Data Mining",
+        "Logic for Programming"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
       "demand": "Medium"
     }
   ],
@@ -833,6 +1491,202 @@
       "salary_min": 85000,
       "salary_max": 140000,
       "demand": "Medium"
+    },
+    {
+      "title": "Semiconductor Device Engineer",
+      "description": "Designs and fabricates semiconductor components for consumer electronics, computing, and industrial applications.",
+      "skills": [
+        "semiconductor device design",
+        "solid state electronics",
+        "nanoelectronic device principles",
+        "electronic circuit analysis",
+        "field theory"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "High"
+    },
+    {
+      "title": "RF and Antenna Engineer",
+      "description": "Develops and tests antenna systems and radio frequency hardware for wireless communication platforms.",
+      "skills": [
+        "antenna theory and design",
+        "communication systems engineering",
+        "field theory",
+        "electronic circuit analysis",
+        "digital systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Photonics Engineer",
+      "description": "Researches and develops optical and photonic devices for applications in telecommunications, sensing, and medical imaging.",
+      "skills": [
+        "opto-electronics",
+        "optical properties of solids",
+        "physical optics",
+        "semiconductor device design",
+        "field theory"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Embedded Systems Engineer",
+      "description": "Designs and programs embedded hardware and software systems for real-time applications in automotive, consumer, and industrial sectors.",
+      "skills": [
+        "embedded systems hardware",
+        "microprocessor systems",
+        "computer systems design",
+        "digital control systems",
+        "digital systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "VLSI Design Engineer",
+      "description": "Creates and verifies integrated circuit layouts and architectures for high-performance computing and mobile applications.",
+      "skills": [
+        "introduction to VLSI systems",
+        "PCB & FPGA hardware prototyping",
+        "nanoelectronic device principles",
+        "electronic circuit analysis",
+        "microprocessor systems"
+      ],
+      "salary_min": 100000,
+      "salary_max": 175000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quantum Computing Hardware Engineer",
+      "description": "Develops physical qubit systems and quantum hardware components for next-generation computing platforms.",
+      "skills": [
+        "quantum mechanics",
+        "nanoelectronic device principles",
+        "solid state electronics",
+        "optical properties of solids",
+        "computational methods"
+      ],
+      "salary_min": 120000,
+      "salary_max": 200000,
+      "demand": "Low"
+    },
+    {
+      "title": "High-Performance Computing Engineer",
+      "description": "Architects and optimizes parallel computing systems and clusters for scientific simulation and data-intensive workloads.",
+      "skills": [
+        "high-performance computing",
+        "computer systems design",
+        "embedded systems hardware",
+        "search and data mining",
+        "computational methods"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Network Systems Engineer",
+      "description": "Designs, implements, and maintains large-scale computer and communication network infrastructures for enterprise and government clients.",
+      "skills": [
+        "computer networks",
+        "communication systems engineering",
+        "microprocessor systems",
+        "digital systems",
+        "computer systems design"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Nanotechnology Research Scientist",
+      "description": "Investigates nanoscale materials and devices to advance innovations in electronics, energy, and biomedical technologies.",
+      "skills": [
+        "nanoelectronic device principles",
+        "quantum mechanics",
+        "solid state electronics",
+        "optical properties of solids",
+        "semiconductor device design"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "Low"
+    },
+    {
+      "title": "Bioelectronics Research Engineer",
+      "description": "Develops electronic systems and models that interface with biological processes for pharmaceutical and medical diagnostic applications.",
+      "skills": [
+        "biomedical and pharmaceutical modeling",
+        "electronic circuit analysis",
+        "solid state electronics",
+        "semiconductor device design",
+        "digital control systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Low"
+    },
+    {
+      "title": "Compiler and Hardware Co-Design Engineer",
+      "description": "Works at the intersection of software compilers and hardware architecture to optimize performance for specialized computing systems.",
+      "skills": [
+        "compiler design",
+        "embedded systems hardware",
+        "introduction to VLSI systems",
+        "computer systems design",
+        "high-performance computing"
+      ],
+      "salary_min": 120000,
+      "salary_max": 195000,
+      "demand": "Low"
+    },
+    {
+      "title": "Defense Electronics Engineer",
+      "description": "Develops advanced radar, communications, and electronic warfare systems for military and national security applications.",
+      "skills": [
+        "antenna theory and design",
+        "digital control systems",
+        "communication systems engineering",
+        "field theory",
+        "electronic circuit analysis"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Energy Systems Research Scientist",
+      "description": "Conducts academic or government research on electrical energy storage, conversion, and grid-scale efficiency improvements.",
+      "skills": [
+        "solid state electronics",
+        "quantum mechanics",
+        "statistical methods",
+        "semiconductor device design",
+        "digital control systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "PCB Hardware Prototyping Engineer",
+      "description": "Designs and tests printed circuit boards and FPGA-based prototypes for rapid product development in startup and R&D environments.",
+      "skills": [
+        "PCB & FPGA hardware prototyping",
+        "electronic circuit analysis",
+        "microprocessor systems",
+        "embedded systems hardware",
+        "digital systems"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
     }
   ],
   "Mechanical Engineering": [
@@ -918,6 +1772,202 @@
       ],
       "salary_min": 80000,
       "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Automotive Powertrain Engineer",
+      "description": "Designs and optimizes engine and transmission systems to improve vehicle performance, efficiency, and emissions compliance.",
+      "skills": [
+        "Automotive Powertrain Theory",
+        "Fluid Mechanics",
+        "Heat Transfer",
+        "Machine Design",
+        "Dynamics"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Structural Analysis Engineer",
+      "description": "Evaluates the integrity and load-bearing capacity of mechanical structures using computational and analytical methods.",
+      "skills": [
+        "Mechanics of Solids",
+        "Finite Element Method",
+        "Machine Design",
+        "Statics",
+        "Dynamics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "HVAC Systems Engineer",
+      "description": "Designs heating, ventilation, and air conditioning systems for commercial and industrial buildings to meet energy and comfort standards.",
+      "skills": [
+        "Heat Transfer",
+        "Fluid Mechanics",
+        "Control Systems",
+        "Thermal Systems",
+        "Machine Design"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biomechanical Engineer",
+      "description": "Applies mechanical engineering principles to analyze human movement and design medical devices such as prosthetics and implants.",
+      "skills": [
+        "Mechanics of Solids",
+        "Materials Engineering",
+        "Dynamics",
+        "Machine Design",
+        "Statics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Renewable Energy Engineer",
+      "description": "Develops and optimizes wind, solar, and other renewable energy systems to maximize power output and reliability.",
+      "skills": [
+        "Fluid Mechanics",
+        "Heat Transfer",
+        "Control Systems",
+        "Materials Engineering",
+        "Machine Design"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "High"
+    },
+    {
+      "title": "Mechatronics Engineer",
+      "description": "Integrates mechanical, electrical, and software systems to develop intelligent automated machines and consumer products.",
+      "skills": [
+        "Control Systems",
+        "Machine Design",
+        "Dynamics",
+        "Fluid Mechanics",
+        "Materials Engineering"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Failure Analysis Engineer",
+      "description": "Investigates mechanical component failures in products or infrastructure to determine root causes and recommend design improvements.",
+      "skills": [
+        "Materials Engineering",
+        "Mechanics of Solids",
+        "Machine Design",
+        "Statics",
+        "Heat Transfer"
+      ],
+      "salary_min": 80000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computational Fluid Dynamics Analyst",
+      "description": "Uses simulation software to model and analyze fluid flow and heat transfer in complex engineering systems.",
+      "skills": [
+        "Fluid Mechanics",
+        "Heat Transfer",
+        "Computational Methods",
+        "Dynamics",
+        "Control Systems"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Additive Manufacturing Engineer",
+      "description": "Develops and refines 3D printing processes and materials for producing functional mechanical components in aerospace, medical, and consumer industries.",
+      "skills": [
+        "Materials Engineering",
+        "Machine Design",
+        "Mechanics of Solids",
+        "Manufacturing Engineer",
+        "Heat Transfer"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Government Defense Systems Engineer",
+      "description": "Works with federal agencies to design, test, and evaluate mechanical systems used in military vehicles, weapons, and defense infrastructure.",
+      "skills": [
+        "Dynamics",
+        "Control Systems",
+        "Fluid Mechanics",
+        "Machine Design",
+        "Mechanics of Solids"
+      ],
+      "salary_min": 90000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Acoustic Engineer",
+      "description": "Analyzes and mitigates noise and vibration in mechanical systems for automotive, aerospace, and consumer product applications.",
+      "skills": [
+        "Dynamics",
+        "Mechanics of Solids",
+        "Fluid Mechanics",
+        "Machine Design",
+        "Physical Optics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Low"
+    },
+    {
+      "title": "Engineering Patent Analyst",
+      "description": "Evaluates mechanical inventions for patentability and assists legal teams in drafting and defending intellectual property claims.",
+      "skills": [
+        "Machine Design",
+        "Mechanics of Solids",
+        "Materials Engineering",
+        "Fluid Mechanics",
+        "Statics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Low"
+    },
+    {
+      "title": "Nonprofit Sustainable Technology Engineer",
+      "description": "Designs low-cost, sustainable mechanical solutions such as water pumps and clean cookstoves for underserved communities worldwide.",
+      "skills": [
+        "Fluid Mechanics",
+        "Heat Transfer",
+        "Materials Engineering",
+        "Machine Design",
+        "Statics"
+      ],
+      "salary_min": 60000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Research and Development Engineer",
+      "description": "Conducts experimental and computational research at universities or national labs to advance the frontiers of mechanical engineering science.",
+      "skills": [
+        "Introduction to Research",
+        "Mechanics of Solids",
+        "Heat Transfer",
+        "Control Systems",
+        "Materials Engineering"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
       "demand": "Medium"
     }
   ],
@@ -1005,6 +2055,202 @@
       "salary_min": 70000,
       "salary_max": 115000,
       "demand": "Medium"
+    },
+    {
+      "title": "Structural Analyst",
+      "description": "Performs computational analysis of structures using advanced numerical methods to ensure safety and performance under various load conditions.",
+      "skills": [
+        "Structural Analysis and Design",
+        "Finite Element Method",
+        "Solid Mechanics",
+        "Structural Design",
+        "Probability and Statistics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Geotechnical Consultant",
+      "description": "Advises clients on soil and rock behavior to guide safe design of foundations, tunnels, and earthworks for major construction projects.",
+      "skills": [
+        "Foundation Engineering",
+        "Structural Geology",
+        "Civil Engineering Materials",
+        "Fluid Mechanics",
+        "Geological Hazards"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Coastal Resilience Engineer",
+      "description": "Designs infrastructure and nature-based solutions to protect coastal communities from flooding, erosion, and sea-level rise.",
+      "skills": [
+        "Fluid Mechanics",
+        "Environmental Engineering Processes",
+        "Geological Hazards",
+        "Probability and Statistics",
+        "Earth's Evolving Systems"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Urban Stormwater Manager",
+      "description": "Develops and oversees stormwater management systems in urban environments to reduce flooding and improve water quality.",
+      "skills": [
+        "Fluid Mechanics",
+        "Environmental Engineering Processes",
+        "Foundation Engineering",
+        "Probability and Statistics",
+        "Civil Engineering Design"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Seismic Risk Analyst",
+      "description": "Evaluates the vulnerability of buildings and infrastructure to earthquake hazards and develops mitigation strategies for public safety.",
+      "skills": [
+        "Structural Analysis and Design",
+        "Geological Hazards",
+        "Probability and Statistics",
+        "Structural Geology",
+        "Solid Mechanics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Low"
+    },
+    {
+      "title": "Pavement Engineer",
+      "description": "Designs and evaluates roadway pavement systems to optimize durability, safety, and cost-effectiveness over the pavement lifecycle.",
+      "skills": [
+        "Civil Engineering Materials",
+        "Structural Design",
+        "Fluid Mechanics",
+        "Probability and Statistics",
+        "Civil Engineering Design"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Sustainability Consultant",
+      "description": "Guides organizations and municipalities in adopting sustainable engineering practices to minimize environmental impact of infrastructure projects.",
+      "skills": [
+        "Environmental Engineering Processes",
+        "Earth's Evolving Systems",
+        "Fluid Mechanics",
+        "Civil Engineering Design",
+        "Probability and Statistics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Dam Safety Engineer",
+      "description": "Inspects, monitors, and assesses the structural and hydrologic integrity of dams to prevent failures and protect downstream communities.",
+      "skills": [
+        "Fluid Mechanics",
+        "Foundation Engineering",
+        "Structural Analysis and Design",
+        "Geological Hazards",
+        "Probability and Statistics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Civil Engineering Educator",
+      "description": "Teaches undergraduate and graduate civil engineering courses at a university while conducting research in structural or environmental topics.",
+      "skills": [
+        "Structural Analysis and Design",
+        "Fluid Mechanics",
+        "Solid Mechanics",
+        "Environmental Engineering Processes",
+        "Finite Element Method"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Disaster Relief Infrastructure Planner",
+      "description": "Works with nonprofits and government agencies to rapidly design and deploy infrastructure solutions in communities affected by natural disasters.",
+      "skills": [
+        "Geological Hazards",
+        "Civil Engineering Design",
+        "Environmental Engineering Processes",
+        "Structural Design",
+        "Earth's Evolving Systems"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Subsurface Site Investigator",
+      "description": "Conducts field and laboratory investigations of subsurface conditions to support environmental remediation and construction site assessments.",
+      "skills": [
+        "Foundation Engineering",
+        "Geoscience Field Methods",
+        "Sedimentology and Stratigraphy",
+        "Environmental Engineering Processes",
+        "Structural Geology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Smart Infrastructure Engineer",
+      "description": "Integrates sensor networks and data analytics into bridges, roads, and buildings to enable real-time structural health monitoring.",
+      "skills": [
+        "Structural Analysis and Design",
+        "Finite Element Method",
+        "Dynamics",
+        "Probability and Statistics",
+        "Civil Engineering Design"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Tunnel Engineer",
+      "description": "Designs and oversees the construction of underground tunnels for transportation, utilities, and mining using geomechanical analysis.",
+      "skills": [
+        "Foundation Engineering",
+        "Structural Geology",
+        "Solid Mechanics",
+        "Structural Design",
+        "Fluid Mechanics"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Climate Adaptation Planner",
+      "description": "Partners with local governments and NGOs to develop long-term infrastructure plans that address climate-driven risks like flooding and extreme heat.",
+      "skills": [
+        "Environmental Engineering Processes",
+        "Paleoclimatology",
+        "Earth's Evolving Systems",
+        "Probability and Statistics",
+        "Geological Hazards"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
     }
   ],
   "Chemical Engineering": [
@@ -1077,6 +2323,216 @@
       "salary_min": 80000,
       "salary_max": 135000,
       "demand": "Medium"
+    },
+    {
+      "title": "Chemical Process Control Engineer",
+      "description": "Designs and maintains automated control systems to optimize chemical plant operations and ensure process stability.",
+      "skills": [
+        "Chemical Process Dynamics",
+        "Heat and Mass Transfer",
+        "Chemical Engineering Thermodynamics",
+        "Chemical Process Analysis",
+        "Applied Mathematics"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Petroleum Refining Engineer",
+      "description": "Oversees refining operations to convert crude oil into fuels and chemical feedstocks while maximizing yield and safety.",
+      "skills": [
+        "Chemical Process Analysis",
+        "Heat and Mass Transfer",
+        "Chemical Engineering Thermodynamics",
+        "Chemical Process Dynamics",
+        "Chemical Engineering Laboratory"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Polymer Research Scientist",
+      "description": "Develops and characterizes new polymer materials for applications in packaging, electronics, and biomedical devices.",
+      "skills": [
+        "Physical Chemistry",
+        "Organic Chemistry",
+        "Instrumental Methods",
+        "Chemical Engineering Laboratory",
+        "Inorganic Chemistry"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Food Science Engineer",
+      "description": "Applies chemical engineering principles to design and scale up food production processes while ensuring safety and nutritional quality.",
+      "skills": [
+        "Heat and Mass Transfer",
+        "Biochemical Engineering",
+        "Chemical Process Analysis",
+        "Introduction to Biochemistry",
+        "Chemical Engineering Laboratory"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Water Treatment Engineer",
+      "description": "Designs and operates systems to purify drinking water and treat wastewater to meet regulatory standards.",
+      "skills": [
+        "Heat and Mass Transfer",
+        "Chemical Process Analysis",
+        "Chemical Engineering Thermodynamics",
+        "General Physiology",
+        "Applied Mathematics"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Semiconductor Process Engineer",
+      "description": "Develops and refines manufacturing processes for semiconductor devices, optimizing thin film deposition and etching steps.",
+      "skills": [
+        "Physical Chemistry",
+        "Inorganic Chemistry",
+        "Chemical Engineering Laboratory",
+        "Heat and Mass Transfer",
+        "Instrumental Methods"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Regulatory Affairs Specialist",
+      "description": "Ensures that chemical and pharmaceutical products meet government safety regulations by preparing and submitting compliance documentation.",
+      "skills": [
+        "Chemical Process Analysis",
+        "Biochemical Engineering",
+        "Organic Chemistry",
+        "Introduction to Biochemistry",
+        "Instrumental Methods"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Nanotechnology Engineer",
+      "description": "Designs and synthesizes nanoscale materials and devices for applications in medicine, energy, and electronics.",
+      "skills": [
+        "Physical Chemistry",
+        "Inorganic Chemistry",
+        "Instrumental Methods",
+        "Organic Chemistry",
+        "Chemical Engineering Thermodynamics"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "Low"
+    },
+    {
+      "title": "Energy Storage Engineer",
+      "description": "Researches and develops battery and fuel cell technologies to improve energy density, cycle life, and sustainability.",
+      "skills": [
+        "Chemical Engineering Thermodynamics",
+        "Physical Chemistry",
+        "Heat and Mass Transfer",
+        "Chemical Process Analysis",
+        "Instrumental Methods"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "High"
+    },
+    {
+      "title": "Biomedical Device Engineer",
+      "description": "Applies chemical engineering principles to design materials and systems used in implantable and diagnostic medical devices.",
+      "skills": [
+        "Applied Mathematics for Biomed",
+        "Biochemical Engineering",
+        "Cell Biology",
+        "Introduction to Biochemistry",
+        "Physical Chemistry"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Carbon Capture Engineer",
+      "description": "Develops and optimizes systems that capture carbon dioxide emissions from industrial sources to reduce environmental impact.",
+      "skills": [
+        "Chemical Process Analysis",
+        "Heat and Mass Transfer",
+        "Chemical Engineering Thermodynamics",
+        "Chemical Process Dynamics",
+        "Applied Mathematics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Cosmetic Formulation Chemist",
+      "description": "Creates and tests formulations for personal care and cosmetic products, balancing efficacy, stability, and safety.",
+      "skills": [
+        "Organic Chemistry",
+        "Physical Chemistry",
+        "Instrumental Methods",
+        "Chemical Engineering Laboratory",
+        "Introduction to Biochemistry"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "University Research Professor",
+      "description": "Conducts original research in chemical engineering, mentors graduate students, and publishes findings in peer-reviewed journals.",
+      "skills": [
+        "Independent Study",
+        "Biochemical Engineering",
+        "Chemical Process Analysis",
+        "Applied Mathematics",
+        "Physical Chemistry"
+      ],
+      "salary_min": 75000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Startup Founder in Green Chemistry",
+      "description": "Launches and leads a startup focused on developing sustainable chemical processes or bio-based products to replace conventional materials.",
+      "skills": [
+        "Chemical Process Analysis",
+        "Organic Chemistry",
+        "Biochemical Engineering",
+        "Chemical Engineering Projects",
+        "Chemical Engineering Thermodynamics"
+      ],
+      "salary_min": 60000,
+      "salary_max": 200000,
+      "demand": "Low"
+    },
+    {
+      "title": "Government Policy Analyst",
+      "description": "Advises government agencies on chemical safety, environmental regulations, and energy policy using technical and scientific expertise.",
+      "skills": [
+        "Chemical Process Analysis",
+        "Instrumental Methods",
+        "Introduction to Statistical Methods",
+        "General Physiology",
+        "History of Chemistry"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
     }
   ],
   "Biomedical Engineering": [
@@ -1134,6 +2590,230 @@
       ],
       "salary_min": 85000,
       "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biomechanical Engineer",
+      "description": "Analyzes forces and motion in the human body to design assistive devices, prosthetics, and ergonomic products.",
+      "skills": [
+        "Mechanics of Solids",
+        "Fluid Mechanics",
+        "Machine Design",
+        "Dynamics",
+        "Materials Engineering"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Neural Engineering Researcher",
+      "description": "Develops brain-computer interfaces and neural implants to restore or enhance neurological function in patients.",
+      "skills": [
+        "General Physiology",
+        "Electronic Circuit Analysis",
+        "Cell Biology",
+        "Control Systems",
+        "Quantum Mechanics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Low"
+    },
+    {
+      "title": "Pharmaceutical Process Engineer",
+      "description": "Designs and optimizes manufacturing processes for drug production, ensuring quality, safety, and regulatory compliance.",
+      "skills": [
+        "Organic Chemistry",
+        "Heat Transfer",
+        "Fluid Mechanics",
+        "Instrumental Methods",
+        "Biomedical and Pharmaceutical Modeling"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Regulatory Affairs Specialist",
+      "description": "Prepares and submits documentation to regulatory agencies to gain approval for new medical devices and therapeutics.",
+      "skills": [
+        "Cell Biology",
+        "Organic Chemistry",
+        "General Physiology",
+        "Introductory Physical Chemistry",
+        "Human Heredity and Development"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Rehabilitation Engineer",
+      "description": "Creates and adapts assistive technologies and therapeutic equipment to improve mobility and independence for individuals with disabilities.",
+      "skills": [
+        "Mechanics of Solids",
+        "Control Systems",
+        "Dynamics",
+        "Electronic Circuit Analysis",
+        "Machine Design"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Synthetic Biology Scientist",
+      "description": "Engineers biological systems and genetic circuits to produce novel therapeutics, biomaterials, and diagnostic tools.",
+      "skills": [
+        "Cell Biology",
+        "Introductory Biochemistry and Chemical Biology",
+        "Human Heredity and Development",
+        "Organic Chemistry",
+        "Viruses Genes and Cancer"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biomaterials Scientist",
+      "description": "Develops and tests biocompatible materials for use in implants, drug delivery systems, and tissue scaffolds.",
+      "skills": [
+        "Materials Engineering",
+        "Introductory Biochemistry and Chemical Biology",
+        "Organic Chemistry",
+        "Cell Biology",
+        "Physical Chemistry"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Technology Assessment Analyst",
+      "description": "Evaluates the clinical and economic value of emerging medical technologies to inform hospital purchasing and policy decisions.",
+      "skills": [
+        "Biomedical and Pharmaceutical Modeling",
+        "General Physiology",
+        "Instrumental Methods",
+        "Cell Biology",
+        "Human Heredity and Development"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Wearable Technology Developer",
+      "description": "Designs sensor-integrated wearable devices that continuously monitor patient vitals and transmit health data to clinicians.",
+      "skills": [
+        "Electronic Circuit Analysis",
+        "Solid State Electronics",
+        "Control Systems",
+        "Opto-electronics",
+        "Biomedical and Pharmaceutical Modeling"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Drug Delivery Engineer",
+      "description": "Designs nanoparticle and polymer-based systems to precisely deliver therapeutic agents to targeted tissues in the body.",
+      "skills": [
+        "Introductory Biochemistry and Chemical Biology",
+        "Organic Chemistry",
+        "Cell Biology",
+        "Fluid Mechanics",
+        "Physical Chemistry"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Bioinstrumentation Engineer",
+      "description": "Builds and calibrates laboratory and clinical instruments used to measure biological signals and chemical analytes.",
+      "skills": [
+        "Instrumental Methods",
+        "Electronic Circuit Analysis",
+        "Opto-electronics",
+        "Solid State Electronics",
+        "Physical Chemistry"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Global Health Technology Entrepreneur",
+      "description": "Founds or leads startups developing low-cost, scalable medical devices and diagnostics for resource-limited healthcare settings.",
+      "skills": [
+        "Biomedical and Pharmaceutical Modeling",
+        "Materials Engineering",
+        "Electronic Circuit Analysis",
+        "Cell Biology",
+        "Machine Design"
+      ],
+      "salary_min": 70000,
+      "salary_max": 200000,
+      "demand": "Low"
+    },
+    {
+      "title": "Computational Biology Researcher",
+      "description": "Uses mathematical modeling and simulation to analyze complex biological systems and predict cellular or physiological behavior.",
+      "skills": [
+        "Biomedical and Pharmaceutical Modeling",
+        "General Physiology",
+        "Cell Biology",
+        "Physical Chemistry",
+        "Control Systems"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Orthopedic Implant Designer",
+      "description": "Engineers joint replacements, spinal implants, and bone fixation devices that restore function and integrate safely with living tissue.",
+      "skills": [
+        "Materials Engineering",
+        "Mechanics of Solids",
+        "Machine Design",
+        "Statics",
+        "Introductory Biochemistry and Chemical Biology"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Medical Robotics Engineer",
+      "description": "Develops robotic surgical systems and automated rehabilitation platforms that assist surgeons and therapists in clinical procedures.",
+      "skills": [
+        "Control Systems",
+        "Dynamics",
+        "Machine Design",
+        "Electronic Circuit Analysis",
+        "Mechanics of Solids"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biosensor Research Scientist",
+      "description": "Designs and fabricates electrochemical and optical biosensors for rapid, point-of-care detection of biomarkers and pathogens.",
+      "skills": [
+        "Instrumental Methods",
+        "Introductory Biochemistry and Chemical Biology",
+        "Opto-electronics",
+        "Semiconductor Device Design and Fabrication",
+        "Organic Chemistry"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
       "demand": "Medium"
     }
   ],
@@ -1249,6 +2929,174 @@
       "salary_min": 150000,
       "salary_max": 250000,
       "demand": "Medium"
+    },
+    {
+      "title": "Business Intelligence Analyst",
+      "description": "Transforms raw organizational data into actionable insights through dashboards, reports, and data visualizations to support executive decision-making.",
+      "skills": [
+        "Database Management",
+        "Analytical Decision Making",
+        "Management Information Systems",
+        "Analyzing and Designing IT Solutions",
+        "Business Computing Fundamentals"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "High"
+    },
+    {
+      "title": "Cybersecurity Analyst",
+      "description": "Monitors, detects, and responds to security threats while implementing policies to protect an organization's information systems and data assets.",
+      "skills": [
+        "Introduction to Cybersecurity",
+        "Operating Systems",
+        "Business Telecommunication Networks",
+        "Computer Architecture",
+        "Introduction to Algorithms"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Data Governance Specialist",
+      "description": "Establishes and enforces organizational policies for data quality, privacy, and compliance to ensure responsible and consistent use of enterprise data.",
+      "skills": [
+        "Database Management",
+        "Accounting Information Systems",
+        "Law and Social Issues in Business",
+        "IT and Organizational Effectiveness",
+        "Strategic Information Systems and Accounting"
+      ],
+      "salary_min": 85000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Healthcare IT Coordinator",
+      "description": "Manages the implementation and maintenance of health information systems, ensuring clinical data workflows comply with regulatory and operational standards.",
+      "skills": [
+        "Management Information Systems in Practice",
+        "Enterprise Resource Planning Systems",
+        "Analyzing and Designing IT Solutions",
+        "Introduction to Cybersecurity",
+        "Organizational Behavior"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Digital Transformation Consultant",
+      "description": "Advises organizations on leveraging emerging technologies to redesign processes, improve efficiency, and achieve strategic business objectives.",
+      "skills": [
+        "IT and Organizational Effectiveness",
+        "Strategic Management",
+        "Enterprise Resource Planning Systems",
+        "Analyzing and Designing IT Solutions",
+        "Introduction to Operations Management"
+      ],
+      "salary_min": 95000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "E-Commerce Operations Manager",
+      "description": "Oversees the technology platforms, logistics integrations, and data analytics behind online retail operations to optimize customer experience and profitability.",
+      "skills": [
+        "Introduction to Operations Management",
+        "Database Management",
+        "Introduction to Marketing",
+        "Business Computing Fundamentals",
+        "Analytical Decision Making"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Government IT Policy Analyst",
+      "description": "Researches and develops technology policies and regulations for government agencies, ensuring public sector IT investments align with legal and civic priorities.",
+      "skills": [
+        "Law and Social Issues in Business",
+        "IT and Organizational Effectiveness",
+        "Introduction to Cybersecurity",
+        "Management Information Systems",
+        "Strategic Management"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nonprofit Technology Director",
+      "description": "Leads technology strategy and system implementations for nonprofit organizations, maximizing impact through cost-effective and mission-aligned digital solutions.",
+      "skills": [
+        "IT and Organizational Effectiveness",
+        "Organizational Behavior",
+        "Database Management",
+        "Strategic Management",
+        "Management Information Systems in Practice"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Supply Chain Systems Analyst",
+      "description": "Analyzes and optimizes enterprise supply chain software and data flows to improve procurement, inventory, and distribution efficiency across global operations.",
+      "skills": [
+        "Enterprise Resource Planning Systems",
+        "Introduction to Operations Management",
+        "Database Management",
+        "Analyzing and Designing IT Solutions",
+        "Analytical Decision Making"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Startup CTO",
+      "description": "Leads all technical strategy and product development for an early-stage company, making architecture decisions and managing engineering teams to build scalable solutions.",
+      "skills": [
+        "Introduction to Programming",
+        "Data Structures",
+        "Business Telecommunication Networks",
+        "Analyzing and Designing IT Solutions",
+        "Strategic Management"
+      ],
+      "salary_min": 100000,
+      "salary_max": 220000,
+      "demand": "Medium"
+    },
+    {
+      "title": "IT Compliance Officer",
+      "description": "Ensures an organization's information systems and data practices adhere to industry regulations, audit requirements, and internal governance frameworks.",
+      "skills": [
+        "Accounting Information Systems",
+        "Law and Social Issues in Business",
+        "Introduction to Cybersecurity",
+        "Strategic Information Systems and Accounting",
+        "IT and Organizational Effectiveness"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Marketing Technology Analyst",
+      "description": "Manages and optimizes the suite of marketing software platforms, analyzes campaign data, and bridges the gap between marketing strategy and technical implementation.",
+      "skills": [
+        "Marketing Research",
+        "Database Management",
+        "Introduction to Marketing",
+        "Analytical Decision Making",
+        "Business Computing Fundamentals"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "High"
     }
   ],
   "Finance": [
@@ -1349,6 +3197,188 @@
       "salary_min": 75000,
       "salary_max": 125000,
       "demand": "High"
+    },
+    {
+      "title": "Commercial Banker",
+      "description": "Manages lending relationships, evaluates loan applications, and oversees deposit products for business and individual clients.",
+      "skills": [
+        "Bank Management",
+        "Principles of Finance",
+        "Banking and Monetary Policy",
+        "Intermediate Financial Management",
+        "Accounting II"
+      ],
+      "salary_min": 70000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Real Estate Finance Analyst",
+      "description": "Evaluates property investments, structures financing deals, and conducts market analysis for real estate transactions.",
+      "skills": [
+        "Real Estate Finance",
+        "Fixed Income Securities",
+        "Fundamentals of Finance",
+        "Intermediate Microeconomic Theory",
+        "Capital Markets"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Governance Analyst",
+      "description": "Monitors and advises organizations on board structure, shareholder rights, and ethical business practices.",
+      "skills": [
+        "Corporate Governance",
+        "Advanced Corporate Finance",
+        "Business Law II",
+        "Law and Social Issues",
+        "Intermediate Accounting I"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "International Finance Manager",
+      "description": "Oversees cross-border financial operations, currency risk, and global capital allocation for multinational firms.",
+      "skills": [
+        "International Finance",
+        "International Financial Management",
+        "International Economics",
+        "Capital Markets",
+        "Principles of Finance"
+      ],
+      "salary_min": 95000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Tax Consultant",
+      "description": "Advises individuals and businesses on tax strategy, compliance, and filing to minimize liabilities and ensure regulatory adherence.",
+      "skills": [
+        "Income Tax Accounting",
+        "Advanced Accounting",
+        "Intermediate Accounting II",
+        "Cost Accounting",
+        "Business Law II"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Environmental Finance Specialist",
+      "description": "Structures green bonds, sustainability funds, and analyzes financial mechanisms for environmentally focused projects and organizations.",
+      "skills": [
+        "Economics of Environmental Management",
+        "Fixed Income Securities",
+        "Capital Markets",
+        "International Economics",
+        "Fundamentals of Finance"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Monetary Policy Economist",
+      "description": "Researches macroeconomic trends, interest rate dynamics, and advises central banks or government agencies on monetary policy decisions.",
+      "skills": [
+        "Banking and Monetary Policy",
+        "Intermediate Macroeconomic Theory",
+        "Government Spending and Taxation",
+        "International Economics",
+        "Statistical Methods"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Low"
+    },
+    {
+      "title": "Financial Systems Auditor",
+      "description": "Examines and evaluates an organization's financial information systems to ensure accuracy, security, and regulatory compliance.",
+      "skills": [
+        "Accounting Information Systems",
+        "Strategic Information Systems",
+        "Intermediate Accounting I",
+        "Advanced Accounting",
+        "Cost Accounting"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nonprofit Financial Director",
+      "description": "Oversees budgeting, grant management, and financial reporting to ensure fiscal sustainability and transparency for nonprofit organizations.",
+      "skills": [
+        "Government Spending and Taxation",
+        "Fundamentals of Finance",
+        "Intermediate Financial Management",
+        "Cost Accounting",
+        "Accounting II"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Urban Development Finance Analyst",
+      "description": "Analyzes funding structures for urban infrastructure projects and advises municipalities on financing strategies for community development.",
+      "skills": [
+        "Urban Economics",
+        "Real Estate Finance",
+        "Government Regulation of Business",
+        "Government Spending and Taxation",
+        "Principles of Finance"
+      ],
+      "salary_min": 70000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Human Capital Financial Analyst",
+      "description": "Evaluates workforce investment strategies, compensation structures, and the financial impact of human resource decisions within organizations.",
+      "skills": [
+        "Economics of Human Resources",
+        "Women and the Economy",
+        "Cost Accounting",
+        "Intermediate Microeconomic Theory",
+        "Statistical Methods"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quantitative Finance Analyst",
+      "description": "Develops mathematical models and algorithms to price derivatives, manage risk, and optimize investment strategies.",
+      "skills": [
+        "Calculus I",
+        "Introduction to Statistical Methods",
+        "Fixed Income Securities",
+        "Intermediate Financial Management",
+        "Discrete Mathematics"
+      ],
+      "salary_min": 110000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "Emerging Markets Analyst",
+      "description": "Researches investment opportunities and economic conditions in developing nations to guide institutional capital allocation decisions.",
+      "skills": [
+        "Economics of Developing Countries",
+        "International Economics",
+        "Banking and Monetary Policy",
+        "Capital Markets",
+        "Intermediate Macroeconomic Theory"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
     }
   ],
   "Accounting": [
@@ -1421,6 +3451,216 @@
       "salary_min": 70000,
       "salary_max": 115000,
       "demand": "High"
+    },
+    {
+      "title": "Financial Controller",
+      "description": "Oversees all accounting operations, financial reporting, and internal controls for an organization to ensure accuracy and compliance.",
+      "skills": [
+        "Intermediate Accounting",
+        "Cost Accounting",
+        "Accounting Information Systems",
+        "Strategic Management",
+        "Fundamentals of Finance"
+      ],
+      "salary_min": 90000,
+      "salary_max": 165000,
+      "demand": "High"
+    },
+    {
+      "title": "Corporate Finance Analyst",
+      "description": "Analyzes financial data and supports strategic planning, budgeting, and investment decisions within a corporation.",
+      "skills": [
+        "Principles of Finance",
+        "Intermediate Financial Management",
+        "Advanced Corporate Finance",
+        "Analytical Decision Making",
+        "Intermediate Accounting"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "High"
+    },
+    {
+      "title": "Government Budget Analyst",
+      "description": "Reviews and manages public sector budgets, ensuring funds are allocated appropriately and in compliance with regulations.",
+      "skills": [
+        "Cost Accounting",
+        "Law and Social Issues in Business",
+        "Intermediate Accounting",
+        "Fundamentals of Finance",
+        "Strategic Management"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nonprofit Financial Manager",
+      "description": "Manages the financial health of a nonprofit organization, including grant tracking, budgeting, and financial reporting to stakeholders.",
+      "skills": [
+        "Advanced Accounting",
+        "Accounting Information Systems",
+        "Organizational Behavior",
+        "Strategic Management",
+        "Intermediate Accounting"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Investment Banking Associate",
+      "description": "Supports mergers, acquisitions, and capital-raising transactions by conducting financial analysis and preparing client presentations.",
+      "skills": [
+        "Capital Markets & Financial Institutions",
+        "Intermediate Financial Management",
+        "Advanced Corporate Finance",
+        "Investments",
+        "Principles of Finance"
+      ],
+      "salary_min": 110000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "Environmental Accounting Specialist",
+      "description": "Tracks and reports on an organization's environmental costs and liabilities, integrating sustainability metrics into financial statements.",
+      "skills": [
+        "Topics in Environmental Law",
+        "Law and Social Issues in Business",
+        "Intermediate Accounting",
+        "Cost Accounting",
+        "Strategic Management"
+      ],
+      "salary_min": 65000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Accounting Information Systems Consultant",
+      "description": "Designs and implements accounting software solutions and enterprise systems to improve financial data management for clients.",
+      "skills": [
+        "Accounting Information Systems",
+        "Strategic Information Systems and Accounting",
+        "Advanced Accounting",
+        "Analytical Decision Making",
+        "Intermediate Accounting"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Real Estate Financial Analyst",
+      "description": "Evaluates real estate investment opportunities by modeling cash flows, assessing financing options, and preparing financial reports.",
+      "skills": [
+        "Real Estate Finance",
+        "Principles of Finance",
+        "Intermediate Financial Management",
+        "Investments",
+        "Cost Accounting"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Bank Compliance Officer",
+      "description": "Ensures that banking operations adhere to legal regulations, internal policies, and industry standards to mitigate financial risk.",
+      "skills": [
+        "Bank Management",
+        "Business Law II",
+        "Law and Social Issues in Business",
+        "Intermediate Accounting",
+        "Capital Markets & Financial Institutions"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Startup Chief Financial Officer",
+      "description": "Leads financial strategy for an early-stage company, managing fundraising, cash flow, and financial planning to support rapid growth.",
+      "skills": [
+        "Advanced Corporate Finance",
+        "Principles of Finance",
+        "Analytical Decision Making",
+        "Strategic Management",
+        "Accounting Information Systems"
+      ],
+      "salary_min": 100000,
+      "salary_max": 210000,
+      "demand": "Medium"
+    },
+    {
+      "title": "International Tax Consultant",
+      "description": "Advises multinational corporations on cross-border tax strategies, transfer pricing, and compliance with international tax regulations.",
+      "skills": [
+        "Income Tax Accounting",
+        "International Finance",
+        "Business Law II",
+        "Advanced Accounting",
+        "Law and Social Issues in Business"
+      ],
+      "salary_min": 90000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Fixed Income Portfolio Analyst",
+      "description": "Manages and analyzes bond and debt security portfolios, evaluating risk and return for institutional investors.",
+      "skills": [
+        "Fixed Income Securities",
+        "Capital Markets & Financial Institutions",
+        "Investments",
+        "Principles of Finance",
+        "Intermediate Financial Management"
+      ],
+      "salary_min": 85000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Legal Accounting Specialist",
+      "description": "Works within law firms or legal departments to manage trust accounts, litigation support financials, and regulatory billing compliance.",
+      "skills": [
+        "Introduction to Legal Studies",
+        "Business Law II",
+        "Law and Social Issues in Business",
+        "Income Tax Accounting",
+        "Intermediate Accounting"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Governance Analyst",
+      "description": "Evaluates and strengthens an organization's governance frameworks, board accountability, and ethical financial reporting practices.",
+      "skills": [
+        "Seminar in Corporate Governance",
+        "Law and Social Issues in Business",
+        "Strategic Management",
+        "Advanced Accounting",
+        "Organizational Behavior"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Accounting Educator",
+      "description": "Teaches accounting principles and practices at the college level while conducting research on emerging issues in the accounting profession.",
+      "skills": [
+        "Intermediate Accounting",
+        "Cost Accounting",
+        "Income Tax Accounting",
+        "Advanced Accounting",
+        "Accounting Information Systems"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
     }
   ],
   "Business Administration & Management": [
@@ -1490,8 +3730,218 @@
         "information technology and organizational effectiveness",
         "introduction to management information systems"
       ],
-      "salary_min": 0,
-      "salary_max": 0,
+      "salary_min": 50000,
+      "salary_max": 250000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Financial Analyst",
+      "description": "Analyzes financial data, prepares reports, and provides investment recommendations to support organizational decision-making.",
+      "skills": [
+        "Principles of Finance",
+        "Intermediate Financial Management",
+        "Analytical Decision Making",
+        "Investments",
+        "Cost Accounting"
+      ],
+      "salary_min": 65000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Marketing Manager",
+      "description": "Develops and oversees marketing campaigns, conducts market research, and manages brand strategy across multiple channels.",
+      "skills": [
+        "Introduction to Marketing",
+        "Marketing Research",
+        "Organizational Behavior",
+        "Strategic Management",
+        "International Marketing Management"
+      ],
+      "salary_min": 75000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Business Intelligence Analyst",
+      "description": "Collects and interprets complex data sets to help organizations identify trends and make informed strategic decisions.",
+      "skills": [
+        "Analytical Decision Making",
+        "Database Management",
+        "Management Information Systems",
+        "Enterprise Resource Planning Systems",
+        "Introduction to Programming"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "High"
+    },
+    {
+      "title": "Corporate Compliance Officer",
+      "description": "Ensures an organization adheres to legal standards, internal policies, and regulatory requirements across all business operations.",
+      "skills": [
+        "Business Law II",
+        "Law and Social Issues in Business",
+        "Strategic Management",
+        "Organizational Behavior",
+        "Accounting Information Systems"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "IT Project Manager",
+      "description": "Plans, coordinates, and oversees technology projects from inception to completion, ensuring delivery on time and within budget.",
+      "skills": [
+        "IT Project Management",
+        "Analyzing and Designing IT Solutions",
+        "Information Technology and Organizational Effectiveness",
+        "MIS Capstone: Projects",
+        "Strategic Management"
+      ],
+      "salary_min": 85000,
+      "salary_max": 155000,
+      "demand": "High"
+    },
+    {
+      "title": "Corporate Banker",
+      "description": "Manages banking relationships with corporate clients, structures loans, and provides tailored financial solutions to businesses.",
+      "skills": [
+        "Bank Management",
+        "Capital Markets & Financial Institutions",
+        "Principles of Finance",
+        "Intermediate Financial Management",
+        "International Financial Management"
+      ],
+      "salary_min": 80000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nonprofit Program Director",
+      "description": "Designs, implements, and evaluates community programs while managing budgets and staff to advance the organization's mission.",
+      "skills": [
+        "Organizational Behavior",
+        "Strategic Management",
+        "Human Resource Management",
+        "Negotiation and Conflict Resolution",
+        "Survey of Accounting"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "International Business Development Manager",
+      "description": "Identifies and pursues growth opportunities in global markets by building partnerships and developing cross-border business strategies.",
+      "skills": [
+        "Seminar on International Business",
+        "International Marketing Management",
+        "International Financial Management",
+        "Negotiation and Conflict Resolution",
+        "Strategic Management"
+      ],
+      "salary_min": 85000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Real Estate Investment Analyst",
+      "description": "Evaluates property investments, models financial performance, and advises clients or firms on real estate acquisition strategies.",
+      "skills": [
+        "Real Estate Finance",
+        "Principles of Finance",
+        "Investments",
+        "Fixed Income Securities",
+        "Analytical Decision Making"
+      ],
+      "salary_min": 75000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "ERP Systems Consultant",
+      "description": "Helps organizations implement and optimize enterprise resource planning systems to streamline operations and improve efficiency.",
+      "skills": [
+        "Enterprise Resource Planning Systems",
+        "Analyzing and Designing IT Solutions",
+        "Introduction to Operations Management",
+        "Database Management",
+        "Information Technology and Organizational Effectiveness"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Cybersecurity Risk Manager",
+      "description": "Assesses organizational vulnerabilities, develops security policies, and ensures technology systems are protected from cyber threats.",
+      "skills": [
+        "Introduction to Cybersecurity",
+        "Information Technology and Organizational Effectiveness",
+        "Analyzing and Designing IT Solutions",
+        "Database Management",
+        "Strategic Management"
+      ],
+      "salary_min": 100000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Tax Consultant",
+      "description": "Advises individuals and businesses on tax planning strategies, prepares tax filings, and ensures compliance with evolving tax regulations.",
+      "skills": [
+        "Income Tax Accounting",
+        "Intermediate Accounting I",
+        "Cost Accounting",
+        "Law and Social Issues in Business",
+        "Accounting Information Systems"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Government Budget Analyst",
+      "description": "Reviews and analyzes public agency budgets, monitors expenditures, and recommends financial allocations to support policy objectives.",
+      "skills": [
+        "Cost Accounting",
+        "Analytical Decision Making",
+        "Survey of Accounting",
+        "Intermediate Accounting II",
+        "Strategic Management"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Governance Specialist",
+      "description": "Advises boards and executives on governance frameworks, shareholder relations, and ethical business practices to enhance organizational accountability.",
+      "skills": [
+        "Seminar in Corporate Governance",
+        "Advanced Corporate Finance",
+        "Business Law II",
+        "Organizational Behavior",
+        "Strategic Management"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Management Information Systems Analyst",
+      "description": "Evaluates and improves information systems to ensure technology effectively supports business processes and organizational goals.",
+      "skills": [
+        "Introduction to Management Information Systems",
+        "Management Information Systems in Practice",
+        "Analyzing and Designing IT Solutions",
+        "Database Management",
+        "Enterprise Resource Planning Systems"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
       "demand": "High"
     }
   ],
@@ -1551,6 +4001,230 @@
       "salary_min": 70000,
       "salary_max": 115000,
       "demand": "High"
+    },
+    {
+      "title": "Public Relations Specialist",
+      "description": "Manages an organization's public image by crafting press releases, coordinating media outreach, and building relationships with journalists and stakeholders.",
+      "skills": [
+        "Introduction to Public Relations",
+        "Public Relations Writing",
+        "Communication Principles in Advertising",
+        "Public Speaking & Professional Presentation",
+        "Introduction to Marketing"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Advertising Account Executive",
+      "description": "Serves as the liaison between clients and creative teams, managing campaign briefs, timelines, and budgets to deliver effective advertising solutions.",
+      "skills": [
+        "Communication Principles in Advertising",
+        "Introduction to Marketing",
+        "Analytical Decision Making",
+        "Negotiation and Conflict Resolution",
+        "Marketing Research"
+      ],
+      "salary_min": 50000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Content Strategist",
+      "description": "Plans, develops, and manages content across digital platforms to align messaging with brand goals and audience engagement metrics.",
+      "skills": [
+        "Introduction to Marketing",
+        "Media Industries and Society",
+        "Public Relations Writing",
+        "Marketing Research",
+        "Introduction to Communication Research Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Social Media Manager",
+      "description": "Creates and schedules content across social platforms, monitors audience engagement, and adjusts strategy based on performance analytics.",
+      "skills": [
+        "Media Industries and Society",
+        "Communication Principles in Advertising",
+        "Introduction to Marketing",
+        "Introduction to Communication Research Methods",
+        "Public Relations Writing"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "International Marketing Manager",
+      "description": "Develops and executes marketing strategies tailored to global markets, ensuring cultural relevance and compliance with regional regulations.",
+      "skills": [
+        "Seminar on International Marketing Management",
+        "International Economics",
+        "Seminar on International Business",
+        "Strategic Management",
+        "Marketing Research"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Political Campaign Strategist",
+      "description": "Designs and implements communication and advertising strategies for political candidates, managing messaging across media channels to mobilize voters.",
+      "skills": [
+        "Politics and the Media",
+        "Communication Principles in Advertising",
+        "Public Relations Writing",
+        "Analysis of Face-to-Face Communication",
+        "Introduction to Communication Research Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Nonprofit Marketing Coordinator",
+      "description": "Promotes a nonprofit's mission through community outreach, fundraising campaigns, and donor communications to increase awareness and support.",
+      "skills": [
+        "Introduction to Public Relations",
+        "Public Relations Writing",
+        "Introduction to Marketing",
+        "Organizational Behavior",
+        "Public Speaking & Professional Presentation"
+      ],
+      "salary_min": 45000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Communications Manager",
+      "description": "Oversees internal and external communications for a corporation, managing crisis messaging, executive communications, and brand reputation.",
+      "skills": [
+        "Analysis of Face-to-Face Communication",
+        "Negotiation and Conflict Resolution",
+        "Public Relations Writing",
+        "Organizational Behavior",
+        "Strategic Management"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "E-Commerce Marketing Specialist",
+      "description": "Drives online sales by optimizing product listings, managing paid search campaigns, and analyzing conversion data to improve the digital shopping experience.",
+      "skills": [
+        "Analytical Decision Making",
+        "Introduction to Marketing",
+        "Marketing Research",
+        "Introduction to Operations Management",
+        "Communication Principles in Advertising"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Consumer Insights Analyst",
+      "description": "Collects and interprets qualitative and quantitative consumer data to uncover behavioral trends that inform product development and marketing decisions.",
+      "skills": [
+        "Marketing Research",
+        "Analytical Decision Making",
+        "Introduction to Communication Research Methods",
+        "Intermediate Microeconomic Theory with Calculus",
+        "Introduction to Marketing"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Media Planner",
+      "description": "Determines the optimal mix of media channels and timing for advertising campaigns to maximize reach, frequency, and return on investment.",
+      "skills": [
+        "Media Industries and Society",
+        "Communication Principles in Advertising",
+        "Analytical Decision Making",
+        "Marketing Research",
+        "Introduction to Marketing"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Startup Marketing Lead",
+      "description": "Builds a startup's brand from the ground up by experimenting with low-cost growth tactics, managing social channels, and establishing product-market fit messaging.",
+      "skills": [
+        "Strategic Management",
+        "Introduction to Marketing",
+        "Communication Principles in Advertising",
+        "Analytical Decision Making",
+        "Introduction to Public Relations"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Government Public Affairs Specialist",
+      "description": "Communicates government agency initiatives and policies to the public through press briefings, reports, and community engagement programs.",
+      "skills": [
+        "Politics and the Media",
+        "Introduction to Public Relations",
+        "Public Speaking & Professional Presentation",
+        "Public Relations Writing",
+        "Introduction to Communication Research Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Human Resources Recruiter",
+      "description": "Markets job opportunities to attract top talent, manages employer branding, and coordinates the hiring process from sourcing to offer negotiation.",
+      "skills": [
+        "Human Resource Management",
+        "Negotiation and Conflict Resolution",
+        "Organizational Behavior",
+        "Analysis of Face-to-Face Communication",
+        "Public Speaking & Professional Presentation"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "Sustainability Marketing Specialist",
+      "description": "Develops marketing campaigns that highlight an organization's environmental and social initiatives, appealing to ethically minded consumers and investors.",
+      "skills": [
+        "Economics of Environmental Management",
+        "Introduction to Marketing",
+        "Public Relations Writing",
+        "Strategic Management",
+        "Introduction to Public Relations"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Television Production Marketing Coordinator",
+      "description": "Supports marketing efforts for media productions by coordinating promotional content, managing on-air branding, and collaborating with studio production teams.",
+      "skills": [
+        "Studio Television Production",
+        "Field News Production",
+        "Media Industries and Society",
+        "Communication Principles in Advertising",
+        "Public Relations Writing"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Low"
     }
   ],
   "Economics": [
@@ -1608,6 +4282,230 @@
       ],
       "salary_min": 90000,
       "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Economist",
+      "description": "Analyzes the economic impact of environmental policies and natural resource management to guide sustainable decision-making.",
+      "skills": [
+        "Environmental Management",
+        "Intermediate Microeconomic Theory",
+        "Statistical Methods",
+        "Government Regulation",
+        "International Economics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Monetary Policy Analyst",
+      "description": "Evaluates banking systems and monetary frameworks to advise central banks or financial institutions on policy decisions.",
+      "skills": [
+        "Banking and Monetary Policy",
+        "Intermediate Macroeconomic Theory",
+        "Statistical Research Methods",
+        "Fundamentals of Finance",
+        "Intermediate Financial Management"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Low"
+    },
+    {
+      "title": "International Trade Specialist",
+      "description": "Assesses global trade flows, tariffs, and economic agreements to support businesses or government agencies engaged in international commerce.",
+      "skills": [
+        "International Economics",
+        "International Finance",
+        "Intermediate Microeconomic Theory",
+        "Statistical Methods",
+        "Intermediate Macroeconomic Theory"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Development Economics Consultant",
+      "description": "Works with governments and NGOs to design and evaluate economic development programs in low- and middle-income countries.",
+      "skills": [
+        "Economics of Developing Countries",
+        "International Economics",
+        "Statistical Research Methods",
+        "Government Spending and Taxation",
+        "Human Resources"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Urban Policy Analyst",
+      "description": "Studies land use, housing markets, and city planning economics to advise local governments on urban development strategies.",
+      "skills": [
+        "Urban Economics",
+        "Government Regulation",
+        "Real Estate Finance",
+        "Statistical Methods",
+        "Government Spending and Taxation"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Tax Policy Advisor",
+      "description": "Researches and models fiscal policies to provide recommendations on taxation and government expenditure for public agencies or think tanks.",
+      "skills": [
+        "Government Spending and Taxation",
+        "Intermediate Macroeconomic Theory",
+        "Statistical Research Methods",
+        "Government Regulation",
+        "Finite Mathematics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Labor Market Economist",
+      "description": "Analyzes workforce trends, wage dynamics, and employment policies to inform corporate HR strategies or government labor programs.",
+      "skills": [
+        "Economics of Human Resources",
+        "Statistical Research Methods",
+        "Intermediate Microeconomic Theory",
+        "Statistical Methods",
+        "Women and the Economy"
+      ],
+      "salary_min": 75000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Governance Analyst",
+      "description": "Evaluates company board structures, shareholder rights, and executive compensation to ensure accountability and regulatory compliance.",
+      "skills": [
+        "Corporate Governance",
+        "Advanced Corporate Finance",
+        "Principles of Finance",
+        "Capital Markets",
+        "Government Regulation"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Fixed Income Analyst",
+      "description": "Evaluates bonds, debt instruments, and interest rate risk to guide investment decisions for asset management firms or banks.",
+      "skills": [
+        "Fixed Income Securities",
+        "Capital Markets",
+        "Intermediate Financial Management",
+        "Banking and Monetary Policy",
+        "Statistical Methods"
+      ],
+      "salary_min": 80000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Real Estate Economic Analyst",
+      "description": "Models property market trends and financing structures to support investment, development, or appraisal decisions.",
+      "skills": [
+        "Real Estate Finance",
+        "Urban Economics",
+        "Fundamentals of Finance",
+        "Statistical Research Methods",
+        "Intermediate Microeconomic Theory"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Economic Historian",
+      "description": "Researches and publishes scholarly work on historical economic trends, institutions, and their long-run effects on modern economies.",
+      "skills": [
+        "Economic History",
+        "Intermediate Macroeconomic Theory",
+        "Statistical Methods",
+        "International Economics",
+        "Introduction to Proof"
+      ],
+      "salary_min": 60000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Gender Economics Researcher",
+      "description": "Investigates wage gaps, labor force participation, and gender-related economic inequalities to inform policy and advocacy efforts.",
+      "skills": [
+        "Women and the Economy",
+        "Economics of Human Resources",
+        "Statistical Research Methods",
+        "Regression and Experimental Design",
+        "Intermediate Microeconomic Theory"
+      ],
+      "salary_min": 60000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Bank Risk Manager",
+      "description": "Identifies and mitigates financial risks within banking institutions by monitoring credit, liquidity, and operational exposures.",
+      "skills": [
+        "Bank Management",
+        "Banking and Monetary Policy",
+        "Fixed Income Securities",
+        "Intermediate Financial Management",
+        "Regression and Experimental Design"
+      ],
+      "salary_min": 90000,
+      "salary_max": 165000,
+      "demand": "High"
+    },
+    {
+      "title": "Regulatory Affairs Economist",
+      "description": "Conducts economic analysis to assess the costs and benefits of proposed business regulations for government agencies or private firms.",
+      "skills": [
+        "Government Regulation of Business",
+        "Government Spending and Taxation",
+        "Statistical Research Methods",
+        "Intermediate Microeconomic Theory",
+        "Probability Theory"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Startup Financial Strategist",
+      "description": "Advises early-stage companies on capital structure, fundraising strategies, and financial modeling to support growth and investor relations.",
+      "skills": [
+        "Advanced Corporate Finance",
+        "Principles of Finance",
+        "Capital Markets",
+        "Intermediate Financial Management",
+        "Statistical Methods"
+      ],
+      "salary_min": 85000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Statistics Analyst",
+      "description": "Applies advanced statistical modeling to environmental and ecological data to support sustainability reporting and regulatory compliance.",
+      "skills": [
+        "Environmental Statistics",
+        "Regression and Experimental Design",
+        "Probability Theory",
+        "Statistical Research Methods",
+        "Environmental Management"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
       "demand": "Medium"
     }
   ],
@@ -1709,6 +4607,188 @@
       "salary_min": 115000,
       "salary_max": 145000,
       "demand": "High"
+    },
+    {
+      "title": "Wellness Coach",
+      "description": "Guides individuals through personalized health improvement plans focusing on lifestyle changes, nutrition, and preventive care.",
+      "skills": [
+        "Wellness and Health Assessment",
+        "Human Anatomy",
+        "Pharmacology Across the Lifespan",
+        "Ethical Aspects of Healthcare",
+        "Elementary Human Physiology"
+      ],
+      "salary_min": 35000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Community Health Educator",
+      "description": "Develops and delivers health education programs to underserved populations to promote disease prevention and healthy behaviors.",
+      "skills": [
+        "Community Health Nursing",
+        "Healthcare Communication",
+        "Chronic Illness in America",
+        "Ethical Aspects of Healthcare",
+        "Wellness and Health Assessment"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biotech Research Associate",
+      "description": "Conducts laboratory experiments and analyzes biological data to support the development of new medical therapies and diagnostics.",
+      "skills": [
+        "Cell Biology",
+        "General Physiology",
+        "Introductory Biology",
+        "Organic Chemistry",
+        "Introduction to Biochemistry"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "Health Policy Advocate",
+      "description": "Works with government agencies and nonprofit organizations to shape legislation and policy initiatives that improve public health outcomes.",
+      "skills": [
+        "Chronic Illness in America",
+        "Ethical Aspects of Healthcare",
+        "Community Health Nursing",
+        "Healthcare Communication",
+        "International Healthcare Practicum"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Patient Care Navigator",
+      "description": "Assists patients in coordinating care across multiple providers, ensuring they understand treatment options and access appropriate services.",
+      "skills": [
+        "Clinical Decision Making",
+        "Adult Health Nursing",
+        "Care of Children and Families",
+        "Healthcare Communication",
+        "Pathophysiology"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "High"
+    },
+    {
+      "title": "Health Startup Founder",
+      "description": "Launches and scales innovative health-focused ventures by identifying unmet clinical needs and building products or services to address them.",
+      "skills": [
+        "Entrepreneurship in the Health Sciences",
+        "Healthcare Communication",
+        "Ethical Aspects of Healthcare",
+        "Chronic Illness in America",
+        "Clinical Decision Making"
+      ],
+      "salary_min": 60000,
+      "salary_max": 200000,
+      "demand": "Low"
+    },
+    {
+      "title": "Pharmaceutical Sales Representative",
+      "description": "Promotes and sells pharmaceutical products to healthcare providers by communicating clinical evidence and product benefits.",
+      "skills": [
+        "Pharmacology Across the Lifespan",
+        "Healthcare Communication",
+        "Pathophysiology",
+        "Organic Chemistry",
+        "Scientific Basis of Nursing"
+      ],
+      "salary_min": 60000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Genetic Counselor",
+      "description": "Evaluates patients' genetic risk factors and communicates findings to help families make informed medical and reproductive decisions.",
+      "skills": [
+        "Human Heredity and Development",
+        "Cell Biology",
+        "Ethical Aspects of Healthcare",
+        "Pathophysiology",
+        "Healthcare Communication"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "International Health Consultant",
+      "description": "Advises global organizations and NGOs on implementing effective healthcare systems and programs in low-resource international settings.",
+      "skills": [
+        "International Healthcare Practicum",
+        "Community Health Nursing",
+        "Ethical Aspects of Healthcare",
+        "Chronic Illness in America",
+        "Healthcare Communication"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Communications Specialist",
+      "description": "Creates and manages public-facing health content across media channels to promote accurate health information and behavior change.",
+      "skills": [
+        "Healthcare Communication",
+        "Ethical Aspects of Healthcare",
+        "Chronic Illness in America",
+        "Community Health Nursing",
+        "Wellness and Health Assessment"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biochemistry Lab Technician",
+      "description": "Performs chemical and biological analyses in clinical or industrial laboratories to support diagnostics, research, and quality control.",
+      "skills": [
+        "Introduction to Biochemistry",
+        "Organic Chemistry",
+        "Instrumental Methods",
+        "Cell Biology",
+        "General Physiology"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Healthcare Theatre Educator",
+      "description": "Uses dramatic performance and simulation techniques to train healthcare professionals and patients in communication and empathy skills.",
+      "skills": [
+        "Healthcare Theatre Internship",
+        "Healthcare Communication",
+        "Ethical Aspects of Healthcare",
+        "Clinical Decision Making",
+        "Wellness and Health Assessment"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Low"
+    },
+    {
+      "title": "Epidemiologist",
+      "description": "Investigates patterns and causes of disease in populations to inform public health interventions and preventive strategies.",
+      "skills": [
+        "Community Health Nursing",
+        "Pathophysiology",
+        "Scientific Basis of Nursing",
+        "Viruses, Genes and Cancer",
+        "Chronic Illness in America"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "High"
     }
   ],
   "Biological Sciences": [
@@ -1781,6 +4861,216 @@
       "salary_min": 55000,
       "salary_max": 90000,
       "demand": "Medium"
+    },
+    {
+      "title": "Clinical Laboratory Scientist",
+      "description": "Performs diagnostic tests on patient specimens to assist physicians in detecting and treating diseases.",
+      "skills": [
+        "Hematology",
+        "Medical Microbiology",
+        "Specimen Processing",
+        "Cell Biology",
+        "Introductory Biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "Biostatistician",
+      "description": "Analyzes biological and health data using statistical methods to support research studies and clinical trials.",
+      "skills": [
+        "Biostatistics for the Biological",
+        "Principles of Biology",
+        "Introductory Biology",
+        "General Physiology",
+        "Cell Biology"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Phlebotomist",
+      "description": "Draws blood samples from patients and processes specimens for laboratory analysis and medical testing.",
+      "skills": [
+        "Phlebotomy and Specimen Processing",
+        "Hematology",
+        "Medical Microbiology",
+        "Human Heredity and Development",
+        "Elementary Human Physiology"
+      ],
+      "salary_min": 33000,
+      "salary_max": 55000,
+      "demand": "High"
+    },
+    {
+      "title": "Biochemist",
+      "description": "Studies the chemical processes within living organisms to develop new medicines, food products, and industrial compounds.",
+      "skills": [
+        "Introduction to Biochemistry",
+        "Organic Chemistry",
+        "Instrumental Methods",
+        "Cell Biology",
+        "Physical Chemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Evolutionary Biologist",
+      "description": "Investigates how species evolve over time by analyzing genetic variation, natural selection, and ecological pressures.",
+      "skills": [
+        "Elementary Evolutionary Ecology",
+        "Human Heredity and Development",
+        "Principles of Biology",
+        "Introductory Biology",
+        "Viruses, Genes and Cancer"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "Low"
+    },
+    {
+      "title": "Virologist",
+      "description": "Studies viruses and their interactions with host organisms to develop vaccines, antiviral therapies, and public health strategies.",
+      "skills": [
+        "Viruses, Genes and Cancer",
+        "Medical Microbiology",
+        "Cell Biology",
+        "General Physiology",
+        "Principles of Biology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Health Specialist",
+      "description": "Assesses and mitigates environmental risks to human and ecological health by monitoring pollution and enforcing health regulations.",
+      "skills": [
+        "Environments and Cultures in Conflict",
+        "Elementary Evolutionary Ecology",
+        "Biostatistics for the Biological",
+        "General Physiology",
+        "Principles of Biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Hematologist",
+      "description": "Specializes in diagnosing and treating blood disorders by analyzing blood composition and conducting laboratory evaluations.",
+      "skills": [
+        "Hematology",
+        "Hematology II Laboratory",
+        "Specimen Processing",
+        "Clinical Physiological Chemistry",
+        "Medical Microbiology"
+      ],
+      "salary_min": 85000,
+      "salary_max": 200000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Inorganic Chemist",
+      "description": "Researches and develops materials involving metals and minerals for applications in medicine, energy, and manufacturing.",
+      "skills": [
+        "Inorganic Chemistry",
+        "Physical Chemistry",
+        "Instrumental Methods",
+        "Organic Chemistry",
+        "Introduction to Biochemistry"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Science Communicator",
+      "description": "Translates complex scientific research into accessible content for public audiences through writing, media, and outreach programs.",
+      "skills": [
+        "Communication, Education, and Ethics",
+        "History of Chemistry",
+        "Freshman Seminar",
+        "Principles of Biology",
+        "Environments and Cultures in Conflict"
+      ],
+      "salary_min": 45000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Medical Laboratory Technician",
+      "description": "Conducts routine laboratory tests and maintains equipment to support clinical diagnosis and patient care in healthcare settings.",
+      "skills": [
+        "Hematology I Laboratory",
+        "Clinical Physiological Chemistry Laboratory",
+        "Specimen Processing",
+        "Medical Microbiology",
+        "Introductory Biology"
+      ],
+      "salary_min": 45000,
+      "salary_max": 80000,
+      "demand": "High"
+    },
+    {
+      "title": "Bioethics Consultant",
+      "description": "Advises healthcare institutions, research organizations, and policymakers on ethical issues arising from biological and medical research.",
+      "skills": [
+        "Communication, Education, and Ethics",
+        "Human Heredity and Development",
+        "Viruses, Genes and Cancer",
+        "Environments and Cultures in Conflict",
+        "Principles of Biology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Physiologist",
+      "description": "Studies how living organisms and their organ systems function, applying findings to medicine, sports science, and pharmacology.",
+      "skills": [
+        "General Physiology",
+        "Elementary Human Physiology",
+        "Cell Biology",
+        "Introduction to Biochemistry",
+        "Principles of Biology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Organic Chemist",
+      "description": "Designs and synthesizes carbon-based compounds for use in pharmaceuticals, agrochemicals, and materials science applications.",
+      "skills": [
+        "Organic Chemistry",
+        "Organic Chemistry Majors Laboratory",
+        "Physical Chemistry",
+        "Instrumental Methods",
+        "Introduction to Biochemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Parasitologist",
+      "description": "Studies parasitic organisms and their effects on host populations to develop treatments and prevention strategies for infectious diseases.",
+      "skills": [
+        "Medical Microbiology and Parasitology",
+        "General Physiology",
+        "Cell Biology",
+        "Biostatistics for the Biological",
+        "Introductory Biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "Low"
     }
   ],
   "Chemistry": [
@@ -1839,6 +5129,230 @@
       "salary_min": 60000,
       "salary_max": 100000,
       "demand": "Medium"
+    },
+    {
+      "title": "Medicinal Chemist",
+      "description": "Designs and synthesizes chemical compounds to develop new drugs and therapeutic agents for pharmaceutical companies.",
+      "skills": [
+        "Organic Chemistry",
+        "Introduction to Biochemistry",
+        "Instrumental Methods",
+        "Physical Chemistry",
+        "Inorganic Chemistry"
+      ],
+      "salary_min": 75000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Forensic Chemist",
+      "description": "Analyzes physical evidence collected from crime scenes using chemical techniques to support law enforcement investigations.",
+      "skills": [
+        "Analytical methods",
+        "Instrumental Methods",
+        "Organic Chemistry",
+        "Physical Chemistry",
+        "Statistical Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Materials Scientist",
+      "description": "Investigates and develops new materials with specific properties for use in electronics, aerospace, and manufacturing industries.",
+      "skills": [
+        "Physical Chemistry",
+        "Inorganic Chemistry",
+        "Quantum Mechanics",
+        "Instrumental Methods",
+        "Physical Optics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Chemical Patent Examiner",
+      "description": "Reviews patent applications for chemical inventions to determine novelty and compliance with intellectual property law.",
+      "skills": [
+        "Organic Chemistry",
+        "Inorganic Chemistry",
+        "History of Chemistry",
+        "Introduction to Biochemistry",
+        "Physical Chemistry"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Environmental Chemist",
+      "description": "Monitors and analyzes chemical pollutants in air, water, and soil to assess environmental impact and regulatory compliance.",
+      "skills": [
+        "Instrumental Methods",
+        "Statistical Methods",
+        "Physical Chemistry",
+        "Principles of Biology",
+        "Introductory Physical Chemistry"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computational Chemist",
+      "description": "Uses mathematical models and computer simulations to predict chemical behavior and design new molecules or reactions.",
+      "skills": [
+        "Computational Methods",
+        "Quantum Mechanics",
+        "Physical Chemistry",
+        "Calculus I",
+        "Analytic Geometry and Calculus"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Clinical Laboratory Scientist",
+      "description": "Performs complex chemical and biological tests on patient samples to assist physicians in diagnosing and treating diseases.",
+      "skills": [
+        "Introduction to Biochemistry",
+        "Cell Biology",
+        "Instrumental Methods",
+        "General Physiology",
+        "Statistical Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "Food Scientist",
+      "description": "Applies chemistry and biology principles to develop, improve, and ensure the safety and quality of food products.",
+      "skills": [
+        "Organic Chemistry",
+        "Introduction to Biochemistry",
+        "Instrumental Methods",
+        "Principles of Biology",
+        "Statistical Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Chemical Safety Officer",
+      "description": "Oversees workplace chemical hazard programs, ensuring safe handling, storage, and disposal of hazardous substances in research or industrial settings.",
+      "skills": [
+        "Inorganic Chemistry",
+        "Organic Chemistry",
+        "Physical Chemistry",
+        "Principles of Biology",
+        "Introductory Physical Chemistry"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Polymer Chemist",
+      "description": "Researches and develops synthetic and natural polymers for use in plastics, coatings, adhesives, and advanced materials.",
+      "skills": [
+        "Organic Chemistry",
+        "Physical Chemistry",
+        "Instrumental Methods",
+        "Introductory Physical Chemistry",
+        "Inorganic Chemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Science Policy Analyst",
+      "description": "Evaluates scientific research and advises government agencies or nonprofits on chemistry-related regulations and public health policy.",
+      "skills": [
+        "History of Chemistry",
+        "Statistical Methods",
+        "Principles of Biology",
+        "Introduction to Biochemistry",
+        "Finite Mathematics"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Astrochemist",
+      "description": "Studies the chemical composition of stars, planets, and interstellar matter to understand the origins of the universe and life.",
+      "skills": [
+        "Physical Chemistry",
+        "Quantum Mechanics",
+        "Black Holes and Cosmic Evolution",
+        "Physical Optics",
+        "Introductory Physical Chemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Biochemistry Educator",
+      "description": "Teaches undergraduate or secondary school students foundational and advanced concepts in chemistry and biological sciences.",
+      "skills": [
+        "Introduction to Biochemistry",
+        "Organic Chemistry",
+        "Cell Biology",
+        "History of Chemistry",
+        "Principles of Biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nanotechnology Researcher",
+      "description": "Designs and characterizes nanoscale materials and devices for applications in medicine, electronics, and energy storage.",
+      "skills": [
+        "Physical Chemistry",
+        "Quantum Mechanics",
+        "Instrumental Methods",
+        "Inorganic Chemistry",
+        "Physical Optics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "Low"
+    },
+    {
+      "title": "Cosmetic Chemist",
+      "description": "Formulates and tests personal care and beauty products, ensuring stability, safety, and efficacy for consumer markets.",
+      "skills": [
+        "Organic Chemistry",
+        "Introduction to Biochemistry",
+        "Instrumental Methods",
+        "General Physiology",
+        "Statistical Methods"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Startup Biotech Founder",
+      "description": "Launches and leads an early-stage biotechnology company translating chemical or biological research into commercial products or therapies.",
+      "skills": [
+        "Introduction to Biochemistry",
+        "Organic Chemistry",
+        "Cell Biology",
+        "Statistical Methods",
+        "Finite Mathematics"
+      ],
+      "salary_min": 60000,
+      "salary_max": 220000,
+      "demand": "Low"
     }
   ],
   "Education": [
@@ -1896,6 +5410,230 @@
       ],
       "salary_min": 45000,
       "salary_max": 75000,
+      "demand": "High"
+    },
+    {
+      "title": "School Counselor",
+      "description": "Supports students' academic, social, and emotional development through individual and group counseling sessions in K-12 school settings.",
+      "skills": [
+        "Human Development",
+        "Principles of Psychopathology",
+        "Cultural Diversity",
+        "Life Span Development",
+        "Positive Youth Development"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "High"
+    },
+    {
+      "title": "Curriculum Coordinator",
+      "description": "Develops, evaluates, and refines school curriculum and instructional materials to align with educational standards across grade levels.",
+      "skills": [
+        "Elementary Curriculum",
+        "Beginning Literacy Instruction",
+        "Legal and Ethical Issues",
+        "Reading and Writing",
+        "Methods for Teaching"
+      ],
+      "salary_min": 50000,
+      "salary_max": 90000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Early Childhood Program Director",
+      "description": "Oversees daily operations, staff, and programming at early childhood education centers to ensure quality care and learning outcomes.",
+      "skills": [
+        "Child Development",
+        "Inclusive Curriculum",
+        "Families and Their Communities",
+        "Human Development",
+        "Life Span Development"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Education Policy Analyst",
+      "description": "Researches and evaluates education policies and legislation to advise government agencies and advocacy organizations on reform initiatives.",
+      "skills": [
+        "History of Education",
+        "Legal and Ethical Issues",
+        "Cultural Diversity",
+        "Introduction to Research Process",
+        "Human Services"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Community Outreach Coordinator",
+      "description": "Connects schools and educational nonprofits with community resources and families to expand access to support services and programs.",
+      "skills": [
+        "Families and Their Communities",
+        "Cultural Diversity",
+        "Human Services",
+        "Mentor & Helping Relationships",
+        "Diversity and Families"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Literacy Coach",
+      "description": "Works alongside classroom teachers to model and refine evidence-based reading and writing instructional strategies for diverse learners.",
+      "skills": [
+        "Beginning Literacy Instruction",
+        "Reading and Writing",
+        "Methods for Teaching",
+        "Structure of English",
+        "Cultural Diversity"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Youth Program Manager",
+      "description": "Designs and oversees after-school and community-based programs that promote academic success and healthy development in young people.",
+      "skills": [
+        "Positive Youth Development",
+        "Adolescent Development",
+        "Mentor & Helping Relationships",
+        "Human Development",
+        "Families and Their Communities"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "ESL Program Specialist",
+      "description": "Develops and implements language instruction programs for multilingual learners in school districts or community education settings.",
+      "skills": [
+        "Methods for Teaching Multilingual Learners",
+        "Structure of English",
+        "Cultural Diversity",
+        "Beginning Literacy Instruction",
+        "Human Services"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Education Nonprofit Director",
+      "description": "Leads a nonprofit organization focused on educational equity, managing staff, funding, and program development to serve underserved communities.",
+      "skills": [
+        "Cultural Diversity",
+        "Positive Youth Development",
+        "Legal and Ethical Issues",
+        "Diversity and Families",
+        "Human Services"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Trainer",
+      "description": "Designs and delivers professional development workshops and training programs for employees within corporate or organizational settings.",
+      "skills": [
+        "Learning and Motivation",
+        "Public Speaking",
+        "Mentor & Helping Relationships",
+        "Measurement and Statistics",
+        "Introduction to Research Process"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "High"
+    },
+    {
+      "title": "Education Research Analyst",
+      "description": "Collects and analyzes quantitative and qualitative data on student outcomes and program effectiveness to inform educational decision-making.",
+      "skills": [
+        "Introduction to Research Process",
+        "Measurement and Statistics",
+        "Research Methods",
+        "Learning and Motivation",
+        "Principles of Developmental Psychology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Behavioral Intervention Specialist",
+      "description": "Develops and implements individualized behavioral support plans for students with emotional and developmental challenges in school environments.",
+      "skills": [
+        "Principles of Psychopathology",
+        "Special Education",
+        "Brain and Behavior",
+        "Learning and Motivation",
+        "Human Development"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "High"
+    },
+    {
+      "title": "Education Communications Manager",
+      "description": "Manages public relations, social media, and communications strategies for school districts or education-focused organizations.",
+      "skills": [
+        "Introduction to Public Relations",
+        "Public Speaking",
+        "Public Relations Writing",
+        "Analysis of Face-to-Face Communication",
+        "Media Industries and Society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Aging Services Program Coordinator",
+      "description": "Plans and administers educational and enrichment programs for older adults in senior centers, healthcare, or community settings.",
+      "skills": [
+        "Adult Development and Aging",
+        "Life Span Development",
+        "Human Services",
+        "Mentor & Helping Relationships",
+        "Families and Their Communities"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Inclusion Specialist",
+      "description": "Collaborates with educators and families to design inclusive classroom environments and supports for students with diverse learning needs.",
+      "skills": [
+        "Inclusive Curriculum",
+        "Special Education",
+        "Cultural Diversity",
+        "Diversity and Families",
+        "Human Development"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "High"
+    },
+    {
+      "title": "EdTech Product Specialist",
+      "description": "Works with schools and software companies to implement and support educational technology tools, providing training and gathering user feedback.",
+      "skills": [
+        "Learning and Motivation",
+        "Media Industries and Society",
+        "Introduction to Research Process",
+        "Human Development",
+        "Beginning Literacy Instruction"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
       "demand": "High"
     }
   ],
@@ -1955,6 +5693,230 @@
       "salary_min": 75000,
       "salary_max": 125000,
       "demand": "Medium"
+    },
+    {
+      "title": "Public Relations Specialist",
+      "description": "Manages an organization's public image by crafting press releases, coordinating media outreach, and building relationships with journalists and stakeholders.",
+      "skills": [
+        "Public Relations Writing",
+        "Introduction to Public Relations",
+        "Public Speaking",
+        "Media Industries and Society",
+        "Communication Principles"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Broadcast News Producer",
+      "description": "Plans, coordinates, and oversees the production of television and digital news segments from concept to final broadcast.",
+      "skills": [
+        "Studio Television Production",
+        "Field News Production",
+        "Multimedia Journalism",
+        "News Writing and Editing",
+        "Digital Media Production"
+      ],
+      "salary_min": 45000,
+      "salary_max": 100000,
+      "demand": "Low"
+    },
+    {
+      "title": "Advertising Copywriter",
+      "description": "Creates persuasive written content for advertising campaigns across print, digital, and broadcast media platforms.",
+      "skills": [
+        "Communication Principles in Advertising",
+        "Media Industries and Society",
+        "Public Relations Writing",
+        "Script Writing",
+        "Topics in Writing"
+      ],
+      "salary_min": 45000,
+      "salary_max": 95000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Political Communications Director",
+      "description": "Develops and executes messaging strategies for political candidates or government officials to shape public perception and policy narratives.",
+      "skills": [
+        "Politics and the Media",
+        "Introduction to Public Relations",
+        "Public Speaking",
+        "Communication Research Methods",
+        "Philosophy of Communication"
+      ],
+      "salary_min": 70000,
+      "salary_max": 140000,
+      "demand": "Low"
+    },
+    {
+      "title": "Corporate Communications Manager",
+      "description": "Oversees internal and external communications strategies to align employee messaging and brand voice across an entire organization.",
+      "skills": [
+        "Public Relations Writing",
+        "Media Industries and Society",
+        "Face-to-Face Communication",
+        "Introduction to Public Relations",
+        "Communication Principles"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Investigative Reporter",
+      "description": "Conducts in-depth research and interviews to uncover and report on complex stories involving corruption, injustice, or public interest issues.",
+      "skills": [
+        "Investigative Reporting",
+        "News Reporting and Writing",
+        "Ethics and Issues in Journalism",
+        "Reporter's Practicum",
+        "Copy Editing and Layout"
+      ],
+      "salary_min": 45000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Nonprofit Communications Coordinator",
+      "description": "Crafts and distributes messaging across channels to raise awareness, attract donors, and communicate a nonprofit's mission to the public.",
+      "skills": [
+        "Introduction to Public Relations",
+        "Public Relations Writing",
+        "Media Industries and Society",
+        "Digital Media Production",
+        "Topics in Communication"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Statehouse Correspondent",
+      "description": "Covers state legislative proceedings, interviews elected officials, and reports on government policy developments for news outlets.",
+      "skills": [
+        "Statehouse Reporting I",
+        "News Reporting and Writing",
+        "Politics and the Media",
+        "Journalism in a Free Society",
+        "Ethics and Issues in Journalism"
+      ],
+      "salary_min": 40000,
+      "salary_max": 85000,
+      "demand": "Low"
+    },
+    {
+      "title": "Media Analyst",
+      "description": "Researches and evaluates media trends, audience behaviors, and content performance to inform strategic communications decisions.",
+      "skills": [
+        "Introduction to Communication Research Methods",
+        "Media Industries and Society",
+        "Topics in Media Communication",
+        "Politics and the Media",
+        "Philosophy of Communication"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Content Strategist",
+      "description": "Plans and manages the creation, distribution, and governance of content across digital platforms to meet organizational goals.",
+      "skills": [
+        "Digital Media Production",
+        "Topics in Writing",
+        "Media Industries and Society",
+        "Introduction to Communication Research Methods",
+        "Topics in Communication"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Podcast Producer",
+      "description": "Conceives, records, edits, and distributes audio content on niche topics, managing both the creative and technical aspects of production.",
+      "skills": [
+        "Multimedia Journalism",
+        "Digital Media Production",
+        "Script Writing",
+        "Topics in Journalism Production",
+        "Field News Production"
+      ],
+      "salary_min": 40000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Communication Researcher",
+      "description": "Conducts academic or applied research on human communication patterns, media effects, and interpersonal dynamics to generate new knowledge.",
+      "skills": [
+        "Introduction to Communication Research Methods",
+        "Philosophy of Communication",
+        "Face-to-Face Communication",
+        "Literary Criticism and Theory",
+        "Topics in Communication"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Crisis Communications Consultant",
+      "description": "Advises organizations on how to respond strategically to emergencies, scandals, or reputational threats through coordinated messaging.",
+      "skills": [
+        "Public Relations Writing",
+        "Ethics and Issues in Journalism",
+        "Face-to-Face Communication",
+        "Introduction to Public Relations",
+        "Communication Principles"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Speechwriter",
+      "description": "Researches and writes speeches, remarks, and talking points for executives, politicians, or public figures to deliver at high-profile events.",
+      "skills": [
+        "Public Speaking",
+        "Script Writing",
+        "Politics and the Media",
+        "Topics in Writing",
+        "Philosophy of Communication"
+      ],
+      "salary_min": 55000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Digital Media Producer",
+      "description": "Creates and manages multimedia content including videos, graphics, and interactive stories for online audiences and digital platforms.",
+      "skills": [
+        "Digital Media Production",
+        "Multimedia Journalism",
+        "Studio Television Production",
+        "Topics in Journalism Production",
+        "Media Industries and Society"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Community Engagement Specialist",
+      "description": "Builds relationships between organizations and their local communities through events, outreach programs, and participatory communications campaigns.",
+      "skills": [
+        "Face-to-Face Communication",
+        "Introduction to Public Relations",
+        "Public Speaking",
+        "Topics in Communication",
+        "Communication Research Methods"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
     }
   ],
   "Political Science & Public Policy": [
@@ -1999,6 +5961,244 @@
       "salary_min": 50000,
       "salary_max": 85000,
       "demand": "Medium"
+    },
+    {
+      "title": "Foreign Service Officer",
+      "description": "Represents the United States abroad by negotiating agreements, reporting on political developments, and advancing American diplomatic interests.",
+      "skills": [
+        "Diplomacy",
+        "International Law",
+        "Arab-Israeli Politics",
+        "European Union",
+        "International Migration"
+      ],
+      "salary_min": 55000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Environmental Policy Advisor",
+      "description": "Advises government agencies and organizations on crafting and implementing regulations that balance environmental protection with economic interests.",
+      "skills": [
+        "Politics and the Environment",
+        "Economics of Environmental Management",
+        "Government Regulation of Business",
+        "Constitutional Law",
+        "Intermediate Macroeconomic Theory"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Civil Liberties Attorney",
+      "description": "Litigates cases and advocates on behalf of individuals whose constitutional rights have been violated by government or private actors.",
+      "skills": [
+        "Civil Liberties",
+        "Constitutional Law",
+        "The First Amendment",
+        "Topics in Law and Politics",
+        "American Political Thought"
+      ],
+      "salary_min": 60000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Political Journalist",
+      "description": "Reports on government activities, elections, and policy debates for news outlets, translating complex political developments for general audiences.",
+      "skills": [
+        "Politics and the Media",
+        "Contemporary Political Ideologies",
+        "American Political Thought",
+        "The First Amendment",
+        "European Union"
+      ],
+      "salary_min": 40000,
+      "salary_max": 90000,
+      "demand": "Low"
+    },
+    {
+      "title": "Urban Policy Planner",
+      "description": "Works with city governments to develop and evaluate housing, transportation, and community development policies that improve urban quality of life.",
+      "skills": [
+        "Urban Economics",
+        "Urban Communities",
+        "Social Problems",
+        "Economics of Government Spending",
+        "Intermediate Microeconomic Theory"
+      ],
+      "salary_min": 60000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Counter-Terrorism Analyst",
+      "description": "Assesses threats from extremist groups, analyzes radicalization patterns, and provides intelligence-based recommendations to national security agencies.",
+      "skills": [
+        "Political Terrorism",
+        "Contemporary Political Ideologies",
+        "International Law",
+        "Arab-Israeli Politics",
+        "Diplomacy"
+      ],
+      "salary_min": 75000,
+      "salary_max": 140000,
+      "demand": "Low"
+    },
+    {
+      "title": "International Development Consultant",
+      "description": "Partners with governments and NGOs in developing nations to design programs that address poverty, governance, and economic growth challenges.",
+      "skills": [
+        "Economics of Developing Countries",
+        "International Migration",
+        "International Law",
+        "Social Problems",
+        "Diplomacy"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Policy Analyst",
+      "description": "Examines healthcare legislation and programs, producing research and recommendations that inform government and organizational health policy decisions.",
+      "skills": [
+        "Health Policy and Society",
+        "Economics of Government Spending",
+        "Social Problems",
+        "Research Methods and Statistics",
+        "Government Regulation of Business"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Labor Rights Advocate",
+      "description": "Campaigns for workers' rights by researching labor policy, engaging with legislators, and supporting union and workforce equity initiatives.",
+      "skills": [
+        "Economics of Human Resources",
+        "Women and the Economy",
+        "Government Regulation of Business",
+        "Social Problems",
+        "Race in Society"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Low"
+    },
+    {
+      "title": "Refugee and Immigration Specialist",
+      "description": "Assists displaced populations navigate legal and social systems, while advising organizations on immigration policy and resettlement programs.",
+      "skills": [
+        "International Migration",
+        "International Law",
+        "Civil Liberties",
+        "Social Problems",
+        "Race in Society"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Political Campaign Strategist",
+      "description": "Develops messaging, outreach strategies, and voter engagement plans to help political candidates win elections at local, state, or national levels.",
+      "skills": [
+        "Politics and the Media",
+        "Contemporary Political Ideologies",
+        "American Political Thought",
+        "Gender and Society",
+        "Race in Society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Corporate Government Relations Manager",
+      "description": "Monitors legislation and regulatory activity affecting a corporation, lobbying officials and shaping company strategy in response to policy changes.",
+      "skills": [
+        "Government Regulation of Business",
+        "Economics of Government Spending",
+        "Constitutional Law",
+        "Topics in Law and Politics",
+        "Banking and Monetary Policy"
+      ],
+      "salary_min": 85000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Social Justice Research Director",
+      "description": "Leads research initiatives at advocacy organizations to document systemic inequities and produce evidence that drives policy reform campaigns.",
+      "skills": [
+        "Race in Society",
+        "Gender and Society",
+        "Research Methods and Statistics",
+        "Social Deviance",
+        "Civil Liberties"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "EU Affairs Specialist",
+      "description": "Advises businesses and governments on navigating European Union regulations, trade policies, and political dynamics affecting cross-border operations.",
+      "skills": [
+        "European Union",
+        "International Law",
+        "International Economics",
+        "Diplomacy",
+        "Government Regulation of Business"
+      ],
+      "salary_min": 70000,
+      "salary_max": 135000,
+      "demand": "Low"
+    },
+    {
+      "title": "Juvenile Justice Reform Advocate",
+      "description": "Works with policymakers, courts, and community organizations to reform laws and practices governing the treatment of youth in the justice system.",
+      "skills": [
+        "Juvenile Delinquency",
+        "Social Deviance",
+        "Civil Liberties",
+        "Constitutional Law",
+        "Social Problems"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Low"
+    },
+    {
+      "title": "Political Science Professor",
+      "description": "Teaches undergraduate and graduate courses in political theory and policy while conducting original research and publishing scholarly work.",
+      "skills": [
+        "Practicum in Teaching Political Science",
+        "American Political Thought",
+        "Contemporary Political Ideologies",
+        "Research Methods and Statistics",
+        "International Law"
+      ],
+      "salary_min": 65000,
+      "salary_max": 135000,
+      "demand": "Low"
+    },
+    {
+      "title": "Fiscal Policy Researcher",
+      "description": "Analyzes government budgets, taxation structures, and public spending programs to produce reports that guide legislative and executive fiscal decisions.",
+      "skills": [
+        "Economics of Government Spending",
+        "Banking and Monetary Policy",
+        "Intermediate Microeconomic Theory",
+        "International Economics",
+        "Economic History of the United States"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Low"
     }
   ],
   "Psychology": [
@@ -2042,6 +6242,244 @@
       ],
       "salary_min": 75000,
       "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Clinical Psychologist",
+      "description": "Assesses and treats individuals with mental health disorders using evidence-based therapeutic interventions in clinical or private practice settings.",
+      "skills": [
+        "Principles of Psychopathology",
+        "Research Methods",
+        "Introduction to Social Psychology",
+        "Brain and Behavior",
+        "Measurement and Statistics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "School Counselor",
+      "description": "Supports students' academic, social, and emotional development through counseling, intervention programs, and collaboration with educators and families.",
+      "skills": [
+        "Principles of Developmental Psychology",
+        "Positive Youth Development",
+        "Adolescent Development",
+        "Mentor and Helping Relationships",
+        "Social Problems"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "High"
+    },
+    {
+      "title": "Neuropsychology Technician",
+      "description": "Administers and scores neuropsychological assessments under supervision to evaluate cognitive and behavioral functioning in clinical patients.",
+      "skills": [
+        "Introduction to Neuroscience",
+        "Brain and Behavior",
+        "Sensation and Perception",
+        "Measurement and Statistics",
+        "Principles of Psychopathology"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Community Outreach Coordinator",
+      "description": "Designs and manages community engagement programs for nonprofit organizations to connect underserved populations with mental health and social resources.",
+      "skills": [
+        "Human Services and Cultural Competence",
+        "Diversity and Families",
+        "Families and Their Communities",
+        "Social Problems",
+        "Self and Society"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Juvenile Justice Counselor",
+      "description": "Works within the criminal justice system to counsel and rehabilitate youth offenders through structured behavioral and developmental intervention programs.",
+      "skills": [
+        "Juvenile Delinquency",
+        "Social Deviance",
+        "Adolescent Development",
+        "Learning and Motivation",
+        "Positive Youth Development"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Policy Analyst",
+      "description": "Researches and evaluates public health policies by analyzing behavioral and sociological data to inform government and organizational decision-making.",
+      "skills": [
+        "Health Policy and Society",
+        "Research Methods and Statistics",
+        "Social Problems",
+        "Measurement and Statistics",
+        "Introduction to Sociology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Gerontological Care Specialist",
+      "description": "Provides psychological support and program development for elderly populations in assisted living, hospital, or community-based care environments.",
+      "skills": [
+        "Adult Development and Aging",
+        "Life Span Development",
+        "Mentor and Helping Relationships",
+        "Principles of Developmental Psychology",
+        "Diversity and Families"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Speech and Language Support Specialist",
+      "description": "Assists licensed speech pathologists in assessing and treating individuals with communication disorders across clinical and educational settings.",
+      "skills": [
+        "Introduction to Communication Disorders of Adulthood",
+        "Clinical Principles and Procedures in Speech Pathology",
+        "Anatomy and Physiology of Speech Language and Hearing",
+        "Brain and Behavior",
+        "Language Mind and Society"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "High"
+    },
+    {
+      "title": "Diversity and Inclusion Consultant",
+      "description": "Partners with corporations and institutions to develop culturally competent policies and training programs that promote equitable workplace environments.",
+      "skills": [
+        "Diversity Ethics and Society",
+        "Gender and Society",
+        "Race in Society",
+        "Self and Society",
+        "Human Services and Cultural Competence"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Cognitive Rehabilitation Specialist",
+      "description": "Develops and implements individualized therapy plans to help patients recover cognitive functions following traumatic brain injury or neurological illness.",
+      "skills": [
+        "Cognition",
+        "Introduction to Neuroscience",
+        "Brain and Behavior",
+        "Learning and Motivation",
+        "Sensation and Perception"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Child Welfare Case Manager",
+      "description": "Investigates family situations and coordinates services to ensure the safety, permanency, and well-being of at-risk children in state or nonprofit agencies.",
+      "skills": [
+        "Child Development II 3 to 10",
+        "Families and Their Communities",
+        "Diversity and Families",
+        "Principles of Developmental Psychology",
+        "Social Problems"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "High"
+    },
+    {
+      "title": "AI Ethics Researcher",
+      "description": "Examines the psychological, social, and ethical implications of artificial intelligence systems to guide responsible technology design and policy.",
+      "skills": [
+        "Artificial Intelligence",
+        "Philosophy of Mind",
+        "Diversity Ethics and Society",
+        "Cognition",
+        "Theory of Knowledge"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Psycholinguistics Researcher",
+      "description": "Investigates how humans acquire, process, and produce language by conducting experiments that bridge cognitive psychology and linguistics.",
+      "skills": [
+        "Psycholinguistics",
+        "Cognition",
+        "Introduction to Acoustic Phonetics",
+        "Language Mind and Society",
+        "Brain and Behavior"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Behavioral Health Program Manager",
+      "description": "Oversees the development, staffing, and evaluation of behavioral health programs within hospitals, nonprofits, or government health agencies.",
+      "skills": [
+        "Principles of Psychopathology",
+        "Health Policy and Society",
+        "Research Methods",
+        "Measurement and Statistics",
+        "Mentor and Helping Relationships"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Early Childhood Intervention Specialist",
+      "description": "Delivers developmental support services to young children with disabilities or developmental delays in home, school, and community settings.",
+      "skills": [
+        "Inclusive Curriculum and Assessment Birth Grade 2",
+        "Child Development II 3 to 10",
+        "Life Span Development",
+        "Principles of Developmental Psychology",
+        "Human Services and Cultural Competence"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "High"
+    },
+    {
+      "title": "Urban Social Services Planner",
+      "description": "Collaborates with city agencies and nonprofits to design psychologically informed social service programs addressing the needs of urban communities.",
+      "skills": [
+        "Urban Communities",
+        "Social Problems",
+        "Families and Their Communities",
+        "Health Policy and Society",
+        "Introduction to Sociology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Immigration and Refugee Mental Health Advocate",
+      "description": "Provides culturally sensitive psychological support and policy advocacy for immigrant and refugee populations navigating resettlement and trauma recovery.",
+      "skills": [
+        "International Migration",
+        "Human Services and Cultural Competence",
+        "Diversity and Families",
+        "Principles of Psychopathology",
+        "Race in Society"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
       "demand": "Medium"
     }
   ],
@@ -2087,6 +6525,244 @@
       "salary_min": 75000,
       "salary_max": 120000,
       "demand": "High"
+    },
+    {
+      "title": "Geohazard Analyst",
+      "description": "Assesses geological risks such as landslides, earthquakes, and volcanic activity to inform land-use planning and disaster preparedness.",
+      "skills": [
+        "Geological Hazards",
+        "Structural Geology",
+        "Earth Systems",
+        "Geoscience Field Methods",
+        "Environmental Statistics"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Low"
+    },
+    {
+      "title": "Paleoclimatologist",
+      "description": "Studies ancient climate records preserved in rocks, ice, and fossils to understand long-term climate trends and inform future projections.",
+      "skills": [
+        "Paleoclimatology",
+        "Earth's Evolving Systems",
+        "Sedimentology and Stratigraphy",
+        "Earth's History",
+        "Environmental Statistics"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Coastal Resource Manager",
+      "description": "Oversees the sustainable use and conservation of coastal ecosystems, managing shoreline erosion, habitat protection, and community resilience.",
+      "skills": [
+        "Geological Processes",
+        "The Oceans",
+        "Environmental Field Methods",
+        "Earth Systems",
+        "Ocean Sciences"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Air Quality Specialist",
+      "description": "Monitors and analyzes atmospheric pollutants to ensure regulatory compliance and develop strategies to improve regional air quality.",
+      "skills": [
+        "Air Pollution Meteorology",
+        "Environmental Statistics",
+        "Earth Systems",
+        "Numerical Weather Prediction",
+        "Environmental Field Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Marine Ecologist",
+      "description": "Studies the interactions between marine organisms and their environments to guide conservation and fisheries management decisions.",
+      "skills": [
+        "The Oceans",
+        "Ocean Sciences",
+        "Principles of Biology",
+        "Evolutionary Ecology",
+        "Environmental Field Methods"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Climate Policy Analyst",
+      "description": "Evaluates scientific data and existing legislation to develop and advocate for effective climate and environmental policy at local, national, or international levels.",
+      "skills": [
+        "Climate and Climate Change",
+        "Earth Systems: Science and Policy",
+        "Environmental Statistics",
+        "Paleoclimatology",
+        "Proseminar in the Environment"
+      ],
+      "salary_min": 65000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Coral Reef Conservation Officer",
+      "description": "Conducts field assessments and implements restoration programs to protect and rehabilitate coral reef ecosystems threatened by climate change and human activity.",
+      "skills": [
+        "Coral Reef Environments",
+        "The Oceans",
+        "Ocean Sciences",
+        "Scientific Diving",
+        "Evolutionary Ecology"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Stratigrapher",
+      "description": "Analyzes sedimentary rock layers to reconstruct geological history and identify natural resource deposits or environmental change signals.",
+      "skills": [
+        "Sedimentology and Stratigraphy",
+        "Earth's History",
+        "Igneous and Metamorphic Petrology",
+        "Geoscience Field Methods",
+        "Paleoclimatology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Environmental Educator",
+      "description": "Develops and delivers educational programs and curriculum that increase public awareness of environmental issues and sustainable practices.",
+      "skills": [
+        "Introduction to the Environment",
+        "Environments and Cultures in Conflict",
+        "Proseminar in the Environment",
+        "Principles of Biology",
+        "Earth Systems"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Meteorologist",
+      "description": "Collects and interprets atmospheric data to produce weather forecasts and study long-term climate patterns for public and commercial clients.",
+      "skills": [
+        "Numerical Weather Prediction",
+        "Air Pollution Meteorology",
+        "Climate and Climate Change",
+        "Environmental Statistics",
+        "Earth Systems"
+      ],
+      "salary_min": 60000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Wetlands Ecologist",
+      "description": "Conducts field surveys and ecological assessments of wetland systems to support habitat restoration, mitigation banking, and regulatory permitting.",
+      "skills": [
+        "Environmental Field Methods",
+        "Evolutionary Ecology",
+        "Principles of Biology",
+        "Earth's Evolving Systems",
+        "Environmental Statistics"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Electric Vehicle Infrastructure Planner",
+      "description": "Works with municipalities and utilities to plan and optimize EV charging networks and assess their integration with the electrical grid.",
+      "skills": [
+        "Electric Vehicles and the Grid",
+        "Earth Systems: Science and Policy",
+        "Environmental Statistics",
+        "Introduction to the Environment",
+        "Proseminar in the Environment"
+      ],
+      "salary_min": 75000,
+      "salary_max": 135000,
+      "demand": "High"
+    },
+    {
+      "title": "Planetary Geologist",
+      "description": "Studies the geological features and history of planets, moons, and asteroids using remote sensing and comparative data to understand solar system evolution.",
+      "skills": [
+        "Planets, Asteroids and Impacts",
+        "Igneous and Metamorphic Petrology",
+        "Structural Geology",
+        "Earth's History",
+        "Geoscience Field Methods"
+      ],
+      "salary_min": 65000,
+      "salary_max": 130000,
+      "demand": "Low"
+    },
+    {
+      "title": "Environmental Health Officer",
+      "description": "Investigates environmental factors affecting public health, including contaminated water, soil, and air, and enforces compliance with health regulations.",
+      "skills": [
+        "Introduction to the Environment",
+        "Air Pollution Meteorology",
+        "Principles of Biology",
+        "Environmental Statistics",
+        "Earth Systems: Science and Policy"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Alpine Ecosystem Researcher",
+      "description": "Conducts field research in high-altitude environments to study climate change impacts on alpine flora, fauna, and hydrology.",
+      "skills": [
+        "Alpine Environmental Field Methods",
+        "Environmental Field Methods",
+        "Climate and Climate Change",
+        "Evolutionary Ecology",
+        "Environmental Statistics"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Nonprofit Environmental Advocate",
+      "description": "Leads campaigns, community outreach, and policy lobbying efforts on behalf of nonprofit organizations focused on environmental protection and justice.",
+      "skills": [
+        "Environments and Cultures in Conflict",
+        "Earth Systems: Science and Policy",
+        "Proseminar in the Environment",
+        "Introduction to the Environment",
+        "Climate and Climate Change"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Low"
+    },
+    {
+      "title": "Oceanographic Data Analyst",
+      "description": "Processes and interprets large datasets collected from ocean sensors, buoys, and satellite imagery to support marine research and resource management.",
+      "skills": [
+        "Ocean Sciences",
+        "Environmental Statistics",
+        "Numerical Weather Prediction",
+        "The Oceans",
+        "Climate and Climate Change"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
     }
   ],
   "Agricultural Sciences": [
@@ -2131,6 +6807,244 @@
       "salary_min": 65000,
       "salary_max": 105000,
       "demand": "Medium"
+    },
+    {
+      "title": "Animal Nutritionist",
+      "description": "Formulates and evaluates diet plans for livestock and companion animals to optimize health and production outcomes.",
+      "skills": [
+        "Animal Nutrition",
+        "Animal and Plant Genetics",
+        "Principles of Animal and Plant Genetics",
+        "Animal and Food Science",
+        "Animals, Science and Society"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Poultry Production Manager",
+      "description": "Oversees daily operations of poultry facilities, managing flock health, feed programs, and production efficiency.",
+      "skills": [
+        "Poultry Production",
+        "Animal Nutrition",
+        "Animal and Plant Genetics",
+        "Introduction to Animal Diseases",
+        "Swine Production"
+      ],
+      "salary_min": 55000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Swine Farm Specialist",
+      "description": "Manages swine herd health, breeding programs, and production systems for commercial pork operations.",
+      "skills": [
+        "Swine Production",
+        "Animal Nutrition",
+        "Reproductive Physiology of Domestic Animals",
+        "Introduction to Animal Diseases",
+        "Animal and Plant Genetics"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Reproductive Physiologist",
+      "description": "Conducts research and applies reproductive technologies to improve breeding efficiency in domestic livestock.",
+      "skills": [
+        "Reproductive Physiology of Domestic Animals",
+        "Animal and Plant Genetics",
+        "Animal and Plant Genetics Laboratory",
+        "Introduction to Animal Diseases",
+        "Animal Nutrition"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Equine Farm Manager",
+      "description": "Manages the daily care, training coordination, nutrition, and health monitoring of horses on equestrian facilities.",
+      "skills": [
+        "Introduction to Equine Science",
+        "Animal Nutrition",
+        "Reproductive Physiology of Domestic Animals",
+        "Introduction to Animal Diseases",
+        "Animals, Science and Society"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Low"
+    },
+    {
+      "title": "Plant Pathologist",
+      "description": "Identifies, diagnoses, and develops management strategies for diseases affecting crops and ornamental plants.",
+      "skills": [
+        "Introductory Plant Pathology",
+        "Soil Microbiology",
+        "Plant Developmental Biology",
+        "Introduction to Plant Physiology",
+        "Soil Fertility and Plant Nutrition"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Soil Scientist",
+      "description": "Analyzes soil composition, fertility, and microbiology to advise on land use, conservation, and agricultural productivity.",
+      "skills": [
+        "Introduction to Soil Science",
+        "Soil Fertility and Plant Nutrition",
+        "Soil Microbiology",
+        "Introductory Plant Pathology",
+        "Issues in Plant and Soil Sciences"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Turfgrass Manager",
+      "description": "Maintains and manages turf on golf courses, athletic fields, and public landscapes using science-based agronomic practices.",
+      "skills": [
+        "Turf Establishment and Maintenance",
+        "Soil Fertility and Plant Nutrition",
+        "Introduction to Soil Science",
+        "Landscape Management",
+        "Spring Landscape Plants"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Low"
+    },
+    {
+      "title": "Landscape Horticulturist",
+      "description": "Designs, installs, and maintains residential and commercial landscapes using knowledge of ornamental plant species.",
+      "skills": [
+        "Fall Ornamental Landscape Plants",
+        "Spring Landscape Plants",
+        "Landscape Management",
+        "Soil Fertility and Plant Nutrition",
+        "Plant Developmental Biology"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Sustainable Farming Consultant",
+      "description": "Advises farmers on organic and sustainable practices to improve environmental outcomes while maintaining profitability.",
+      "skills": [
+        "Organic and Sustainable Farming",
+        "Sustainable Farm Management",
+        "Issues in Plant and Soil Sciences",
+        "Soil Fertility and Plant Nutrition",
+        "Understanding Today's Agriculture"
+      ],
+      "salary_min": 50000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "One Health Program Coordinator",
+      "description": "Develops and coordinates interdisciplinary programs that address the intersection of human, animal, and environmental health.",
+      "skills": [
+        "One Health",
+        "Introduction to Animal Diseases",
+        "Animals, Science and Society",
+        "Introductory Plant Pathology",
+        "Issues in Plant and Soil Sciences"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Vegetable Crop Specialist",
+      "description": "Provides expertise on production, pest management, and marketing strategies for vegetable and herb crop growers.",
+      "skills": [
+        "Vegetables, Herbs, and Natural Plant Products",
+        "Soil Fertility and Plant Nutrition",
+        "Introductory Plant Pathology",
+        "Introduction to Plant Physiology",
+        "Organic and Sustainable Farming"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Low"
+    },
+    {
+      "title": "Agricultural Extension Agent",
+      "description": "Connects university research to local farming communities by delivering educational programs and on-farm consultations.",
+      "skills": [
+        "Leadership and Communication in Agriculture",
+        "Understanding Today's Agriculture",
+        "Sustainable Farm Management",
+        "Animals, Science and Society",
+        "Issues in Plant and Soil Sciences"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Plant Physiologist",
+      "description": "Studies how plants grow and respond to environmental stressors to develop improved crop varieties and management practices.",
+      "skills": [
+        "Introduction to Plant Physiology",
+        "Plant Developmental Biology",
+        "Soil Fertility and Plant Nutrition",
+        "Animal and Plant Genetics",
+        "Introductory Plant Pathology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 115000,
+      "demand": "Low"
+    },
+    {
+      "title": "Agricultural Nonprofit Program Director",
+      "description": "Leads initiatives promoting food security, sustainable agriculture, and rural community development for nonprofit organizations.",
+      "skills": [
+        "Leadership and Communication in Agriculture",
+        "Organic and Sustainable Farming",
+        "One Health",
+        "Animals, Science and Society",
+        "Understanding Today's Agriculture"
+      ],
+      "salary_min": 50000,
+      "salary_max": 95000,
+      "demand": "Low"
+    },
+    {
+      "title": "Livestock Disease Surveillance Specialist",
+      "description": "Monitors and tracks disease outbreaks in animal populations for government agencies to protect public and animal health.",
+      "skills": [
+        "Introduction to Animal Diseases",
+        "One Health",
+        "Animal Nutrition",
+        "Reproductive Physiology of Domestic Animals",
+        "Animals, Science and Society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "AgTech Startup Founder",
+      "description": "Builds and scales technology-driven agricultural ventures that solve problems in crop production, animal management, or supply chains.",
+      "skills": [
+        "Understanding Today's Agriculture",
+        "Leadership and Communication in Agriculture",
+        "Sustainable Farm Management",
+        "Issues in Plant and Soil Sciences",
+        "Animal and Food Science"
+      ],
+      "salary_min": 60000,
+      "salary_max": 200000,
+      "demand": "Low"
     }
   ],
   "Criminal Justice": [
@@ -2188,6 +7102,230 @@
       ],
       "salary_min": 55000,
       "salary_max": 90000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Victim Advocate",
+      "description": "Supports victims of crime by connecting them with resources, legal guidance, and emotional assistance throughout the justice process.",
+      "skills": [
+        "domestic violence services",
+        "juvenile delinquency",
+        "social problems",
+        "introduction to criminal justice",
+        "law and society"
+      ],
+      "salary_min": 35000,
+      "salary_max": 70000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Probation Officer",
+      "description": "Monitors individuals on probation, ensures compliance with court orders, and connects clients with rehabilitation resources.",
+      "skills": [
+        "social deviance",
+        "juvenile delinquency",
+        "problems of criminal judiciary",
+        "introduction to criminal justice",
+        "general psychology"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Corporate Compliance Officer",
+      "description": "Ensures that corporations adhere to legal regulations and ethical standards by auditing internal practices and policies.",
+      "skills": [
+        "corporate crime",
+        "law and society",
+        "economics of law",
+        "introduction to legal studies",
+        "social science and the law"
+      ],
+      "salary_min": 80000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Juvenile Justice Counselor",
+      "description": "Works with at-risk youth in the justice system to develop rehabilitation plans and reduce recidivism through counseling and support.",
+      "skills": [
+        "juvenile delinquency",
+        "social deviance",
+        "general psychology",
+        "principles of psychopathology",
+        "social problems"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Drug Policy Analyst",
+      "description": "Researches and evaluates drug-related legislation and public policy to advise government agencies and nonprofit organizations.",
+      "skills": [
+        "illicit drug use in America",
+        "law and society",
+        "health policy and society",
+        "social problems",
+        "research methods and statistics"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Civil Rights Attorney",
+      "description": "Represents clients in cases involving violations of civil liberties and advocates for equitable legal protections.",
+      "skills": [
+        "civil rights law and policy",
+        "introduction to legal studies",
+        "law and society",
+        "social science and the law",
+        "race in society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Immigration Legal Specialist",
+      "description": "Assists immigrants navigating legal processes including asylum applications, visa petitions, and deportation defense.",
+      "skills": [
+        "international migration",
+        "introduction to legal studies",
+        "law and society",
+        "social problems",
+        "the law and you"
+      ],
+      "salary_min": 55000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Environmental Crimes Investigator",
+      "description": "Investigates violations of environmental laws and works with regulatory agencies to prosecute offenders.",
+      "skills": [
+        "topics in environmental law",
+        "corporate crime",
+        "introduction to criminal justice",
+        "law and society",
+        "social science and the law"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Social Policy Researcher",
+      "description": "Conducts academic or government research on the social determinants of crime and evaluates the effectiveness of justice interventions.",
+      "skills": [
+        "research methods and statistics",
+        "criminology",
+        "social problems",
+        "health policy and society",
+        "introduction to sociology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Low"
+    },
+    {
+      "title": "Community Organizer",
+      "description": "Mobilizes communities to advocate for criminal justice reform through grassroots campaigns and coalition building.",
+      "skills": [
+        "activism and protest",
+        "urban communities",
+        "race in society",
+        "social problems",
+        "introduction to criminal justice"
+      ],
+      "salary_min": 35000,
+      "salary_max": 70000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Forensic Social Worker",
+      "description": "Applies social work principles within legal and correctional settings to assess offenders and assist in rehabilitation planning.",
+      "skills": [
+        "principles of psychopathology",
+        "social deviance",
+        "domestic violence services",
+        "juvenile delinquency",
+        "self and society"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Capital Defense Investigator",
+      "description": "Assists defense attorneys in death penalty cases by gathering evidence, interviewing witnesses, and building mitigation narratives.",
+      "skills": [
+        "capital punishment and the law",
+        "problems of criminal judiciary",
+        "introduction to legal studies",
+        "social science and the law",
+        "introduction to criminal justice"
+      ],
+      "salary_min": 45000,
+      "salary_max": 90000,
+      "demand": "Low"
+    },
+    {
+      "title": "Gender-Based Violence Program Coordinator",
+      "description": "Designs and manages nonprofit programs addressing sexual assault and domestic violence through prevention, education, and survivor services.",
+      "skills": [
+        "domestic violence services",
+        "gender and society",
+        "social problems",
+        "activism and protest",
+        "juvenile delinquency"
+      ],
+      "salary_min": 45000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Legal Communications Specialist",
+      "description": "Translates complex legal matters into clear public-facing content for law firms, government agencies, or media organizations.",
+      "skills": [
+        "legal issues for communication professionals",
+        "introduction to legal studies",
+        "law and society",
+        "introduction to sociology",
+        "the law and you"
+      ],
+      "salary_min": 55000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Behavioral Threat Analyst",
+      "description": "Assesses individuals who may pose a threat to organizations or public safety by applying psychological and criminological frameworks.",
+      "skills": [
+        "principles of psychopathology",
+        "social deviance",
+        "brain and behavior",
+        "introduction to social psychology",
+        "criminology"
+      ],
+      "salary_min": 70000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Reentry Program Specialist",
+      "description": "Helps formerly incarcerated individuals transition back into society by coordinating housing, employment, and social services.",
+      "skills": [
+        "social deviance",
+        "urban communities",
+        "social problems",
+        "introduction to criminal justice",
+        "health policy and society"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
       "demand": "Medium"
     }
   ]
