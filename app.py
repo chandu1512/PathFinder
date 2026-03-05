@@ -16,8 +16,12 @@ try:
 except FileNotFoundError:
     pass
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")

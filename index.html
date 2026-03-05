@@ -1031,7 +1031,7 @@
         // ── DATA LOAD ──
         async function loadData() {
             try {
-                const response = await fetch('http://127.0.0.1:5000/api/career-paths');
+                const response = await fetch('/api/career-paths');
                 globalData = await response.json();
                 renderDashboard(globalData);
                 updateStats();
@@ -1197,7 +1197,7 @@
             const typingEl = appendMsg('assistant', 'Thinking...', true);
 
             try {
-                const res = await fetch('http://127.0.0.1:5000/api/chat', {
+                const res = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ messages: chatHistory })
@@ -1254,7 +1254,7 @@
             body.innerHTML = '<div class="placeholder">Building your personalized roadmap with AI...</div>';
 
             try {
-                const res = await fetch('http://127.0.0.1:5000/api/roadmap', {
+                const res = await fetch('/api/roadmap', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
