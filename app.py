@@ -5,6 +5,17 @@ import os
 import re
 import anthropic
 
+# Load .env file if present (local development)
+try:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '.env')) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith('#') and '=' in _line:
+                _k, _v = _line.split('=', 1)
+                os.environ.setdefault(_k.strip(), _v.strip())
+except FileNotFoundError:
+    pass
+
 app = Flask(__name__)
 CORS(app)
 
@@ -198,9 +209,10 @@ def chat():
 
 
 if __name__ == '__main__':
-    print("PathFinder Server starting on http://127.0.0.1:5000")
+    port = int(os.environ.get("PORT", 5000))
+    print(f"PathFinder Server starting on port {port}")
     print(f"  Courses loaded: {len(COURSES_DATA)}")
     print(f"  Programs loaded: {len(JOBS_DATA)}")
     total_jobs = sum(len(v) for v in JOBS_DATA.values())
     print(f"  Job roles loaded: {total_jobs}")
-    app.run(debug=True, port=5000)
+    app.run(debug=False, host="0.0.0.0", port=port)
