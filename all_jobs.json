@@ -1,0 +1,2194 @@
+{
+  "Computer Science": [
+    {
+      "title": "Software Engineer",
+      "description": "Design, build, and maintain scalable software systems.",
+      "skills": [
+        "software engineering",
+        "algorithms",
+        "data structures",
+        "introduction to computer science",
+        "object-oriented"
+      ],
+      "salary_min": 110000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Full Stack Developer",
+      "description": "Build both frontend user interfaces and backend server logic.",
+      "skills": [
+        "web applications security",
+        "advanced web technologies",
+        "database systems",
+        "introduction to computer science",
+        "software engineering"
+      ],
+      "salary_min": 100000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Backend Developer",
+      "description": "Design APIs, databases, and server-side application logic.",
+      "skills": [
+        "database systems",
+        "computer networks",
+        "software engineering",
+        "operating systems",
+        "introduction to algorithms"
+      ],
+      "salary_min": 105000,
+      "salary_max": 165000,
+      "demand": "High"
+    },
+    {
+      "title": "Frontend Developer",
+      "description": "Create responsive and accessible user interfaces.",
+      "skills": [
+        "introduction to computer science with web applications",
+        "advanced web technologies",
+        "human-computer interaction",
+        "introduction to game development"
+      ],
+      "salary_min": 90000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Systems Programmer",
+      "description": "Write low-level code that interacts directly with hardware.",
+      "skills": [
+        "operating systems",
+        "machine organization and assembly language",
+        "introduction to systems programming",
+        "computer architecture",
+        "compiler design"
+      ],
+      "salary_min": 105000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Cloud Engineer",
+      "description": "Design and manage cloud infrastructure and services.",
+      "skills": [
+        "cloud computing and big data",
+        "computer networks",
+        "distributed computing",
+        "parallel computing",
+        "operating systems"
+      ],
+      "salary_min": 120000,
+      "salary_max": 185000,
+      "demand": "High"
+    },
+    {
+      "title": "DevOps Engineer",
+      "description": "Automate software deployment and infrastructure management.",
+      "skills": [
+        "devops",
+        "software testing and maintenance",
+        "computer networks",
+        "operating systems",
+        "introduction to algorithms"
+      ],
+      "salary_min": 115000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Database Engineer",
+      "description": "Design and optimize large-scale data storage systems.",
+      "skills": [
+        "database systems",
+        "data mining",
+        "introduction to algorithms",
+        "data structures",
+        "computational mathematics"
+      ],
+      "salary_min": 100000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Mobile App Developer",
+      "description": "Build applications for iOS and Android platforms.",
+      "skills": [
+        "introduction to computer science",
+        "user interface",
+        "human-computer interaction",
+        "software engineering",
+        "introduction to computer science ii"
+      ],
+      "salary_min": 95000,
+      "salary_max": 155000,
+      "demand": "High"
+    },
+    {
+      "title": "Game Developer",
+      "description": "Build interactive 2D and 3D gaming experiences.",
+      "skills": [
+        "introduction to game development",
+        "educational game development",
+        "computer graphics",
+        "introduction to programming in games",
+        "game development"
+      ],
+      "salary_min": 80000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Embedded Software Engineer",
+      "description": "Write firmware for specialized hardware devices.",
+      "skills": [
+        "embedded systems",
+        "microprocessor systems",
+        "introduction to computer systems engineering",
+        "machine organization and assembly language",
+        "computer systems design"
+      ],
+      "salary_min": 95000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Compiler Engineer",
+      "description": "Design and build programming language compilers.",
+      "skills": [
+        "compiler design",
+        "automata theory",
+        "logic for programming",
+        "theory of computation",
+        "programming languages"
+      ],
+      "salary_min": 120000,
+      "salary_max": 185000,
+      "demand": "Low"
+    },
+    {
+      "title": "Computer Graphics Engineer",
+      "description": "Develop rendering engines, shaders, and visual effects.",
+      "skills": [
+        "computer graphics",
+        "introduction to computer vision",
+        "parallel computing",
+        "introduction to game development"
+      ],
+      "salary_min": 100000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "AI Software Engineer",
+      "description": "Build AI-powered features into software products.",
+      "skills": [
+        "artificial intelligence",
+        "machine learning",
+        "introduction to algorithms",
+        "software engineering",
+        "data mining"
+      ],
+      "salary_min": 130000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "Security Software Engineer",
+      "description": "Build security-focused software systems and tools.",
+      "skills": [
+        "computer security principles and practice",
+        "secure software design",
+        "web applications security",
+        "network security",
+        "software engineering"
+      ],
+      "salary_min": 115000,
+      "salary_max": 175000,
+      "demand": "High"
+    }
+  ],
+  "Artificial Intelligence": [
+    {
+      "title": "AI/ML Engineer",
+      "description": "Build and deploy machine learning models at scale.",
+      "skills": [
+        "machine learning",
+        "artificial intelligence",
+        "introduction to algorithms",
+        "computational mathematics",
+        "data mining"
+      ],
+      "salary_min": 135000,
+      "salary_max": 210000,
+      "demand": "High"
+    },
+    {
+      "title": "Deep Learning Researcher",
+      "description": "Research and develop neural network architectures.",
+      "skills": [
+        "machine learning",
+        "artificial intelligence",
+        "computational mathematics",
+        "introduction to algorithms",
+        "computational biology"
+      ],
+      "salary_min": 130000,
+      "salary_max": 220000,
+      "demand": "High"
+    },
+    {
+      "title": "Natural Language Processing Engineer",
+      "description": "Build systems that understand and generate human language.",
+      "skills": [
+        "natural language processing",
+        "artificial intelligence",
+        "machine learning",
+        "logic for programming",
+        "introduction to algorithms"
+      ],
+      "salary_min": 125000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "Computer Vision Engineer",
+      "description": "Develop AI systems that process images and video.",
+      "skills": [
+        "introduction to computer vision",
+        "computer graphics",
+        "machine learning",
+        "artificial intelligence",
+        "introduction to algorithms"
+      ],
+      "salary_min": 120000,
+      "salary_max": 195000,
+      "demand": "High"
+    },
+    {
+      "title": "AI Research Scientist",
+      "description": "Advance the state of AI through research.",
+      "skills": [
+        "introduction to multi-agent systems",
+        "theory of computation",
+        "artificial intelligence",
+        "machine learning",
+        "logic in computer science"
+      ],
+      "salary_min": 140000,
+      "salary_max": 230000,
+      "demand": "High"
+    },
+    {
+      "title": "Robotics Engineer",
+      "description": "Program autonomous robots using AI and control systems.",
+      "skills": [
+        "introduction to computer vision",
+        "machine learning",
+        "introduction to multi-agent systems",
+        "embedded systems",
+        "artificial intelligence"
+      ],
+      "salary_min": 100000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "MLOps Engineer",
+      "description": "Manage machine learning pipelines and model deployments.",
+      "skills": [
+        "machine learning",
+        "devops",
+        "cloud computing and big data",
+        "software engineering",
+        "operating systems"
+      ],
+      "salary_min": 120000,
+      "salary_max": 185000,
+      "demand": "High"
+    },
+    {
+      "title": "Algorithm Engineer",
+      "description": "Design highly efficient algorithms for AI applications.",
+      "skills": [
+        "introduction to algorithms",
+        "computational mathematics",
+        "automata theory",
+        "theory of computation",
+        "discrete mathematics"
+      ],
+      "salary_min": 120000,
+      "salary_max": 190000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Autonomous Systems Engineer",
+      "description": "Build self-driving and autonomous vehicle software.",
+      "skills": [
+        "introduction to multi-agent systems",
+        "introduction to computer vision",
+        "parallel computing",
+        "machine learning",
+        "artificial intelligence"
+      ],
+      "salary_min": 115000,
+      "salary_max": 185000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Generative AI Engineer",
+      "description": "Build applications using large language models.",
+      "skills": [
+        "artificial intelligence",
+        "natural language processing",
+        "machine learning",
+        "introduction to algorithms",
+        "software engineering"
+      ],
+      "salary_min": 140000,
+      "salary_max": 220000,
+      "demand": "High"
+    }
+  ],
+  "Cybersecurity Engineering": [
+    {
+      "title": "Penetration Tester",
+      "description": "Simulate cyberattacks to discover vulnerabilities before attackers.",
+      "skills": [
+        "pen test and reverse engineering",
+        "introduction to cybersecurity",
+        "web applications security",
+        "advanced cybersecurity",
+        "network security"
+      ],
+      "salary_min": 95000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "SOC Analyst",
+      "description": "Monitor and respond to security incidents in real time.",
+      "skills": [
+        "introduction to cybersecurity",
+        "introduction to network security",
+        "topics in cybersecurity",
+        "computer networks",
+        "advanced cybersecurity"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Application Security Engineer",
+      "description": "Integrate security throughout the software development lifecycle.",
+      "skills": [
+        "web applications security",
+        "secure software design",
+        "introduction to cybersecurity",
+        "computer security principles and practice",
+        "software testing"
+      ],
+      "salary_min": 110000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "Digital Forensics Investigator",
+      "description": "Recover and analyze digital evidence from devices for cybercrime cases.",
+      "skills": [
+        "digital forensics",
+        "operating systems",
+        "introduction to cybersecurity",
+        "pen test and reverse engineering",
+        "computer networks"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Cryptography Engineer",
+      "description": "Develop encryption algorithms and security protocols.",
+      "skills": [
+        "applied cryptography",
+        "introduction to cybersecurity",
+        "computational mathematics",
+        "discrete mathematics",
+        "advanced cybersecurity"
+      ],
+      "salary_min": 115000,
+      "salary_max": 180000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Cloud Security Architect",
+      "description": "Design and enforce security in cloud environments.",
+      "skills": [
+        "cloud computing and security",
+        "introduction to cybersecurity",
+        "computer networks",
+        "advanced cybersecurity",
+        "network security"
+      ],
+      "salary_min": 130000,
+      "salary_max": 200000,
+      "demand": "High"
+    },
+    {
+      "title": "IAM Engineer",
+      "description": "Build identity and access management systems.",
+      "skills": [
+        "introduction to cybersecurity",
+        "system hardening and protection",
+        "computer networks",
+        "operating systems",
+        "cybersecurity management"
+      ],
+      "salary_min": 100000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Incident Responder",
+      "description": "Lead rapid response to contain and recover from cyber breaches.",
+      "skills": [
+        "system hardening and protection",
+        "digital forensics",
+        "topics in cybersecurity",
+        "advanced cybersecurity",
+        "introduction to cybersecurity"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "High"
+    },
+    {
+      "title": "Network Security Engineer",
+      "description": "Design secure network architecture and firewalls.",
+      "skills": [
+        "introduction to network security",
+        "computer networks",
+        "introduction to cybersecurity engineering",
+        "pen test and reverse engineering",
+        "introduction to cybersecurity"
+      ],
+      "salary_min": 100000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Malware Analyst",
+      "description": "Reverse engineer malicious software to understand threats.",
+      "skills": [
+        "pen test and reverse engineering",
+        "digital forensics",
+        "introduction to cybersecurity",
+        "operating systems",
+        "machine organization and assembly language"
+      ],
+      "salary_min": 85000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "IoT Security Engineer",
+      "description": "Secure connected devices and embedded systems.",
+      "skills": [
+        "iot and embedded systems security",
+        "embedded systems",
+        "introduction to cybersecurity",
+        "computer networks",
+        "microprocessor systems"
+      ],
+      "salary_min": 100000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Security Architect",
+      "description": "Design enterprise-wide security frameworks.",
+      "skills": [
+        "advanced cybersecurity",
+        "introduction to cybersecurity engineering",
+        "cloud computing and security",
+        "system hardening and protection",
+        "network security"
+      ],
+      "salary_min": 130000,
+      "salary_max": 200000,
+      "demand": "High"
+    }
+  ],
+  "Data Science": [
+    {
+      "title": "Data Scientist",
+      "description": "Extract insights from complex datasets using statistics and ML.",
+      "skills": [
+        "introduction to data mining",
+        "machine learning",
+        "introduction to statistical methods",
+        "computational biology and bioinformatics",
+        "introduction to algorithms"
+      ],
+      "salary_min": 105000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "Data Engineer",
+      "description": "Build data pipelines and infrastructure for analytics teams.",
+      "skills": [
+        "database systems",
+        "cloud computing and big data",
+        "introduction to algorithms",
+        "computer networks",
+        "data mining"
+      ],
+      "salary_min": 110000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Machine Learning Engineer",
+      "description": "Build and optimize ML models for production systems.",
+      "skills": [
+        "machine learning",
+        "introduction to algorithms",
+        "data mining",
+        "computational mathematics",
+        "software engineering"
+      ],
+      "salary_min": 120000,
+      "salary_max": 190000,
+      "demand": "High"
+    },
+    {
+      "title": "Data Analyst",
+      "description": "Translate raw data into actionable business insights.",
+      "skills": [
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "database systems",
+        "computational mathematics",
+        "business computing fundamentals"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "High"
+    },
+    {
+      "title": "Business Intelligence Developer",
+      "description": "Design dashboards and reporting infrastructure.",
+      "skills": [
+        "database systems",
+        "database management",
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "business computing fundamentals"
+      ],
+      "salary_min": 85000,
+      "salary_max": 135000,
+      "demand": "High"
+    },
+    {
+      "title": "Bioinformatics Scientist",
+      "description": "Apply computational methods to solve biology problems.",
+      "skills": [
+        "computational biology and bioinformatics",
+        "introduction to data mining",
+        "machine learning",
+        "introduction to statistical methods",
+        "algorithms"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quantitative Analyst",
+      "description": "Use math and data to build financial models.",
+      "skills": [
+        "computational mathematics",
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "probability theory",
+        "mathematical statistics"
+      ],
+      "salary_min": 120000,
+      "salary_max": 200000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Big Data Engineer",
+      "description": "Process and manage large-scale unstructured datasets.",
+      "skills": [
+        "cloud computing and big data",
+        "search and data mining",
+        "parallel computing",
+        "database systems",
+        "computer networks"
+      ],
+      "salary_min": 115000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "Statistician",
+      "description": "Apply statistical theory to study design and data analysis.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "mathematical statistics",
+        "probability theory",
+        "computational mathematics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Research Data Scientist",
+      "description": "Support scientific research with advanced data analysis.",
+      "skills": [
+        "introduction to statistical methods",
+        "machine learning",
+        "introduction to data mining",
+        "computational biology and bioinformatics",
+        "regression and experimental design"
+      ],
+      "salary_min": 95000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    }
+  ],
+  "Computer Engineering": [
+    {
+      "title": "Hardware Engineer",
+      "description": "Design computer chips, circuits, and electronic systems.",
+      "skills": [
+        "introduction to digital systems",
+        "computer systems design",
+        "introduction to vlsi systems",
+        "introduction to computer systems engineering",
+        "pcb"
+      ],
+      "salary_min": 95000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "FPGA/VLSI Engineer",
+      "description": "Program reconfigurable hardware and design integrated circuits.",
+      "skills": [
+        "introduction to vlsi systems",
+        "introduction to digital systems",
+        "pcb",
+        "computer systems design",
+        "embedded systems"
+      ],
+      "salary_min": 100000,
+      "salary_max": 165000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Firmware Engineer",
+      "description": "Develop low-level software for hardware devices.",
+      "skills": [
+        "embedded systems hardware",
+        "microprocessor systems",
+        "machine organization and assembly language",
+        "computer systems design",
+        "introduction to computer systems engineering"
+      ],
+      "salary_min": 95000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "IoT Systems Engineer",
+      "description": "Build connected device ecosystems and smart systems.",
+      "skills": [
+        "iot and embedded systems security",
+        "embedded systems",
+        "computer networks",
+        "microprocessor systems",
+        "introduction to computer systems engineering"
+      ],
+      "salary_min": 90000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Computer Architecture Engineer",
+      "description": "Design processor and memory system architectures.",
+      "skills": [
+        "computer architecture",
+        "computer systems design",
+        "high-performance computing",
+        "parallel computing",
+        "microprocessor systems"
+      ],
+      "salary_min": 115000,
+      "salary_max": 180000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Network Systems Engineer",
+      "description": "Design and implement high-performance network systems.",
+      "skills": [
+        "computer networks",
+        "introduction to computer systems engineering",
+        "computer architecture",
+        "cloud computing and big data",
+        "high-performance computing"
+      ],
+      "salary_min": 100000,
+      "salary_max": 160000,
+      "demand": "Medium"
+    }
+  ],
+  "Electrical Engineering": [
+    {
+      "title": "Electrical Design Engineer",
+      "description": "Design electrical systems and components.",
+      "skills": [
+        "introduction to digital systems",
+        "computer systems design",
+        "analog integrated circuit design",
+        "introduction to vlsi systems",
+        "pcb"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Power Systems Engineer",
+      "description": "Design and analyze electrical power systems.",
+      "skills": [
+        "field theory",
+        "communication systems engineering",
+        "digital control systems",
+        "opto-electronics",
+        "antenna theory"
+      ],
+      "salary_min": 90000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Control Systems Engineer",
+      "description": "Design feedback and automation control systems.",
+      "skills": [
+        "digital control systems",
+        "communication systems engineering",
+        "dynamics",
+        "advanced biomedical and pharmaceutical modeling",
+        "field theory"
+      ],
+      "salary_min": 90000,
+      "salary_max": 145000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Signal Processing Engineer",
+      "description": "Process and analyze digital and analog signals.",
+      "skills": [
+        "communication systems engineering",
+        "digital control systems",
+        "quantum mechanics",
+        "opto-electronics",
+        "field theory"
+      ],
+      "salary_min": 95000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Telecommunications Engineer",
+      "description": "Design and maintain wireless and wired communication networks.",
+      "skills": [
+        "communication systems engineering",
+        "computer networks",
+        "antenna theory",
+        "business telecommunication networks",
+        "digital control systems"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biomedical Electronics Engineer",
+      "description": "Design electronic systems for medical applications.",
+      "skills": [
+        "advanced biomedical and pharmaceutical modeling",
+        "digital forensics",
+        "introduction to digital systems",
+        "opto-electronics",
+        "computer systems design"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    }
+  ],
+  "Mechanical Engineering": [
+    {
+      "title": "Mechanical Design Engineer",
+      "description": "Design mechanical components, assemblies, and products.",
+      "skills": [
+        "machine design",
+        "statics",
+        "solid mechanics",
+        "introduction to mechanical engineering design",
+        "dynamics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Aerospace Engineer",
+      "description": "Design aircraft, spacecraft, and propulsion systems.",
+      "skills": [
+        "dynamics",
+        "statics",
+        "solid mechanics",
+        "control systems",
+        "thermodynamics"
+      ],
+      "salary_min": 90000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Manufacturing Engineer",
+      "description": "Optimize manufacturing processes for efficiency and quality.",
+      "skills": [
+        "machine design",
+        "statics",
+        "solid mechanics",
+        "introduction to mechanical engineering design",
+        "dynamics"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Robotics Mechanical Engineer",
+      "description": "Design physical structures and actuators for robots.",
+      "skills": [
+        "control systems",
+        "dynamics",
+        "statics",
+        "machine design",
+        "solid mechanics"
+      ],
+      "salary_min": 90000,
+      "salary_max": 150000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Thermal Systems Engineer",
+      "description": "Design heat transfer and energy conversion systems.",
+      "skills": [
+        "dynamics",
+        "solid mechanics",
+        "statics",
+        "control systems",
+        "machine design"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Product Development Engineer",
+      "description": "Lead end-to-end physical product development from concept to launch.",
+      "skills": [
+        "introduction to mechanical engineering design",
+        "machine design",
+        "statics",
+        "solid mechanics",
+        "dynamics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    }
+  ],
+  "Civil Engineering": [
+    {
+      "title": "Structural Engineer",
+      "description": "Design safe and efficient buildings, bridges, and infrastructure.",
+      "skills": [
+        "structural design",
+        "solid mechanics",
+        "statics",
+        "civil engineering materials",
+        "introduction to civil engineering design"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Transportation Engineer",
+      "description": "Plan and design roads, highways, and transit systems.",
+      "skills": [
+        "introduction to civil engineering design",
+        "statics",
+        "environmental engineering processes",
+        "civil engineering materials",
+        "solid mechanics"
+      ],
+      "salary_min": 72000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Geotechnical Engineer",
+      "description": "Analyze soil and rock properties for construction safety.",
+      "skills": [
+        "civil engineering materials",
+        "solid mechanics",
+        "statics",
+        "environmental engineering processes",
+        "introduction to civil engineering design"
+      ],
+      "salary_min": 72000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Water Resources Engineer",
+      "description": "Design systems for water supply, drainage, and flood control.",
+      "skills": [
+        "environmental engineering processes",
+        "introduction to civil engineering design",
+        "statics",
+        "civil engineering materials",
+        "solid mechanics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Construction Project Manager",
+      "description": "Manage construction projects from design to completion.",
+      "skills": [
+        "introduction to civil engineering design",
+        "structural design",
+        "civil engineering materials",
+        "solid mechanics",
+        "statics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Engineer",
+      "description": "Design solutions for water, air, and land contamination.",
+      "skills": [
+        "environmental engineering processes",
+        "introduction to civil engineering design",
+        "civil engineering materials",
+        "statics",
+        "solid mechanics"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    }
+  ],
+  "Chemical Engineering": [
+    {
+      "title": "Process Engineer",
+      "description": "Design and optimize chemical manufacturing processes.",
+      "skills": [
+        "organic chemistry",
+        "introduction to biochemistry",
+        "thermodynamics",
+        "instrumental methods",
+        "analytical chemistry"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Pharmaceutical Process Engineer",
+      "description": "Scale up drug manufacturing processes.",
+      "skills": [
+        "introduction to biochemistry",
+        "organic chemistry",
+        "pharmacology",
+        "instrumental methods",
+        "principles of biology"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Materials Scientist",
+      "description": "Develop new materials with targeted chemical properties.",
+      "skills": [
+        "organic chemistry",
+        "instrumental methods",
+        "introduction to biochemistry",
+        "thermodynamics",
+        "analytical chemistry"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Environmental Process Engineer",
+      "description": "Design clean processes that minimize industrial waste.",
+      "skills": [
+        "environmental engineering processes",
+        "organic chemistry",
+        "thermodynamics",
+        "principles of biology",
+        "analytical chemistry"
+      ],
+      "salary_min": 72000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biochemical Engineer",
+      "description": "Design processes using biological organisms and enzymes.",
+      "skills": [
+        "introduction to biochemistry",
+        "organic chemistry",
+        "principles of biology",
+        "computational biology",
+        "instrumental methods"
+      ],
+      "salary_min": 80000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    }
+  ],
+  "Biomedical Engineering": [
+    {
+      "title": "Biomedical Device Engineer",
+      "description": "Design medical devices such as pacemakers and diagnostic tools.",
+      "skills": [
+        "advanced biomedical and pharmaceutical modeling",
+        "introduction to digital systems",
+        "principles of biology",
+        "organic chemistry",
+        "introduction to computer vision"
+      ],
+      "salary_min": 80000,
+      "salary_max": 135000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Clinical Engineer",
+      "description": "Manage and maintain medical equipment in hospital settings.",
+      "skills": [
+        "advanced biomedical and pharmaceutical modeling",
+        "principles of biology",
+        "pharmacology",
+        "introduction to digital systems",
+        "pathophysiology"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Tissue Engineering Scientist",
+      "description": "Develop biological scaffolds for regenerative medicine.",
+      "skills": [
+        "computational biology and bioinformatics",
+        "introduction to biochemistry",
+        "principles of biology",
+        "organic chemistry",
+        "microbiology"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "Low"
+    },
+    {
+      "title": "Imaging Systems Engineer",
+      "description": "Develop MRI, CT, and ultrasound imaging technology.",
+      "skills": [
+        "introduction to computer vision",
+        "advanced biomedical and pharmaceutical modeling",
+        "introduction to digital systems",
+        "digital control systems",
+        "opto-electronics"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    }
+  ],
+  "Management Information Systems": [
+    {
+      "title": "IT Project Manager",
+      "description": "Lead technology projects using agile and project management methods.",
+      "skills": [
+        "it project management",
+        "information technology and organizational effectiveness",
+        "analyzing and designing it solutions",
+        "mis capstone",
+        "database management"
+      ],
+      "salary_min": 90000,
+      "salary_max": 145000,
+      "demand": "High"
+    },
+    {
+      "title": "Systems Analyst",
+      "description": "Analyze and design IT solutions for business problems.",
+      "skills": [
+        "analyzing and designing it solutions",
+        "introduction to management information systems",
+        "database management",
+        "business computing fundamentals",
+        "mis capstone"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "ERP Consultant",
+      "description": "Implement and configure enterprise resource planning systems.",
+      "skills": [
+        "analyzing and designing it solutions",
+        "database management",
+        "introduction to management information systems",
+        "information technology",
+        "business computing fundamentals"
+      ],
+      "salary_min": 85000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "IT Auditor",
+      "description": "Evaluate IT controls and compliance posture.",
+      "skills": [
+        "cybersecurity management",
+        "introduction to management information systems",
+        "analyzing and designing it solutions",
+        "information security",
+        "database management"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Technology Product Manager",
+      "description": "Define product vision and roadmap for technology products.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "analyzing and designing it solutions",
+        "introduction to management information systems",
+        "mis capstone",
+        "database management"
+      ],
+      "salary_min": 110000,
+      "salary_max": 175000,
+      "demand": "High"
+    },
+    {
+      "title": "IT Consultant",
+      "description": "Advise organizations on digital transformation strategy.",
+      "skills": [
+        "analyzing and designing it solutions",
+        "information technology and organizational effectiveness",
+        "introduction to management information systems",
+        "cybersecurity management",
+        "database management"
+      ],
+      "salary_min": 90000,
+      "salary_max": 150000,
+      "demand": "High"
+    },
+    {
+      "title": "Network Administrator",
+      "description": "Manage and maintain organizational network infrastructure.",
+      "skills": [
+        "business telecommunication networks",
+        "introduction to management information systems",
+        "database management",
+        "introduction to cybersecurity",
+        "information technology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "CIO / IT Director",
+      "description": "Executive leadership of an organization's technology strategy.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "analyzing and designing it solutions",
+        "cybersecurity management",
+        "mis capstone",
+        "introduction to management information systems"
+      ],
+      "salary_min": 150000,
+      "salary_max": 250000,
+      "demand": "Medium"
+    }
+  ],
+  "Finance": [
+    {
+      "title": "Investment Banking Analyst",
+      "description": "Advise companies on mergers, acquisitions, and capital raising.",
+      "skills": [
+        "principles of finance",
+        "advanced corporate finance",
+        "fixed income securities",
+        "fundamentals of finance",
+        "corporate governance"
+      ],
+      "salary_min": 100000,
+      "salary_max": 180000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Financial Analyst",
+      "description": "Analyze financial data to support investment decisions.",
+      "skills": [
+        "principles of finance",
+        "fundamentals of finance",
+        "advanced corporate finance",
+        "fixed income securities",
+        "accounting"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Portfolio Manager",
+      "description": "Manage investment portfolios for individuals and institutions.",
+      "skills": [
+        "fixed income securities",
+        "principles of finance",
+        "advanced corporate finance",
+        "fundamentals of finance",
+        "financial modeling"
+      ],
+      "salary_min": 100000,
+      "salary_max": 180000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Risk Analyst",
+      "description": "Identify and quantify financial and operational risks.",
+      "skills": [
+        "principles of finance",
+        "fundamentals of finance",
+        "advanced corporate finance",
+        "accounting",
+        "regression and experimental design"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "FinTech Developer",
+      "description": "Build software for banking and financial services.",
+      "skills": [
+        "principles of finance",
+        "fundamentals of finance",
+        "database systems",
+        "software engineering",
+        "algorithms"
+      ],
+      "salary_min": 110000,
+      "salary_max": 170000,
+      "demand": "High"
+    },
+    {
+      "title": "Actuary",
+      "description": "Use mathematics and statistics to assess financial risk.",
+      "skills": [
+        "probability theory",
+        "mathematical statistics",
+        "regression and experimental design",
+        "principles of finance",
+        "computational mathematics"
+      ],
+      "salary_min": 90000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Compliance Officer",
+      "description": "Ensure financial institutions meet all regulatory requirements.",
+      "skills": [
+        "law and social issues in business",
+        "principles of finance",
+        "fundamentals of finance",
+        "accounting",
+        "corporate governance"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "High"
+    }
+  ],
+  "Accounting": [
+    {
+      "title": "Certified Public Accountant (CPA)",
+      "description": "Provide tax, audit, and financial advisory services.",
+      "skills": [
+        "accounting",
+        "auditing",
+        "cost accounting",
+        "accounting information systems",
+        "law and social issues in business"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Forensic Accountant",
+      "description": "Investigate financial fraud and white-collar crime.",
+      "skills": [
+        "auditing",
+        "internal auditing",
+        "accounting",
+        "law and social issues in business",
+        "cost accounting"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Tax Specialist",
+      "description": "Prepare and optimize individual and corporate tax strategies.",
+      "skills": [
+        "accounting",
+        "auditing",
+        "law and social issues in business",
+        "cost accounting",
+        "accounting information systems"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Internal Auditor",
+      "description": "Evaluate internal controls and financial processes.",
+      "skills": [
+        "internal auditing",
+        "auditing",
+        "accounting",
+        "cost accounting",
+        "accounting information systems"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "High"
+    },
+    {
+      "title": "Management Accountant",
+      "description": "Provide financial insights to guide business strategy.",
+      "skills": [
+        "cost accounting",
+        "accounting",
+        "principles of finance",
+        "accounting information systems",
+        "survey of accounting"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "High"
+    }
+  ],
+  "Business Administration & Management": [
+    {
+      "title": "Management Consultant",
+      "description": "Help organizations improve performance and strategy.",
+      "skills": [
+        "analyzing and designing it solutions",
+        "information technology and organizational effectiveness",
+        "accounting",
+        "principles of finance",
+        "introduction to management information systems"
+      ],
+      "salary_min": 90000,
+      "salary_max": 160000,
+      "demand": "High"
+    },
+    {
+      "title": "Operations Manager",
+      "description": "Oversee day-to-day business operations.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "accounting",
+        "principles of finance",
+        "database management",
+        "business computing fundamentals"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Supply Chain Manager",
+      "description": "Optimize the flow of goods from suppliers to customers.",
+      "skills": [
+        "analyzing and designing it solutions",
+        "database management",
+        "information technology and organizational effectiveness",
+        "accounting",
+        "business computing fundamentals"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Human Resources Manager",
+      "description": "Recruit, develop, and retain organizational talent.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "accounting",
+        "introduction to management information systems",
+        "business computing fundamentals",
+        "organizational effectiveness"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Entrepreneur / Startup Founder",
+      "description": "Build and scale a new business venture.",
+      "skills": [
+        "principles of finance",
+        "fundamentals of finance",
+        "accounting",
+        "information technology and organizational effectiveness",
+        "introduction to management information systems"
+      ],
+      "salary_min": 0,
+      "salary_max": 0,
+      "demand": "High"
+    }
+  ],
+  "Marketing": [
+    {
+      "title": "Digital Marketing Manager",
+      "description": "Manage online marketing campaigns across SEO, SEM, and social.",
+      "skills": [
+        "introduction to computer science with web applications",
+        "advanced web technologies",
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "business computing fundamentals"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Market Research Analyst",
+      "description": "Gather and analyze data on consumer preferences and markets.",
+      "skills": [
+        "introduction to statistical methods",
+        "introduction to data mining",
+        "regression and experimental design",
+        "business computing fundamentals",
+        "introduction to algorithms"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Brand Manager",
+      "description": "Develop and protect a company's brand identity.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "introduction to management information systems",
+        "business computing fundamentals",
+        "introduction to statistical methods",
+        "accounting"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Growth Analyst",
+      "description": "Use data-driven tactics to grow user acquisition.",
+      "skills": [
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "database systems",
+        "machine learning",
+        "business computing fundamentals"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "High"
+    }
+  ],
+  "Economics": [
+    {
+      "title": "Economist",
+      "description": "Analyze markets, policy impacts, and economic trends.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "probability theory",
+        "computational mathematics",
+        "mathematical statistics"
+      ],
+      "salary_min": 80000,
+      "salary_max": 140000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Economic Research Analyst",
+      "description": "Conduct economic research for governments or think tanks.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "mathematical statistics",
+        "computational mathematics",
+        "introduction to algorithms"
+      ],
+      "salary_min": 70000,
+      "salary_max": 115000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Financial Data Analyst",
+      "description": "Analyze economic and financial datasets.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "introduction to data mining",
+        "database systems",
+        "principles of finance"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Quantitative Economist",
+      "description": "Apply quantitative methods to economic modeling.",
+      "skills": [
+        "mathematical statistics",
+        "probability theory",
+        "regression and experimental design",
+        "computational mathematics",
+        "introduction to statistical methods"
+      ],
+      "salary_min": 90000,
+      "salary_max": 155000,
+      "demand": "Medium"
+    }
+  ],
+  "Health Sciences": [
+    {
+      "title": "Registered Nurse (RN)",
+      "description": "Provide direct patient care in hospital and clinical settings.",
+      "skills": [
+        "pharmacology across the lifespan",
+        "pathophysiology",
+        "clinical decision making",
+        "human anatomy",
+        "women's health"
+      ],
+      "salary_min": 65000,
+      "salary_max": 100000,
+      "demand": "High"
+    },
+    {
+      "title": "Nurse Practitioner",
+      "description": "Provide advanced clinical care including diagnoses.",
+      "skills": [
+        "pharmacology across the lifespan",
+        "pathophysiology",
+        "clinical decision making",
+        "healthcare research",
+        "human anatomy"
+      ],
+      "salary_min": 100000,
+      "salary_max": 140000,
+      "demand": "High"
+    },
+    {
+      "title": "Healthcare Administrator",
+      "description": "Manage hospital departments and healthcare operations.",
+      "skills": [
+        "clinical decision making",
+        "healthcare research",
+        "information technology and organizational effectiveness",
+        "accounting",
+        "management"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Public Health Analyst",
+      "description": "Analyze population health data to guide public policy.",
+      "skills": [
+        "introduction to statistical methods",
+        "healthcare research",
+        "regression and experimental design",
+        "pathophysiology",
+        "epidemiology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Health Informatics Specialist",
+      "description": "Bridge healthcare and IT to manage medical data systems.",
+      "skills": [
+        "database management",
+        "introduction to management information systems",
+        "healthcare research",
+        "clinical decision making",
+        "analyzing and designing it solutions"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "High"
+    },
+    {
+      "title": "Clinical Research Coordinator",
+      "description": "Manage clinical trials and research protocols.",
+      "skills": [
+        "healthcare research",
+        "pathophysiology",
+        "pharmacology across the lifespan",
+        "clinical decision making",
+        "principles of biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 90000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Pharmacist",
+      "description": "Dispense medications and advise patients on drug therapy.",
+      "skills": [
+        "pharmacology across the lifespan",
+        "pathophysiology",
+        "introduction to biochemistry",
+        "organic chemistry",
+        "principles of biology"
+      ],
+      "salary_min": 115000,
+      "salary_max": 145000,
+      "demand": "High"
+    }
+  ],
+  "Biological Sciences": [
+    {
+      "title": "Research Scientist (Biology)",
+      "description": "Conduct laboratory research in biology and life sciences.",
+      "skills": [
+        "principles of biology",
+        "microbiology",
+        "genetics",
+        "computational biology",
+        "human heredity and development"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Geneticist",
+      "description": "Study genes and heredity in organisms.",
+      "skills": [
+        "human heredity and development",
+        "principles of biology",
+        "computational biology and bioinformatics",
+        "microbiology",
+        "introduction to biochemistry"
+      ],
+      "salary_min": 70000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Microbiologist",
+      "description": "Study microorganisms including bacteria and viruses.",
+      "skills": [
+        "microbiology",
+        "viruses, genes and cancer",
+        "principles of biology",
+        "introduction to biochemistry",
+        "human heredity and development"
+      ],
+      "salary_min": 65000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Biotechnology Scientist",
+      "description": "Develop biological products and processes for industry.",
+      "skills": [
+        "computational biology and bioinformatics",
+        "introduction to biochemistry",
+        "principles of biology",
+        "microbiology",
+        "organic chemistry"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Ecologist",
+      "description": "Study organisms and their interactions with ecosystems.",
+      "skills": [
+        "elementary evolutionary ecology",
+        "principles of biology",
+        "human heredity and development",
+        "microbiology",
+        "computational biology"
+      ],
+      "salary_min": 55000,
+      "salary_max": 90000,
+      "demand": "Medium"
+    }
+  ],
+  "Chemistry": [
+    {
+      "title": "Research Chemist",
+      "description": "Perform basic and applied research in chemistry.",
+      "skills": [
+        "organic chemistry",
+        "instrumental methods",
+        "introduction to biochemistry",
+        "organic chemistry majors laboratory",
+        "analytical chemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Analytical Chemist",
+      "description": "Develop methods to identify and quantify chemical compounds.",
+      "skills": [
+        "instrumental methods",
+        "organic chemistry",
+        "organic chemistry majors laboratory",
+        "introduction to biochemistry",
+        "analytical chemistry"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Pharmaceutical Chemist",
+      "description": "Develop and test drug compounds for medical use.",
+      "skills": [
+        "organic chemistry",
+        "introduction to biochemistry",
+        "pharmacology",
+        "instrumental methods",
+        "principles of biology"
+      ],
+      "salary_min": 75000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Quality Control Chemist",
+      "description": "Ensure product quality through chemical testing.",
+      "skills": [
+        "instrumental methods",
+        "organic chemistry",
+        "introduction to biochemistry",
+        "analytical chemistry",
+        "principles of biology"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    }
+  ],
+  "Education": [
+    {
+      "title": "K-12 Teacher",
+      "description": "Teach students in elementary, middle, or high school.",
+      "skills": [
+        "methods for teaching",
+        "introduction to computer science",
+        "educational game development",
+        "engaging youth in computing",
+        "principles of computing"
+      ],
+      "salary_min": 45000,
+      "salary_max": 75000,
+      "demand": "High"
+    },
+    {
+      "title": "Instructional Designer",
+      "description": "Design learning experiences and digital curricula.",
+      "skills": [
+        "educational game development",
+        "introduction to computer science with web applications",
+        "methods for teaching",
+        "human-computer interaction",
+        "engaging youth in computing"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "EdTech Developer",
+      "description": "Build educational software and online learning platforms.",
+      "skills": [
+        "educational game development",
+        "development of assistive technology",
+        "introduction to computer science with web applications",
+        "software engineering",
+        "human-computer interaction"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Special Education Teacher",
+      "description": "Work with students who have learning disabilities.",
+      "skills": [
+        "development of assistive technology",
+        "methods for teaching",
+        "human-computer interaction",
+        "educational game development",
+        "principles of computing"
+      ],
+      "salary_min": 45000,
+      "salary_max": 75000,
+      "demand": "High"
+    }
+  ],
+  "Communication": [
+    {
+      "title": "Journalist / Reporter",
+      "description": "Research and report news stories for media outlets.",
+      "skills": [
+        "introduction to computer science with web applications",
+        "logic for programming",
+        "advanced web technologies",
+        "computers, ethics and society",
+        "principles of computing"
+      ],
+      "salary_min": 40000,
+      "salary_max": 80000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Technical Writer",
+      "description": "Create clear documentation for complex technical products.",
+      "skills": [
+        "software engineering",
+        "computers, ethics and society",
+        "introduction to computer science",
+        "advanced web technologies",
+        "human-computer interaction"
+      ],
+      "salary_min": 65000,
+      "salary_max": 110000,
+      "demand": "High"
+    },
+    {
+      "title": "Social Media Manager",
+      "description": "Grow and manage an organization's social media presence.",
+      "skills": [
+        "introduction to computer science with web applications",
+        "advanced web technologies",
+        "introduction to data mining",
+        "human-computer interaction",
+        "principles of computing"
+      ],
+      "salary_min": 50000,
+      "salary_max": 90000,
+      "demand": "High"
+    },
+    {
+      "title": "UX Writer",
+      "description": "Write interface copy that guides users through digital products.",
+      "skills": [
+        "human-computer interaction",
+        "introduction to computer science with web applications",
+        "advanced web technologies",
+        "software engineering",
+        "development of assistive technology"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "Medium"
+    }
+  ],
+  "Political Science & Public Policy": [
+    {
+      "title": "Policy Analyst",
+      "description": "Research and evaluate government policies and regulations.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "computers, ethics and society",
+        "logic for programming",
+        "introduction to data mining"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Legislative Aide",
+      "description": "Assist elected officials with research and policy work.",
+      "skills": [
+        "computers, ethics and society",
+        "intellectual property in the digital age",
+        "introduction to statistical methods",
+        "logic for programming",
+        "research"
+      ],
+      "salary_min": 40000,
+      "salary_max": 75000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Nonprofit Program Manager",
+      "description": "Manage programs and measure impact for nonprofits.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "introduction to statistical methods",
+        "computers, ethics and society",
+        "introduction to management information systems",
+        "database management"
+      ],
+      "salary_min": 50000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    }
+  ],
+  "Psychology": [
+    {
+      "title": "Human Factors / UX Researcher",
+      "description": "Study how people interact with technology and design.",
+      "skills": [
+        "introduction to human-computer interaction",
+        "development of assistive technology",
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "regression and experimental design"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "High"
+    },
+    {
+      "title": "Industrial-Organizational Psychologist",
+      "description": "Apply psychology to workplace productivity and culture.",
+      "skills": [
+        "information technology and organizational effectiveness",
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "introduction to data mining",
+        "human-computer interaction"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Behavioral Data Analyst",
+      "description": "Analyze user behavior data for product improvement.",
+      "skills": [
+        "introduction to data mining",
+        "introduction to statistical methods",
+        "machine learning",
+        "regression and experimental design",
+        "introduction to human-computer interaction"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "Medium"
+    }
+  ],
+  "Environmental Science": [
+    {
+      "title": "Environmental Consultant",
+      "description": "Advise clients on environmental compliance and sustainability.",
+      "skills": [
+        "environmental engineering processes",
+        "principles of biology",
+        "elementary evolutionary ecology",
+        "introduction to statistical methods",
+        "organic chemistry"
+      ],
+      "salary_min": 60000,
+      "salary_max": 100000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Climate / Data Scientist",
+      "description": "Study climate systems and apply data science to environmental monitoring.",
+      "skills": [
+        "introduction to statistical methods",
+        "regression and experimental design",
+        "introduction to data mining",
+        "machine learning",
+        "environmental engineering processes"
+      ],
+      "salary_min": 80000,
+      "salary_max": 130000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Sustainability Manager",
+      "description": "Lead corporate sustainability programs and reporting.",
+      "skills": [
+        "environmental engineering processes",
+        "computers, ethics and society",
+        "information technology and organizational effectiveness",
+        "introduction to statistical methods",
+        "principles of biology"
+      ],
+      "salary_min": 75000,
+      "salary_max": 120000,
+      "demand": "High"
+    }
+  ],
+  "Agricultural Sciences": [
+    {
+      "title": "Agricultural Engineer",
+      "description": "Design farming equipment and irrigation systems.",
+      "skills": [
+        "principles of biology",
+        "organic chemistry",
+        "statics",
+        "introduction to statistical methods",
+        "environmental engineering processes"
+      ],
+      "salary_min": 65000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Food Scientist",
+      "description": "Develop and improve food products and safety standards.",
+      "skills": [
+        "introduction to biochemistry",
+        "organic chemistry",
+        "principles of biology",
+        "instrumental methods",
+        "microbiology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Agricultural Data Analyst",
+      "description": "Use data science to optimize farming operations.",
+      "skills": [
+        "introduction to statistical methods",
+        "introduction to data mining",
+        "regression and experimental design",
+        "machine learning",
+        "principles of biology"
+      ],
+      "salary_min": 65000,
+      "salary_max": 105000,
+      "demand": "Medium"
+    }
+  ],
+  "Criminal Justice": [
+    {
+      "title": "Law Enforcement Officer",
+      "description": "Enforce laws and protect communities.",
+      "skills": [
+        "criminology",
+        "introduction to legal studies",
+        "social deviance",
+        "juvenile delinquency",
+        "law and society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 90000,
+      "demand": "High"
+    },
+    {
+      "title": "Cybercrime Investigator",
+      "description": "Investigate digital crimes and gather electronic evidence.",
+      "skills": [
+        "digital forensics",
+        "introduction to cybersecurity",
+        "criminology",
+        "pen test and reverse engineering",
+        "introduction to legal studies"
+      ],
+      "salary_min": 75000,
+      "salary_max": 125000,
+      "demand": "High"
+    },
+    {
+      "title": "Paralegal",
+      "description": "Assist lawyers with legal research and case preparation.",
+      "skills": [
+        "introduction to legal studies",
+        "law and society",
+        "criminology",
+        "law and social issues in business",
+        "intellectual property in the digital age"
+      ],
+      "salary_min": 50000,
+      "salary_max": 85000,
+      "demand": "Medium"
+    },
+    {
+      "title": "Criminologist",
+      "description": "Study crime patterns and prevention strategies.",
+      "skills": [
+        "criminology",
+        "social deviance",
+        "juvenile delinquency",
+        "introduction to statistical methods",
+        "law and society"
+      ],
+      "salary_min": 55000,
+      "salary_max": 90000,
+      "demand": "Medium"
+    }
+  ]
+}

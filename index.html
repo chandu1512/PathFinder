@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFinder | UDel Career Mapper</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue:       #00539F;
+            --blue-dark:  #003366;
+            --blue-deep:  #001f3f;
+            --gold:       #FFD200;
+            --gold-dark:  #e6bc00;
+            --white:      #ffffff;
+            --gray-50:    #f8f9fb;
+            --gray-100:   #f1f3f6;
+            --gray-200:   #e4e8ee;
+            --gray-400:   #9aa3b0;
+            --gray-600:   #5a6374;
+            --gray-800:   #1e2532;
+            --green:      #16a34a;
+            --radius-sm:  6px;
+            --radius-md:  12px;
+            --radius-lg:  20px;
+            --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
+            --shadow-md:  0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg:  0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── ANNOUNCEMENT BAR ── */
+        .announce-bar {
+            background: var(--blue-deep);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            font-size: 0.78rem;
+            padding: 8px 20px;
+            letter-spacing: 0.3px;
+        }
+        .announce-bar strong { color: var(--gold); }
+
+        /* ── NAVIGATION ── */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1rem;
+        }
+        .nav-brand-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            letter-spacing: -0.3px;
+        }
+        .nav-brand-text span { color: var(--blue); }
+        .nav-center {
+            display: flex;
+            gap: 4px;
+        }
+        .nav-center a {
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+        .nav-center a:hover { background: var(--gray-100); color: var(--blue); }
+        .nav-center a.active {
+            background: #e8f0fb;
+            color: var(--blue);
+            font-weight: 600;
+        }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .btn-ghost {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 8px 18px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+        .btn-primary:hover { background: var(--blue-dark); }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-dark) 50%, #004080 100%);
+            padding: 90px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,210,0,0.15);
+            border: 1px solid rgba(255,210,0,0.3);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 18px;
+        }
+        .hero h1 span { color: var(--gold); }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.72);
+            max-width: 580px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .search-wrap {
+            max-width: 580px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-wrap i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 16px 20px 16px 46px;
+            font-size: 0.975rem;
+            font-family: inherit;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            outline: none;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            transition: box-shadow 0.2s;
+            color: var(--gray-800);
+        }
+        .search-wrap input:focus { box-shadow: 0 4px 24px rgba(0,0,0,0.25), 0 0 0 3px rgba(0,83,159,0.2); }
+        .search-wrap input::placeholder { color: var(--gray-400); }
+
+        /* ── STATS ROW ── */
+        .stats-bar {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .stats-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            border-right: 1px solid var(--gray-200);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            background: #e8f0fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .stat-label { font-size: 0.72rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .stat-val { font-size: 1.1rem; font-weight: 800; color: var(--gray-800); line-height: 1.2; }
+
+        /* ── FILTER TABS ── */
+        .filter-section {
+            max-width: 1280px;
+            margin: 40px auto 0;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .filter-tabs {
+            display: flex;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 4px;
+            gap: 2px;
+            box-shadow: var(--shadow-sm);
+        }
+        .filter-tab {
+            padding: 8px 20px;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .filter-tab:hover { color: var(--blue); }
+        .filter-tab.active {
+            background: var(--blue);
+            color: var(--white);
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,83,159,0.25);
+        }
+        .filter-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--gray-400);
+        }
+        .results-count { font-weight: 600; color: var(--gray-800); }
+
+        /* ── MAIN CONTENT ── */
+        .main {
+            max-width: 1280px;
+            margin: 32px auto 80px;
+            padding: 0 32px;
+        }
+
+        /* ── MAJOR SECTION ── */
+        .major-section { margin-bottom: 56px; }
+        .major-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gray-200);
+        }
+        .major-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .major-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--blue-dark);
+            letter-spacing: -0.3px;
+        }
+        .major-count {
+            margin-left: auto;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--gray-400);
+            background: var(--gray-100);
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+
+        /* ── JOBS GRID ── */
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── JOB CARD ── */
+        .job-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.2s ease;
+        }
+        .job-card:hover {
+            border-color: #c5d8f0;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .job-card:hover::before { transform: scaleX(1); }
+        .job-card.active::before { transform: scaleX(1); background: var(--gold-dark); }
+
+        .job-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .job-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gray-800);
+            line-height: 1.3;
+        }
+        .job-chevron {
+            color: var(--gray-400);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 4px;
+            transition: transform 0.25s ease, color 0.15s;
+        }
+        .job-card.active .job-chevron {
+            transform: rotate(180deg);
+            color: var(--blue);
+        }
+        .job-desc {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+        .job-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+            font-size: 0.8rem;
+        }
+        .meta-salary {
+            font-weight: 700;
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .meta-salary i { font-size: 0.7rem; }
+        .meta-demand {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-roadmap {
+            margin-left: auto;
+            background: var(--blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 5px 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background 0.15s;
+        }
+        .btn-roadmap:hover { background: var(--blue-dark); }
+
+        /* ── ROADMAP MODAL ── */
+        #roadmap-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #roadmap-overlay.open { display: flex; }
+        #roadmap-modal {
+            background: white;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        #roadmap-header {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            color: white;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        #roadmap-header h2 { font-size: 1.1rem; font-weight: 700; }
+        #roadmap-header p { font-size: 0.82rem; color: rgba(255,255,255,0.75); margin-top: 3px; }
+        #roadmap-close {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #roadmap-form {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .roadmap-field { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 130px; }
+        .roadmap-field label { font-size: 0.75rem; font-weight: 600; color: var(--gray-600); }
+        .roadmap-field select, .roadmap-field input {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 8px 10px;
+            font-size: 0.875rem;
+            font-family: inherit;
+            outline: none;
+            color: var(--gray-800);
+        }
+        .roadmap-field select:focus, .roadmap-field input:focus { border-color: var(--blue); }
+        #btn-gen-roadmap {
+            background: var(--blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 9px 18px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        #btn-gen-roadmap:hover { background: var(--blue-dark); }
+        #btn-gen-roadmap:disabled { background: var(--gray-200); cursor: not-allowed; }
+        #roadmap-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--gray-800);
+            white-space: pre-wrap;
+        }
+        #roadmap-body .placeholder {
+            color: var(--gray-400);
+            text-align: center;
+            padding: 40px 0;
+            font-style: italic;
+        }
+        #roadmap-body strong { color: var(--blue-dark); }
+
+        .job-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .job-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 999px;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            border: 1px solid var(--gray-200);
+        }
+
+        /* ── COURSE ACCORDION ── */
+        .course-list {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray-200);
+            animation: slideDown 0.25s ease;
+        }
+        .course-section-label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--gray-400);
+            margin-bottom: 10px;
+            margin-top: 16px;
+        }
+        .course-section-label:first-child { margin-top: 0; }
+        .course-section-label i { font-size: 0.75rem; }
+        .course-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            padding: 9px 12px;
+            margin-bottom: 7px;
+            font-size: 0.845rem;
+            font-weight: 500;
+            color: var(--gray-800);
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .course-chip:hover { background: #eef4fb; border-color: #b8d0ed; }
+        .course-chip i { color: var(--blue); font-size: 0.8rem; flex-shrink: 0; }
+        .grad-chip { background: #fffbea; border-color: #f5e68a; }
+        .grad-chip i { color: var(--gold-dark); }
+        .no-match {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            font-style: italic;
+            padding: 6px 0;
+        }
+
+        /* ── FILTERING ── */
+        #app-container.view-ug .grad-section { display: none !important; }
+        #app-container.view-grad .ug-section { display: none !important; }
+        .hidden { display: none !important; }
+
+        /* ── LOADING ── */
+        .loading-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--gray-400);
+        }
+        .loading-state .spinner {
+            width: 40px; height: 40px;
+            border: 3px solid var(--gray-200);
+            border-top-color: var(--blue);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            margin: 0 auto 16px;
+        }
+        .loading-state p { font-size: 0.95rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--blue-deep);
+            color: rgba(255,255,255,0.6);
+            padding: 48px 32px 32px;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .footer-brand .nav-logo { width: 30px; height: 30px; font-size: 0.85rem; }
+        .footer-copy { font-size: 0.82rem; }
+        .footer-links { display: flex; gap: 20px; }
+        .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); text-decoration: none; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            margin: 24px auto 0;
+            max-width: 1280px;
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 16px auto 0;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
+            text-align: center;
+        }
+
+        /* ── CHAT WIDGET ── */
+        #chat-toggle {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,83,159,0.4);
+            z-index: 9999;
+            transition: background 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chat-toggle:hover { background: var(--blue-dark); transform: scale(1.05); }
+
+        #chat-window {
+            position: fixed;
+            bottom: 96px;
+            right: 28px;
+            width: 370px;
+            height: 520px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            flex-direction: column;
+            z-index: 9998;
+            overflow: hidden;
+            border: 1px solid var(--gray-200);
+        }
+        #chat-header {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            color: var(--white);
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-avatar {
+            width: 34px;
+            height: 34px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .chat-header-info { flex: 1; }
+        .chat-header-name { font-size: 0.9rem; font-weight: 700; }
+        .chat-header-status { font-size: 0.72rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 5px; }
+        .chat-status-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; }
+        #chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scroll-behavior: smooth;
+        }
+        .chat-msg {
+            max-width: 82%;
+            padding: 10px 13px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            line-height: 1.55;
+            white-space: pre-wrap;
+        }
+        .chat-msg.user {
+            background: var(--blue);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-msg.assistant {
+            background: var(--gray-100);
+            color: var(--gray-800);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--gray-200);
+        }
+        .chat-msg.typing { color: var(--gray-400); font-style: italic; }
+        #chat-input-row {
+            padding: 12px;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            gap: 8px;
+            background: var(--white);
+        }
+        #chat-input {
+            flex: 1;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 9px 14px;
+            font-size: 0.875rem;
+            font-family: inherit;
+            outline: none;
+            color: var(--gray-800);
+            transition: border-color 0.15s;
+        }
+        #chat-input:focus { border-color: var(--blue); }
+        #chat-send {
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            width: 38px;
+            height: 38px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            transition: background 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #chat-send:hover { background: var(--blue-dark); }
+        #chat-send:disabled { background: var(--gray-200); cursor: not-allowed; }
+
+        /* ── ANIMATIONS ── */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .nav-center { display: none; }
+            .stat-item { padding: 14px 20px; }
+            .filter-section { margin-top: 24px; }
+            .main { padding: 0 16px; }
+            #chat-window { width: calc(100vw - 32px); right: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announce-bar">
+        <strong>New:</strong> PathFinder AI now answers any question — career advice, course planning, and more.
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
+                <span class="nav-brand-text">Path<span>Finder</span></span>
+            </a>
+            <div class="nav-center">
+                <a href="#" id="nav-all" class="active" onclick="setView('all'); return false;">All Programs</a>
+                <a href="#" id="nav-ug" onclick="setView('ug'); return false;">Undergraduate</a>
+                <a href="#" id="nav-grad" onclick="setView('grad'); return false;">Graduate</a>
+            </div>
+            <div class="nav-right">
+                <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping</div>
+            <h1>From <span>Courses</span> to<br>Career Outcomes</h1>
+            <p class="hero-sub">Discover the exact UDel courses that lead to the job you want. Built for CS, AI, Cybersecurity, Data Science, and MIS students.</p>
+            <div class="search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search careers — e.g. Penetration Tester, Data Scientist..." onkeyup="filterJobs()">
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div>
+                    <div class="stat-label">Career Paths</div>
+                    <div class="stat-val" id="stat-jobs">—</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
+                <div>
+                    <div class="stat-label">UDel Courses</div>
+                    <div class="stat-val" id="stat-courses">—</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div>
+                    <div class="stat-label">Programs</div>
+                    <div class="stat-val" id="stat-majors">—</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <div class="stat-label">AI Assistant</div>
+                    <div class="stat-val" style="color:var(--green);">Online</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTER + RESULTS ROW -->
+    <div class="filter-section">
+        <div class="filter-tabs">
+            <button class="filter-tab active" id="tab-all" onclick="setView('all')">All Programs</button>
+            <button class="filter-tab" id="tab-ug" onclick="setView('ug')">Undergraduate</button>
+            <button class="filter-tab" id="tab-grad" onclick="setView('grad')">Graduate</button>
+        </div>
+        <div class="filter-right">
+            Showing <span class="results-count" id="visible-count">—</span> career paths
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main" id="app-container">
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading career paths from UDel catalog...</p>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
+                PathFinder
+            </div>
+            <div class="footer-copy">Designed for University of Delaware students in technology programs.</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Courses</a>
+                <a href="#">Careers</a>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <p class="footer-bottom">&copy; 2026 PathFinder &mdash; Data sourced from the University of Delaware Course Catalog</p>
+    </footer>
+
+    <!-- ROADMAP MODAL -->
+    <div id="roadmap-overlay" onclick="if(event.target===this) closeRoadmap()">
+        <div id="roadmap-modal">
+            <div id="roadmap-header">
+                <div>
+                    <h2 id="roadmap-title">Semester Roadmap</h2>
+                    <p id="roadmap-subtitle">Personalized course plan for your career goal</p>
+                </div>
+                <button id="roadmap-close" onclick="closeRoadmap()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="roadmap-form">
+                <div class="roadmap-field">
+                    <label>Current Year</label>
+                    <select id="roadmap-year">
+                        <option>Freshman</option>
+                        <option>Sophomore</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                        <option>Graduate Student</option>
+                    </select>
+                </div>
+                <div class="roadmap-field" style="flex:2">
+                    <label>Courses Already Completed (optional)</label>
+                    <input type="text" id="roadmap-completed" placeholder="e.g. CISC 108, CISC 181, MATH 241">
+                </div>
+                <button id="btn-gen-roadmap" onclick="generateRoadmap()">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+                </button>
+            </div>
+            <div id="roadmap-body">
+                <div class="placeholder">Fill in your details above and click Generate to get your personalized roadmap.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAT WIDGET -->
+    <button id="chat-toggle" onclick="toggleChat()" title="Ask PathFinder AI">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <div id="chat-window">
+        <div id="chat-header">
+            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="chat-header-info">
+                <div class="chat-header-name">PathFinder AI</div>
+                <div class="chat-header-status"><span class="chat-status-dot"></span> Online &mdash; Ask me anything</div>
+            </div>
+        </div>
+        <div id="chat-messages">
+            <div class="chat-msg assistant">Hi! I'm PathFinder AI. I know every UDel course and career path in this tool — but I can also answer any general question. What would you like to know?</div>
+        </div>
+        <div id="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Ask anything..." onkeydown="if(event.key==='Enter') sendMessage()" />
+            <button id="chat-send" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        let globalData = {};
+        let chatHistory = [];
+        let chatOpen = false;
+
+        const MAJOR_ICONS = {
+            'Computer Science': 'fa-code',
+            'Artificial Intelligence': 'fa-brain',
+            'Cybersecurity Engineering': 'fa-shield-halved',
+            'Data Science': 'fa-chart-bar',
+            'Management Information Systems': 'fa-sitemap',
+            'Business Administration & Management': 'fa-briefcase',
+            'Finance': 'fa-dollar-sign',
+            'Accounting': 'fa-calculator',
+            'Marketing': 'fa-bullhorn',
+            'Economics': 'fa-chart-line',
+            'Computer Engineering': 'fa-microchip',
+            'Electrical Engineering': 'fa-bolt',
+            'Mechanical Engineering': 'fa-gear',
+            'Civil Engineering': 'fa-building',
+            'Chemical Engineering': 'fa-flask',
+            'Biomedical Engineering': 'fa-heart-pulse',
+            'Health Sciences': 'fa-stethoscope',
+            'Biological Sciences': 'fa-dna',
+            'Chemistry': 'fa-atom',
+            'Education': 'fa-chalkboard-user',
+            'Communication': 'fa-comments',
+            'Political Science & Public Policy': 'fa-landmark',
+            'Psychology': 'fa-brain',
+            'Environmental Science': 'fa-leaf',
+            'Agricultural Sciences': 'fa-seedling',
+            'Criminal Justice': 'fa-scale-balanced',
+        };
+
+        // ── DATA LOAD ──
+        async function loadData() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/career-paths');
+                globalData = await response.json();
+                renderDashboard(globalData);
+                updateStats();
+            } catch (error) {
+                document.getElementById('app-container').innerHTML =
+                    '<div class="loading-state" style="color:#d93025;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;margin-bottom:12px;display:block;"></i><p>Could not connect to the PathFinder server.<br>Make sure <strong>app.py</strong> is running.</p></div>';
+            }
+        }
+
+        function updateStats() {
+            let totalJobs = 0;
+            const majors = Object.keys(globalData).length;
+            Object.values(globalData).forEach(jobs => totalJobs += jobs.length);
+            document.getElementById('stat-jobs').textContent = totalJobs;
+            document.getElementById('stat-majors').textContent = majors;
+            document.getElementById('stat-courses').textContent = '200+';
+            updateVisibleCount();
+        }
+
+        function updateVisibleCount() {
+            const visible = document.querySelectorAll('.job-card:not(.hidden)').length;
+            document.getElementById('visible-count').textContent = visible;
+        }
+
+        // ── VIEW FILTER ──
+        function setView(viewType) {
+            ['all','ug','grad'].forEach(v => {
+                document.getElementById('nav-' + v)?.classList.remove('active');
+                document.getElementById('tab-' + v)?.classList.remove('active');
+            });
+            document.getElementById('nav-' + viewType)?.classList.add('active');
+            document.getElementById('tab-' + viewType)?.classList.add('active');
+
+            const container = document.getElementById('app-container');
+            container.classList.remove('view-ug', 'view-grad');
+            if (viewType === 'ug') container.classList.add('view-ug');
+            if (viewType === 'grad') container.classList.add('view-grad');
+            updateVisibleCount();
+        }
+
+        // ── ACCORDION ──
+        function toggleCourses(cardElement, jobId) {
+            const courseList = document.getElementById(jobId);
+            const isOpen = cardElement.classList.toggle('active');
+            courseList.style.display = isOpen ? 'block' : 'none';
+        }
+
+        // ── RENDER ──
+        function renderDashboard(data) {
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+            let jobIdCounter = 0;
+
+            for (const [major, jobs] of Object.entries(data)) {
+                const icon = MAJOR_ICONS[major] || 'fa-layer-group';
+                const sectionId = major.replace(/[\s()&/]+/g, '-');
+
+                let ugHtmlAll = '', gradHtmlAll = '';
+
+                let jobsHtml = '';
+                jobs.forEach(job => {
+                    const jobId = `job-${jobIdCounter++}`;
+
+                    let ugHtml = '<div class="ug-section">';
+                    ugHtml += '<div class="course-section-label"><i class="fa-solid fa-book"></i> Undergraduate Recommendations</div>';
+                    if (job.undergrad_courses && job.undergrad_courses.length > 0) {
+                        job.undergrad_courses.forEach(c => {
+                            ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                        });
+                    } else {
+                        ugHtml += `<p class="no-match">No undergraduate course matches found.</p>`;
+                    }
+                    ugHtml += '</div>';
+
+                    let gradHtml = '<div class="grad-section">';
+                    gradHtml += '<div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-graduation-cap"></i> Graduate Recommendations</div>';
+                    if (job.grad_courses && job.grad_courses.length > 0) {
+                        job.grad_courses.forEach(c => {
+                            gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                        });
+                    } else {
+                        gradHtml += `<p class="no-match">No graduate course matches found.</p>`;
+                    }
+                    gradHtml += '</div>';
+
+                    // Salary + demand
+                    const salaryStr = (job.salary_min && job.salary_max && job.salary_min > 0)
+                        ? `$${(job.salary_min/1000).toFixed(0)}k – $${(job.salary_max/1000).toFixed(0)}k`
+                        : 'Varies';
+                    const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
+
+                    jobsHtml += `
+                        <div class="job-card" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" onclick="toggleCourses(this, '${jobId}')">
+                            <div class="job-card-header">
+                                <h3 class="job-title">${job.title}</h3>
+                                <i class="fa-solid fa-chevron-down job-chevron"></i>
+                            </div>
+                            <p class="job-desc">${job.description}</p>
+                            <div class="job-meta">
+                                <span class="meta-salary"><i class="fa-solid fa-dollar-sign"></i> ${salaryStr}</span>
+                                <span class="meta-demand" style="color:${demandColor}"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> ${job.demand} Demand</span>
+                                <button class="btn-roadmap" onclick="event.stopPropagation(); openRoadmap('${major}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-route"></i> Roadmap
+                                </button>
+                            </div>
+                            <div class="course-list" id="${jobId}">
+                                ${ugHtml}
+                                ${gradHtml}
+                            </div>
+                        </div>`;
+                });
+
+                container.innerHTML += `
+                    <div class="major-section" id="section-${sectionId}">
+                        <div class="major-header">
+                            <div class="major-icon"><i class="fa-solid ${icon}"></i></div>
+                            <h2 class="major-title">${major}</h2>
+                            <span class="major-count">${jobs.length} careers</span>
+                        </div>
+                        <div class="jobs-grid">${jobsHtml}</div>
+                    </div>`;
+            }
+        }
+
+        // ── SEARCH ──
+        function filterJobs() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.major-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.job-card').forEach(card => {
+                    const match = card.getAttribute('data-search').includes(query);
+                    card.classList.toggle('hidden', !match);
+                    if (match) hasVisible = true;
+                });
+                section.classList.toggle('hidden', !hasVisible);
+            });
+            updateVisibleCount();
+        }
+
+        // ── CHAT ──
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            const win = document.getElementById('chat-window');
+            const btn = document.getElementById('chat-toggle');
+            win.style.display = chatOpen ? 'flex' : 'none';
+            btn.innerHTML = chatOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-comment-dots"></i>';
+            if (chatOpen) document.getElementById('chat-input').focus();
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            input.value = '';
+            appendMsg('user', text);
+            chatHistory.push({ role: 'user', content: text });
+
+            const sendBtn = document.getElementById('chat-send');
+            sendBtn.disabled = true;
+            const typingEl = appendMsg('assistant', 'Thinking...', true);
+
+            try {
+                const res = await fetch('http://127.0.0.1:5000/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: chatHistory })
+                });
+                const data = await res.json();
+                const reply = data.reply || data.error || 'Something went wrong.';
+                typingEl.classList.remove('typing');
+                typingEl.textContent = reply;
+                chatHistory.push({ role: 'assistant', content: reply });
+            } catch (e) {
+                typingEl.textContent = 'Could not reach the server. Is app.py running?';
+            }
+
+            sendBtn.disabled = false;
+            input.focus();
+        }
+
+        function appendMsg(role, text, isTyping = false) {
+            const msgs = document.getElementById('chat-messages');
+            const el = document.createElement('div');
+            el.className = `chat-msg ${role}${isTyping ? ' typing' : ''}`;
+            el.textContent = text;
+            msgs.appendChild(el);
+            msgs.scrollTop = msgs.scrollHeight;
+            return el;
+        }
+
+        loadData();
+
+        // ── ROADMAP ──
+        let roadmapMajor = '', roadmapCareer = '';
+
+        function openRoadmap(major, career) {
+            roadmapMajor = major;
+            roadmapCareer = career;
+            document.getElementById('roadmap-title').textContent = career;
+            document.getElementById('roadmap-subtitle').textContent = `${major} → ${career}`;
+            document.getElementById('roadmap-body').innerHTML = '<div class="placeholder">Fill in your details above and click Generate to get your personalized roadmap.</div>';
+            document.getElementById('roadmap-overlay').classList.add('open');
+        }
+
+        function closeRoadmap() {
+            document.getElementById('roadmap-overlay').classList.remove('open');
+        }
+
+        async function generateRoadmap() {
+            const year      = document.getElementById('roadmap-year').value;
+            const completed = document.getElementById('roadmap-completed').value;
+            const btn       = document.getElementById('btn-gen-roadmap');
+            const body      = document.getElementById('roadmap-body');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating...';
+            body.innerHTML = '<div class="placeholder">Building your personalized roadmap with AI...</div>';
+
+            try {
+                const res = await fetch('http://127.0.0.1:5000/api/roadmap', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        major: roadmapMajor,
+                        career: roadmapCareer,
+                        year,
+                        completed_courses: completed
+                    })
+                });
+                const data = await res.json();
+                if (data.roadmap) {
+                    // Render markdown-like bold
+                    const html = data.roadmap
+                        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\n/g, '<br>');
+                    body.innerHTML = html;
+                } else {
+                    body.innerHTML = '<div class="placeholder">Could not generate roadmap. Try again.</div>';
+                }
+            } catch (e) {
+                body.innerHTML = '<div class="placeholder">Server error. Make sure app.py is running.</div>';
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Generate';
+        }
+    </script>
+</body>
+</html>
