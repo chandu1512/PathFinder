@@ -817,13 +817,157 @@
             to { transform: rotate(360deg); }
         }
 
+        /* ── SEARCH SUGGESTIONS ── */
+        .search-suggestions {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0; right: 0;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            z-index: 9000;
+            max-height: 280px;
+            overflow-y: auto;
+            display: none;
+        }
+        .search-suggestions.open { display: block; }
+        .suggestion-item {
+            padding: 11px 16px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray-800);
+            border-bottom: 1px solid var(--gray-100);
+            transition: background 0.1s;
+        }
+        .suggestion-item:last-child { border-bottom: none; }
+        .suggestion-item:hover { background: var(--gray-50); }
+        .suggestion-item i { color: var(--blue); font-size: 0.75rem; flex-shrink: 0; }
+        .suggestion-prog {
+            margin-left: auto;
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* ── ABOUT MODAL ── */
+        #about-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 10001;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        #about-overlay.open { display: flex; }
+        #about-modal {
+            background: white;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-header {
+            background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue) 100%);
+            padding: 32px 32px 28px;
+            color: white;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            position: relative;
+        }
+        .about-header h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; }
+        .about-header h2 span { color: var(--gold); }
+        .about-header p { font-size: 0.9rem; color: rgba(255,255,255,0.75); }
+        .about-close {
+            position: absolute;
+            top: 16px; right: 16px;
+            background: rgba(255,255,255,0.15);
+            border: none;
+            color: white;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .about-body { padding: 28px 32px; }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .about-feat {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 16px;
+        }
+        .about-feat i {
+            color: var(--blue);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .about-feat h4 { font-size: 0.875rem; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+        .about-feat p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; }
+        .about-stats-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .about-stat {
+            flex: 1;
+            background: var(--blue);
+            color: white;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: center;
+        }
+        .about-stat .num { font-size: 1.6rem; font-weight: 800; color: var(--gold); }
+        .about-stat .lbl { font-size: 0.72rem; color: rgba(255,255,255,0.8); margin-top: 2px; }
+        .about-footer-note {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
+            .nav-inner { padding: 0 16px; }
             .nav-center { display: none; }
-            .stat-item { padding: 14px 20px; }
-            .filter-section { margin-top: 24px; }
-            .main { padding: 0 16px; }
-            #chat-window { width: calc(100vw - 32px); right: 16px; }
+            .hero { padding: 60px 16px 50px; }
+            .stats-inner { overflow-x: auto; justify-content: flex-start; padding: 0 16px; -webkit-overflow-scrolling: touch; }
+            .stat-item { padding: 14px 18px; flex-shrink: 0; }
+            .filter-section { margin-top: 20px; padding: 0 16px; }
+            .filter-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .filter-tab { white-space: nowrap; }
+            .main { padding: 0 12px; margin: 20px auto 60px; }
+            .jobs-grid { grid-template-columns: 1fr; gap: 14px; }
+            .major-header { gap: 10px; }
+            .major-title { font-size: 1.1rem; }
+            #chat-toggle { bottom: 18px; right: 18px; width: 50px; height: 50px; }
+            #chat-window { width: calc(100vw - 24px); right: 12px; bottom: 80px; height: 70vh; max-height: 480px; }
+            #roadmap-form { flex-direction: column; }
+            .about-features { grid-template-columns: 1fr; }
+            .about-stats-row { flex-wrap: wrap; }
+            .about-body { padding: 20px; }
+            .job-meta { gap: 8px; }
+            .btn-roadmap { padding: 5px 10px; font-size: 0.75rem; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.9rem; }
+            .nav-brand-text { font-size: 1rem; }
+            .announce-bar { font-size: 0.72rem; padding: 7px 12px; }
         }
     </style>
 </head>
@@ -837,7 +981,7 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-inner">
-            <a href="#" class="nav-brand">
+            <a href="#" class="nav-brand" onclick="openAbout(); return false;" title="About PathFinder">
                 <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
                 <span class="nav-brand-text">Path<span>Finder</span></span>
             </a>
@@ -857,10 +1001,11 @@
         <div class="hero-inner">
             <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping</div>
             <h1>From <span>Courses</span> to<br>Career Outcomes</h1>
-            <p class="hero-sub">Discover the exact UDel courses that lead to the job you want. Built for CS, AI, Cybersecurity, Data Science, and MIS students.</p>
+            <p class="hero-sub">Your personalized bridge from college to career. Explore 153 roles across every field — from engineering and business to health, arts, and beyond.</p>
             <div class="search-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search careers — e.g. Penetration Tester, Data Scientist..." onkeyup="filterJobs()">
+                <input type="text" id="searchInput" placeholder="Search any career — e.g. Data Scientist, Nurse Practitioner, Policy Analyst..." oninput="filterJobs(); showSuggestions()" onkeydown="handleSearchKey(event)" autocomplete="off">
+                <div class="search-suggestions" id="search-suggestions"></div>
             </div>
         </div>
     </section>
@@ -926,16 +1071,57 @@
                 <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
                 PathFinder
             </div>
-            <div class="footer-copy">Designed for University of Delaware students in technology programs.</div>
+            <div class="footer-copy">Built for every University of Delaware student — whatever your major, wherever your ambition leads.</div>
             <div class="footer-links">
-                <a href="#">About</a>
-                <a href="#">Courses</a>
-                <a href="#">Careers</a>
+                <a href="#" onclick="openAbout(); return false;">About</a>
+                <a href="#" onclick="setView('ug'); window.scrollTo(0,0); return false;">Undergrad</a>
+                <a href="#" onclick="setView('grad'); window.scrollTo(0,0); return false;">Graduate</a>
             </div>
         </div>
         <hr class="footer-divider">
         <p class="footer-bottom">&copy; 2026 PathFinder &mdash; Data sourced from the University of Delaware Course Catalog</p>
     </footer>
+
+    <!-- ABOUT MODAL -->
+    <div id="about-overlay" onclick="if(event.target===this) closeAbout()">
+        <div id="about-modal">
+            <div class="about-header">
+                <button class="about-close" onclick="closeAbout()"><i class="fa-solid fa-xmark"></i></button>
+                <h2>Path<span>Finder</span></h2>
+                <p>AI-powered career mapping for University of Delaware students</p>
+            </div>
+            <div class="about-body">
+                <div class="about-stats-row">
+                    <div class="about-stat"><div class="num">153</div><div class="lbl">Career Paths</div></div>
+                    <div class="about-stat"><div class="num">8,355</div><div class="lbl">UDel Courses</div></div>
+                    <div class="about-stat"><div class="num">26</div><div class="lbl">Programs</div></div>
+                </div>
+                <div class="about-features">
+                    <div class="about-feat">
+                        <i class="fa-solid fa-route"></i>
+                        <h4>Course Mapping</h4>
+                        <p>See exactly which UDel courses — undergrad and graduate — align with your target career, ranked by relevance.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <h4>AI Roadmaps</h4>
+                        <p>Get a personalized semester-by-semester plan from where you are now all the way to graduation.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-robot"></i>
+                        <h4>AI Chat Agent</h4>
+                        <p>Ask anything — course advice, career questions, study tips, or general knowledge. Powered by Claude AI.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h4>Salary & Demand</h4>
+                        <p>Real salary ranges and job market demand data for every career role, sourced from BLS and industry data.</p>
+                    </div>
+                </div>
+                <p class="about-footer-note">Data sourced from the University of Delaware Course Catalog &mdash; updated 2025&ndash;2026</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ROADMAP MODAL -->
     <div id="roadmap-overlay" onclick="if(event.target===this) closeRoadmap()">
@@ -1226,6 +1412,76 @@
         }
 
         loadData();
+
+        // ── ABOUT MODAL ──
+        function openAbout() {
+            document.getElementById('about-overlay').classList.add('open');
+        }
+        function closeAbout() {
+            document.getElementById('about-overlay').classList.remove('open');
+        }
+
+        // ── SEARCH SUGGESTIONS ──
+        let suggestionIndex = -1;
+
+        function showSuggestions() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const box = document.getElementById('search-suggestions');
+            if (!query || query.length < 2) { box.classList.remove('open'); return; }
+
+            const matches = [];
+            for (const [prog, jobs] of Object.entries(globalData)) {
+                for (const job of jobs) {
+                    if (job.title.toLowerCase().includes(query)) {
+                        matches.push({ title: job.title, prog });
+                        if (matches.length >= 8) break;
+                    }
+                }
+                if (matches.length >= 8) break;
+            }
+
+            if (!matches.length) { box.classList.remove('open'); return; }
+
+            box.innerHTML = matches.map((m, i) =>
+                `<div class="suggestion-item" onmousedown="selectSuggestion('${m.title.replace(/'/g,"\\'")}')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    ${m.title}
+                    <span class="suggestion-prog">${m.prog}</span>
+                </div>`
+            ).join('');
+            box.classList.add('open');
+            suggestionIndex = -1;
+        }
+
+        function selectSuggestion(title) {
+            document.getElementById('searchInput').value = title;
+            document.getElementById('search-suggestions').classList.remove('open');
+            filterJobs();
+        }
+
+        function handleSearchKey(e) {
+            const box = document.getElementById('search-suggestions');
+            const items = box.querySelectorAll('.suggestion-item');
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                suggestionIndex = Math.min(suggestionIndex + 1, items.length - 1);
+                items.forEach((el, i) => el.style.background = i === suggestionIndex ? 'var(--gray-100)' : '');
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                suggestionIndex = Math.max(suggestionIndex - 1, -1);
+                items.forEach((el, i) => el.style.background = i === suggestionIndex ? 'var(--gray-100)' : '');
+            } else if (e.key === 'Enter' && suggestionIndex >= 0) {
+                items[suggestionIndex]?.dispatchEvent(new MouseEvent('mousedown'));
+            } else if (e.key === 'Escape') {
+                box.classList.remove('open');
+            }
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.search-wrap')) {
+                document.getElementById('search-suggestions').classList.remove('open');
+            }
+        });
 
         // ── ROADMAP ──
         let roadmapMajor = '', roadmapCareer = '';
