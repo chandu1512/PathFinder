@@ -142,7 +142,7 @@
         /* ── HERO ── */
         .hero {
             background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-dark) 50%, #004080 100%);
-            padding: 90px 20px 80px;
+            padding: 100px 20px 90px;
             position: relative;
             overflow: hidden;
         }
@@ -153,7 +153,7 @@
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
         .hero-inner {
-            max-width: 860px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             position: relative;
@@ -174,21 +174,205 @@
             margin-bottom: 24px;
         }
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-size: clamp(2.4rem, 5.5vw, 3.8rem);
             font-weight: 800;
             color: var(--white);
-            line-height: 1.15;
-            letter-spacing: -1px;
-            margin-bottom: 18px;
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
         }
         .hero h1 span { color: var(--gold); }
         .hero-sub {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: rgba(255,255,255,0.72);
-            max-width: 580px;
-            margin: 0 auto 36px;
+            max-width: 620px;
+            margin: 0 auto 20px;
             line-height: 1.7;
         }
+        .hero-stats-pills {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .hero-pill {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .hero-pill i { color: var(--gold); font-size: 0.75rem; }
+        .hero-cta-row {
+            display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+            margin-top: 12px;
+        }
+        .btn-cta-primary {
+            background: var(--gold);
+            color: var(--blue-deep);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 28px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s, transform 0.15s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-cta-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+        .btn-cta-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            padding: 14px 28px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .btn-cta-secondary:hover { background: rgba(255,255,255,0.18); }
+
+        /* ── HOW IT WORKS ── */
+        .how-section {
+            background: var(--white);
+            padding: 80px 32px;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            color: var(--blue-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .section-sub {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--gray-600);
+            max-width: 560px;
+            margin: 0 auto 56px;
+            line-height: 1.6;
+        }
+        .steps-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 32px; left: calc(16.66% + 16px); right: calc(16.66% + 16px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--gold));
+            z-index: 0;
+        }
+        .step-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-num {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 20px rgba(0,83,159,0.3);
+            position: relative;
+        }
+        .step-num i { font-size: 1.2rem; }
+        .step-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-800); margin-bottom: 10px; }
+        .step-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; }
+
+        /* ── PROGRAMS SECTION ── */
+        .programs-section {
+            background: var(--gray-50);
+            padding: 80px 32px;
+        }
+        .programs-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .program-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 24px 20px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .program-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.2s;
+        }
+        .program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #c5d8f0; }
+        .program-card:hover::after { transform: scaleX(1); }
+        .program-card-icon {
+            width: 52px; height: 52px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--blue), #0066cc);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin: 0 auto 14px;
+            box-shadow: 0 4px 12px rgba(0,83,159,0.25);
+        }
+        .program-card-name { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; line-height: 1.3; }
+        .program-card-count { font-size: 0.75rem; color: var(--blue); font-weight: 600; }
+
+        /* ── JOBS VIEW (after program click) ── */
+        .jobs-view-header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px 32px;
+            display: flex; align-items: center; gap: 14px;
+            max-width: 100%;
+        }
+        .back-btn {
+            display: flex; align-items: center; gap: 7px;
+            color: var(--blue); font-size: 0.875rem; font-weight: 600;
+            background: none; border: none; cursor: pointer; font-family: inherit;
+            padding: 6px 12px; border-radius: var(--radius-sm);
+            transition: background 0.15s;
+        }
+        .back-btn:hover { background: var(--gray-100); }
+        .jobs-view-title { font-size: 1.1rem; font-weight: 700; color: var(--blue-dark); }
+        .jobs-view-count { font-size: 0.78rem; color: var(--gray-400); background: var(--gray-100); padding: 3px 10px; border-radius: 999px; font-weight: 600; margin-left: auto; }
         .search-wrap {
             max-width: 580px;
             margin: 0 auto;
@@ -1082,7 +1266,14 @@
         @media (max-width: 768px) {
             .nav-inner { padding: 0 16px; }
             .nav-center { display: none; }
-            .hero { padding: 60px 16px 50px; }
+            .hero { padding: 70px 16px 60px; }
+            .steps-grid { grid-template-columns: 1fr; gap: 24px; }
+            .steps-grid::before { display: none; }
+            .programs-section { padding: 50px 16px; }
+            .how-section { padding: 50px 16px; }
+            .programs-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+            .program-card { padding: 18px 14px; }
+            .jobs-view-header { padding: 12px 16px; }
             .stats-inner { overflow-x: auto; justify-content: flex-start; padding: 0 16px; -webkit-overflow-scrolling: touch; }
             .stat-item { padding: 14px 18px; flex-shrink: 0; }
             .filter-section { margin-top: 20px; padding: 0 16px; }
@@ -1140,49 +1331,70 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping</div>
-            <h1>From <span>Courses</span> to<br>Career Outcomes</h1>
-            <p class="hero-sub">Your personalized bridge from college to career. Explore <span id="hero-job-count">520</span> roles across every field — from engineering and business to health, arts, and beyond.</p>
-            <div class="search-wrap">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search any career or describe what you want — e.g. 'high paying', 'I like helping people'..." oninput="onSearchInput()" onkeydown="handleSearchKey(event)" autocomplete="off">
-                <div class="search-suggestions" id="search-suggestions"></div>
+            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping · University of Delaware</div>
+            <h1>Your <span>Career</span> Starts<br>With the Right Course</h1>
+            <p class="hero-sub">PathFinder maps every UDel course to real-world careers. Set your profile, explore <span id="hero-job-count">520</span>+ roles, and get an AI-generated roadmap to your dream job.</p>
+            <div class="hero-stats-pills">
+                <div class="hero-pill"><i class="fa-solid fa-briefcase"></i> <span id="stat-jobs">520</span> Career Paths</div>
+                <div class="hero-pill"><i class="fa-solid fa-book-open"></i> <span id="stat-courses">8,355</span> UDel Courses</div>
+                <div class="hero-pill"><i class="fa-solid fa-graduation-cap"></i> <span id="stat-majors">26</span> Programs</div>
+                <div class="hero-pill"><i class="fa-solid fa-robot"></i> AI Online</div>
+            </div>
+            <div class="hero-cta-row">
+                <button class="btn-cta-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'})">
+                    <i class="fa-solid fa-compass"></i> Explore Programs
+                </button>
+                <button class="btn-cta-secondary" onclick="toggleChat()">
+                    <i class="fa-solid fa-comment-dots"></i> Ask AI Anything
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-        <div class="stats-inner">
-            <div class="stat-item">
-                <div class="stat-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <div>
-                    <div class="stat-label">Career Paths</div>
-                    <div class="stat-val" id="stat-jobs">—</div>
-                </div>
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="section-label">How PathFinder Works</div>
+        <h2 class="section-title">From Student to Professional in 3 Steps</h2>
+        <p class="section-sub">PathFinder connects your coursework to real careers using AI — no guesswork, no generic advice.</p>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num"><i class="fa-solid fa-user-pen"></i></div>
+                <h3>Set Your Profile</h3>
+                <p>Tell PathFinder your major, year, and courses you've already taken. Everything personalizes around you instantly.</p>
             </div>
-            <div class="stat-item">
-                <div class="stat-icon"><i class="fa-solid fa-book-open"></i></div>
-                <div>
-                    <div class="stat-label">UDel Courses</div>
-                    <div class="stat-val" id="stat-courses">—</div>
-                </div>
+            <div class="step-card">
+                <div class="step-num" style="background:linear-gradient(135deg,#0066cc,var(--blue));"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Explore Career Paths</h3>
+                <p>Browse 520+ roles across every industry. See required courses, salary ranges, and job market demand for each career.</p>
             </div>
-            <div class="stat-item">
-                <div class="stat-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div>
-                    <div class="stat-label">Programs</div>
-                    <div class="stat-val" id="stat-majors">—</div>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-icon"><i class="fa-solid fa-robot"></i></div>
-                <div>
-                    <div class="stat-label">AI Assistant</div>
-                    <div class="stat-val" style="color:var(--green);">Online</div>
-                </div>
+            <div class="step-card">
+                <div class="step-num" style="background:linear-gradient(135deg,var(--blue),#7c3aed);"><i class="fa-solid fa-route"></i></div>
+                <h3>Get Your Roadmap</h3>
+                <p>Click any career and generate a personalized semester-by-semester course plan — AI-built, prerequisite-aware, tailored to you.</p>
             </div>
         </div>
+    </section>
+
+    <!-- PROGRAMS GRID -->
+    <section class="programs-section" id="programs-section">
+        <div class="section-label">All Programs</div>
+        <h2 class="section-title">Pick Your Program</h2>
+        <p class="section-sub">26 programs from every college at UDel. Click one to see all career paths available to you.</p>
+        <div class="programs-grid" id="programs-grid">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- JOBS VIEW HEADER (hidden by default) -->
+    <div class="jobs-view-header" id="jobs-view-header" style="display:none;">
+        <button class="back-btn" onclick="backToPrograms()"><i class="fa-solid fa-arrow-left"></i> All Programs</button>
+        <div class="jobs-view-title" id="jobs-view-title"></div>
+        <div class="search-wrap" style="max-width:340px;flex:1;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search careers..." oninput="onSearchInput()" onkeydown="handleSearchKey(event)" autocomplete="off">
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+        <span class="jobs-view-count" id="jobs-view-count"></span>
     </div>
 
     <!-- AI SEARCH RESULTS PANEL -->
@@ -1201,26 +1413,25 @@
         </div>
     </div>
 
-    <!-- FILTER + RESULTS ROW -->
-    <div class="filter-section">
-        <div class="filter-tabs">
-            <button class="filter-tab active" id="tab-all" onclick="setView('all')">All Programs</button>
-            <button class="filter-tab" id="tab-ug" onclick="setView('ug')">Undergraduate</button>
-            <button class="filter-tab" id="tab-grad" onclick="setView('grad')">Graduate</button>
-            <button class="filter-tab" id="tab-bookmarks" onclick="setView('bookmarks')"><i class="fa-solid fa-star" style="font-size:0.75rem;margin-right:4px;"></i>Saved</button>
+    <!-- JOBS SECTION (hidden until program clicked) -->
+    <div id="jobs-section" style="display:none;">
+        <!-- UG/GRAD FILTER TABS -->
+        <div class="filter-section" style="padding:16px 32px;">
+            <div class="filter-tabs">
+                <button class="filter-tab active" id="tab-all" onclick="setView('all')">All Courses</button>
+                <button class="filter-tab" id="tab-ug" onclick="setView('ug')">Undergraduate</button>
+                <button class="filter-tab" id="tab-grad" onclick="setView('grad')">Graduate</button>
+                <button class="filter-tab" id="tab-bookmarks" onclick="setView('bookmarks')"><i class="fa-solid fa-star" style="font-size:0.75rem;margin-right:4px;"></i>Saved</button>
+            </div>
+            <div class="filter-right">Showing <span class="results-count" id="visible-count">—</span> careers</div>
         </div>
-        <div class="filter-right">
-            Showing <span class="results-count" id="visible-count">—</span> career paths
-        </div>
+        <main class="main" id="app-container">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading career paths from UDel catalog...</p>
+            </div>
+        </main>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="main" id="app-container">
-        <div class="loading-state">
-            <div class="spinner"></div>
-            <p>Loading career paths from UDel catalog...</p>
-        </div>
-    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -1421,10 +1632,9 @@
             try {
                 const response = await fetch('/api/career-paths');
                 globalData = await response.json();
-                renderDashboard(globalData);
+                renderPrograms();
                 updateStats();
                 applyProfileToUI();
-                initFuse();
             } catch (error) {
                 document.getElementById('app-container').innerHTML =
                     '<div class="loading-state" style="color:#d93025;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;margin-bottom:12px;display:block;"></i><p>Could not connect to the PathFinder server.<br>Make sure <strong>app.py</strong> is running.</p></div>';
@@ -1437,7 +1647,6 @@
             Object.values(globalData).forEach(jobs => totalJobs += jobs.length);
             document.getElementById('stat-jobs').textContent = totalJobs.toLocaleString();
             document.getElementById('stat-majors').textContent = majors;
-            updateVisibleCount();
 
             try {
                 const res = await fetch('/api/stats');
@@ -1498,6 +1707,47 @@
         }
 
         // ── RENDER ──
+        // ── PROGRAMS GRID ──
+        function renderPrograms() {
+            const grid = document.getElementById('programs-grid');
+            if (!grid) return;
+            grid.innerHTML = Object.entries(globalData).map(([prog, jobs]) => {
+                const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
+                return `<div class="program-card" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
+                    <div class="program-card-icon"><i class="fa-solid ${icon}"></i></div>
+                    <div class="program-card-name">${prog}</div>
+                    <div class="program-card-count">${jobs.length} careers</div>
+                </div>`;
+            }).join('');
+        }
+
+        function openProgram(prog) {
+            // Show jobs section, hide programs
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'flex';
+            document.getElementById('jobs-section').style.display = 'block';
+            document.getElementById('jobs-view-title').textContent = prog;
+
+            // Render only this program's jobs
+            const filtered = { [prog]: globalData[prog] };
+            renderDashboard(filtered);
+            updateVisibleCount();
+            document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' });
+            applyProfileToUI();
+            initFuse();
+        }
+
+        function backToPrograms() {
+            document.getElementById('programs-section').style.display = 'block';
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('searchInput').value = '';
+            clearAISearch();
+            document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function renderDashboard(data) {
             const container = document.getElementById('app-container');
             container.innerHTML = '';
