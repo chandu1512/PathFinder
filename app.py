@@ -131,6 +131,71 @@ PROG_DEPTS = {
     "Criminal Justice":              ["CRJU", "SOCI", "PSYC", "LEST"],
 }
 
+# Pre-build compact job index for search (built once at startup)
+JOB_INDEX = []
+for _prog, _jobs in JOBS_DATA.items():
+    for _j in _jobs:
+        JOB_INDEX.append({
+            "title": _j["title"],
+            "program": _prog,
+            "description": _j["description"],
+            "demand": _j.get("demand", "Medium"),
+            "salary_min": _j.get("salary_min", 0),
+            "salary_max": _j.get("salary_max", 0),
+        })
+
+# ── API: Smart Search ──
+@app.route('/api/search', methods=['POST'])
+def smart_search():
+    try:
+        query = request.get_json().get('query', '').strip()
+        if not query:
+            return jsonify({"results": [], "interpreted_as": ""})
+
+        # Send compact index to Claude — titles + programs only to save tokens
+        compact = [{"title": j["title"], "program": j["program"], "demand": j["demand"],
+                    "salary": f"${j['salary_min']//1000}k-${j['salary_max']//1000}k" if j.get("salary_min") else "varies"}
+                   for j in JOB_INDEX]
+
+        prompt = (
+            f'A University of Delaware student searched PathFinder for: "{query}"\n\n'
+            f'Understand their INTENT — handle typos, natural language, vague requests:\n'
+            f'- "high paying jobs" → prioritize High demand + high salary\n'
+            f'- "I like helping people" → healthcare, education, social work\n'
+            f'- "data engneer" (typo) → Data Engineer\n'
+            f'- "something creative" → marketing, communication, design roles\n'
+            f'- "government jobs" → policy, criminal justice, public sector\n\n'
+            f'Available careers (520 total):\n{json.dumps(compact)}\n\n'
+            f'Return the top 10 most relevant careers. Also write 1 sentence explaining what you understood.\n'
+            f'Respond ONLY with JSON:\n'
+            f'{{"results": ["Job Title 1", "Job Title 2", ...], "interpreted_as": "I understood you want..."}}'
+        )
+
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=500,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        text = response.content[0].text.strip()
+        if text.startswith("```"):
+            text = text.split("```")[1]
+            if text.startswith("json"): text = text[4:]
+        parsed = json.loads(text.strip())
+
+        # Enrich results with full job data
+        title_to_job = {j["title"]: j for j in JOB_INDEX}
+        enriched = []
+        for title in parsed.get("results", []):
+            if title in title_to_job:
+                enriched.append(title_to_job[title])
+
+        return jsonify({"results": enriched, "interpreted_as": parsed.get("interpreted_as", "")})
+    except Exception as e:
+        print(f"SEARCH ERROR: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
 # ── API: Career paths ──
 @app.route('/api/career-paths', methods=['GET'])
 def get_career_paths():

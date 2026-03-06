@@ -6,6 +6,7 @@
     <title>PathFinder | UDel Career Mapper</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
     <style>
         :root {
             --blue:       #00539F;
@@ -909,6 +910,50 @@
             padding: 1px 6px; border-radius: 999px;
         }
 
+        /* ── AI SEARCH RESULTS ── */
+        #ai-search-panel {
+            display: none;
+            background: white;
+            border-top: 3px solid var(--blue);
+            padding: 20px 32px;
+            box-shadow: var(--shadow-md);
+        }
+        #ai-search-panel.open { display: block; }
+        .ai-search-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+        }
+        .ai-search-intent {
+            font-size: 0.85rem; color: var(--gray-600);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .ai-search-intent i { color: #7c3aed; }
+        .ai-search-intent strong { color: var(--gray-800); }
+        .btn-clear-search {
+            font-size: 0.8rem; color: var(--blue); background: none;
+            border: none; cursor: pointer; font-family: inherit;
+            display: flex; align-items: center; gap: 5px;
+        }
+        .ai-results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        .ai-result-card {
+            border: 1px solid var(--gray-200); border-radius: var(--radius-md);
+            padding: 14px 16px; cursor: pointer;
+            transition: all 0.15s; background: var(--gray-50);
+        }
+        .ai-result-card:hover { border-color: #c5d8f0; background: white; box-shadow: var(--shadow-sm); }
+        .ai-result-title { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); margin-bottom: 3px; }
+        .ai-result-prog { font-size: 0.75rem; color: var(--blue); font-weight: 500; margin-bottom: 6px; }
+        .ai-result-desc { font-size: 0.78rem; color: var(--gray-600); line-height: 1.45; }
+        .ai-result-meta { display: flex; gap: 10px; margin-top: 8px; font-size: 0.72rem; font-weight: 600; }
+        .ai-searching {
+            text-align: center; padding: 24px;
+            color: var(--gray-400); font-size: 0.875rem;
+        }
+
         /* ── SEARCH SUGGESTIONS ── */
         .search-suggestions {
             position: absolute;
@@ -1100,7 +1145,7 @@
             <p class="hero-sub">Your personalized bridge from college to career. Explore 153 roles across every field — from engineering and business to health, arts, and beyond.</p>
             <div class="search-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search any career — e.g. Data Scientist, Nurse Practitioner, Policy Analyst..." oninput="filterJobs(); showSuggestions()" onkeydown="handleSearchKey(event)" autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Search any career or describe what you want — e.g. 'high paying', 'I like helping people'..." oninput="onSearchInput()" onkeydown="handleSearchKey(event)" autocomplete="off">
                 <div class="search-suggestions" id="search-suggestions"></div>
             </div>
         </div>
@@ -1137,6 +1182,22 @@
                     <div class="stat-val" style="color:var(--green);">Online</div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- AI SEARCH RESULTS PANEL -->
+    <div id="ai-search-panel">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="ai-search-header">
+                <div class="ai-search-intent">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span id="ai-search-intent-text">Searching...</span>
+                </div>
+                <button class="btn-clear-search" onclick="clearAISearch()">
+                    <i class="fa-solid fa-xmark"></i> Clear AI search
+                </button>
+            </div>
+            <div class="ai-results-grid" id="ai-results-grid"></div>
         </div>
     </div>
 
@@ -1363,6 +1424,7 @@
                 renderDashboard(globalData);
                 updateStats();
                 applyProfileToUI();
+                initFuse();
             } catch (error) {
                 document.getElementById('app-container').innerHTML =
                     '<div class="loading-state" style="color:#d93025;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;margin-bottom:12px;display:block;"></i><p>Could not connect to the PathFinder server.<br>Make sure <strong>app.py</strong> is running.</p></div>';
@@ -1514,18 +1576,141 @@
         }
 
         // ── SEARCH ──
-        function filterJobs() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
+        let fuseInstance = null;
+        let aiSearchTimer = null;
+        let aiSearchActive = false;
+
+        function initFuse() {
+            const jobs = [];
+            for (const [prog, jobList] of Object.entries(globalData)) {
+                jobList.forEach(job => jobs.push({
+                    title: job.title,
+                    description: job.description,
+                    program: prog
+                }));
+            }
+            fuseInstance = new Fuse(jobs, {
+                keys: [
+                    { name: 'title', weight: 0.7 },
+                    { name: 'description', weight: 0.2 },
+                    { name: 'program', weight: 0.1 }
+                ],
+                threshold: 0.4,  // tolerates typos
+                includeScore: true
+            });
+        }
+
+        function onSearchInput() {
+            const query = document.getElementById('searchInput').value.trim();
+            showSuggestions();
+
+            if (!query) {
+                clearAISearch();
+                showAllCards();
+                return;
+            }
+
+            // Always do instant fuzzy filter
+            filterJobsFuzzy(query);
+
+            // Debounce AI search for natural language queries
+            clearTimeout(aiSearchTimer);
+            const wordCount = query.split(/\s+/).length;
+            const isNaturalLanguage = wordCount >= 3 || /[?!,]/.test(query) ||
+                /\b(want|like|love|help|pay|salary|remote|government|creative|fast|easy|hard)\b/i.test(query);
+
+            if (isNaturalLanguage && query.length > 6) {
+                aiSearchTimer = setTimeout(() => runAISearch(query), 700);
+            }
+        }
+
+        function filterJobsFuzzy(query) {
+            if (!fuseInstance || !query) { showAllCards(); return; }
+            const results = fuseInstance.search(query);
+            const matchedTitles = new Set(results.map(r => r.item.title));
+
             document.querySelectorAll('.major-section').forEach(section => {
                 let hasVisible = false;
                 section.querySelectorAll('.job-card').forEach(card => {
-                    const match = card.getAttribute('data-search').includes(query);
+                    const title = card.querySelector('.job-title')?.textContent || '';
+                    const match = matchedTitles.has(title);
                     card.classList.toggle('hidden', !match);
                     if (match) hasVisible = true;
                 });
                 section.classList.toggle('hidden', !hasVisible);
             });
             updateVisibleCount();
+        }
+
+        function showAllCards() {
+            document.querySelectorAll('.major-section').forEach(s => {
+                s.classList.remove('hidden');
+                s.querySelectorAll('.job-card').forEach(c => c.classList.remove('hidden'));
+            });
+            updateVisibleCount();
+        }
+
+        function filterJobs() {
+            onSearchInput();
+        }
+
+        async function runAISearch(query) {
+            const panel = document.getElementById('ai-search-panel');
+            const grid = document.getElementById('ai-results-grid');
+            panel.classList.add('open');
+            grid.innerHTML = '<div class="ai-searching"><i class="fa-solid fa-circle-notch fa-spin" style="font-size:1.5rem;color:var(--blue);display:block;margin-bottom:10px;"></i>AI is understanding what you mean...</div>';
+            document.getElementById('ai-search-intent-text').textContent = 'Analyzing your search...';
+            aiSearchActive = true;
+
+            try {
+                const res = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+                const data = await res.json();
+                if (!aiSearchActive) return;
+
+                document.getElementById('ai-search-intent-text').innerHTML =
+                    `<strong>AI understood:</strong> ${data.interpreted_as || query}`;
+
+                if (!data.results?.length) {
+                    grid.innerHTML = '<div class="ai-searching">No results found. Try a different search.</div>';
+                    return;
+                }
+
+                grid.innerHTML = data.results.map(job => {
+                    const salary = job.salary_min ? `$${Math.round(job.salary_min/1000)}k–$${Math.round(job.salary_max/1000)}k` : 'Varies';
+                    const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
+                    return `<div class="ai-result-card" onclick="scrollToJob('${job.title.replace(/'/g,"\\'")}')">
+                        <div class="ai-result-title">${job.title}</div>
+                        <div class="ai-result-prog"><i class="fa-solid fa-graduation-cap" style="font-size:0.65rem;"></i> ${job.program}</div>
+                        <div class="ai-result-desc">${job.description}</div>
+                        <div class="ai-result-meta">
+                            <span style="color:var(--green);">${salary}</span>
+                            <span style="color:${demandColor};">${job.demand} Demand</span>
+                        </div>
+                    </div>`;
+                }).join('');
+            } catch (e) {
+                grid.innerHTML = '<div class="ai-searching">Search failed. Try again.</div>';
+            }
+        }
+
+        function scrollToJob(title) {
+            clearAISearch();
+            document.getElementById('searchInput').value = title;
+            filterJobsFuzzy(title);
+            // Scroll to first visible card
+            setTimeout(() => {
+                const card = [...document.querySelectorAll('.job-card:not(.hidden)')][0];
+                if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+
+        function clearAISearch() {
+            aiSearchActive = false;
+            document.getElementById('ai-search-panel').classList.remove('open');
         }
 
         // ── CHAT ──
