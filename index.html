@@ -1616,12 +1616,22 @@
             userProfile = null;
             localStorage.removeItem('pf_profile');
             document.getElementById('profile-dot').classList.remove('active');
+            document.getElementById('app-container').classList.remove('view-ug', 'view-grad');
             ['pf-name','pf-courses'].forEach(id => document.getElementById(id).value = '');
             clearProfileFilter();
         }
         function applyProfileToUI() {
             if (!userProfile) return;
             document.getElementById('profile-dot').classList.add('active');
+
+            // Auto-apply course level filter based on year
+            const container = document.getElementById('app-container');
+            container.classList.remove('view-ug', 'view-grad');
+            if (userProfile.year === 'Graduate Student') {
+                container.classList.add('view-grad');
+                document.getElementById('tab-grad')?.classList.add('active');
+                document.getElementById('tab-all')?.classList.remove('active');
+            }
 
             // Filter dashboard to show only the student's program
             const major = userProfile.major;
