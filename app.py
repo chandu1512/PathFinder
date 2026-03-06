@@ -144,6 +144,17 @@ for _prog, _jobs in JOBS_DATA.items():
             "salary_max": _j.get("salary_max", 0),
         })
 
+# ── API: Stats ──
+@app.route('/api/stats', methods=['GET'])
+def stats():
+    total_jobs = sum(len(v) for v in JOBS_DATA.values())
+    return jsonify({
+        "courses": len(COURSES_DATA),
+        "jobs": total_jobs,
+        "programs": len(JOBS_DATA)
+    })
+
+
 # ── API: Smart Search ──
 @app.route('/api/search', methods=['POST'])
 def smart_search():

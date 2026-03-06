@@ -1142,7 +1142,7 @@
         <div class="hero-inner">
             <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping</div>
             <h1>From <span>Courses</span> to<br>Career Outcomes</h1>
-            <p class="hero-sub">Your personalized bridge from college to career. Explore 153 roles across every field — from engineering and business to health, arts, and beyond.</p>
+            <p class="hero-sub">Your personalized bridge from college to career. Explore <span id="hero-job-count">520</span> roles across every field — from engineering and business to health, arts, and beyond.</p>
             <div class="search-wrap">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="searchInput" placeholder="Search any career or describe what you want — e.g. 'high paying', 'I like helping people'..." oninput="onSearchInput()" onkeydown="handleSearchKey(event)" autocomplete="off">
@@ -1291,9 +1291,9 @@
             </div>
             <div class="about-body">
                 <div class="about-stats-row">
-                    <div class="about-stat"><div class="num">153</div><div class="lbl">Career Paths</div></div>
-                    <div class="about-stat"><div class="num">8,355</div><div class="lbl">UDel Courses</div></div>
-                    <div class="about-stat"><div class="num">26</div><div class="lbl">Programs</div></div>
+                    <div class="about-stat"><div class="num" id="about-stat-jobs">—</div><div class="lbl">Career Paths</div></div>
+                    <div class="about-stat"><div class="num" id="about-stat-courses">—</div><div class="lbl">UDel Courses</div></div>
+                    <div class="about-stat"><div class="num" id="about-stat-programs">—</div><div class="lbl">Programs</div></div>
                 </div>
                 <div class="about-features">
                     <div class="about-feat">
@@ -1431,14 +1431,23 @@
             }
         }
 
-        function updateStats() {
+        async function updateStats() {
             let totalJobs = 0;
             const majors = Object.keys(globalData).length;
             Object.values(globalData).forEach(jobs => totalJobs += jobs.length);
-            document.getElementById('stat-jobs').textContent = totalJobs;
+            document.getElementById('stat-jobs').textContent = totalJobs.toLocaleString();
             document.getElementById('stat-majors').textContent = majors;
-            document.getElementById('stat-courses').textContent = '200+';
             updateVisibleCount();
+
+            try {
+                const res = await fetch('/api/stats');
+                const s = await res.json();
+                document.getElementById('stat-courses').textContent = s.courses.toLocaleString();
+                document.getElementById('hero-job-count').textContent = s.jobs.toLocaleString();
+                document.getElementById('about-stat-jobs').textContent = s.jobs.toLocaleString();
+                document.getElementById('about-stat-courses').textContent = s.courses.toLocaleString();
+                document.getElementById('about-stat-programs').textContent = s.programs;
+            } catch(e) {}
         }
 
         function updateVisibleCount() {
