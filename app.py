@@ -173,25 +173,39 @@ def ai_match():
         if not job:
             return jsonify({"error": "Job not found"}), 404
 
-        # Get keyword candidates first (wider pool for Claude to choose from)
+        # Send ALL courses from preferred departments — Claude picks freely
         preferred = PROG_DEPTS.get(program, [])
-        ug_candidates, grad_candidates = match_courses(job.get('skills', []), preferred, COURSES_DATA, top_n=25)
+        preferred_lower = [d.lower() for d in preferred]
+
+        ug_pool, grad_pool = [], []
+        for c in COURSES_DATA:
+            dept = (c.get('dept', '') or '').lower()
+            if not any(p in dept for p in preferred_lower):
+                continue
+            title = c.get('title', '')
+            num = course_num(c)
+            if num >= 600:
+                grad_pool.append(title)
+            elif num >= 100:
+                ug_pool.append(title)
 
         prompt = (
-            f'You are a UDel career advisor. A student is targeting: "{job_title}" (from {program} program).\n'
-            f'Job description: {job.get("description", "")}\n\n'
-            f'From the candidate courses below, pick the BEST 8 undergraduate and BEST 8 graduate courses '
-            f'that genuinely build skills for this specific career. Order by importance.\n\n'
-            f'Undergraduate candidates:\n{json.dumps([c["title"] for c in ug_candidates])}\n\n'
-            f'Graduate candidates:\n{json.dumps([c["title"] for c in grad_candidates])}\n\n'
-            f'Respond ONLY with JSON (no markdown):\n'
-            f'{{"undergrad": ["exact course title", ...], "grad": ["exact course title", ...]}}'
+            f'You are a UDel academic advisor. A student is pursuing "{job_title}" ({program}).\n'
+            f'Job description: {job.get("description", "")}\n'
+            f'Key skills needed: {", ".join(job.get("skills", []))}\n\n'
+            f'From the FULL UDel course catalog for this program below, select the BEST 8 undergraduate '
+            f'and BEST 8 graduate courses that genuinely prepare a student for this career.\n'
+            f'Choose courses that build real, job-relevant skills — not just intro courses.\n\n'
+            f'Undergraduate courses available ({len(ug_pool)} total):\n{json.dumps(ug_pool)}\n\n'
+            f'Graduate courses available ({len(grad_pool)} total):\n{json.dumps(grad_pool)}\n\n'
+            f'Respond ONLY with valid JSON, no markdown:\n'
+            f'{{"undergrad": ["exact title from list", ...], "grad": ["exact title from list", ...]}}'
         )
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=600,
+            max_tokens=800,
             messages=[{"role": "user", "content": prompt}]
         )
         text = response.content[0].text.strip()
@@ -200,11 +214,11 @@ def ai_match():
             if text.startswith("json"): text = text[4:]
         parsed = json.loads(text.strip())
 
-        ug_titles  = {c['title'] for c in ug_candidates}
-        grad_titles = {c['title'] for c in grad_candidates}
+        ug_set   = set(ug_pool)
+        grad_set = set(grad_pool)
         result = {
-            "undergrad_courses": [{"title": t, "score": 99} for t in parsed.get("undergrad", []) if t in ug_titles],
-            "grad_courses":      [{"title": t, "score": 99} for t in parsed.get("grad", [])     if t in grad_titles]
+            "undergrad_courses": [{"title": t, "score": 99} for t in parsed.get("undergrad", []) if t in ug_set],
+            "grad_courses":      [{"title": t, "score": 99} for t in parsed.get("grad", [])     if t in grad_set]
         }
         AI_MATCH_CACHE[cache_key] = result
         return jsonify(result)

@@ -1606,18 +1606,58 @@
                 courses: document.getElementById('pf-courses').value.trim()
             };
             localStorage.setItem('pf_profile', JSON.stringify(userProfile));
-            document.getElementById('profile-dot').classList.add('active');
             closeProfile();
+            // Re-render to apply filter
+            const existing = document.getElementById('profile-banner');
+            if (existing) existing.remove();
+            applyProfileToUI();
         }
         function clearProfile() {
             userProfile = null;
             localStorage.removeItem('pf_profile');
             document.getElementById('profile-dot').classList.remove('active');
             ['pf-name','pf-courses'].forEach(id => document.getElementById(id).value = '');
+            clearProfileFilter();
         }
         function applyProfileToUI() {
             if (!userProfile) return;
             document.getElementById('profile-dot').classList.add('active');
+
+            // Filter dashboard to show only the student's program
+            const major = userProfile.major;
+            if (!major) return;
+
+            // Show personalized banner
+            const existing = document.getElementById('profile-banner');
+            if (!existing) {
+                const banner = document.createElement('div');
+                banner.id = 'profile-banner';
+                banner.style.cssText = 'background:#e8f0fb;border:1px solid #c5d8f0;border-radius:10px;padding:12px 18px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.875rem;';
+                banner.innerHTML = `
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <i class="fa-solid fa-user-graduate" style="color:var(--blue);font-size:1.1rem;"></i>
+                        <div>
+                            <strong style="color:var(--blue-dark);">Personalized for ${userProfile.name ? userProfile.name + ' — ' : ''}${userProfile.year} in ${major}</strong>
+                            <div style="color:var(--gray-600);font-size:0.8rem;margin-top:2px;">Showing careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Show all programs</a></div>
+                        </div>
+                    </div>
+                    <button onclick="openProfile()" style="background:var(--blue);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;">Edit Profile</button>`;
+                document.getElementById('app-container').prepend(banner);
+            }
+
+            // Hide all sections except the student's major
+            document.querySelectorAll('.major-section').forEach(section => {
+                const title = section.querySelector('.major-title')?.textContent || '';
+                section.classList.toggle('hidden', title !== major);
+            });
+            updateVisibleCount();
+        }
+
+        function clearProfileFilter() {
+            document.querySelectorAll('.major-section').forEach(s => s.classList.remove('hidden'));
+            const banner = document.getElementById('profile-banner');
+            if (banner) banner.remove();
+            updateVisibleCount();
         }
 
         // ── BOOKMARKS ──
