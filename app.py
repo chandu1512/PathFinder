@@ -35,6 +35,33 @@ with open(os.path.join(BASE_DIR, 'all_jobs.json'), 'r') as f:
 with open(os.path.join(BASE_DIR, 'all_courses.json'), 'r') as f:
     COURSES_DATA = json.load(f)
 
+# Load program requirements (scraped from UDel catalog)
+PROGRAM_REQUIREMENTS = []
+_prog_req_path = os.path.join(BASE_DIR, 'program_requirements.json')
+if os.path.exists(_prog_req_path):
+    with open(_prog_req_path, 'r') as f:
+        _req_data = json.load(f)
+        for level, progs in _req_data.items():
+            for p in progs:
+                p['level_type'] = level
+                PROGRAM_REQUIREMENTS.append(p)
+    print(f"  Program requirements loaded: {len(PROGRAM_REQUIREMENTS)}")
+
+
+def find_program_requirements(query):
+    """Find matching program requirements for a query string."""
+    query_lower = query.lower()
+    matches = []
+    for p in PROGRAM_REQUIREMENTS:
+        name_lower = p['name'].lower()
+        # Score by how many query words appear in program name
+        words = [w for w in re.findall(r'\w+', query_lower) if len(w) > 3]
+        score = sum(1 for w in words if w in name_lower)
+        if score > 0:
+            matches.append((score, p))
+    matches.sort(key=lambda x: -x[0])
+    return [m[1] for m in matches[:3]]
+
 # ── Build a summary for the AI system prompt (to avoid token overflow) ──
 course_summary = [{"code": c.get("code",""), "title": c.get("title",""), "desc": c.get("description","")[:200]} for c in COURSES_DATA]
 jobs_summary   = {prog: [{"title": j["title"], "desc": j["description"]} for j in jobs] for prog, jobs in JOBS_DATA.items()}
@@ -365,6 +392,20 @@ def roadmap():
         year      = body.get('year', 'Freshman')
         courses   = body.get('completed_courses', '')
 
+        # Inject real program requirements if available
+        prog_reqs = find_program_requirements(f"{major} {career}")
+        req_context = ""
+        if prog_reqs:
+            p = prog_reqs[0]
+            real_courses = [c for c in p.get('courses_mentioned', []) if not c.startswith('HELP')]
+            req_context = (
+                f"\n\nOFFICIAL UDEL PROGRAM DATA for {p['name']}:\n"
+                f"Total Credits: {p.get('total_credits', 'unknown')}\n"
+                f"Official courses: {', '.join(real_courses)}\n"
+                f"Requirements: {p.get('requirements_text', '')[:1000]}\n"
+                f"Use ONLY these real course codes. Do NOT invent course numbers.\n"
+            )
+
         prompt = f"""A University of Delaware student wants a semester-by-semester course roadmap.
 
 Student Profile:
@@ -372,12 +413,12 @@ Student Profile:
 - Target Career: {career}
 - Current Year: {year}
 - Completed Courses: {courses if courses else 'None listed'}
-
+{req_context}
 Rules:
-- Respect course prerequisites (e.g. intro courses before advanced ones)
-- Each semester should build on the previous — sequence matters
-- Do NOT include courses already completed by the student
-- Start from where they are now ({year}) through graduation
+- Use ONLY real UDel course codes from the official program data above
+- Respect prerequisites — intro courses before advanced ones
+- Do NOT include courses already completed
+- Start from {year} through graduation
 
 Format EXACTLY like this:
 **Year X – Fall/Spring**
@@ -404,11 +445,31 @@ def chat():
     try:
         body = request.get_json()
         messages = body.get('messages', [])
+
+        # Check if last user message is about a program — inject real requirements
+        last_user_msg = next((m['content'] for m in reversed(messages) if m['role'] == 'user'), '')
+        program_context = ""
+        matched_progs = find_program_requirements(last_user_msg)
+        if matched_progs:
+            program_context = "\n\n=== OFFICIAL UDEL PROGRAM REQUIREMENTS (USE THESE — DO NOT MAKE UP DATA) ===\n"
+            for p in matched_progs[:2]:
+                program_context += f"\n**{p['name']}** ({p['level_type']})\n"
+                if p.get('total_credits'):
+                    program_context += f"Total Credits Required: {p['total_credits']}\n"
+                if p.get('courses_mentioned'):
+                    # Filter out bad matches like 'HELP 2025'
+                    real_courses = [c for c in p['courses_mentioned'] if not c.startswith('HELP')]
+                    program_context += f"Official courses in this program: {', '.join(real_courses)}\n"
+                program_context += f"Requirements: {p['requirements_text'][:1500]}\n"
+            program_context += "\nIMPORTANT: Answer ONLY using the above official data. Do NOT invent course numbers or requirements.\n"
+
+        system = SYSTEM_PROMPT + program_context
+
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=1024,
-            system=SYSTEM_PROMPT,
+            max_tokens=1500,
+            system=system,
             messages=messages
         )
         return jsonify({"reply": response.content[0].text})
