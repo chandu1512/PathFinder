@@ -144,6 +144,58 @@ for _prog, _jobs in JOBS_DATA.items():
             "salary_max": _j.get("salary_max", 0),
         })
 
+# Pre-build department list at startup
+DEPT_LIST = sorted({c.get('dept', '') for c in COURSES_DATA if c.get('dept', '')})
+
+# ── API: Courses ──
+@app.route('/api/courses', methods=['GET'])
+def get_courses():
+    try:
+        q     = request.args.get('q', '').lower().strip()
+        dept  = request.args.get('dept', '').upper().strip()
+        level = request.args.get('level', '')   # 'undergrad' | 'grad' | ''
+        page  = int(request.args.get('page', 1))
+        per   = 48
+
+        filtered = []
+        for c in COURSES_DATA:
+            # Level filter
+            c_level = c.get('level', 'undergrad')
+            if level == 'undergrad' and c_level != 'undergrad': continue
+            if level == 'grad'      and c_level != 'grad':      continue
+
+            # Department filter
+            if dept and c.get('dept', '') != dept: continue
+
+            # Search filter
+            if q:
+                title = (c.get('title', '') or '').lower()
+                code  = (c.get('code',  '') or '').lower()
+                desc  = (c.get('description', '') or '').lower()
+                if q not in title and q not in code and q not in desc:
+                    continue
+
+            filtered.append(c)
+
+        total = len(filtered)
+        start = (page - 1) * per
+        page_data = filtered[start:start + per]
+
+        return jsonify({
+            "courses": [{"code": c.get("code",""), "title": c.get("title",""),
+                         "dept": c.get("dept",""), "level": c.get("level","undergrad"),
+                         "description": (c.get("description","") or "")[:300]}
+                        for c in page_data],
+            "total": total,
+            "page": page,
+            "pages": (total + per - 1) // per,
+            "depts": DEPT_LIST
+        })
+    except Exception as e:
+        print(f"COURSES ERROR: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
 # ── API: Stats ──
 @app.route('/api/stats', methods=['GET'])
 def stats():

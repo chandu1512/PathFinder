@@ -823,6 +823,74 @@
         }
         .loading-state p { font-size: 0.95rem; }
 
+        /* ── COURSES EXPLORER ── */
+        #courses-section { display: none; }
+        #courses-section.open { display: block; }
+        .courses-toolbar {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px 32px;
+            display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+            position: sticky; top: 64px; z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        .courses-search-wrap {
+            position: relative; flex: 1; min-width: 200px;
+        }
+        .courses-search-wrap i {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--gray-400); font-size: 0.875rem; pointer-events: none;
+        }
+        .courses-search-wrap input {
+            width: 100%; padding: 9px 14px 9px 36px;
+            border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
+            font-size: 0.875rem; font-family: inherit; outline: none; color: var(--gray-800);
+        }
+        .courses-search-wrap input:focus { border-color: var(--blue); }
+        .courses-select {
+            border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
+            padding: 9px 12px; font-size: 0.875rem; font-family: inherit;
+            outline: none; color: var(--gray-800); background: white; cursor: pointer;
+        }
+        .courses-select:focus { border-color: var(--blue); }
+        .courses-count { font-size: 0.82rem; color: var(--gray-400); margin-left: auto; white-space: nowrap; }
+        .courses-count strong { color: var(--gray-800); }
+
+        .courses-grid {
+            max-width: 1280px; margin: 32px auto; padding: 0 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .course-card {
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md); padding: 18px 20px;
+            transition: all 0.15s;
+        }
+        .course-card:hover { border-color: #c5d8f0; box-shadow: var(--shadow-sm); }
+        .course-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+        .course-code-badge {
+            background: var(--blue); color: white;
+            font-size: 0.72rem; font-weight: 700;
+            padding: 3px 8px; border-radius: 4px;
+            white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+        }
+        .course-code-badge.grad { background: #7c3aed; }
+        .course-card-title { font-size: 0.875rem; font-weight: 700; color: var(--gray-800); line-height: 1.35; }
+        .course-card-desc { font-size: 0.8rem; color: var(--gray-600); line-height: 1.55; margin-top: 6px; }
+        .course-card-dept { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-top: 8px; }
+        .no-desc { color: var(--gray-400); font-style: italic; }
+
+        .load-more-wrap { text-align: center; padding: 24px 0 60px; }
+        .btn-load-more {
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: var(--radius-sm); padding: 10px 28px;
+            font-size: 0.875rem; font-weight: 600; color: var(--blue);
+            cursor: pointer; font-family: inherit; transition: all 0.15s;
+        }
+        .btn-load-more:hover { background: var(--gray-50); border-color: var(--blue); }
+        .btn-load-more:disabled { color: var(--gray-400); cursor: not-allowed; }
+
         /* ── FOOTER ── */
         footer {
             background: var(--blue-deep);
@@ -1314,9 +1382,9 @@
                 <span class="nav-brand-text">Path<span>Finder</span></span>
             </a>
             <div class="nav-center">
-                <a href="#" id="nav-all" class="active" onclick="setView('all'); return false;">All Programs</a>
-                <a href="#" id="nav-ug" onclick="setView('ug'); return false;">Undergraduate</a>
-                <a href="#" id="nav-grad" onclick="setView('grad'); return false;">Graduate</a>
+                <a href="#" id="nav-home" class="active" onclick="showHome(); return false;">Home</a>
+                <a href="#" id="nav-courses-link" onclick="showCoursesPage(); return false;">Courses</a>
+                <a href="#" id="nav-careers-link" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'}); return false;">Careers</a>
             </div>
             <div class="nav-right">
                 <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
@@ -1433,6 +1501,31 @@
         </main>
     </div>
 
+    <!-- COURSES EXPLORER -->
+    <div id="courses-section">
+        <div class="courses-toolbar">
+            <div class="courses-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="course-search" placeholder="Search by name or code — e.g. CISC 481, machine learning..." oninput="debounceCourseSearch()">
+            </div>
+            <select class="courses-select" id="course-dept" onchange="loadCourses(1)">
+                <option value="">All Departments</option>
+            </select>
+            <select class="courses-select" id="course-level" onchange="loadCourses(1)">
+                <option value="">All Levels</option>
+                <option value="undergrad">Undergraduate</option>
+                <option value="grad">Graduate</option>
+            </select>
+            <div class="courses-count"><strong id="course-total">—</strong> courses found</div>
+        </div>
+        <div class="courses-grid" id="courses-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+            <button class="btn-load-more" id="btn-load-more" onclick="loadMoreCourses()">
+                <i class="fa-solid fa-circle-plus"></i> Load More Courses
+            </button>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
@@ -1443,8 +1536,8 @@
             <div class="footer-copy">Built for every University of Delaware student — whatever your major, wherever your ambition leads.</div>
             <div class="footer-links">
                 <a href="#" onclick="openAbout(); return false;">About</a>
-                <a href="#" onclick="setView('ug'); window.scrollTo(0,0); return false;">Undergrad</a>
-                <a href="#" onclick="setView('grad'); window.scrollTo(0,0); return false;">Graduate</a>
+                <a href="#" onclick="showCoursesPage(); return false;">Courses</a>
+                <a href="#" onclick="showHome(); return false;">Careers</a>
             </div>
         </div>
         <hr class="footer-divider">
@@ -2181,6 +2274,114 @@
         }
 
         loadData();
+
+        // ── PAGE NAVIGATION ──
+        const homeSections = ['hero-section', 'how-section-el', 'programs-section'];
+
+        function showHome() {
+            document.getElementById('courses-section').classList.remove('open');
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('programs-section').style.display = 'block';
+            document.getElementById('nav-home').classList.add('active');
+            document.getElementById('nav-courses-link').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showCoursesPage() {
+            // Hide home sections
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('programs-section').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            // Show courses
+            document.getElementById('courses-section').classList.add('open');
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-courses-link').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!coursesLoaded) loadCourses(1);
+        }
+
+        // ── COURSES EXPLORER ──
+        let coursesLoaded = false;
+        let currentCoursePage = 1;
+        let totalCoursePages = 1;
+        let courseSearchTimer = null;
+
+        async function loadCourses(page) {
+            currentCoursePage = page;
+            const q     = document.getElementById('course-search').value.trim();
+            const dept  = document.getElementById('course-dept').value;
+            const level = document.getElementById('course-level').value;
+
+            const grid = document.getElementById('courses-grid');
+            if (page === 1) {
+                grid.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>Loading courses...</p></div>';
+            }
+
+            const params = new URLSearchParams({ page, q, dept, level });
+            const res = await fetch(`/api/courses?${params}`);
+            const data = await res.json();
+
+            coursesLoaded = true;
+            totalCoursePages = data.pages;
+            document.getElementById('course-total').textContent = data.total.toLocaleString();
+
+            // Populate dept dropdown on first load
+            if (page === 1 && data.depts?.length) {
+                const sel = document.getElementById('course-dept');
+                const current = sel.value;
+                sel.innerHTML = '<option value="">All Departments</option>' +
+                    data.depts.map(d => `<option value="${d}" ${d === current ? 'selected' : ''}>${d}</option>`).join('');
+            }
+
+            const cards = data.courses.map(c => {
+                const isGrad = c.level === 'grad';
+                const parts = c.title.split(' - ');
+                const titlePart = parts.slice(1).join(' - ') || c.title;
+                const desc = c.description
+                    ? `<p class="course-card-desc">${c.description}</p>`
+                    : `<p class="course-card-desc no-desc">No description available.</p>`;
+                return `<div class="course-card">
+                    <div class="course-card-header">
+                        <span class="course-code-badge ${isGrad ? 'grad' : ''}">${c.code}</span>
+                        <div class="course-card-title">${titlePart}</div>
+                    </div>
+                    ${desc}
+                    <div class="course-card-dept"><i class="fa-solid fa-building-columns" style="font-size:0.65rem;"></i> ${c.dept} · ${isGrad ? 'Graduate' : 'Undergraduate'}</div>
+                </div>`;
+            }).join('');
+
+            if (page === 1) {
+                grid.innerHTML = cards || '<div class="loading-state"><p>No courses found.</p></div>';
+            } else {
+                grid.insertAdjacentHTML('beforeend', cards);
+            }
+
+            const wrap = document.getElementById('load-more-wrap');
+            const btn = document.getElementById('btn-load-more');
+            if (data.pages > page) {
+                wrap.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-circle-plus"></i> Load More (${data.total - page * 48 > 0 ? data.total - page * 48 : ''} remaining)`;
+            } else {
+                wrap.style.display = data.total > 48 ? 'block' : 'none';
+                btn.disabled = true;
+                btn.innerHTML = 'All courses loaded';
+            }
+        }
+
+        function loadMoreCourses() {
+            loadCourses(currentCoursePage + 1);
+        }
+
+        function debounceCourseSearch() {
+            clearTimeout(courseSearchTimer);
+            courseSearchTimer = setTimeout(() => loadCourses(1), 400);
+        }
 
         // ── ABOUT MODAL ──
         function openAbout() {
