@@ -26,6 +26,9 @@ def index():
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
+# In-memory cache for AI course matches (persists across requests)
+AI_MATCH_CACHE = {}
+
 # ── Load data at startup ──
 with open(os.path.join(BASE_DIR, 'all_jobs.json'), 'r') as f:
     JOBS_DATA = json.load(f)
@@ -153,17 +156,73 @@ def get_career_paths():
         return jsonify({"error": str(e)}), 500
 
 
+# ── API: AI Course Match ──
+@app.route('/api/ai-match', methods=['POST'])
+def ai_match():
+    try:
+        body      = request.get_json()
+        job_title = body.get('job_title', '')
+        program   = body.get('program', '')
+
+        cache_key = f"{program}::{job_title}"
+        if cache_key in AI_MATCH_CACHE:
+            return jsonify(AI_MATCH_CACHE[cache_key])
+
+        # Find the job
+        job = next((j for j in JOBS_DATA.get(program, []) if j['title'] == job_title), None)
+        if not job:
+            return jsonify({"error": "Job not found"}), 404
+
+        # Get keyword candidates first (wider pool for Claude to choose from)
+        preferred = PROG_DEPTS.get(program, [])
+        ug_candidates, grad_candidates = match_courses(job.get('skills', []), preferred, COURSES_DATA, top_n=25)
+
+        prompt = (
+            f'You are a UDel career advisor. A student is targeting: "{job_title}" (from {program} program).\n'
+            f'Job description: {job.get("description", "")}\n\n'
+            f'From the candidate courses below, pick the BEST 8 undergraduate and BEST 8 graduate courses '
+            f'that genuinely build skills for this specific career. Order by importance.\n\n'
+            f'Undergraduate candidates:\n{json.dumps([c["title"] for c in ug_candidates])}\n\n'
+            f'Graduate candidates:\n{json.dumps([c["title"] for c in grad_candidates])}\n\n'
+            f'Respond ONLY with JSON (no markdown):\n'
+            f'{{"undergrad": ["exact course title", ...], "grad": ["exact course title", ...]}}'
+        )
+
+        client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=600,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        text = response.content[0].text.strip()
+        if text.startswith("```"):
+            text = text.split("```")[1]
+            if text.startswith("json"): text = text[4:]
+        parsed = json.loads(text.strip())
+
+        ug_titles  = {c['title'] for c in ug_candidates}
+        grad_titles = {c['title'] for c in grad_candidates}
+        result = {
+            "undergrad_courses": [{"title": t, "score": 99} for t in parsed.get("undergrad", []) if t in ug_titles],
+            "grad_courses":      [{"title": t, "score": 99} for t in parsed.get("grad", [])     if t in grad_titles]
+        }
+        AI_MATCH_CACHE[cache_key] = result
+        return jsonify(result)
+    except Exception as e:
+        print(f"AI MATCH ERROR: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
 # ── API: Roadmap ──
 @app.route('/api/roadmap', methods=['POST'])
 def roadmap():
     try:
-        body    = request.get_json()
-        major   = body.get('major', '')
-        career  = body.get('career', '')
-        year    = body.get('year', 'Freshman')
-        courses = body.get('completed_courses', '')
+        body      = request.get_json()
+        major     = body.get('major', '')
+        career    = body.get('career', '')
+        year      = body.get('year', 'Freshman')
+        courses   = body.get('completed_courses', '')
 
-        # Build a tight prompt so Claude returns a structured roadmap
         prompt = f"""A University of Delaware student wants a semester-by-semester course roadmap.
 
 Student Profile:
@@ -172,13 +231,17 @@ Student Profile:
 - Current Year: {year}
 - Completed Courses: {courses if courses else 'None listed'}
 
-Using the UDel course catalog and your knowledge of what courses are required/recommended for this career path, generate a clear semester-by-semester roadmap from their current year through graduation.
+Rules:
+- Respect course prerequisites (e.g. intro courses before advanced ones)
+- Each semester should build on the previous — sequence matters
+- Do NOT include courses already completed by the student
+- Start from where they are now ({year}) through graduation
 
-Format your response EXACTLY like this:
-**Year X – Semester (Fall/Spring)**
-- DEPT XXX - Course Name: [one sentence why this course matters for this career]
+Format EXACTLY like this:
+**Year X – Fall/Spring**
+- DEPT XXX - Course Name: [one sentence why this matters for {career}]
 
-Include 4-5 courses per semester. Focus on courses that directly build skills for {career}. Start from where they are now based on their year. End with a 2-sentence career outlook."""
+Include 4-5 courses per semester. End with a 2-sentence career outlook for {career}."""
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(

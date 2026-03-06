@@ -817,6 +817,98 @@
             to { transform: rotate(360deg); }
         }
 
+        /* ── PROFILE BUTTON ── */
+        .btn-profile {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s;
+            position: relative;
+        }
+        .btn-profile:hover { background: var(--blue-dark); }
+        .profile-dot {
+            position: absolute;
+            top: -2px; right: -2px;
+            width: 10px; height: 10px;
+            background: var(--green);
+            border-radius: 50%;
+            border: 2px solid white;
+            display: none;
+        }
+        .profile-dot.active { display: block; }
+
+        /* ── PROFILE MODAL ── */
+        #profile-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 10002;
+            align-items: center; justify-content: center; padding: 20px;
+        }
+        #profile-overlay.open { display: flex; }
+        #profile-modal {
+            background: white; border-radius: var(--radius-lg);
+            width: 100%; max-width: 480px;
+            box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .profile-header {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            color: white; padding: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .profile-header h2 { font-size: 1.1rem; font-weight: 700; }
+        .profile-header p { font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
+        .profile-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .profile-field { display: flex; flex-direction: column; gap: 5px; }
+        .profile-field label { font-size: 0.75rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.4px; }
+        .profile-field input, .profile-field select {
+            border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
+            padding: 9px 12px; font-size: 0.875rem; font-family: inherit;
+            outline: none; color: var(--gray-800);
+        }
+        .profile-field input:focus, .profile-field select:focus { border-color: var(--blue); }
+        .profile-actions { display: flex; gap: 10px; padding: 0 24px 24px; }
+        .btn-save-profile {
+            flex: 1; background: var(--blue); color: white; border: none;
+            border-radius: var(--radius-sm); padding: 10px; font-size: 0.875rem;
+            font-weight: 600; font-family: inherit; cursor: pointer;
+        }
+        .btn-save-profile:hover { background: var(--blue-dark); }
+        .btn-clear-profile {
+            background: none; border: 1px solid var(--gray-200); color: var(--gray-600);
+            border-radius: var(--radius-sm); padding: 10px 16px; font-size: 0.875rem;
+            font-family: inherit; cursor: pointer;
+        }
+
+        /* ── BOOKMARKS ── */
+        .btn-bookmark {
+            background: none; border: none; cursor: pointer;
+            color: var(--gray-400); font-size: 1rem;
+            padding: 2px 4px; transition: color 0.15s;
+            flex-shrink: 0;
+        }
+        .btn-bookmark:hover { color: var(--gold-dark); }
+        .btn-bookmark.saved { color: var(--gold-dark); }
+
+        /* ── AI MATCH BUTTON ── */
+        .btn-ai-match {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: white; border: none; border-radius: var(--radius-sm);
+            padding: 6px 14px; font-size: 0.78rem; font-weight: 600;
+            font-family: inherit; cursor: pointer; margin-bottom: 12px;
+            transition: opacity 0.15s;
+        }
+        .btn-ai-match:hover { opacity: 0.9; }
+        .btn-ai-match:disabled { opacity: 0.6; cursor: not-allowed; }
+        .ai-match-badge {
+            font-size: 0.65rem; background: rgba(255,255,255,0.2);
+            padding: 1px 6px; border-radius: 999px;
+        }
+
         /* ── SEARCH SUGGESTIONS ── */
         .search-suggestions {
             position: absolute;
@@ -992,6 +1084,10 @@
             </div>
             <div class="nav-right">
                 <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
+                <button class="btn-profile" onclick="openProfile()" title="My Profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="profile-dot" id="profile-dot"></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -1050,6 +1146,7 @@
             <button class="filter-tab active" id="tab-all" onclick="setView('all')">All Programs</button>
             <button class="filter-tab" id="tab-ug" onclick="setView('ug')">Undergraduate</button>
             <button class="filter-tab" id="tab-grad" onclick="setView('grad')">Graduate</button>
+            <button class="filter-tab" id="tab-bookmarks" onclick="setView('bookmarks')"><i class="fa-solid fa-star" style="font-size:0.75rem;margin-right:4px;"></i>Saved</button>
         </div>
         <div class="filter-right">
             Showing <span class="results-count" id="visible-count">—</span> career paths
@@ -1081,6 +1178,47 @@
         <hr class="footer-divider">
         <p class="footer-bottom">&copy; 2026 PathFinder &mdash; Data sourced from the University of Delaware Course Catalog</p>
     </footer>
+
+    <!-- PROFILE MODAL -->
+    <div id="profile-overlay" onclick="if(event.target===this) closeProfile()">
+        <div id="profile-modal">
+            <div class="profile-header">
+                <div>
+                    <h2>My Profile</h2>
+                    <p>Personalize your PathFinder experience</p>
+                </div>
+                <button class="about-close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="profile-body">
+                <div class="profile-field">
+                    <label>Your Name</label>
+                    <input type="text" id="pf-name" placeholder="e.g. Alex Johnson">
+                </div>
+                <div class="profile-field">
+                    <label>Major / Program</label>
+                    <select id="pf-major"></select>
+                </div>
+                <div class="profile-field">
+                    <label>Current Year</label>
+                    <select id="pf-year">
+                        <option>Freshman</option>
+                        <option>Sophomore</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                        <option>Graduate Student</option>
+                    </select>
+                </div>
+                <div class="profile-field">
+                    <label>Completed Courses (comma separated)</label>
+                    <input type="text" id="pf-courses" placeholder="e.g. CISC 108, CISC 181, MATH 241">
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="btn-save-profile" onclick="saveProfile()"><i class="fa-solid fa-check"></i> Save Profile</button>
+                <button class="btn-clear-profile" onclick="clearProfile()">Clear</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ABOUT MODAL -->
     <div id="about-overlay" onclick="if(event.target===this) closeAbout()">
@@ -1184,6 +1322,9 @@
         let globalData = {};
         let chatHistory = [];
         let chatOpen = false;
+        let currentView = 'all';
+        let bookmarks = JSON.parse(localStorage.getItem('pf_bookmarks') || '[]');
+        let userProfile = JSON.parse(localStorage.getItem('pf_profile') || 'null');
 
         const MAJOR_ICONS = {
             'Computer Science': 'fa-code',
@@ -1221,6 +1362,7 @@
                 globalData = await response.json();
                 renderDashboard(globalData);
                 updateStats();
+                applyProfileToUI();
             } catch (error) {
                 document.getElementById('app-container').innerHTML =
                     '<div class="loading-state" style="color:#d93025;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;margin-bottom:12px;display:block;"></i><p>Could not connect to the PathFinder server.<br>Make sure <strong>app.py</strong> is running.</p></div>';
@@ -1244,7 +1386,8 @@
 
         // ── VIEW FILTER ──
         function setView(viewType) {
-            ['all','ug','grad'].forEach(v => {
+            currentView = viewType;
+            ['all','ug','grad','bookmarks'].forEach(v => {
                 document.getElementById('nav-' + v)?.classList.remove('active');
                 document.getElementById('tab-' + v)?.classList.remove('active');
             });
@@ -1255,6 +1398,24 @@
             container.classList.remove('view-ug', 'view-grad');
             if (viewType === 'ug') container.classList.add('view-ug');
             if (viewType === 'grad') container.classList.add('view-grad');
+
+            // Handle bookmarks view
+            document.querySelectorAll('.major-section').forEach(section => {
+                if (viewType === 'bookmarks') {
+                    let hasBookmarked = false;
+                    section.querySelectorAll('.job-card').forEach(card => {
+                        const key = card.getAttribute('data-bookmark-key');
+                        const isBookmarked = bookmarks.includes(key);
+                        card.classList.toggle('hidden', !isBookmarked);
+                        if (isBookmarked) hasBookmarked = true;
+                    });
+                    section.classList.toggle('hidden', !hasBookmarked);
+                } else {
+                    section.classList.remove('hidden');
+                    section.querySelectorAll('.job-card').forEach(card => card.classList.remove('hidden'));
+                    filterJobs();
+                }
+            });
             updateVisibleCount();
         }
 
@@ -1309,10 +1470,16 @@
                         : 'Varies';
                     const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
 
+                    const bookmarkKey = `${major}::${job.title}`;
+                    const isBookmarked = bookmarks.includes(bookmarkKey);
+
                     jobsHtml += `
-                        <div class="job-card" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" onclick="toggleCourses(this, '${jobId}')">
+                        <div class="job-card" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" data-bookmark-key="${bookmarkKey}" onclick="toggleCourses(this, '${jobId}')">
                             <div class="job-card-header">
                                 <h3 class="job-title">${job.title}</h3>
+                                <button class="btn-bookmark ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); toggleBookmark('${bookmarkKey}', this)" title="${isBookmarked ? 'Remove bookmark' : 'Save job'}">
+                                    <i class="fa-${isBookmarked ? 'solid' : 'regular'} fa-star"></i>
+                                </button>
                                 <i class="fa-solid fa-chevron-down job-chevron"></i>
                             </div>
                             <p class="job-desc">${job.description}</p>
@@ -1324,6 +1491,10 @@
                                 </button>
                             </div>
                             <div class="course-list" id="${jobId}">
+                                <button class="btn-ai-match" id="ai-btn-${jobId}" onclick="event.stopPropagation(); getAIMatch('${jobId}', '${major}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI Course Match
+                                    <span class="ai-match-badge">Smarter</span>
+                                </button>
                                 ${ugHtml}
                                 ${gradHtml}
                             </div>
@@ -1411,6 +1582,110 @@
             return el;
         }
 
+        // ── PROFILE ──
+        function openProfile() {
+            // Populate major dropdown
+            const sel = document.getElementById('pf-major');
+            sel.innerHTML = Object.keys(globalData).map(p => `<option>${p}</option>`).join('');
+            if (userProfile) {
+                document.getElementById('pf-name').value = userProfile.name || '';
+                sel.value = userProfile.major || '';
+                document.getElementById('pf-year').value = userProfile.year || 'Freshman';
+                document.getElementById('pf-courses').value = userProfile.courses || '';
+            }
+            document.getElementById('profile-overlay').classList.add('open');
+        }
+        function closeProfile() {
+            document.getElementById('profile-overlay').classList.remove('open');
+        }
+        function saveProfile() {
+            userProfile = {
+                name:    document.getElementById('pf-name').value.trim(),
+                major:   document.getElementById('pf-major').value,
+                year:    document.getElementById('pf-year').value,
+                courses: document.getElementById('pf-courses').value.trim()
+            };
+            localStorage.setItem('pf_profile', JSON.stringify(userProfile));
+            document.getElementById('profile-dot').classList.add('active');
+            closeProfile();
+        }
+        function clearProfile() {
+            userProfile = null;
+            localStorage.removeItem('pf_profile');
+            document.getElementById('profile-dot').classList.remove('active');
+            ['pf-name','pf-courses'].forEach(id => document.getElementById(id).value = '');
+        }
+        function applyProfileToUI() {
+            if (!userProfile) return;
+            document.getElementById('profile-dot').classList.add('active');
+        }
+
+        // ── BOOKMARKS ──
+        function toggleBookmark(key, btn) {
+            const idx = bookmarks.indexOf(key);
+            if (idx === -1) {
+                bookmarks.push(key);
+                btn.classList.add('saved');
+                btn.innerHTML = '<i class="fa-solid fa-star"></i>';
+            } else {
+                bookmarks.splice(idx, 1);
+                btn.classList.remove('saved');
+                btn.innerHTML = '<i class="fa-regular fa-star"></i>';
+                if (currentView === 'bookmarks') {
+                    btn.closest('.job-card').classList.add('hidden');
+                    updateVisibleCount();
+                }
+            }
+            localStorage.setItem('pf_bookmarks', JSON.stringify(bookmarks));
+        }
+
+        // ── AI COURSE MATCH ──
+        async function getAIMatch(jobId, major, jobTitle) {
+            const btn = document.getElementById(`ai-btn-${jobId}`);
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Matching with AI...';
+
+            try {
+                const res = await fetch('/api/ai-match', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ job_title: jobTitle, program: major })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+
+                const container = document.getElementById(jobId);
+
+                // Rebuild course sections with AI results
+                let ugHtml = '<div class="ug-section"><div class="course-section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Undergraduate Courses</div>';
+                if (data.undergrad_courses?.length) {
+                    data.undergrad_courses.forEach(c => {
+                        ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                    });
+                } else {
+                    ugHtml += '<p class="no-match">No undergraduate matches found.</p>';
+                }
+                ugHtml += '</div>';
+
+                let gradHtml = '<div class="grad-section"><div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Graduate Courses</div>';
+                if (data.grad_courses?.length) {
+                    data.grad_courses.forEach(c => {
+                        gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                    });
+                } else {
+                    gradHtml += '<p class="no-match">No graduate matches found.</p>';
+                }
+                gradHtml += '</div>';
+
+                btn.outerHTML = '<div style="font-size:0.75rem;color:#7c3aed;font-weight:600;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-powered matches</div>';
+                container.querySelectorAll('.ug-section, .grad-section').forEach(el => el.remove());
+                container.insertAdjacentHTML('beforeend', ugHtml + gradHtml);
+            } catch (e) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> AI Course Match <span class="ai-match-badge">Retry</span>';
+            }
+        }
+
         loadData();
 
         // ── ABOUT MODAL ──
@@ -1492,6 +1767,11 @@
             document.getElementById('roadmap-title').textContent = career;
             document.getElementById('roadmap-subtitle').textContent = `${major} → ${career}`;
             document.getElementById('roadmap-body').innerHTML = '<div class="placeholder">Fill in your details above and click Generate to get your personalized roadmap.</div>';
+            // Pre-fill from profile
+            if (userProfile) {
+                document.getElementById('roadmap-year').value = userProfile.year || 'Freshman';
+                document.getElementById('roadmap-completed').value = userProfile.courses || '';
+            }
             document.getElementById('roadmap-overlay').classList.add('open');
         }
 
