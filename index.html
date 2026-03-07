@@ -9,25 +9,28 @@
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
     <style>
         :root {
-            --blue:       #00539F;
-            --blue-dark:  #003366;
-            --blue-deep:  #001f3f;
-            --gold:       #FFD200;
-            --gold-dark:  #e6bc00;
-            --white:      #ffffff;
-            --gray-50:    #f8f9fb;
-            --gray-100:   #f1f3f6;
-            --gray-200:   #e4e8ee;
-            --gray-400:   #9aa3b0;
-            --gray-600:   #5a6374;
-            --gray-800:   #1e2532;
-            --green:      #16a34a;
-            --radius-sm:  6px;
-            --radius-md:  12px;
-            --radius-lg:  20px;
-            --shadow-sm:  0 1px 4px rgba(0,0,0,0.06);
-            --shadow-md:  0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg:  0 12px 40px rgba(0,0,0,0.12);
+            --blue:         #00539F;
+            --blue-dark:    #003366;
+            --blue-deep:    #070e1b;
+            --gold:         #FFD200;
+            --gold-dark:    #e6bc00;
+            --purple:       #7c3aed;
+            --purple-light: #a78bfa;
+            --cyan:         #06b6d4;
+            --white:        #ffffff;
+            --gray-50:      #f8f9fb;
+            --gray-100:     #f1f3f6;
+            --gray-200:     #e4e8ee;
+            --gray-400:     #9aa3b0;
+            --gray-600:     #5a6374;
+            --gray-800:     #1e2532;
+            --green:        #16a34a;
+            --radius-sm:    6px;
+            --radius-md:    12px;
+            --radius-lg:    20px;
+            --shadow-sm:    0 1px 4px rgba(0,0,0,0.06);
+            --shadow-md:    0 4px 16px rgba(0,0,0,0.10);
+            --shadow-lg:    0 16px 48px rgba(0,0,0,0.18);
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,12 +56,11 @@
 
         /* ── NAVIGATION ── */
         nav {
-            background: var(--white);
-            border-bottom: 1px solid var(--gray-200);
+            background: var(--blue-dark);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
         }
         .nav-inner {
             max-width: 1280px;
@@ -79,57 +81,54 @@
         .nav-logo {
             width: 36px;
             height: 36px;
-            background: var(--blue);
+            background: var(--gold);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gold);
+            color: var(--blue-dark);
             font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .nav-brand-text {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            color: var(--blue-dark);
+            color: var(--white);
             letter-spacing: -0.3px;
         }
-        .nav-brand-text span { color: var(--blue); }
-        .nav-center {
-            display: flex;
-            gap: 4px;
-        }
+        .nav-brand-text span { color: var(--gold); }
+        .nav-center { display: flex; gap: 2px; }
         .nav-center a {
-            padding: 6px 14px;
-            border-radius: var(--radius-sm);
+            padding: 7px 16px;
+            border-radius: 999px;
             font-size: 0.875rem;
             font-weight: 500;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             transition: all 0.15s;
         }
-        .nav-center a:hover { background: var(--gray-100); color: var(--blue); }
+        .nav-center a:hover { background: rgba(255,255,255,0.12); color: white; }
         .nav-center a.active {
-            background: #e8f0fb;
-            color: var(--blue);
-            font-weight: 600;
+            background: var(--gold);
+            color: var(--blue-dark);
+            font-weight: 700;
         }
-        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .nav-right { display: flex; align-items: center; gap: 10px; }
         .btn-ghost {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             font-weight: 500;
-            color: var(--gray-600);
+            color: rgba(255,255,255,0.6);
             background: none;
             border: none;
-            cursor: pointer;
-            padding: 6px 12px;
-            border-radius: var(--radius-sm);
+            cursor: default;
+            padding: 6px 0;
             text-decoration: none;
         }
         .btn-primary {
-            background: var(--blue);
-            color: var(--white);
+            background: var(--gold);
+            color: var(--blue-dark);
             font-size: 0.875rem;
-            font-weight: 600;
+            font-weight: 700;
             border: none;
             border-radius: var(--radius-sm);
             padding: 8px 18px;
@@ -137,35 +136,82 @@
             text-decoration: none;
             transition: background 0.15s;
         }
-        .btn-primary:hover { background: var(--blue-dark); }
+        .btn-primary:hover { background: var(--gold-dark); }
 
         /* ── HERO ── */
         .hero {
-            background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-dark) 50%, #004080 100%);
-            padding: 100px 20px 90px;
+            background: #070e1b;
+            padding: 110px 20px 100px;
             position: relative;
             overflow: hidden;
+            min-height: 580px;
+            display: flex;
+            align-items: center;
         }
-        .hero::before {
+        /* Animated mesh gradient blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.45;
+            pointer-events: none;
+        }
+        .hero-blob-1 {
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, #1a4fa8 0%, transparent 70%);
+            top: -200px; left: -100px;
+            animation: blobFloat1 18s ease-in-out infinite;
+        }
+        .hero-blob-2 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, #c49b00 0%, transparent 70%);
+            top: -100px; right: -100px;
+            animation: blobFloat2 22s ease-in-out infinite;
+        }
+        .hero-blob-3 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, #0891b2 0%, transparent 70%);
+            bottom: -150px; left: 30%;
+            animation: blobFloat3 16s ease-in-out infinite;
+        }
+        @keyframes blobFloat1 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            33% { transform: translate(60px,40px) scale(1.1); }
+            66% { transform: translate(-30px,60px) scale(0.95); }
+        }
+        @keyframes blobFloat2 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            40% { transform: translate(-50px,30px) scale(1.08); }
+            70% { transform: translate(30px,-40px) scale(0.92); }
+        }
+        @keyframes blobFloat3 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(-40px,-30px) scale(1.12); }
+        }
+        /* Noise texture overlay */
+        .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
         .hero-inner {
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
             text-align: center;
             position: relative;
+            z-index: 1;
+            width: 100%;
         }
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            background: rgba(255,210,0,0.15);
-            border: 1px solid rgba(255,210,0,0.3);
+            background: rgba(255,210,0,0.12);
+            border: 1px solid rgba(255,210,0,0.28);
             color: var(--gold);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 600;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -177,39 +223,124 @@
             font-size: clamp(2.4rem, 5.5vw, 3.8rem);
             font-weight: 800;
             color: var(--white);
-            line-height: 1.12;
+            line-height: 1.1;
             letter-spacing: -1.5px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        .hero h1 span { color: var(--gold); }
+        .hero h1 .grad-text {
+            color: var(--gold);
+        }
         .hero-sub {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.72);
-            max-width: 620px;
-            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 580px;
+            margin: 0 auto 32px;
             line-height: 1.7;
         }
-        .hero-stats-pills {
+        /* ── HERO SEARCH BAR ── */
+        .hero-search-wrap {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        .hero-search-wrap i.search-icon {
+            position: absolute;
+            left: 20px; top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 1rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero-search-input {
+            width: 100%;
+            padding: 18px 56px 18px 52px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 14px;
+            outline: none;
+            color: white;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+        .hero-search-input::placeholder { color: rgba(255,255,255,0.4); }
+        .hero-search-input:focus {
+            border-color: rgba(96,165,250,0.6);
+            background: rgba(255,255,255,0.12);
+            box-shadow: 0 0 0 4px rgba(96,165,250,0.12), 0 8px 40px rgba(0,0,0,0.3);
+        }
+        .hero-search-btn {
+            position: absolute;
+            right: 8px; top: 50%;
+            transform: translateY(-50%);
+            background: var(--blue);
+            color: white; border: none;
+            border-radius: 10px;
+            padding: 9px 16px;
+            font-size: 0.875rem; font-weight: 600;
+            font-family: inherit; cursor: pointer;
+            display: flex; align-items: center; gap: 6px;
+            transition: opacity 0.15s, transform 0.15s;
+        }
+        .hero-search-btn:hover { opacity: 0.9; transform: translateY(-50%) scale(1.02); }
+        /* Quick search chips */
+        .hero-chips {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 36px;
         }
-        .hero-pill {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 6px 16px;
+        .hero-chip {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: rgba(255,255,255,0.75);
+            padding: 5px 14px;
             border-radius: 999px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            display: flex; align-items: center; gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            backdrop-filter: blur(8px);
         }
-        .hero-pill i { color: var(--gold); font-size: 0.75rem; }
-        .hero-cta-row {
-            display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-            margin-top: 12px;
+        .hero-chip:hover {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(96,165,250,0.4);
+            color: white;
+        }
+        /* ── HERO STAT COUNTERS ── */
+        .hero-stats-pills {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+        .hero-stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 28px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero-stat-item:last-child { border-right: none; }
+        .hero-stat-num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+        .hero-stat-label {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .btn-cta-primary {
             background: var(--gold);
@@ -243,14 +374,14 @@
         /* ── HOW IT WORKS ── */
         .how-section {
             background: var(--white);
-            padding: 80px 32px;
+            padding: 88px 32px;
             border-bottom: 1px solid var(--gray-200);
         }
         .section-label {
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.73rem;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.8px;
             text-transform: uppercase;
             color: var(--blue);
             margin-bottom: 12px;
@@ -276,13 +407,14 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 0;
             position: relative;
         }
-        .steps-grid::before {
-            content: '';
+        .steps-connector {
             position: absolute;
-            top: 32px; left: calc(16.66% + 16px); right: calc(16.66% + 16px);
+            top: 36px;
+            left: calc(16.66% + 36px);
+            right: calc(16.66% + 36px);
             height: 2px;
             background: linear-gradient(90deg, var(--blue), var(--gold));
             z-index: 0;
@@ -291,69 +423,101 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            padding: 0 24px 0;
         }
         .step-num {
-            width: 64px; height: 64px;
+            width: 72px; height: 72px;
             border-radius: 50%;
-            background: var(--blue);
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             color: white;
-            font-size: 1.3rem;
-            font-weight: 800;
+            font-size: 1.4rem;
             display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 4px 20px rgba(0,83,159,0.3);
+            margin: 0 auto 24px;
+            box-shadow: 0 0 0 8px white, 0 4px 24px rgba(0,83,159,0.25);
             position: relative;
+            transition: transform 0.2s;
         }
+        .step-card:nth-child(2) .step-num { background: linear-gradient(135deg, #0066cc, var(--blue)); }
+        .step-card:nth-child(3) .step-num { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); }
+        .step-card:hover .step-num { transform: scale(1.08); }
         .step-num i { font-size: 1.2rem; }
-        .step-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--gray-800); margin-bottom: 10px; }
+        .step-card h3 {
+            font-size: 1rem; font-weight: 700; color: var(--gray-800);
+            margin-bottom: 10px;
+        }
         .step-card p { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; }
 
         /* ── PROGRAMS SECTION ── */
         .programs-section {
             background: var(--gray-50);
-            padding: 80px 32px;
+            padding: 88px 32px;
         }
         .programs-grid {
             max-width: 1280px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 14px;
         }
         .program-card {
             background: var(--white);
             border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            padding: 24px 20px;
+            border-radius: 16px;
+            padding: 22px 18px 18px;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
-            text-align: center;
+            transition: all 0.22s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-align: left;
             position: relative;
             overflow: hidden;
         }
-        .program-card::after {
+        .program-card::before {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--gold));
-            transform: scaleX(0);
-            transition: transform 0.2s;
+            background: var(--card-accent, linear-gradient(90deg, var(--blue), var(--gold)));
+            border-radius: 16px 16px 0 0;
+            opacity: 0;
+            transition: opacity 0.2s;
         }
-        .program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #c5d8f0; }
-        .program-card:hover::after { transform: scaleX(1); }
+        .program-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border-color: transparent;
+        }
+        .program-card:hover::before { opacity: 1; }
         .program-card-icon {
-            width: 52px; height: 52px;
-            border-radius: var(--radius-md);
-            background: linear-gradient(135deg, var(--blue), #0066cc);
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            background: var(--card-icon-bg, linear-gradient(135deg, var(--blue), #0066cc));
             display: flex; align-items: center; justify-content: center;
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin: 0 auto 14px;
-            box-shadow: 0 4px 12px rgba(0,83,159,0.25);
+            color: var(--card-icon-color, var(--gold));
+            font-size: 1.15rem;
+            margin-bottom: 14px;
+            box-shadow: var(--card-icon-shadow, 0 4px 12px rgba(0,83,159,0.25));
         }
-        .program-card-name { font-size: 0.9rem; font-weight: 700; color: var(--gray-800); margin-bottom: 6px; line-height: 1.3; }
-        .program-card-count { font-size: 0.75rem; color: var(--blue); font-weight: 600; }
+        .program-card-name {
+            font-size: 0.88rem; font-weight: 700; color: var(--gray-800);
+            margin-bottom: 8px; line-height: 1.35;
+        }
+        .program-card-count {
+            font-size: 0.72rem; color: var(--gray-400); font-weight: 500;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .program-card-count i { font-size: 0.65rem; }
+        /* Category color accents */
+        .prog-cat-tech .program-card-icon   { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); box-shadow: 0 4px 14px rgba(0,83,159,0.3); }
+        .prog-cat-tech::before              { background: linear-gradient(90deg, var(--blue), var(--blue-dark)) !important; }
+        .prog-cat-business .program-card-icon { background: linear-gradient(135deg, #047857, #065f46); box-shadow: 0 4px 14px rgba(4,120,87,0.3); }
+        .prog-cat-business::before          { background: linear-gradient(90deg, #047857, #10b981) !important; }
+        .prog-cat-engineering .program-card-icon { background: linear-gradient(135deg, #b45309, #d97706); box-shadow: 0 4px 14px rgba(180,83,9,0.3); }
+        .prog-cat-engineering::before       { background: linear-gradient(90deg, #b45309, #f59e0b) !important; }
+        .prog-cat-science .program-card-icon { background: linear-gradient(135deg, #0e7490, #0891b2); box-shadow: 0 4px 14px rgba(14,116,144,0.3); }
+        .prog-cat-science::before           { background: linear-gradient(90deg, #0e7490, #06b6d4) !important; }
+        .prog-cat-social .program-card-icon  { background: linear-gradient(135deg, #0e7490, #155e75); box-shadow: 0 4px 14px rgba(14,116,144,0.3); }
+        .prog-cat-social::before             { background: linear-gradient(90deg, #0e7490, #155e75) !important; }
+        .prog-cat-health .program-card-icon  { background: linear-gradient(135deg, #dc2626, #e11d48); box-shadow: 0 4px 14px rgba(220,38,38,0.3); }
+        .prog-cat-health::before             { background: linear-gradient(90deg, #dc2626, #f43f5e) !important; }
 
         /* ── JOBS VIEW (after program click) ── */
         .jobs-view-header {
@@ -362,6 +526,10 @@
             padding: 16px 32px;
             display: flex; align-items: center; gap: 14px;
             max-width: 100%;
+            position: sticky;
+            top: 64px;
+            z-index: 200;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
         .back-btn {
             display: flex; align-items: center; gap: 7px;
@@ -546,9 +714,8 @@
             border-radius: var(--radius-md);
             padding: 24px;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
             position: relative;
-            overflow: hidden;
         }
         .job-card::before {
             content: '';
@@ -559,6 +726,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.2s ease;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
         }
         .job-card:hover {
             border-color: #c5d8f0;
@@ -761,7 +929,6 @@
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid var(--gray-200);
-            animation: slideDown 0.25s ease;
         }
         .course-section-label {
             display: flex;
@@ -890,7 +1057,7 @@
             padding: 3px 8px; border-radius: 4px;
             white-space: nowrap; flex-shrink: 0; margin-top: 2px;
         }
-        .course-code-badge.grad { background: #7c3aed; }
+        .course-code-badge.grad { background: var(--blue-dark); }
         .course-card-title { font-size: 0.875rem; font-weight: 700; color: var(--gray-800); line-height: 1.35; }
         .course-card-desc { font-size: 0.8rem; color: var(--gray-600); line-height: 1.55; margin-top: 6px; }
         .course-card-dept { font-size: 0.72rem; color: var(--blue); font-weight: 600; margin-top: 8px; }
@@ -1089,16 +1256,16 @@
         .btn-profile {
             width: 36px; height: 36px;
             border-radius: 50%;
-            background: var(--blue);
+            background: rgba(255,255,255,0.15);
             color: white;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.3);
             cursor: pointer;
             font-size: 0.85rem;
             display: flex; align-items: center; justify-content: center;
             transition: background 0.15s;
             position: relative;
         }
-        .btn-profile:hover { background: var(--blue-dark); }
+        .btn-profile:hover { background: rgba(255,255,255,0.25); }
         .profile-dot {
             position: absolute;
             top: -2px; right: -2px;
@@ -1164,7 +1331,7 @@
         /* ── AI MATCH BUTTON ── */
         .btn-ai-match {
             display: inline-flex; align-items: center; gap: 6px;
-            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             color: white; border: none; border-radius: var(--radius-sm);
             padding: 6px 14px; font-size: 0.78rem; font-weight: 600;
             font-family: inherit; cursor: pointer; margin-bottom: 12px;
@@ -1194,7 +1361,7 @@
             font-size: 0.85rem; color: var(--gray-600);
             display: flex; align-items: center; gap: 8px;
         }
-        .ai-search-intent i { color: #7c3aed; }
+        .ai-search-intent i { color: var(--blue); }
         .ai-search-intent strong { color: var(--gray-800); }
         .btn-clear-search {
             font-size: 0.8rem; color: var(--blue); background: none;
@@ -1345,13 +1512,54 @@
             border-top: 1px solid var(--gray-200);
         }
 
+        /* ── MOBILE BOTTOM TAB BAR ── */
+        .mobile-tab-bar {
+            display: none;
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            z-index: 9990;
+            padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+        }
+        .mobile-tab-bar-inner {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+        }
+        .mobile-tab {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            padding: 6px 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: inherit;
+            color: var(--gray-400);
+            transition: color 0.15s;
+        }
+        .mobile-tab i { font-size: 1.1rem; }
+        .mobile-tab span { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2px; }
+        .mobile-tab.active { color: var(--blue); }
+        .mobile-tab.active i { transform: scale(1.1); }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
+            .mobile-tab-bar { display: block; }
             .nav-inner { padding: 0 16px; }
             .nav-center { display: none; }
-            .hero { padding: 70px 16px 60px; }
-            .steps-grid { grid-template-columns: 1fr; gap: 24px; }
-            .steps-grid::before { display: none; }
+            .hero { padding: 70px 16px 60px; min-height: unset; }
+            .hero-blob { display: none; }
+            .hero-stat-item { padding: 12px 16px; }
+            .hero-stat-num { font-size: 1.4rem; }
+            .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+            .steps-connector { display: none; }
+            .step-card { padding: 0; }
             .programs-section { padding: 50px 16px; }
             .how-section { padding: 50px 16px; }
             .programs-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
@@ -1366,8 +1574,9 @@
             .jobs-grid { grid-template-columns: 1fr; gap: 14px; }
             .major-header { gap: 10px; }
             .major-title { font-size: 1.1rem; }
-            #chat-toggle { bottom: 18px; right: 18px; width: 50px; height: 50px; }
-            #chat-window { width: calc(100vw - 24px); right: 12px; bottom: 80px; height: 70vh; max-height: 480px; }
+            body { padding-bottom: 70px; }
+            #chat-toggle { bottom: 80px; right: 18px; width: 50px; height: 50px; }
+            #chat-window { width: calc(100vw - 24px); right: 12px; bottom: 140px; height: 70vh; max-height: 480px; }
             #roadmap-form { flex-direction: column; }
             .about-features { grid-template-columns: 1fr; }
             .about-stats-row { flex-wrap: wrap; }
@@ -1399,7 +1608,7 @@
             <div class="nav-center">
                 <a href="#" id="nav-home" class="active" onclick="showHome(); return false;">Home</a>
                 <a href="#" id="nav-courses-link" onclick="showCoursesPage(); return false;">Courses</a>
-                <a href="#" id="nav-careers-link" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'}); return false;">Careers</a>
+                <a href="#" id="nav-careers-link" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'}); return false;">Careers</a>
             </div>
             <div class="nav-right">
                 <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
@@ -1413,23 +1622,58 @@
 
     <!-- HERO -->
     <section class="hero">
+        <!-- Animated mesh blobs -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
         <div class="hero-inner">
             <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping · University of Delaware</div>
-            <h1>Your <span>Career</span> Starts<br>With the Right Course</h1>
-            <p class="hero-sub">PathFinder maps every UDel course to real-world careers. Set your profile, explore <span id="hero-job-count">520</span>+ roles, and get an AI-generated roadmap to your dream job.</p>
-            <div class="hero-stats-pills">
-                <div class="hero-pill"><i class="fa-solid fa-briefcase"></i> <span id="stat-jobs">520</span> Career Paths</div>
-                <div class="hero-pill"><i class="fa-solid fa-book-open"></i> <span id="stat-courses">8,355</span> UDel Courses</div>
-                <div class="hero-pill"><i class="fa-solid fa-graduation-cap"></i> <span id="stat-majors">26</span> Programs</div>
-                <div class="hero-pill"><i class="fa-solid fa-robot"></i> AI Online</div>
+            <h1>Map Your <span class="grad-text">Career</span><br>From Every Course</h1>
+            <p class="hero-sub">PathFinder connects every UDel course to real-world careers — explore <span id="hero-job-count">520</span>+ roles, get AI roadmaps, and discover what your degree can do.</p>
+
+            <!-- Central search bar -->
+            <div class="hero-search-wrap">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" class="hero-search-input" id="hero-search-input"
+                    placeholder="Search careers, courses, skills..."
+                    onkeydown="if(event.key==='Enter') heroSearch()"
+                    autocomplete="off">
+                <button class="hero-search-btn" onclick="heroSearch()">
+                    <i class="fa-solid fa-arrow-right"></i> Search
+                </button>
             </div>
-            <div class="hero-cta-row">
-                <button class="btn-cta-primary" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'smooth'})">
-                    <i class="fa-solid fa-compass"></i> Explore Programs
+
+            <!-- Quick-search chips -->
+            <div class="hero-chips">
+                <button class="hero-chip" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'})" style="border-color:rgba(255,210,0,0.4);color:var(--gold);">
+                    <i class="fa-solid fa-compass" style="margin-right:5px;"></i> Explore All Jobs
                 </button>
-                <button class="btn-cta-secondary" onclick="toggleChat()">
-                    <i class="fa-solid fa-comment-dots"></i> Ask AI Anything
-                </button>
+                <button class="hero-chip" onclick="heroSearchTerm('Software Engineer')">Software Engineer</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Data Scientist')">Data Scientist</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Cybersecurity Analyst')">Cybersecurity</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Financial Analyst')">Finance</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Machine Learning')">ML / AI</button>
+            </div>
+
+            <!-- Animated stat counters -->
+            <div class="hero-stats-pills">
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-jobs" data-target="520">520</div>
+                    <div class="hero-stat-label">Career Paths</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-courses" data-target="8355">8,355</div>
+                    <div class="hero-stat-label">UDel Courses</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-majors" data-target="26">26</div>
+                    <div class="hero-stat-label">Programs</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num">AI</div>
+                    <div class="hero-stat-label">Online Now</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1440,18 +1684,19 @@
         <h2 class="section-title">From Student to Professional in 3 Steps</h2>
         <p class="section-sub">PathFinder connects your coursework to real careers using AI — no guesswork, no generic advice.</p>
         <div class="steps-grid">
+            <div class="steps-connector"></div>
             <div class="step-card">
                 <div class="step-num"><i class="fa-solid fa-user-pen"></i></div>
                 <h3>Set Your Profile</h3>
                 <p>Tell PathFinder your major, year, and courses you've already taken. Everything personalizes around you instantly.</p>
             </div>
             <div class="step-card">
-                <div class="step-num" style="background:linear-gradient(135deg,#0066cc,var(--blue));"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <div class="step-num"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                 <h3>Explore Career Paths</h3>
                 <p>Browse 520+ roles across every industry. See required courses, salary ranges, and job market demand for each career.</p>
             </div>
             <div class="step-card">
-                <div class="step-num" style="background:linear-gradient(135deg,var(--blue),#7c3aed);"><i class="fa-solid fa-route"></i></div>
+                <div class="step-num"><i class="fa-solid fa-route"></i></div>
                 <h3>Get Your Roadmap</h3>
                 <p>Click any career and generate a personalized semester-by-semester course plan — AI-built, prerequisite-aware, tailored to you.</p>
             </div>
@@ -1461,8 +1706,8 @@
     <!-- PROGRAMS GRID -->
     <section class="programs-section" id="programs-section">
         <div class="section-label">All Programs</div>
-        <h2 class="section-title">Pick Your Program</h2>
-        <p class="section-sub">26 programs from every college at UDel. Click one to see all career paths available to you.</p>
+        <h2 class="section-title">Pick Your Program to Explore Jobs</h2>
+        <p class="section-sub">26 programs from every college at UDel. Click any program card below to explore all career paths available to you.</p>
         <div class="programs-grid" id="programs-grid">
             <!-- Rendered by JS -->
         </div>
@@ -1541,12 +1786,34 @@
         </div>
     </div>
 
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <div class="mobile-tab-bar" id="mobile-tab-bar">
+        <div class="mobile-tab-bar-inner">
+            <button class="mobile-tab active" id="mtab-home" onclick="showHome(); setMobileTab('home')">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </button>
+            <button class="mobile-tab" id="mtab-courses" onclick="showCoursesPage(); setMobileTab('courses')">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Courses</span>
+            </button>
+            <button class="mobile-tab" id="mtab-careers" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'}); setMobileTab('careers')">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Careers</span>
+            </button>
+            <button class="mobile-tab" id="mtab-chat" onclick="toggleChat(); setMobileTab('chat')">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>AI Chat</span>
+            </button>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
                 <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
-                PathFinder
+                Path<span style="color:var(--gold);">Finder</span>
             </div>
             <div class="footer-copy">Built for every University of Delaware student — whatever your major, wherever your ambition leads.</div>
             <div class="footer-links">
@@ -1749,22 +2016,96 @@
             }
         }
 
+        // ── COUNTER ANIMATION ──
+        function animateCounter(el, target, duration = 1400) {
+            const start = Date.now();
+            const startVal = 0;
+            function tick() {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const val = Math.round(startVal + (target - startVal) * ease);
+                el.textContent = val.toLocaleString();
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function initCounters() {
+            document.querySelectorAll('[data-target]').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'));
+                if (!isNaN(target)) animateCounter(el, target);
+            });
+        }
+
+        // ── HERO SEARCH ──
+        function heroSearch() {
+            const q = document.getElementById('hero-search-input').value.trim();
+            if (!q) return;
+
+            // Detect course code (e.g. "CISC 637", "cisc637", "MATH 241")
+            const courseMatch = q.match(/^([A-Za-z]{2,5})\s*(\d{3,4}[A-Za-z]?)$/);
+            if (courseMatch) {
+                const normalized = (courseMatch[1] + ' ' + courseMatch[2]).toLowerCase();
+                // Render ALL programs so we can filter across them
+                document.getElementById('programs-section').style.display = 'none';
+                document.querySelector('.how-section').style.display = 'none';
+                document.getElementById('jobs-view-header').style.display = 'flex';
+                document.getElementById('jobs-section').style.display = 'block';
+                document.getElementById('jobs-view-title').textContent = 'Course: ' + q.toUpperCase();
+                renderDashboard(globalData);
+                document.getElementById('searchInput').value = q;
+                filterJobsByCourse(normalized);
+                updateVisibleCount();
+                document.getElementById('jobs-section').scrollIntoView({behavior: 'instant'});
+                return;
+            }
+
+            const jobsVisible = document.getElementById('jobs-section').style.display === 'block';
+            if (jobsVisible) {
+                // A program is open — use the in-page search
+                const si = document.getElementById('searchInput');
+                if (si) { si.value = q; onSearchInput(); }
+                document.getElementById('jobs-view-header').scrollIntoView({behavior: 'smooth'});
+            } else {
+                // No program open — run AI career search across all programs
+                runAISearch(q);
+                setTimeout(() => {
+                    document.getElementById('ai-search-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
+                }, 200);
+            }
+        }
+
+        function heroSearchTerm(term) {
+            document.getElementById('hero-search-input').value = term;
+            document.getElementById('hero-search-input').focus();
+        }
+
+        // ── MOBILE TAB BAR ──
+        function setMobileTab(tab) {
+            document.querySelectorAll('.mobile-tab').forEach(t => t.classList.remove('active'));
+            const el = document.getElementById('mtab-' + tab);
+            if (el) el.classList.add('active');
+        }
+
         async function updateStats() {
             let totalJobs = 0;
             const majors = Object.keys(globalData).length;
             Object.values(globalData).forEach(jobs => totalJobs += jobs.length);
-            document.getElementById('stat-jobs').textContent = totalJobs.toLocaleString();
-            document.getElementById('stat-majors').textContent = majors;
+            document.getElementById('stat-jobs').setAttribute('data-target', totalJobs);
+            document.getElementById('stat-majors').setAttribute('data-target', majors);
 
             try {
                 const res = await fetch('/api/stats');
                 const s = await res.json();
-                document.getElementById('stat-courses').textContent = s.courses.toLocaleString();
+                document.getElementById('stat-courses').setAttribute('data-target', s.courses);
                 document.getElementById('hero-job-count').textContent = s.jobs.toLocaleString();
                 document.getElementById('about-stat-jobs').textContent = s.jobs.toLocaleString();
                 document.getElementById('about-stat-courses').textContent = s.courses.toLocaleString();
                 document.getElementById('about-stat-programs').textContent = s.programs;
             } catch(e) {}
+            initCounters();
         }
 
         function updateVisibleCount() {
@@ -1808,11 +2149,37 @@
         }
 
         // ── ACCORDION ──
-        function toggleCourses(cardElement, jobId) {
+        function toggleCourses(jobId) {
+            const card = document.getElementById('card-' + jobId);
             const courseList = document.getElementById(jobId);
-            const isOpen = cardElement.classList.toggle('active');
-            courseList.style.display = isOpen ? 'block' : 'none';
+            if (!card || !courseList) return;
+            const isOpen = courseList.style.display === 'block';
+            if (isOpen) {
+                courseList.style.display = 'none';
+                card.classList.remove('active');
+            } else {
+                courseList.style.display = 'block';
+                card.classList.add('active');
+            }
         }
+
+        // ── PROGRAM CATEGORIES ──
+        const PROG_CATEGORY = {
+            'Computer Science': 'tech', 'Artificial Intelligence': 'tech',
+            'Cybersecurity Engineering': 'tech', 'Data Science': 'tech',
+            'Management Information Systems': 'tech',
+            'Computer Engineering': 'engineering', 'Electrical Engineering': 'engineering',
+            'Mechanical Engineering': 'engineering', 'Civil Engineering': 'engineering',
+            'Chemical Engineering': 'engineering', 'Biomedical Engineering': 'engineering',
+            'Finance': 'business', 'Accounting': 'business', 'Marketing': 'business',
+            'Economics': 'business', 'Business Administration & Management': 'business',
+            'Health Sciences': 'health', 'Biological Sciences': 'science',
+            'Chemistry': 'science', 'Environmental Science': 'science',
+            'Agricultural Sciences': 'science',
+            'Education': 'social', 'Communication': 'social',
+            'Political Science & Public Policy': 'social', 'Psychology': 'social',
+            'Criminal Justice': 'social',
+        };
 
         // ── RENDER ──
         // ── PROGRAMS GRID ──
@@ -1821,10 +2188,11 @@
             if (!grid) return;
             grid.innerHTML = Object.entries(globalData).map(([prog, jobs]) => {
                 const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
-                return `<div class="program-card" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
+                const cat = PROG_CATEGORY[prog] || 'tech';
+                return `<div class="program-card prog-cat-${cat}" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
                     <div class="program-card-icon"><i class="fa-solid ${icon}"></i></div>
                     <div class="program-card-name">${prog}</div>
-                    <div class="program-card-count">${jobs.length} careers</div>
+                    <div class="program-card-count"><i class="fa-solid fa-briefcase"></i> ${jobs.length} careers</div>
                 </div>`;
             }).join('');
         }
@@ -1904,9 +2272,10 @@
                     const bookmarkKey = `${major}::${job.title}`;
                     const isBookmarked = bookmarks.includes(bookmarkKey);
 
+                    const courseCodeStr = [...(job.undergrad_courses||[]),...(job.grad_courses||[])].map(c=>(c.code||'').toLowerCase()).join(' ');
                     jobsHtml += `
-                        <div class="job-card" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" data-bookmark-key="${bookmarkKey}" onclick="toggleCourses(this, '${jobId}')">
-                            <div class="job-card-header">
+                        <div class="job-card" id="card-${jobId}" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" data-courses="${courseCodeStr}" data-bookmark-key="${bookmarkKey}">
+                            <div class="job-card-header" onclick="toggleCourses('${jobId}')" style="cursor:pointer;">
                                 <h3 class="job-title">${job.title}</h3>
                                 <button class="btn-bookmark ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); toggleBookmark('${bookmarkKey}', this)" title="${isBookmarked ? 'Remove bookmark' : 'Save job'}">
                                     <i class="fa-${isBookmarked ? 'solid' : 'regular'} fa-star"></i>
@@ -1921,7 +2290,7 @@
                                     <i class="fa-solid fa-route"></i> Roadmap
                                 </button>
                             </div>
-                            <div class="course-list" id="${jobId}">
+                            <div class="course-list" id="${jobId}" onclick="event.stopPropagation()">
                                 <button class="btn-ai-match" id="ai-btn-${jobId}" onclick="event.stopPropagation(); getAIMatch('${jobId}', '${major}', '${job.title.replace(/'/g,"\\'")}')">
                                     <i class="fa-solid fa-wand-magic-sparkles"></i> AI Course Match
                                     <span class="ai-match-badge">Smarter</span>
@@ -1979,6 +2348,14 @@
                 return;
             }
 
+            // Detect course code pattern e.g. "CISC 637", "MATH241", "cisc637"
+            const courseCodeMatch = query.match(/^([A-Za-z]{2,5})\s*(\d{3,4}[A-Za-z]?)$/);
+            if (courseCodeMatch) {
+                const normalized = (courseCodeMatch[1] + ' ' + courseCodeMatch[2]).toLowerCase();
+                filterJobsByCourse(normalized);
+                return;
+            }
+
             // Always do instant fuzzy filter
             filterJobsFuzzy(query);
 
@@ -1991,6 +2368,44 @@
             if (isNaturalLanguage && query.length > 6) {
                 aiSearchTimer = setTimeout(() => runAISearch(query), 700);
             }
+        }
+
+        function filterJobsByCourse(courseCode) {
+            clearAISearch();
+            const noSpace = courseCode.replace(/\s/g, '');
+            let totalVisible = 0;
+
+            // First pass: filter whatever is currently rendered
+            document.querySelectorAll('.major-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.job-card').forEach(card => {
+                    const codes = card.getAttribute('data-courses') || '';
+                    const match = codes.includes(courseCode) || codes.includes(noSpace);
+                    card.classList.toggle('hidden', !match);
+                    if (match) { hasVisible = true; totalVisible++; }
+                });
+                section.classList.toggle('hidden', !hasVisible);
+            });
+
+            // If nothing found in current program, expand to all programs and re-filter
+            if (totalVisible === 0 && Object.keys(globalData).length > 0) {
+                const currentTitle = document.getElementById('jobs-view-title').textContent;
+                document.getElementById('jobs-view-title').textContent = 'Course: ' + courseCode.toUpperCase();
+                renderDashboard(globalData);
+                totalVisible = 0;
+                document.querySelectorAll('.major-section').forEach(section => {
+                    let hasVisible = false;
+                    section.querySelectorAll('.job-card').forEach(card => {
+                        const codes = card.getAttribute('data-courses') || '';
+                        const match = codes.includes(courseCode) || codes.includes(noSpace);
+                        card.classList.toggle('hidden', !match);
+                        if (match) { hasVisible = true; totalVisible++; }
+                    });
+                    section.classList.toggle('hidden', !hasVisible);
+                });
+            }
+
+            document.getElementById('visible-count').textContent = totalVisible;
         }
 
         function filterJobsFuzzy(query) {
@@ -2051,7 +2466,7 @@
                 grid.innerHTML = data.results.map(job => {
                     const salary = job.salary_min ? `$${Math.round(job.salary_min/1000)}k–$${Math.round(job.salary_max/1000)}k` : 'Varies';
                     const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
-                    return `<div class="ai-result-card" onclick="scrollToJob('${job.title.replace(/'/g,"\\'")}')">
+                    return `<div class="ai-result-card" onclick="scrollToJob('${job.title.replace(/'/g,"\\'")}', '${(job.program||'').replace(/'/g,"\\'")}')">
                         <div class="ai-result-title">${job.title}</div>
                         <div class="ai-result-prog"><i class="fa-solid fa-graduation-cap" style="font-size:0.65rem;"></i> ${job.program}</div>
                         <div class="ai-result-desc">${job.description}</div>
@@ -2066,15 +2481,30 @@
             }
         }
 
-        function scrollToJob(title) {
+        function scrollToJob(title, program) {
             clearAISearch();
-            document.getElementById('searchInput').value = title;
-            filterJobsFuzzy(title);
-            // Scroll to first visible card
-            setTimeout(() => {
-                const card = [...document.querySelectorAll('.job-card:not(.hidden)')][0];
-                if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+            // Find the card by title in already-rendered cards
+            let target = null;
+            document.querySelectorAll('.job-card').forEach(card => {
+                const t = card.querySelector('.job-title')?.textContent?.trim();
+                if (t === title) target = card;
+            });
+            if (target) {
+                target.classList.remove('hidden');
+                target.closest('.major-section')?.classList.remove('hidden');
+                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            } else if (program && globalData[program]) {
+                // Job is in a different program — open that program then scroll to the card
+                openProgram(program);
+                setTimeout(() => {
+                    let card = null;
+                    document.querySelectorAll('.job-card').forEach(c => {
+                        const t = c.querySelector('.job-title')?.textContent?.trim();
+                        if (t === title) card = c;
+                    });
+                    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 400);
+            }
         }
 
         function clearAISearch() {
@@ -2161,10 +2591,14 @@
             };
             localStorage.setItem('pf_profile', JSON.stringify(userProfile));
             closeProfile();
-            // Re-render to apply filter
+            // Remove any existing banner then open the user's program
             const existing = document.getElementById('profile-banner');
             if (existing) existing.remove();
-            applyProfileToUI();
+            if (userProfile.major && globalData[userProfile.major]) {
+                openProgram(userProfile.major);
+            } else {
+                applyProfileToUI();
+            }
         }
         function clearProfile() {
             userProfile = null;
@@ -2187,11 +2621,12 @@
                 document.getElementById('tab-all')?.classList.remove('active');
             }
 
-            // Filter dashboard to show only the student's program
             const major = userProfile.major;
             if (!major) return;
 
-            // Show personalized banner
+            // Only show the banner if jobs section is visible
+            if (document.getElementById('jobs-section').style.display !== 'block') return;
+
             const existing = document.getElementById('profile-banner');
             if (!existing) {
                 const banner = document.createElement('div');
@@ -2202,18 +2637,12 @@
                         <i class="fa-solid fa-user-graduate" style="color:var(--blue);font-size:1.1rem;"></i>
                         <div>
                             <strong style="color:var(--blue-dark);">Personalized for ${userProfile.name ? userProfile.name + ' — ' : ''}${userProfile.year} in ${major}</strong>
-                            <div style="color:var(--gray-600);font-size:0.8rem;margin-top:2px;">Showing careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Show all programs</a></div>
+                            <div style="color:var(--gray-600);font-size:0.8rem;margin-top:2px;">Careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Browse all programs</a></div>
                         </div>
                     </div>
                     <button onclick="openProfile()" style="background:var(--blue);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;">Edit Profile</button>`;
                 document.getElementById('app-container').prepend(banner);
             }
-
-            // Hide all sections except the student's major
-            document.querySelectorAll('.major-section').forEach(section => {
-                const title = section.querySelector('.major-title')?.textContent || '';
-                section.classList.toggle('hidden', title !== major);
-            });
             updateVisibleCount();
         }
 
@@ -2261,7 +2690,7 @@
                 const container = document.getElementById(jobId);
 
                 // Rebuild course sections with AI results
-                let ugHtml = '<div class="ug-section"><div class="course-section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Undergraduate Courses</div>';
+                let ugHtml = '<div class="ug-section"><div class="course-section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--blue)"></i> AI-Matched Undergraduate Courses</div>';
                 if (data.undergrad_courses?.length) {
                     data.undergrad_courses.forEach(c => {
                         const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
@@ -2272,7 +2701,7 @@
                 }
                 ugHtml += '</div>';
 
-                let gradHtml = '<div class="grad-section"><div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Graduate Courses</div>';
+                let gradHtml = '<div class="grad-section"><div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--blue)"></i> AI-Matched Graduate Courses</div>';
                 if (data.grad_courses?.length) {
                     data.grad_courses.forEach(c => {
                         const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
@@ -2283,7 +2712,7 @@
                 }
                 gradHtml += '</div>';
 
-                btn.outerHTML = '<div style="font-size:0.75rem;color:#7c3aed;font-weight:600;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-powered matches</div>';
+                btn.outerHTML = '<div style="font-size:0.75rem;color:var(--blue);font-weight:600;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-powered matches</div>';
                 container.querySelectorAll('.ug-section, .grad-section').forEach(el => el.remove());
                 container.insertAdjacentHTML('beforeend', ugHtml + gradHtml);
             } catch (e) {
@@ -2293,6 +2722,13 @@
         }
 
         loadData();
+
+        // Run counter animation when hero scrolls into view
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { initCounters(); heroObserver.disconnect(); } });
+        }, { threshold: 0.3 });
+        const heroEl = document.querySelector('.hero');
+        if (heroEl) heroObserver.observe(heroEl);
 
         // ── PAGE NAVIGATION ──
         const homeSections = ['hero-section', 'how-section-el', 'programs-section'];
