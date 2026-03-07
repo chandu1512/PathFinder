@@ -795,6 +795,21 @@
         .course-chip i { color: var(--blue); font-size: 0.8rem; flex-shrink: 0; }
         .grad-chip { background: #fffbea; border-color: #f5e68a; }
         .grad-chip i { color: var(--gold-dark); }
+        .core-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            background: #fef3c7;
+            color: #92400e;
+            font-size: 0.62rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: auto;
+            border: 1px solid #fcd34d;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
         .no-match {
             font-size: 0.85rem;
             color: var(--gray-400);
@@ -1860,7 +1875,8 @@
                     ugHtml += '<div class="course-section-label"><i class="fa-solid fa-book"></i> Undergraduate Recommendations</div>';
                     if (job.undergrad_courses && job.undergrad_courses.length > 0) {
                         job.undergrad_courses.forEach(c => {
-                            ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                            const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                            ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
                         });
                     } else {
                         ugHtml += `<p class="no-match">No undergraduate course matches found.</p>`;
@@ -1871,7 +1887,8 @@
                     gradHtml += '<div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-graduation-cap"></i> Graduate Recommendations</div>';
                     if (job.grad_courses && job.grad_courses.length > 0) {
                         job.grad_courses.forEach(c => {
-                            gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                            const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                            gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
                         });
                     } else {
                         gradHtml += `<p class="no-match">No graduate course matches found.</p>`;
@@ -2247,7 +2264,8 @@
                 let ugHtml = '<div class="ug-section"><div class="course-section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Undergraduate Courses</div>';
                 if (data.undergrad_courses?.length) {
                     data.undergrad_courses.forEach(c => {
-                        ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                        const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                        ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
                     });
                 } else {
                     ugHtml += '<p class="no-match">No undergraduate matches found.</p>';
@@ -2257,7 +2275,8 @@
                 let gradHtml = '<div class="grad-section"><div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:#7c3aed"></i> AI-Matched Graduate Courses</div>';
                 if (data.grad_courses?.length) {
                     data.grad_courses.forEach(c => {
-                        gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}</div>`;
+                        const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                        gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
                     });
                 } else {
                     gradHtml += '<p class="no-match">No graduate matches found.</p>';

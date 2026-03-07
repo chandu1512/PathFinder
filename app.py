@@ -47,6 +47,52 @@ if os.path.exists(_prog_req_path):
                 PROGRAM_REQUIREMENTS.append(p)
     print(f"  Program requirements loaded: {len(PROGRAM_REQUIREMENTS)}")
 
+# Build core-courses lookup per program (used for ⭐ Core badge)
+# Filled after PROG_DEPTS definition (both dicts populated together)
+PROG_CORE_COURSES = {}
+PROG_ELECTIVE_COURSES = {}
+
+# Title → code lookup for AI-match endpoint
+COURSE_TITLE_TO_CODE = {c.get('title', ''): c.get('code', '') for c in COURSES_DATA}
+
+
+def extract_core_elective_codes(program):
+    """
+    Parse a program's requirements_text to split courses into:
+      - core_codes  : courses explicitly required (before any elective section)
+      - elective_codes: courses a student *chooses* from (after elective markers)
+    Returns (core_set, elective_set).
+    """
+    text = program.get('requirements_text', '')
+    code_re = re.compile(r'\b([A-Z]{2,5}\s+\d{3,4}[A-Z]?)\b')
+
+    if not text:
+        all_codes = {c for c in program.get('courses_mentioned', []) if not c.startswith('HELP')}
+        return all_codes, set()
+
+    lower = text.lower()
+
+    # Find where the elective / optional section starts
+    elective_markers = [
+        'elective', 'choose ', 'select from', 'optional course',
+        'approved elective', 'from the following', 'from the list',
+        'from any of the', 'concentration'
+    ]
+    elective_start = len(text)
+    for marker in elective_markers:
+        pos = lower.find(marker)
+        if 0 < pos < elective_start:
+            elective_start = pos
+
+    core_text     = text[:elective_start]
+    elective_text = text[elective_start:]
+
+    core_codes     = {c for c in code_re.findall(core_text)     if not c.startswith('HELP')}
+    elective_codes = {c for c in code_re.findall(elective_text) if not c.startswith('HELP')}
+    elective_only  = elective_codes - core_codes   # courses in both → treat as core
+
+    return core_codes, elective_only
+
 
 def find_program_requirements(query):
     """Find matching program requirements for a query string."""
@@ -60,28 +106,73 @@ def find_program_requirements(query):
         if score > 0:
             matches.append((score, p))
     matches.sort(key=lambda x: -x[0])
-    return [m[1] for m in matches[:3]]
+    return [m[1] for m in matches[:5]]
 
 # ── Build a summary for the AI system prompt (to avoid token overflow) ──
 course_summary = [{"code": c.get("code",""), "title": c.get("title",""), "desc": c.get("description","")[:200]} for c in COURSES_DATA]
 jobs_summary   = {prog: [{"title": j["title"], "desc": j["description"]} for j in jobs] for prog, jobs in JOBS_DATA.items()}
 
-SYSTEM_PROMPT = f"""You are PathFinder AI, built into PathFinder — a career mapping tool for University of Delaware students.
+_total_jobs = sum(len(v) for v in JOBS_DATA.values())
+_jobs_by_prog = {prog: [j['title'] for j in jobs] for prog, jobs in JOBS_DATA.items()}
 
-You can answer ANY question — general knowledge, coding, career advice, study tips, anything. You are a fully capable general-purpose AI.
+SYSTEM_PROMPT = f"""You are PathFinder AI — an academic and career advisor exclusively for University of Delaware (UDel) students.
 
-You also have deep knowledge of UDel's full course catalog (2,325 courses across all departments) and 188 career roles spanning every industry. Use this to give specific, actionable advice.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRICT SCOPE — YOU ONLY ANSWER QUESTIONS ABOUT:
+  • UDel courses, programs, and degree requirements
+  • Career paths, job roles, and salaries for UDel graduates
+  • Elective selection and cross-program exploration
+  • Semester planning, prerequisites, and academic roadmaps
+  • Internships, skills to develop, and job market demand
 
-UDel Programs covered: {list(JOBS_DATA.keys())}
+If a user asks ANYTHING outside this scope (weather, cooking, general coding help, news, trivia, etc.), respond ONLY with:
+"I'm PathFinder AI, designed exclusively for UDel academic and career guidance. I can help you explore UDel courses, career paths, and academic planning. What would you like to know about your UDel journey?"
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Sample career roles available: Software Engineer, Data Scientist, Nurse Practitioner, Civil Engineer, Policy Analyst, Investment Banker, Marine Biologist, Teacher, and 180+ more.
+You have deep knowledge of UDel's full course catalog ({len(COURSES_DATA):,} courses) and {_total_jobs} career roles across {len(JOBS_DATA)} programs.
 
-When answering career/course questions:
-- Be specific — mention actual course codes (e.g., CISC 481, CHEM 321)
-- Courses numbered 100-499 = undergraduate, 600+ = graduate
-- Give semester-by-semester advice when asked for a roadmap
-- Mention expected salary ranges and job market demand when relevant
-- Keep answers concise, use bullet points for lists"""
+PROGRAM STRUCTURE AWARENESS:
+Every UDel program has TWO types of courses:
+  ★ CORE (required): courses every student in the program MUST take — these are marked with ★
+  ○ ELECTIVES: courses the student CHOOSES from an approved list to fulfill credit requirements
+
+When a student asks about a program, ALWAYS clarify:
+  1. What their CORE required courses are (they have no choice — must take these)
+  2. What ELECTIVE slots they have (credits they can fill with approved electives)
+  3. Which electives align best with their interests or a DIFFERENT career direction
+
+CROSS-PROGRAM EXPLORATION — ELECTIVE STRATEGY:
+Many students stay in their program but want careers in a DIFFERENT field. The answer is ALWAYS electives.
+
+CRITICAL RULE — ELECTIVE ADVICE:
+A student cannot just take any course they want. They MUST pick from their program's APPROVED ELECTIVE LIST (the ○ list).
+- Look at the ○ ELECTIVES list for their program (injected below when relevant)
+- From that list, identify which courses align with the student's desired field
+- If the approved elective list has limited overlap, say so honestly and suggest:
+  a) Which approved electives are closest to the target field
+  b) They speak to their advisor about substituting a technical elective with a course from the target field
+- NEVER recommend courses outside the approved elective list as if the student can freely enroll in them
+
+HOW TO ANSWER "I'm in [Program X] but want a career in [Field Y]":
+  Step 1 → State their CORE courses (★): "These are mandatory — you must take all of these"
+  Step 2 → State their ELECTIVE credits: "You have [N] credits of elective slots to fill"
+  Step 3 → From the ○ ELECTIVES list, identify which align with Field Y
+  Step 4 → Rank those electives: "For data science, from your approved electives, I recommend: [list]"
+  Step 5 → If the elective overlap is small, suggest advisor approval for substitutions
+
+Example — Cybersecurity MS student wanting Data Science:
+  Core courses MUST be taken (no choice). For electives, look at the cybersecurity program's approved elective list —
+  any CISC courses in ML/AI/data mining or STAT courses would be the best picks.
+  Do NOT randomly list STAT 601-615 unless they appear in the approved elective list.
+
+ALL CAREERS IN PATHFINDER (by program):
+{json.dumps(_jobs_by_prog, indent=2)}
+
+RULES:
+- Courses 100–499 = undergraduate, 600+ = graduate
+- Use ONLY real UDel course codes — never invent course numbers
+- Mention salary ranges and demand when relevant
+- Keep answers concise with bullet points"""
 
 
 def course_num(course):
@@ -117,7 +208,7 @@ def match_courses(job_skills, preferred_depts, courses, top_n=6):
         if score < 4:
             continue
 
-        entry = {"title": c.get('title', ''), "score": score}
+        entry = {"title": c.get('title', ''), "code": c.get('code', ''), "score": score}
         if course_num(c) >= 600:
             grad.append(entry)
         else:
@@ -157,6 +248,17 @@ PROG_DEPTS = {
     "Agricultural Sciences":         ["ANFS", "PLSC", "ENTM", "AGRI", "FOOD"],
     "Criminal Justice":              ["CRJU", "SOCI", "PSYC", "LEST"],
 }
+
+# Build PROG_CORE_COURSES and PROG_ELECTIVE_COURSES using text parsing
+for _prog_name in PROG_DEPTS:
+    _core = set()
+    _elec = set()
+    for _p in find_program_requirements(_prog_name):
+        _pc, _pe = extract_core_elective_codes(_p)
+        _core.update(_pc)
+        _elec.update(_pe)
+    PROG_CORE_COURSES[_prog_name]     = _core
+    PROG_ELECTIVE_COURSES[_prog_name] = _elec - _core  # guarantee no overlap
 
 # Pre-build compact job index for search (built once at startup)
 JOB_INDEX = []
@@ -293,9 +395,12 @@ def get_career_paths():
         result = {}
         for program, jobs in JOBS_DATA.items():
             preferred = PROG_DEPTS.get(program, [])
+            core_set = PROG_CORE_COURSES.get(program, set())
             result[program] = []
             for job in jobs:
                 ug, gr = match_courses(job.get('skills', []), preferred, COURSES_DATA, top_n=10)
+                for c in ug + gr:
+                    c['is_core'] = c.get('code', '') in core_set
                 result[program].append({
                     "title": job['title'],
                     "description": job['description'],
@@ -371,9 +476,14 @@ def ai_match():
 
         ug_set   = set(ug_pool)
         grad_set = set(grad_pool)
+        core_set = PROG_CORE_COURSES.get(program, set())
         result = {
-            "undergrad_courses": [{"title": t, "score": 99} for t in parsed.get("undergrad", []) if t in ug_set],
-            "grad_courses":      [{"title": t, "score": 99} for t in parsed.get("grad", [])     if t in grad_set]
+            "undergrad_courses": [{"title": t, "score": 99,
+                                   "is_core": COURSE_TITLE_TO_CODE.get(t, '') in core_set}
+                                  for t in parsed.get("undergrad", []) if t in ug_set],
+            "grad_courses":      [{"title": t, "score": 99,
+                                   "is_core": COURSE_TITLE_TO_CODE.get(t, '') in core_set}
+                                  for t in parsed.get("grad", []) if t in grad_set]
         }
         AI_MATCH_CACHE[cache_key] = result
         return jsonify(result)
@@ -392,18 +502,20 @@ def roadmap():
         year      = body.get('year', 'Freshman')
         courses   = body.get('completed_courses', '')
 
-        # Inject real program requirements if available
+        # Inject real program requirements (with core/elective split) if available
         prog_reqs = find_program_requirements(f"{major} {career}")
         req_context = ""
         if prog_reqs:
             p = prog_reqs[0]
-            real_courses = [c for c in p.get('courses_mentioned', []) if not c.startswith('HELP')]
+            core_codes, elec_codes = extract_core_elective_codes(p)
             req_context = (
                 f"\n\nOFFICIAL UDEL PROGRAM DATA for {p['name']}:\n"
                 f"Total Credits: {p.get('total_credits', 'unknown')}\n"
-                f"Official courses: {', '.join(real_courses)}\n"
-                f"Requirements: {p.get('requirements_text', '')[:1000]}\n"
-                f"Use ONLY these real course codes. Do NOT invent course numbers.\n"
+                f"★ CORE (must take all): {', '.join(sorted(core_codes))}\n"
+                f"○ ELECTIVES (choose from): {', '.join(sorted(elec_codes))}\n"
+                f"Full requirements: {p.get('requirements_text', '')[:800]}\n"
+                f"RULE: Use ONLY these real course codes. Do NOT invent course numbers.\n"
+                f"RULE: Schedule CORE courses first — they are mandatory. Fill elective slots with courses aligned to {career}.\n"
             )
 
         prompt = f"""A University of Delaware student wants a semester-by-semester course roadmap.
@@ -446,29 +558,54 @@ def chat():
         body = request.get_json()
         messages = body.get('messages', [])
 
-        # Check if last user message is about a program — inject real requirements
+        # Combine last user message + recent conversation for better program detection
         last_user_msg = next((m['content'] for m in reversed(messages) if m['role'] == 'user'), '')
+        recent_context = ' '.join(m['content'] for m in messages[-6:] if m.get('role') == 'user')
+        search_text = last_user_msg + ' ' + recent_context
+
         program_context = ""
-        matched_progs = find_program_requirements(last_user_msg)
-        if matched_progs:
-            program_context = "\n\n=== OFFICIAL UDEL PROGRAM REQUIREMENTS (USE THESE — DO NOT MAKE UP DATA) ===\n"
-            for p in matched_progs[:2]:
-                program_context += f"\n**{p['name']}** ({p['level_type']})\n"
+        # Deduplicate matched programs by name
+        seen_prog_names = set()
+        matched_progs = find_program_requirements(search_text)
+        unique_progs = []
+        for p in matched_progs:
+            if p['name'] not in seen_prog_names:
+                seen_prog_names.add(p['name'])
+                unique_progs.append(p)
+
+        if unique_progs:
+            program_context = "\n\n=== OFFICIAL UDEL PROGRAM DATA (USE THESE ONLY — DO NOT INVENT COURSES) ===\n"
+            for p in unique_progs[:3]:
+                core_codes, elec_codes = extract_core_elective_codes(p)
+                program_context += f"\n**{p['name']}** ({p['level_type']})"
                 if p.get('total_credits'):
-                    program_context += f"Total Credits Required: {p['total_credits']}\n"
-                if p.get('courses_mentioned'):
-                    # Filter out bad matches like 'HELP 2025'
-                    real_courses = [c for c in p['courses_mentioned'] if not c.startswith('HELP')]
-                    program_context += f"Official courses in this program: {', '.join(real_courses)}\n"
-                program_context += f"Requirements: {p['requirements_text'][:1500]}\n"
-            program_context += "\nIMPORTANT: Answer ONLY using the above official data. Do NOT invent course numbers or requirements.\n"
+                    program_context += f"  |  {p['total_credits']} total credits\n"
+                else:
+                    program_context += "\n"
+                if core_codes:
+                    program_context += f"  ★ CORE (required — student MUST take ALL of these, no exceptions): {', '.join(sorted(core_codes))}\n"
+                if elec_codes:
+                    program_context += f"  ○ APPROVED ELECTIVES (student picks from ONLY this list): {', '.join(sorted(elec_codes))}\n"
+                elif not core_codes:
+                    all_codes = [c for c in p.get('courses_mentioned', []) if not c.startswith('HELP')]
+                    program_context += f"  Courses in program: {', '.join(all_codes)}\n"
+                program_context += f"  Full requirements text: {p['requirements_text'][:800]}\n"
+            program_context += (
+                "\nCRITICAL INSTRUCTION: "
+                "When recommending electives, ONLY suggest courses from the ○ APPROVED ELECTIVES list above. "
+                "The student CANNOT freely enroll in any graduate course — they must pick from their program's approved list. "
+                "If the student wants to align electives with a different field (e.g. data science), "
+                "identify which approved electives from the ○ list best match that field. "
+                "If the approved list has very few relevant courses, say so and suggest they ask their advisor "
+                "about substituting a technical elective.\n"
+            )
 
         system = SYSTEM_PROMPT + program_context
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=1500,
+            max_tokens=2000,
             system=system,
             messages=messages
         )
