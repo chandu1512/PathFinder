@@ -55,6 +55,9 @@ PROG_ELECTIVE_COURSES = {}
 # Title → code lookup for AI-match endpoint
 COURSE_TITLE_TO_CODE = {c.get('title', ''): c.get('code', '') for c in COURSES_DATA}
 
+# Code → title lookup for injecting real course names into AI context
+COURSE_CODE_TO_TITLE = {c.get('code', ''): c.get('title', '') for c in COURSES_DATA if c.get('code')}
+
 
 def extract_core_elective_codes(program):
     """
@@ -621,12 +624,19 @@ def roadmap():
         if prog_reqs:
             p = prog_reqs[0]
             core_codes, elec_codes = extract_core_elective_codes(p)
+            def fmt(codes):
+                parts = []
+                for code in sorted(codes):
+                    raw = COURSE_CODE_TO_TITLE.get(code, '')
+                    name = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', raw)
+                    parts.append(f"{code} — {name}" if name else code)
+                return '\n  '.join(parts)
+
             req_context = (
                 f"\n\nOFFICIAL UDEL PROGRAM DATA for {p['name']}:\n"
                 f"Total Credits: {p.get('total_credits', 'unknown')}\n"
-                f"★ CORE (must take all): {', '.join(sorted(core_codes))}\n"
-                f"○ ELECTIVES (choose from): {', '.join(sorted(elec_codes))}\n"
-                f"Full requirements: {p.get('requirements_text', '')[:800]}\n"
+                f"★ CORE (must take all):\n  {fmt(core_codes)}\n"
+                f"○ ELECTIVES (choose from):\n  {fmt(elec_codes)}\n"
                 f"RULE: Use ONLY these real course codes. Do NOT invent course numbers.\n"
                 f"RULE: Schedule CORE courses first — they are mandatory. Fill elective slots with courses aligned to {career}.\n"
             )
@@ -704,14 +714,22 @@ def chat():
                     program_context += f"  |  {p['total_credits']} total credits\n"
                 else:
                     program_context += "\n"
+                def fmt_codes(codes):
+                    parts = []
+                    for code in sorted(codes):
+                        raw = COURSE_CODE_TO_TITLE.get(code, '')
+                        # Strip redundant "DEPT ### - " prefix from stored title
+                        name = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', raw)
+                        parts.append(f"{code} — {name}" if name else code)
+                    return '\n    '.join(parts)
+
                 if core_codes:
-                    program_context += f"  ★ CORE (required — student MUST take ALL of these, no exceptions): {', '.join(sorted(core_codes))}\n"
+                    program_context += f"  ★ CORE (required — must take ALL):\n    {fmt_codes(core_codes)}\n"
                 if elec_codes:
-                    program_context += f"  ○ APPROVED ELECTIVES (student picks from ONLY this list): {', '.join(sorted(elec_codes))}\n"
+                    program_context += f"  ○ APPROVED ELECTIVES (pick from this list):\n    {fmt_codes(elec_codes)}\n"
                 elif not core_codes:
                     all_codes = [c for c in p.get('courses_mentioned', []) if not c.startswith('HELP')]
-                    program_context += f"  Courses in program: {', '.join(all_codes)}\n"
-                program_context += f"  Full requirements text: {p['requirements_text'][:800]}\n"
+                    program_context += f"  Courses in program:\n    {fmt_codes(all_codes)}\n"
             program_context += (
                 "\nCRITICAL INSTRUCTION: "
                 "When recommending electives, ONLY suggest courses from the ○ APPROVED ELECTIVES list above. "
