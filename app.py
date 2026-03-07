@@ -58,9 +58,12 @@ COURSE_TITLE_TO_CODE = {c.get('title', ''): c.get('code', '') for c in COURSES_D
 
 def extract_core_elective_codes(program):
     """
-    Parse a program's requirements_text to split courses into:
-      - core_codes  : courses explicitly required (before any elective section)
-      - elective_codes: courses a student *chooses* from (after elective markers)
+    Parse a program's requirements_text to split courses into core vs elective.
+
+    Uses proximity-based classification: for each course code found in the text,
+    scan backward to find the nearest section header and classify the course
+    based on whether that header indicates a core or elective section.
+
     Returns (core_set, elective_set).
     """
     text = program.get('requirements_text', '')
@@ -72,26 +75,85 @@ def extract_core_elective_codes(program):
 
     lower = text.lower()
 
-    # Find where the elective / optional section starts
-    elective_markers = [
-        'elective', 'choose ', 'select from', 'optional course',
-        'approved elective', 'from the following', 'from the list',
-        'from any of the', 'concentration'
+    # Phrases that precede listings of REQUIRED/CORE courses
+    core_markers = [
+        'required courses', 'core courses', 'required coursework',
+        'core requirements', 'courses designated as', 'following required',
+        'must complete', 'fundamentals of', 'required curriculum',
+        'required:', 'core:', 'foundation courses',
     ]
-    elective_start = len(text)
-    for marker in elective_markers:
-        pos = lower.find(marker)
-        if 0 < pos < elective_start:
-            elective_start = pos
+    # Phrases that precede listings of ELECTIVE courses
+    elective_markers = [
+        'concentration in ', 'electives are:', 'elective courses:',
+        'choose from', 'select from', 'approved elective',
+        'the following electives', 'elective options', 'approved courses',
+        'students may choose', 'students may select',
+    ]
 
-    core_text     = text[:elective_start]
-    elective_text = text[elective_start:]
+    # Collect all (position, type) for every occurrence of every marker
+    section_markers = []
+    for m in core_markers:
+        pos = 0
+        while True:
+            p = lower.find(m, pos)
+            if p == -1:
+                break
+            section_markers.append((p, 'core'))
+            pos = p + 1
+    for m in elective_markers:
+        pos = 0
+        while True:
+            p = lower.find(m, pos)
+            if p == -1:
+                break
+            section_markers.append((p, 'elective'))
+            pos = p + 1
 
-    core_codes     = {c for c in code_re.findall(core_text)     if not c.startswith('HELP')}
-    elective_codes = {c for c in code_re.findall(elective_text) if not c.startswith('HELP')}
-    elective_only  = elective_codes - core_codes   # courses in both → treat as core
+    # Find all course codes and their text positions
+    code_positions = [
+        (match.start(), match.group(1))
+        for match in code_re.finditer(text)
+        if not match.group(1).startswith('HELP')
+    ]
 
-    return core_codes, elective_only
+    if not code_positions:
+        return set(), set()
+
+    # If no section markers found — fall back to simple first-elective split
+    if not section_markers:
+        elective_pos = lower.find('elective')
+        if 0 < elective_pos < len(text):
+            core_codes = {c for p, c in code_positions if p < elective_pos}
+            elec_codes = {c for p, c in code_positions if p >= elective_pos}
+            return core_codes, elec_codes - core_codes
+        return {c for _, c in code_positions}, set()
+
+    core_codes = set()
+    elec_codes = set()
+
+    for code_pos, code in code_positions:
+        # Find the nearest section marker that appears BEFORE this code
+        best_type = None
+        best_dist = float('inf')
+        for marker_pos, marker_type in section_markers:
+            if marker_pos < code_pos:
+                dist = code_pos - marker_pos
+                if dist < best_dist:
+                    best_dist = dist
+                    best_type = marker_type
+
+        if best_type == 'elective':
+            elec_codes.add(code)
+        else:
+            # 'core' or no marker found → treat as core (conservative)
+            core_codes.add(code)
+
+    # Text is truncated at 4000 chars — elective listings may be cut off.
+    # Any course in courses_mentioned that wasn't classified as core = elective.
+    all_mentioned = {c for c in program.get('courses_mentioned', []) if not c.startswith('HELP')}
+    elec_codes = (elec_codes | (all_mentioned - core_codes))
+
+    return core_codes, elec_codes
 
 
 def find_program_requirements(query):
