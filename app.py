@@ -156,17 +156,54 @@ def extract_core_elective_codes(program):
     return core_codes, elec_codes
 
 
+def extract_enrolled_program(text):
+    """
+    Extract just the program the student is enrolled in from natural language.
+    E.g. "I am doing my masters in cybersecurity and want data science" → "cybersecurity"
+    Ignores career interest words that come after conjunctions.
+    Returns a program keyword string, or None if not detected.
+    """
+    lower = text.lower()
+    # Match "masters/phd/bs/mba in [PROGRAM]" and stop before conjunctions/intent words
+    stop = r'(?:\s+and\b|\s+but\b|\s+want\b|\s+interest|\s+toward|\s+i\s|\s*,|$)'
+    patterns = [
+        # "doing/pursuing/studying my masters in [program]"
+        r'(?:doing|pursuing|studying|in)\s+(?:my\s+)?'
+        r'(?:masters?|ms\b|phd|mba|bachelors?|bs\b|undergrad\w*)\s+in\s+'
+        r'([\w][\w ]{1,35}?)' + stop,
+        # "masters/phd in [program]"
+        r'(?:masters?|ms\b|phd|mba|bachelors?|bs\b)\s+in\s+([\w][\w ]{1,35}?)' + stop,
+        # "I'm a [program] student/graduate"
+        r"i(?:'m|\s+am)\s+a\s+([\w][\w ]{1,30?})\s+(?:student|graduate|grad\b)",
+    ]
+    for pat in patterns:
+        m = re.search(pat, lower)
+        if m:
+            prog = m.group(1).strip()
+            # Drop trailing filler words
+            prog = re.sub(r'\s+(?:program|degree|field|major|course)s?$', '', prog).strip()
+            if len(prog) > 2:
+                return prog
+    return None
+
+
 def find_program_requirements(query):
-    """Find matching program requirements for a query string."""
+    """
+    Find matching program requirements for a query string.
+    Prefers shorter/simpler program names over combined 4+1 or joint programs
+    when keyword scores are equal.
+    """
     query_lower = query.lower()
     matches = []
     for p in PROGRAM_REQUIREMENTS:
         name_lower = p['name'].lower()
-        # Score by how many query words appear in program name
         words = [w for w in re.findall(r'\w+', query_lower) if len(w) > 3]
         score = sum(1 for w in words if w in name_lower)
         if score > 0:
-            matches.append((score, p))
+            # Small penalty for long/combined program names so simple
+            # "Finance (MS)" beats "Business Analytics/Finance 4+1 (BS/MS)"
+            length_penalty = len(name_lower) / 300.0
+            matches.append((score - length_penalty, p))
     matches.sort(key=lambda x: -x[0])
     return [m[1] for m in matches[:5]]
 
@@ -634,17 +671,26 @@ def chat():
         body = request.get_json()
         messages = body.get('messages', [])
 
-        # Combine last user message + recent conversation for better program detection
+        # Combine last user message + recent conversation for program detection
         last_user_msg = next((m['content'] for m in reversed(messages) if m['role'] == 'user'), '')
         recent_context = ' '.join(m['content'] for m in messages[-6:] if m.get('role') == 'user')
         search_text = last_user_msg + ' ' + recent_context
 
         program_context = ""
-        # Deduplicate matched programs by name
         seen_prog_names = set()
-        matched_progs = find_program_requirements(search_text)
         unique_progs = []
-        for p in matched_progs:
+
+        # First: try to extract the program the student is ENROLLED IN specifically
+        # (avoids matching their target interest like "data science" over their actual program)
+        enrolled_kw = extract_enrolled_program(search_text)
+        if enrolled_kw:
+            for p in find_program_requirements(enrolled_kw):
+                if p['name'] not in seen_prog_names:
+                    seen_prog_names.add(p['name'])
+                    unique_progs.append(p)
+
+        # Also add any additional programs mentioned (target field, etc.)
+        for p in find_program_requirements(search_text):
             if p['name'] not in seen_prog_names:
                 seen_prog_names.add(p['name'])
                 unique_progs.append(p)
