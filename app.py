@@ -1,5 +1,6 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
+from flask_compress import Compress
 import json
 import os
 import re
@@ -18,6 +19,7 @@ except FileNotFoundError:
 
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)
+Compress(app)
 
 @app.route('/')
 def index():
@@ -504,32 +506,35 @@ def smart_search():
         return jsonify({"error": str(e)}), 500
 
 
+# ── Pre-compute career paths at startup (cached) ──
+def _build_career_paths():
+    result = {}
+    for program, jobs in JOBS_DATA.items():
+        preferred = PROG_DEPTS.get(program, [])
+        core_set = PROG_CORE_COURSES.get(program, set())
+        result[program] = []
+        for job in jobs:
+            ug, gr = match_courses(job.get('skills', []), preferred, COURSES_DATA, top_n=10)
+            for c in ug + gr:
+                c['is_core'] = c.get('code', '') in core_set
+            result[program].append({
+                "title": job['title'],
+                "description": job['description'],
+                "salary_min": job.get('salary_min', 0),
+                "salary_max": job.get('salary_max', 0),
+                "demand": job.get('demand', 'Medium'),
+                "undergrad_courses": ug,
+                "grad_courses": gr
+            })
+    print(f"  Career paths cached: {sum(len(v) for v in result.values())} jobs across {len(result)} programs")
+    return result
+
+CAREER_PATHS_CACHE = _build_career_paths()
+
 # ── API: Career paths ──
 @app.route('/api/career-paths', methods=['GET'])
 def get_career_paths():
-    try:
-        result = {}
-        for program, jobs in JOBS_DATA.items():
-            preferred = PROG_DEPTS.get(program, [])
-            core_set = PROG_CORE_COURSES.get(program, set())
-            result[program] = []
-            for job in jobs:
-                ug, gr = match_courses(job.get('skills', []), preferred, COURSES_DATA, top_n=10)
-                for c in ug + gr:
-                    c['is_core'] = c.get('code', '') in core_set
-                result[program].append({
-                    "title": job['title'],
-                    "description": job['description'],
-                    "salary_min": job.get('salary_min', 0),
-                    "salary_max": job.get('salary_max', 0),
-                    "demand": job.get('demand', 'Medium'),
-                    "undergrad_courses": ug,
-                    "grad_courses": gr
-                })
-        return jsonify(result)
-    except Exception as e:
-        print(f"ERROR: {e}")
-        return jsonify({"error": str(e)}), 500
+    return jsonify(CAREER_PATHS_CACHE)
 
 
 # ── API: AI Course Match ──
