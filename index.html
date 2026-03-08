@@ -2362,11 +2362,11 @@
             // Debounce AI search for natural language queries
             clearTimeout(aiSearchTimer);
             const wordCount = query.split(/\s+/).length;
-            const isNaturalLanguage = wordCount >= 3 || /[?!,]/.test(query) ||
+            const isNaturalLanguage = wordCount >= 4 || /[?!,]/.test(query) ||
                 /\b(want|like|love|help|pay|salary|remote|government|creative|fast|easy|hard)\b/i.test(query);
 
-            if (isNaturalLanguage && query.length > 6) {
-                aiSearchTimer = setTimeout(() => runAISearch(query), 700);
+            if (isNaturalLanguage && query.length > 8) {
+                aiSearchTimer = setTimeout(() => runAISearch(query), 1500);
             }
         }
 

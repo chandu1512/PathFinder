@@ -391,6 +391,12 @@ for _prog, _jobs in JOBS_DATA.items():
             "salary_max": _j.get("salary_max", 0),
         })
 
+# Pre-build compact job list for AI search (title + program only — minimise tokens)
+_compact = [{"title": j["title"], "program": j["program"], "demand": j["demand"],
+             "salary": f"${j['salary_min']//1000}k-${j['salary_max']//1000}k" if j.get("salary_min") else "varies"}
+            for j in JOB_INDEX]
+COMPACT_JOB_INDEX_JSON = json.dumps(_compact)
+
 # Pre-build department list at startup
 DEPT_LIST = sorted({c.get('dept', '') for c in COURSES_DATA if c.get('dept', '')})
 
@@ -462,11 +468,6 @@ def smart_search():
         if not query:
             return jsonify({"results": [], "interpreted_as": ""})
 
-        # Send compact index to Claude — titles + programs only to save tokens
-        compact = [{"title": j["title"], "program": j["program"], "demand": j["demand"],
-                    "salary": f"${j['salary_min']//1000}k-${j['salary_max']//1000}k" if j.get("salary_min") else "varies"}
-                   for j in JOB_INDEX]
-
         prompt = (
             f'A University of Delaware student searched PathFinder for: "{query}"\n\n'
             f'Understand their INTENT — handle typos, natural language, vague requests:\n'
@@ -475,7 +476,7 @@ def smart_search():
             f'- "data engneer" (typo) → Data Engineer\n'
             f'- "something creative" → marketing, communication, design roles\n'
             f'- "government jobs" → policy, criminal justice, public sector\n\n'
-            f'Available careers (520 total):\n{json.dumps(compact)}\n\n'
+            f'Available careers (520 total):\n{COMPACT_JOB_INDEX_JSON}\n\n'
             f'Return the top 10 most relevant careers. Also write 1 sentence explaining what you understood.\n'
             f'Respond ONLY with JSON:\n'
             f'{{"results": ["Job Title 1", "Job Title 2", ...], "interpreted_as": "I understood you want..."}}'
@@ -483,8 +484,8 @@ def smart_search():
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=500,
+            model="claude-haiku-4-5-20251001",
+            max_tokens=300,
             messages=[{"role": "user", "content": prompt}]
         )
         text = response.content[0].text.strip()
