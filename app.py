@@ -761,6 +761,58 @@ def chat():
         return jsonify({"error": str(e)}), 500
 
 
+# ── Pre-compute program info at startup ──
+def _build_program_info():
+    result = {}
+    for prog_name in PROG_DEPTS:
+        core_set = PROG_CORE_COURSES.get(prog_name, set())
+        elec_set = PROG_ELECTIVE_COURSES.get(prog_name, set())
+
+        def organize_by_year(codes):
+            years = {'1': [], '2': [], '3': [], '4': [], 'grad': []}
+            for code in sorted(codes):
+                title_raw = COURSE_CODE_TO_TITLE.get(code, '')
+                title = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', title_raw)
+                m = re.search(r'\d{3,4}', code)
+                if m:
+                    num = int(m.group())
+                    if num >= 600:
+                        years['grad'].append({'code': code, 'title': title or code})
+                    elif num >= 400:
+                        years['4'].append({'code': code, 'title': title or code})
+                    elif num >= 300:
+                        years['3'].append({'code': code, 'title': title or code})
+                    elif num >= 200:
+                        years['2'].append({'code': code, 'title': title or code})
+                    else:
+                        years['1'].append({'code': code, 'title': title or code})
+            return years
+
+        prog_reqs = find_program_requirements(prog_name)
+        total_credits = None
+        if prog_reqs:
+            total_credits = prog_reqs[0].get('total_credits')
+
+        result[prog_name] = {
+            'core_by_year': organize_by_year(core_set),
+            'electives': [
+                {'code': c, 'title': re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', COURSE_CODE_TO_TITLE.get(c, '') or c)}
+                for c in sorted(elec_set)
+            ][:24],
+            'total_credits': total_credits
+        }
+    return result
+
+PROGRAM_INFO_CACHE = _build_program_info()
+print(f"  Program info cached: {len(PROGRAM_INFO_CACHE)} programs")
+
+
+# ── API: Program Info ──
+@app.route('/api/program-info', methods=['GET'])
+def program_info():
+    return jsonify(PROGRAM_INFO_CACHE)
+
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     print(f"PathFinder Server starting on port {port}")

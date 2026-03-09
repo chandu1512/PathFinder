@@ -1589,6 +1589,242 @@
             .nav-brand-text { font-size: 1rem; }
             .announce-bar { font-size: 0.72rem; padding: 7px 12px; }
         }
+
+        /* ── CATEGORY FILTER PILLS ── */
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .cat-pill {
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border: 1px solid var(--gray-200);
+            background: var(--white);
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .cat-pill:hover { border-color: var(--blue); color: var(--blue); }
+        .cat-pill.active { background: var(--blue); color: white; border-color: var(--blue); box-shadow: 0 2px 8px rgba(0,83,159,0.25); }
+        .cat-pill i { font-size: 0.72rem; }
+
+        /* ── ENHANCED PROGRAM CARDS ── */
+        .program-card-college {
+            font-size: 0.68rem;
+            color: var(--gray-400);
+            font-weight: 500;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .stem-badge {
+            display: inline-flex; align-items: center; gap: 3px;
+            background: #dcfce7; color: #166534;
+            font-size: 0.6rem; font-weight: 700;
+            padding: 2px 6px; border-radius: 4px;
+            border: 1px solid #bbf7d0;
+            letter-spacing: 0.3px;
+            margin-left: 4px;
+        }
+
+        /* ── MAJOR DETAIL SECTION ── */
+        #major-detail-section { display: none; }
+        #major-detail-section.open { display: block; }
+
+        .major-detail-header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 16px 32px;
+            display: flex; align-items: center; gap: 14px;
+            position: sticky; top: 64px; z-index: 200;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .major-detail-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 32px 80px;
+        }
+        .major-detail-hero {
+            display: flex; align-items: flex-start; gap: 24px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+        .major-detail-icon {
+            width: 72px; height: 72px;
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+        .major-detail-meta { flex: 1; min-width: 200px; }
+        .major-detail-name {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800; color: var(--blue-dark);
+            letter-spacing: -0.5px; margin-bottom: 4px;
+            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        }
+        .major-detail-college {
+            font-size: 0.875rem; color: var(--gray-600);
+            margin-bottom: 10px; font-weight: 500;
+        }
+        .major-detail-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .detail-tag {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--gray-100); color: var(--gray-600);
+            font-size: 0.75rem; font-weight: 600;
+            padding: 4px 10px; border-radius: 6px;
+            border: 1px solid var(--gray-200);
+        }
+        .detail-tag.stem { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+        .detail-tag i { font-size: 0.65rem; }
+        .major-detail-overview {
+            flex: 1; min-width: 240px;
+            background: linear-gradient(135deg, var(--blue-deep), var(--blue-dark));
+            color: white; border-radius: var(--radius-md);
+            padding: 24px 28px;
+            display: flex; align-items: center;
+        }
+        .major-detail-overview p {
+            font-size: 1.05rem; font-weight: 500;
+            line-height: 1.55; color: rgba(255,255,255,0.92);
+            font-style: italic;
+        }
+
+        /* Stats row */
+        .major-stats-row {
+            display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .major-stat-card {
+            flex: 1; min-width: 140px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            display: flex; align-items: center; gap: 14px;
+            box-shadow: var(--shadow-sm);
+        }
+        .major-stat-icon {
+            width: 42px; height: 42px; border-radius: 10px;
+            background: #e8f0fb;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--blue); font-size: 0.95rem; flex-shrink: 0;
+        }
+        .major-stat-val { font-size: 1.25rem; font-weight: 800; color: var(--gray-800); line-height: 1; }
+        .major-stat-label { font-size: 0.7rem; color: var(--gray-400); font-weight: 600; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+        /* Section headings inside detail view */
+        .detail-section-heading {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--blue);
+            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+        }
+        .detail-section-heading::after {
+            content: ''; flex: 1; height: 1px; background: var(--gray-200);
+        }
+
+        /* Specializations */
+        .specializations-grid {
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .spec-chip {
+            background: var(--gray-50); border: 1px solid var(--gray-200);
+            border-radius: 8px; padding: 8px 14px;
+            font-size: 0.82rem; font-weight: 600; color: var(--gray-700);
+            cursor: default; transition: all 0.15s;
+            display: flex; align-items: center; gap: 7px;
+        }
+        .spec-chip:hover { background: #eef4fb; border-color: #b8d0ed; color: var(--blue); }
+        .spec-chip i { color: var(--blue); font-size: 0.7rem; }
+
+        /* 4-year curriculum */
+        .curriculum-section { margin-bottom: 40px; }
+        .curriculum-year-tabs {
+            display: flex; gap: 4px; background: var(--gray-100);
+            border-radius: 10px; padding: 4px; margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .year-tab {
+            flex: 1; min-width: 80px;
+            padding: 8px 12px; border-radius: 7px;
+            font-size: 0.82rem; font-weight: 600; color: var(--gray-600);
+            border: none; background: none; cursor: pointer;
+            font-family: inherit; text-align: center;
+            transition: all 0.15s;
+        }
+        .year-tab.active { background: white; color: var(--blue); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .year-panel { display: none; }
+        .year-panel.active { display: block; }
+        .year-panel-empty { font-size: 0.85rem; color: var(--gray-400); font-style: italic; padding: 16px 0; }
+        .curriculum-course-row {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 14px; background: white;
+            border: 1px solid var(--gray-200); border-radius: 8px;
+            margin-bottom: 7px; font-size: 0.845rem;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .curriculum-course-row:hover { background: #eef4fb; border-color: #b8d0ed; }
+        .curriculum-course-code {
+            background: var(--blue); color: white;
+            font-size: 0.7rem; font-weight: 700;
+            padding: 2px 7px; border-radius: 4px;
+            white-space: nowrap; flex-shrink: 0;
+        }
+        .curriculum-course-code.grad-code { background: var(--blue-dark); }
+        .curriculum-course-title { color: var(--gray-800); font-weight: 500; flex: 1; }
+
+        /* Electives preview */
+        .electives-list { margin-bottom: 40px; }
+        .elective-row {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 12px; border-radius: 7px;
+            font-size: 0.82rem; color: var(--gray-700);
+            border-bottom: 1px solid var(--gray-100);
+            transition: background 0.1s;
+        }
+        .elective-row:hover { background: var(--gray-50); }
+        .elective-row i { color: var(--blue); font-size: 0.7rem; flex-shrink: 0; }
+        .elective-code { font-size: 0.72rem; font-weight: 700; color: var(--blue); min-width: 70px; flex-shrink: 0; }
+
+        /* Top careers preview */
+        .career-preview-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+        .career-preview-card {
+            display: flex; align-items: center; gap: 16px;
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md); padding: 14px 18px;
+            cursor: pointer; transition: all 0.15s;
+        }
+        .career-preview-card:hover { border-color: #c5d8f0; box-shadow: var(--shadow-sm); transform: translateX(4px); }
+        .career-preview-title { font-size: 0.925rem; font-weight: 700; color: var(--gray-800); flex: 1; }
+        .career-preview-salary { font-size: 0.82rem; font-weight: 700; color: var(--green); white-space: nowrap; }
+        .career-preview-demand { font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+        .btn-explore-careers {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--blue); color: white;
+            font-size: 1rem; font-weight: 700;
+            border: none; border-radius: var(--radius-md);
+            padding: 16px 36px; cursor: pointer; font-family: inherit;
+            width: 100%; max-width: 360px; margin: 0 auto;
+            transition: background 0.15s, transform 0.15s;
+        }
+        .btn-explore-careers:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .major-detail-body { padding: 24px 16px 60px; }
+            .major-detail-hero { gap: 16px; }
+            .major-detail-icon { width: 56px; height: 56px; font-size: 1.3rem; }
+            .major-detail-overview { padding: 18px 20px; }
+            .curriculum-year-tabs { gap: 2px; }
+            .year-tab { font-size: 0.75rem; padding: 7px 8px; }
+        }
     </style>
 </head>
 <body>
@@ -1707,11 +1943,31 @@
     <section class="programs-section" id="programs-section">
         <div class="section-label">All Programs</div>
         <h2 class="section-title">Pick Your Program to Explore Jobs</h2>
-        <p class="section-sub">26 programs from every college at UDel. Click any program card below to explore all career paths available to you.</p>
+        <p class="section-sub">26 programs from every college at UDel. Click any program card to see degree details, curriculum, and career paths.</p>
+        <div class="category-filters" id="category-filters">
+            <button class="cat-pill active" data-cat="all" onclick="filterPrograms('all')"><i class="fa-solid fa-grip"></i> All Programs</button>
+            <button class="cat-pill" data-cat="tech" onclick="filterPrograms('tech')"><i class="fa-solid fa-code"></i> Tech</button>
+            <button class="cat-pill" data-cat="engineering" onclick="filterPrograms('engineering')"><i class="fa-solid fa-gear"></i> Engineering</button>
+            <button class="cat-pill" data-cat="business" onclick="filterPrograms('business')"><i class="fa-solid fa-briefcase"></i> Business</button>
+            <button class="cat-pill" data-cat="science" onclick="filterPrograms('science')"><i class="fa-solid fa-flask"></i> Science</button>
+            <button class="cat-pill" data-cat="health" onclick="filterPrograms('health')"><i class="fa-solid fa-heart-pulse"></i> Health</button>
+            <button class="cat-pill" data-cat="social" onclick="filterPrograms('social')"><i class="fa-solid fa-users"></i> Social</button>
+        </div>
         <div class="programs-grid" id="programs-grid">
             <!-- Rendered by JS -->
         </div>
     </section>
+
+    <!-- MAJOR DETAIL SECTION -->
+    <div id="major-detail-section">
+        <div class="major-detail-header">
+            <button class="back-btn" onclick="backFromDetail()"><i class="fa-solid fa-arrow-left"></i> All Programs</button>
+            <div class="jobs-view-title" id="detail-view-title"></div>
+        </div>
+        <div class="major-detail-body" id="major-detail-body">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
 
     <!-- JOBS VIEW HEADER (hidden by default) -->
     <div class="jobs-view-header" id="jobs-view-header" style="display:none;">
@@ -1973,6 +2229,39 @@
         let bookmarks = JSON.parse(localStorage.getItem('pf_bookmarks') || '[]');
         let userProfile = JSON.parse(localStorage.getItem('pf_profile') || 'null');
 
+        // ── PROGRAM METADATA (College, Overview, Specializations, STEM) ──
+        const PROG_METADATA = {
+            'Computer Science': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Build the software systems that power the modern world — from apps to AI.', specializations: ['Software Development', 'Artificial Intelligence & ML', 'Systems & Networks', 'Database Systems', 'Human-Computer Interaction'] },
+            'Artificial Intelligence': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Create intelligent machines that learn, reason, and solve complex real-world problems.', specializations: ['Machine Learning', 'Computer Vision', 'Natural Language Processing', 'Robotics & Autonomous Systems', 'Cognitive Computing'] },
+            'Cybersecurity Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Defend critical infrastructure and data against sophisticated digital threats.', specializations: ['Network Security', 'Application Security', 'Digital Forensics', 'Cloud Security', 'Cryptography'] },
+            'Data Science': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Transform raw data into actionable intelligence that drives business decisions.', specializations: ['Machine Learning', 'Data Analytics', 'Statistical Modeling', 'Big Data Engineering', 'Business Intelligence'] },
+            'Management Information Systems': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: true, overview: 'Bridge the gap between technology and business strategy to drive organizational success.', specializations: ['Business Analytics', 'Enterprise Systems (ERP/SAP)', 'IT Project Management', 'Cybersecurity for Business', 'Data Warehousing'] },
+            'Computer Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Design the hardware-software systems that power every modern device.', specializations: ['Embedded Systems', 'FPGA & Hardware Design', 'Computer Architecture', 'IoT Systems', 'VLSI Design'] },
+            'Electrical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Power, connect, and automate the world through electrical systems and devices.', specializations: ['Power Systems & Electronics', 'Signal Processing', 'Microelectronics', 'Control Systems', 'RF & Communications'] },
+            'Mechanical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Engineer solutions for the physical world — from nanoscale devices to large infrastructure.', specializations: ['Thermodynamics & Fluid Mechanics', 'Robotics & Controls', 'Manufacturing & Materials', 'Structural Analysis', 'Aerospace Systems'] },
+            'Civil Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Design the bridges, roads, and water systems that society depends on every day.', specializations: ['Structural Engineering', 'Transportation Engineering', 'Environmental Engineering', 'Geotechnical Engineering', 'Construction Management'] },
+            'Chemical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Apply chemistry, physics, and math to transform raw materials into valuable products.', specializations: ['Process Engineering', 'Environmental & Sustainability', 'Bioprocess Engineering', 'Materials Science', 'Energy Systems'] },
+            'Biomedical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Merge engineering principles with medical science to design life-saving technologies.', specializations: ['Medical Devices & Implants', 'Tissue Engineering', 'Biomechanics', 'Medical Imaging', 'Neural Engineering'] },
+            'Finance': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Navigate global capital markets and drive strategic financial decisions at scale.', specializations: ['Investment Banking', 'Corporate Finance', 'Financial Analysis & Modeling', 'Risk Management', 'FinTech & Quantitative Finance'] },
+            'Accounting': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Master the language of business — from financial reporting to strategic advisory.', specializations: ['Public Accounting (CPA Track)', 'Managerial & Cost Accounting', 'Auditing & Assurance', 'Taxation', 'Forensic Accounting'] },
+            'Marketing': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's", stem: false, overview: 'Connect brands with the people who need them through data-driven creative strategy.', specializations: ['Digital & Social Media Marketing', 'Brand Management', 'Market Research & Analytics', 'Consumer Behavior', 'Advertising & Campaigns'] },
+            'Economics': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Understand and shape how societies allocate scarce resources and create lasting value.', specializations: ['Quantitative & Financial Economics', 'Public Policy & Regulation', 'International Economics', 'Behavioral Economics', 'Labor & Environmental Economics'] },
+            'Business Administration & Management': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / MBA", stem: false, overview: 'Lead organizations, drive strategy, and build ventures across every industry.', specializations: ['Entrepreneurship & Innovation', 'Operations & Supply Chain', 'International Business', 'Human Resources Management', 'Corporate Strategy'] },
+            'Health Sciences': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Prepare for careers that directly improve human health and well-being.', specializations: ['Pre-Medical & Clinical Sciences', 'Public Health & Epidemiology', 'Health Policy & Administration', 'Clinical Research', 'Nutrition & Exercise Science'] },
+            'Biological Sciences': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Explore life at every scale — from molecules and cells to ecosystems and evolution.', specializations: ['Molecular Biology & Genetics', 'Ecology & Conservation', 'Microbiology & Virology', 'Neuroscience', 'Cell Biology & Biochemistry'] },
+            'Chemistry': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Understand matter and reactions at the molecular level to create new materials and medicines.', specializations: ['Organic & Medicinal Chemistry', 'Biochemistry', 'Environmental Chemistry', 'Materials Chemistry', 'Analytical & Computational Chemistry'] },
+            'Environmental Science': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: true, overview: "Protect and restore the planet's natural systems through science-driven solutions.", specializations: ['Environmental Policy & Law', 'Conservation Biology', 'Atmospheric & Climate Science', 'Water Resources & Hydrology', 'Sustainability & Renewable Energy'] },
+            'Agricultural Sciences': { college: 'College of Agriculture and Natural Resources', degree: "Bachelor's / Master's", stem: true, overview: 'Advance global food security, sustainable farming, and animal health.', specializations: ['Animal & Veterinary Sciences', 'Plant & Crop Sciences', 'Food Safety & Technology', 'Agricultural Business & Policy', 'Precision Agriculture & AgTech'] },
+            'Education': { college: 'College of Education and Human Development', degree: "Bachelor's / Master's", stem: false, overview: 'Shape the next generation of learners and lead meaningful change in schools and communities.', specializations: ['Early Childhood Education', 'Secondary Education', 'Special Education & Inclusion', 'Educational Leadership & Policy', 'STEM & Technology Education'] },
+            'Communication': { college: 'College of Arts and Sciences', degree: "Bachelor's", stem: false, overview: 'Tell powerful stories and connect people through compelling media and strategic messaging.', specializations: ['Journalism & News Media', 'Public Relations & Corporate Communication', 'Digital & Social Media', 'Film & Video Production', 'Strategic Communication'] },
+            'Political Science & Public Policy': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Analyze power, governance, and policy to understand and change the world.', specializations: ['American Politics & Law', 'International Relations & Diplomacy', 'Public Administration', 'Policy Analysis & Research', 'Environmental & Social Policy'] },
+            'Psychology': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: false, overview: 'Understand human behavior, thought, and emotion to help people and organizations thrive.', specializations: ['Clinical & Counseling Psychology', 'Cognitive Psychology & Neuroscience', 'Behavioral & Social Psychology', 'Industrial-Organizational Psychology', 'Developmental Psychology'] },
+            'Criminal Justice': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Pursue justice, public safety, and rehabilitation through law, policy, and social science.', specializations: ['Criminology & Crime Analysis', 'Law Enforcement & Policing', 'Corrections & Rehabilitation', 'Forensic Psychology', 'Cybercrime & Digital Investigations'] },
+        };
+
+        let programInfoData = {};
+        let currentDetailProg = '';
+
         const MAJOR_ICONS = {
             'Computer Science': 'fa-code',
             'Artificial Intelligence': 'fa-brain',
@@ -2005,8 +2294,12 @@
         // ── DATA LOAD ──
         async function loadData() {
             try {
-                const response = await fetch('/api/career-paths');
-                globalData = await response.json();
+                const [careerRes, infoRes] = await Promise.all([
+                    fetch('/api/career-paths'),
+                    fetch('/api/program-info')
+                ]);
+                globalData = await careerRes.json();
+                programInfoData = await infoRes.json();
                 renderPrograms();
                 updateStats();
                 applyProfileToUI();
@@ -2183,21 +2476,41 @@
 
         // ── RENDER ──
         // ── PROGRAMS GRID ──
+        let currentCategoryFilter = 'all';
+
         function renderPrograms() {
             const grid = document.getElementById('programs-grid');
             if (!grid) return;
             grid.innerHTML = Object.entries(globalData).map(([prog, jobs]) => {
                 const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
                 const cat = PROG_CATEGORY[prog] || 'tech';
-                return `<div class="program-card prog-cat-${cat}" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
+                const meta = PROG_METADATA[prog] || {};
+                const college = meta.college || 'University of Delaware';
+                const stemBadge = meta.stem ? '<span class="stem-badge">STEM</span>' : '';
+                // Shorten college name for card
+                const shortCollege = college.replace('College of ', '').replace('Alfred Lerner ', '').replace(' and Economics', '');
+                const hidden = currentCategoryFilter !== 'all' && cat !== currentCategoryFilter ? 'style="display:none"' : '';
+                return `<div class="program-card prog-cat-${cat}" data-cat="${cat}" onclick="openMajorDetail('${prog.replace(/'/g,"\\'")}')\" ${hidden}>
                     <div class="program-card-icon"><i class="fa-solid ${icon}"></i></div>
+                    <div class="program-card-college">${shortCollege}${stemBadge}</div>
                     <div class="program-card-name">${prog}</div>
                     <div class="program-card-count"><i class="fa-solid fa-briefcase"></i> ${jobs.length} careers</div>
                 </div>`;
             }).join('');
         }
 
+        function filterPrograms(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+            document.querySelectorAll('.program-card').forEach(card => {
+                const show = cat === 'all' || card.dataset.cat === cat;
+                card.style.display = show ? '' : 'none';
+            });
+        }
+
         function openProgram(prog) {
+            // Hide major detail if open
+            document.getElementById('major-detail-section').classList.remove('open');
             // Show jobs section, hide programs
             document.getElementById('programs-section').style.display = 'none';
             document.querySelector('.how-section').style.display = 'none';
@@ -2219,9 +2532,182 @@
             document.querySelector('.how-section').style.display = 'block';
             document.getElementById('jobs-view-header').style.display = 'none';
             document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
             document.getElementById('searchInput').value = '';
             clearAISearch();
             document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openMajorDetail(prog) {
+            currentDetailProg = prog;
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.add('open');
+            document.getElementById('detail-view-title').textContent = prog;
+            renderMajorDetail(prog);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backFromDetail() {
+            document.getElementById('major-detail-section').classList.remove('open');
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('programs-section').style.display = 'block';
+            document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderMajorDetail(prog) {
+            const jobs = globalData[prog] || [];
+            const info = programInfoData[prog] || {};
+            const meta = PROG_METADATA[prog] || {};
+            const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
+            const cat = PROG_CATEGORY[prog] || 'tech';
+
+            // Aggregate salary & demand from jobs
+            const salaryJobs = jobs.filter(j => j.salary_min > 0);
+            const avgMin = salaryJobs.length ? Math.round(salaryJobs.reduce((s, j) => s + j.salary_min, 0) / salaryJobs.length) : 0;
+            const avgMax = salaryJobs.length ? Math.round(salaryJobs.reduce((s, j) => s + j.salary_max, 0) / salaryJobs.length) : 0;
+            const highDemand = jobs.filter(j => j.demand === 'High').length;
+            const avgSalaryStr = avgMin > 0 ? `$${Math.round(avgMin/1000)}k – $${Math.round(avgMax/1000)}k` : 'Varies';
+
+            // Icon gradient by category
+            const catGradients = {
+                tech: 'linear-gradient(135deg, #00539F, #003366)',
+                engineering: 'linear-gradient(135deg, #b45309, #d97706)',
+                business: 'linear-gradient(135deg, #047857, #065f46)',
+                science: 'linear-gradient(135deg, #0e7490, #0891b2)',
+                health: 'linear-gradient(135deg, #dc2626, #e11d48)',
+                social: 'linear-gradient(135deg, #0e7490, #155e75)'
+            };
+            const iconBg = catGradients[cat] || catGradients.tech;
+
+            // STEM badge
+            const stemTag = meta.stem ? `<span class="detail-tag stem"><i class="fa-solid fa-atom"></i> DHS STEM Designated</span>` : '';
+
+            // Specializations
+            const specs = (meta.specializations || []).map(s =>
+                `<div class="spec-chip"><i class="fa-solid fa-circle-dot"></i>${s}</div>`
+            ).join('');
+
+            // 4-year curriculum
+            const corByYear = info.core_by_year || {};
+            const yearLabels = [
+                { key: '1', label: 'Year 1 · Freshman' },
+                { key: '2', label: 'Year 2 · Sophomore' },
+                { key: '3', label: 'Year 3 · Junior' },
+                { key: '4', label: 'Year 4 · Senior' },
+                { key: 'grad', label: 'Graduate' }
+            ].filter(y => (corByYear[y.key] || []).length > 0);
+
+            let curriculumHtml = '';
+            if (yearLabels.length > 0) {
+                const tabsHtml = yearLabels.map((y, i) =>
+                    `<button class="year-tab ${i === 0 ? 'active' : ''}" onclick="switchYearTab('${y.key}', this)">${y.label}</button>`
+                ).join('');
+                const panelsHtml = yearLabels.map((y, i) => {
+                    const rows = (corByYear[y.key] || []).map(c => {
+                        const isGrad = y.key === 'grad';
+                        return `<div class="curriculum-course-row">
+                            <span class="curriculum-course-code ${isGrad ? 'grad-code' : ''}">${c.code}</span>
+                            <span class="curriculum-course-title">${c.title || c.code}</span>
+                        </div>`;
+                    }).join('');
+                    return `<div class="year-panel ${i === 0 ? 'active' : ''}" id="year-panel-${y.key}">
+                        ${rows || '<p class="year-panel-empty">No required courses found for this year.</p>'}
+                    </div>`;
+                }).join('');
+                curriculumHtml = `
+                    <div class="detail-section-heading"><i class="fa-solid fa-calendar-days"></i> 4-Year Curriculum</div>
+                    <div class="curriculum-section">
+                        <div class="curriculum-year-tabs">${tabsHtml}</div>
+                        ${panelsHtml}
+                    </div>`;
+            }
+
+            // Electives preview
+            const electives = info.electives || [];
+            let electivesHtml = '';
+            if (electives.length > 0) {
+                const rows = electives.slice(0, 12).map(c =>
+                    `<div class="elective-row">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span class="elective-code">${c.code}</span>
+                        <span>${c.title || c.code}</span>
+                    </div>`
+                ).join('');
+                const more = electives.length > 12 ? `<div style="font-size:0.8rem;color:var(--gray-400);padding:8px 12px;">+ ${electives.length - 12} more elective options</div>` : '';
+                electivesHtml = `
+                    <div class="detail-section-heading"><i class="fa-solid fa-list-check"></i> Approved Electives</div>
+                    <div class="electives-list">${rows}${more}</div>`;
+            }
+
+            // Top 3 career paths
+            const topJobs = jobs.slice(0, 3);
+            const careersHtml = topJobs.map(j => {
+                const sal = j.salary_min > 0 ? `$${Math.round(j.salary_min/1000)}k–$${Math.round(j.salary_max/1000)}k` : 'Varies';
+                const demandColor = j.demand === 'High' ? 'var(--green)' : j.demand === 'Low' ? '#dc2626' : '#d97706';
+                return `<div class="career-preview-card" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
+                    <i class="fa-solid fa-briefcase" style="color:var(--blue);font-size:0.9rem;flex-shrink:0;"></i>
+                    <span class="career-preview-title">${j.title}</span>
+                    <span class="career-preview-salary">${sal}</span>
+                    <span class="career-preview-demand" style="color:${demandColor};">${j.demand}</span>
+                    <i class="fa-solid fa-arrow-right" style="color:var(--gray-400);font-size:0.75rem;"></i>
+                </div>`;
+            }).join('');
+
+            const credits = info.total_credits ? `<div class="major-stat-card"><div class="major-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div><div><div class="major-stat-val">${info.total_credits}</div><div class="major-stat-label">Required Credits</div></div></div>` : '';
+
+            document.getElementById('major-detail-body').innerHTML = `
+                <div class="major-detail-hero">
+                    <div>
+                        <div class="major-detail-icon" style="background:${iconBg};"><i class="fa-solid ${icon}"></i></div>
+                    </div>
+                    <div class="major-detail-meta">
+                        <div class="major-detail-name">${prog}</div>
+                        <div class="major-detail-college"><i class="fa-solid fa-building-columns" style="font-size:0.7rem;margin-right:5px;"></i>${meta.college || 'University of Delaware'}</div>
+                        <div class="major-detail-tags">
+                            <span class="detail-tag"><i class="fa-solid fa-scroll"></i> ${meta.degree || "Bachelor's"}</span>
+                            ${stemTag}
+                        </div>
+                    </div>
+                    <div class="major-detail-overview">
+                        <p>"${meta.overview || 'Explore this program to discover career paths and course requirements.'}"</p>
+                    </div>
+                </div>
+
+                <div class="major-stats-row">
+                    <div class="major-stat-card"><div class="major-stat-icon"><i class="fa-solid fa-briefcase"></i></div><div><div class="major-stat-val">${jobs.length}</div><div class="major-stat-label">Career Paths</div></div></div>
+                    <div class="major-stat-card"><div class="major-stat-icon" style="background:#dcfce7;color:#166534;"><i class="fa-solid fa-dollar-sign"></i></div><div><div class="major-stat-val" style="color:var(--green);">${avgSalaryStr}</div><div class="major-stat-label">Avg Salary Range</div></div></div>
+                    <div class="major-stat-card"><div class="major-stat-icon" style="background:#fef3c7;color:#92400e;"><i class="fa-solid fa-chart-line"></i></div><div><div class="major-stat-val">${highDemand}</div><div class="major-stat-label">High-Demand Roles</div></div></div>
+                    ${credits}
+                </div>
+
+                <div class="detail-section-heading"><i class="fa-solid fa-compass"></i> Areas of Study</div>
+                <div class="specializations-grid">${specs}</div>
+
+                ${curriculumHtml}
+                ${electivesHtml}
+
+                <div class="detail-section-heading"><i class="fa-solid fa-star"></i> Top Career Paths</div>
+                <div class="career-preview-grid">${careersHtml}</div>
+                <div style="text-align:center;margin-top:8px;">
+                    <button class="btn-explore-careers" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
+                        <i class="fa-solid fa-arrow-right"></i> Explore All ${jobs.length} Careers
+                    </button>
+                </div>
+            `;
+        }
+
+        function switchYearTab(yearKey, btn) {
+            // Toggle tabs
+            btn.closest('.curriculum-year-tabs').querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            // Toggle panels (find sibling panels)
+            const panelContainer = btn.closest('.curriculum-section');
+            panelContainer.querySelectorAll('.year-panel').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('year-panel-' + yearKey);
+            if (target) target.classList.add('active');
         }
 
         function renderDashboard(data) {
@@ -2737,6 +3223,7 @@
             document.getElementById('courses-section').classList.remove('open');
             document.getElementById('jobs-section').style.display = 'none';
             document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
             document.querySelector('.hero').style.display = 'block';
             document.querySelector('.how-section').style.display = 'block';
             document.getElementById('programs-section').style.display = 'block';
@@ -2752,6 +3239,7 @@
             document.getElementById('programs-section').style.display = 'none';
             document.getElementById('jobs-section').style.display = 'none';
             document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
             // Show courses
             document.getElementById('courses-section').classList.add('open');
             document.getElementById('nav-home').classList.remove('active');
