@@ -1645,24 +1645,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sticky back bar */
-        .major-detail-header {
-            background: rgba(7,14,27,0.96);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding: 14px 32px;
-            display: flex; align-items: center; gap: 14px;
-            position: sticky; top: 64px; z-index: 200;
-        }
-        .major-detail-header .back-btn {
-            color: rgba(255,255,255,0.7);
-        }
-        .major-detail-header .back-btn:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
-        }
-        .major-detail-header .jobs-view-title { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
 
         /* ── DARK HERO BANNER ── */
         .md-hero {
@@ -2135,10 +2117,6 @@
 
     <!-- MAJOR DETAIL SECTION -->
     <div id="major-detail-section">
-        <div class="major-detail-header">
-            <button class="back-btn" onclick="backFromDetail()"><i class="fa-solid fa-arrow-left"></i> All Programs</button>
-            <div class="jobs-view-title" id="detail-view-title"></div>
-        </div>
         <div id="major-detail-body">
             <!-- Rendered by JS -->
         </div>
@@ -2146,7 +2124,6 @@
 
     <!-- JOBS VIEW HEADER (hidden by default) -->
     <div class="jobs-view-header" id="jobs-view-header" style="display:none;">
-        <button class="back-btn" onclick="backToPrograms()"><i class="fa-solid fa-arrow-left"></i> All Programs</button>
         <div class="jobs-view-title" id="jobs-view-title"></div>
         <div class="search-wrap" style="max-width:340px;flex:1;">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -2683,7 +2660,7 @@
             });
         }
 
-        function openProgram(prog) {
+        function openProgram(prog, noPush) {
             // Hide major detail if open
             document.getElementById('major-detail-section').classList.remove('open');
             // Show jobs section, hide programs
@@ -2700,6 +2677,7 @@
             document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' });
             applyProfileToUI();
             initFuse();
+            if (!noPush) history.pushState({ view: 'jobs', prog }, '', '#jobs-' + encodeURIComponent(prog));
         }
 
         function backToPrograms() {
@@ -2713,16 +2691,16 @@
             document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function openMajorDetail(prog) {
+        function openMajorDetail(prog, noPush) {
             currentDetailProg = prog;
             document.getElementById('programs-section').style.display = 'none';
             document.querySelector('.how-section').style.display = 'none';
             document.getElementById('jobs-section').style.display = 'none';
             document.getElementById('jobs-view-header').style.display = 'none';
             document.getElementById('major-detail-section').classList.add('open');
-            document.getElementById('detail-view-title').textContent = prog;
             renderMajorDetail(prog);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!noPush) history.pushState({ view: 'detail', prog }, '', '#' + encodeURIComponent(prog));
         }
 
         function backFromDetail() {
@@ -3438,7 +3416,7 @@
         // ── PAGE NAVIGATION ──
         const homeSections = ['hero-section', 'how-section-el', 'programs-section'];
 
-        function showHome() {
+        function showHome(noPush) {
             document.getElementById('courses-section').classList.remove('open');
             document.getElementById('jobs-section').style.display = 'none';
             document.getElementById('jobs-view-header').style.display = 'none';
@@ -3449,9 +3427,10 @@
             document.getElementById('nav-home').classList.add('active');
             document.getElementById('nav-courses-link').classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!noPush) history.pushState({ view: 'home' }, '', '/');
         }
 
-        function showCoursesPage() {
+        function showCoursesPage(noPush) {
             // Hide home sections
             document.querySelector('.hero').style.display = 'none';
             document.querySelector('.how-section').style.display = 'none';
@@ -3465,7 +3444,22 @@
             document.getElementById('nav-courses-link').classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             if (!coursesLoaded) loadCourses(1);
+            if (!noPush) history.pushState({ view: 'courses' }, '', '#courses');
         }
+
+        // Browser back/forward support
+        window.addEventListener('popstate', function(e) {
+            const state = e.state || { view: 'home' };
+            if (state.view === 'home') showHome(true);
+            else if (state.view === 'courses') showCoursesPage(true);
+            else if (state.view === 'detail') openMajorDetail(state.prog, true);
+            else if (state.view === 'jobs') openProgram(state.prog, true);
+        });
+
+        // Set initial history state on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            history.replaceState({ view: 'home' }, '', window.location.pathname);
+        });
 
         // ── COURSES EXPLORER ──
         let coursesLoaded = false;
