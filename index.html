@@ -1635,195 +1635,369 @@
             margin-left: 4px;
         }
 
-        /* ── MAJOR DETAIL SECTION ── */
+        /* ══════════════════════════════════════════
+           MAJOR DETAIL — HI-TECH REDESIGN
+        ══════════════════════════════════════════ */
         #major-detail-section { display: none; }
-        #major-detail-section.open { display: block; }
+        #major-detail-section.open { display: block; animation: detailFadeIn 0.35s ease; }
+        @keyframes detailFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
+        /* Sticky back bar */
         .major-detail-header {
-            background: white;
-            border-bottom: 1px solid var(--gray-200);
-            padding: 16px 32px;
+            background: rgba(7,14,27,0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 14px 32px;
             display: flex; align-items: center; gap: 14px;
             position: sticky; top: 64px; z-index: 200;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
-        .major-detail-body {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 40px 32px 80px;
+        .major-detail-header .back-btn {
+            color: rgba(255,255,255,0.7);
         }
-        .major-detail-hero {
-            display: flex; align-items: flex-start; gap: 24px;
-            margin-bottom: 36px;
-            flex-wrap: wrap;
+        .major-detail-header .back-btn:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
         }
-        .major-detail-icon {
-            width: 72px; height: 72px;
-            border-radius: 18px;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 1.6rem;
-            flex-shrink: 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        .major-detail-header .jobs-view-title { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
+
+        /* ── DARK HERO BANNER ── */
+        .md-hero {
+            background: #070e1b;
+            padding: 56px 32px 0;
+            position: relative;
+            overflow: hidden;
         }
-        .major-detail-meta { flex: 1; min-width: 200px; }
-        .major-detail-name {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 800; color: var(--blue-dark);
-            letter-spacing: -0.5px; margin-bottom: 4px;
-            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        /* Animated blobs (reuse hero blob style) */
+        .md-blob {
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); opacity: 0.35; pointer-events: none;
         }
-        .major-detail-college {
-            font-size: 0.875rem; color: var(--gray-600);
-            margin-bottom: 10px; font-weight: 500;
+        .md-blob-1 {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent-color, #1a4fa8) 0%, transparent 70%);
+            top: -180px; left: -80px;
+            animation: blobFloat1 20s ease-in-out infinite;
         }
-        .major-detail-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .detail-tag {
-            display: inline-flex; align-items: center; gap: 5px;
-            background: var(--gray-100); color: var(--gray-600);
-            font-size: 0.75rem; font-weight: 600;
-            padding: 4px 10px; border-radius: 6px;
-            border: 1px solid var(--gray-200);
+        .md-blob-2 {
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(255,210,0,0.6) 0%, transparent 70%);
+            top: -80px; right: -60px;
+            animation: blobFloat2 25s ease-in-out infinite;
         }
-        .detail-tag.stem { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
-        .detail-tag i { font-size: 0.65rem; }
-        .major-detail-overview {
-            flex: 1; min-width: 240px;
-            background: linear-gradient(135deg, var(--blue-deep), var(--blue-dark));
-            color: white; border-radius: var(--radius-md);
-            padding: 24px 28px;
-            display: flex; align-items: center;
+        /* Dot-grid texture */
+        .md-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
         }
-        .major-detail-overview p {
-            font-size: 1.05rem; font-weight: 500;
-            line-height: 1.55; color: rgba(255,255,255,0.92);
-            font-style: italic;
+        .md-hero-inner {
+            max-width: 1100px; margin: 0 auto;
+            position: relative; z-index: 1;
         }
 
-        /* Stats row */
-        .major-stats-row {
-            display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;
+        /* Program identity row */
+        .md-identity {
+            display: flex; align-items: flex-start; gap: 24px;
+            margin-bottom: 32px; flex-wrap: wrap;
         }
-        .major-stat-card {
-            flex: 1; min-width: 140px;
-            background: white;
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md);
-            padding: 18px 20px;
-            display: flex; align-items: center; gap: 14px;
+        .md-icon-wrap { position: relative; flex-shrink: 0; }
+        .md-icon {
+            width: 80px; height: 80px; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.8rem;
+            position: relative; z-index: 1;
+        }
+        .md-icon-glow {
+            position: absolute; inset: -6px;
+            border-radius: 26px;
+            opacity: 0.35;
+            filter: blur(12px);
+        }
+        .md-text { flex: 1; min-width: 180px; }
+        .md-prog-name {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 800; color: white;
+            letter-spacing: -1px; line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .md-college-line {
+            font-size: 0.85rem; color: rgba(255,255,255,0.5);
+            margin-bottom: 12px; font-weight: 500;
+        }
+        .md-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+        .md-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.72rem; font-weight: 700;
+            padding: 4px 10px; border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.08);
+            letter-spacing: 0.3px;
+        }
+        .md-badge.stem-glow {
+            background: rgba(34,197,94,0.15);
+            border-color: rgba(34,197,94,0.4);
+            color: #4ade80;
+        }
+        .md-badge i { font-size: 0.62rem; }
+
+        /* Overview quote */
+        .md-overview {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-left: 3px solid var(--accent-color, #FFD200);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin-bottom: 36px;
+            backdrop-filter: blur(8px);
+        }
+        .md-overview p {
+            font-size: 1rem; color: rgba(255,255,255,0.8);
+            font-style: italic; line-height: 1.6; margin: 0;
+        }
+
+        /* Glass stat cards */
+        .md-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            padding-bottom: 0;
+            transform: translateY(28px);
+        }
+        .md-stat-glass {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 20px 20px 18px;
+            text-align: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .md-stat-glass:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .md-stat-glass-icon {
+            font-size: 1.2rem; margin-bottom: 8px;
+            display: block;
+        }
+        .md-stat-glass-val {
+            font-size: 1.4rem; font-weight: 800;
+            color: white; line-height: 1;
+            margin-bottom: 4px;
+        }
+        .md-stat-glass-label {
+            font-size: 0.67rem; font-weight: 600;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase; letter-spacing: 0.8px;
+        }
+        .md-stat-salary .md-stat-glass-val { color: #4ade80; }
+        .md-stat-demand .md-stat-glass-val { color: var(--gold); }
+
+        /* ── LIGHT CONTENT AREA ── */
+        .md-content {
+            background: var(--gray-50);
+            padding: 60px 32px 80px;
+        }
+        .md-content-inner { max-width: 1100px; margin: 0 auto; }
+
+        /* Section label */
+        .md-section-label {
+            font-size: 0.68rem; font-weight: 800;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--blue); margin-bottom: 14px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .md-section-label::after {
+            content: ''; flex: 1; height: 1px;
+            background: linear-gradient(90deg, var(--gray-200), transparent);
+        }
+
+        /* Specialization chips */
+        .md-specs-grid {
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 48px;
+        }
+        .md-spec-chip {
+            display: flex; align-items: center; gap: 8px;
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: 10px; padding: 10px 16px;
+            font-size: 0.82rem; font-weight: 600; color: var(--gray-700);
+            transition: all 0.15s; cursor: default;
             box-shadow: var(--shadow-sm);
         }
-        .major-stat-icon {
-            width: 42px; height: 42px; border-radius: 10px;
-            background: #e8f0fb;
+        .md-spec-chip:hover {
+            border-color: var(--blue); color: var(--blue);
+            box-shadow: 0 4px 12px rgba(0,83,159,0.12);
+            transform: translateY(-1px);
+        }
+        .md-spec-num {
+            width: 22px; height: 22px; border-radius: 6px;
+            background: var(--blue); color: white;
+            font-size: 0.65rem; font-weight: 800;
             display: flex; align-items: center; justify-content: center;
-            color: var(--blue); font-size: 0.95rem; flex-shrink: 0;
-        }
-        .major-stat-val { font-size: 1.25rem; font-weight: 800; color: var(--gray-800); line-height: 1; }
-        .major-stat-label { font-size: 0.7rem; color: var(--gray-400); font-weight: 600; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.4px; }
-
-        /* Section headings inside detail view */
-        .detail-section-heading {
-            font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-            text-transform: uppercase; color: var(--blue);
-            margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
-        }
-        .detail-section-heading::after {
-            content: ''; flex: 1; height: 1px; background: var(--gray-200);
+            flex-shrink: 0;
         }
 
-        /* Specializations */
-        .specializations-grid {
-            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;
+        /* 4-Year curriculum */
+        .md-curriculum { margin-bottom: 48px; }
+        .md-year-tabs {
+            display: flex; gap: 4px;
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: 12px; padding: 4px; margin-bottom: 16px;
+            box-shadow: var(--shadow-sm); flex-wrap: wrap;
         }
-        .spec-chip {
-            background: var(--gray-50); border: 1px solid var(--gray-200);
-            border-radius: 8px; padding: 8px 14px;
-            font-size: 0.82rem; font-weight: 600; color: var(--gray-700);
-            cursor: default; transition: all 0.15s;
-            display: flex; align-items: center; gap: 7px;
-        }
-        .spec-chip:hover { background: #eef4fb; border-color: #b8d0ed; color: var(--blue); }
-        .spec-chip i { color: var(--blue); font-size: 0.7rem; }
-
-        /* 4-year curriculum */
-        .curriculum-section { margin-bottom: 40px; }
-        .curriculum-year-tabs {
-            display: flex; gap: 4px; background: var(--gray-100);
-            border-radius: 10px; padding: 4px; margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .year-tab {
-            flex: 1; min-width: 80px;
-            padding: 8px 12px; border-radius: 7px;
-            font-size: 0.82rem; font-weight: 600; color: var(--gray-600);
+        .md-year-tab {
+            flex: 1; min-width: 90px;
+            padding: 9px 10px; border-radius: 9px;
+            font-size: 0.8rem; font-weight: 600; color: var(--gray-400);
             border: none; background: none; cursor: pointer;
-            font-family: inherit; text-align: center;
+            font-family: inherit; text-align: center; transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .md-year-tab.active {
+            background: var(--blue); color: white;
+            box-shadow: 0 2px 8px rgba(0,83,159,0.3);
+        }
+        .md-year-tab:not(.active):hover { color: var(--blue); }
+        .md-year-panel { display: none; }
+        .md-year-panel.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 8px;
+            animation: panelIn 0.2s ease;
+        }
+        @keyframes panelIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .md-course-card {
+            display: flex; align-items: center; gap: 12px;
+            background: white; border: 1px solid var(--gray-200);
+            border-radius: 10px; padding: 11px 14px;
             transition: all 0.15s;
         }
-        .year-tab.active { background: white; color: var(--blue); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
-        .year-panel { display: none; }
-        .year-panel.active { display: block; }
-        .year-panel-empty { font-size: 0.85rem; color: var(--gray-400); font-style: italic; padding: 16px 0; }
-        .curriculum-course-row {
-            display: flex; align-items: center; gap: 12px;
-            padding: 10px 14px; background: white;
-            border: 1px solid var(--gray-200); border-radius: 8px;
-            margin-bottom: 7px; font-size: 0.845rem;
-            transition: border-color 0.15s, background 0.15s;
+        .md-course-card:hover {
+            border-color: #b8d0ed;
+            box-shadow: 0 4px 12px rgba(0,83,159,0.08);
+            transform: translateY(-1px);
         }
-        .curriculum-course-row:hover { background: #eef4fb; border-color: #b8d0ed; }
-        .curriculum-course-code {
+        .md-course-badge {
             background: var(--blue); color: white;
-            font-size: 0.7rem; font-weight: 700;
-            padding: 2px 7px; border-radius: 4px;
-            white-space: nowrap; flex-shrink: 0;
+            font-size: 0.65rem; font-weight: 800;
+            padding: 3px 7px; border-radius: 5px;
+            white-space: nowrap; flex-shrink: 0; letter-spacing: 0.3px;
         }
-        .curriculum-course-code.grad-code { background: var(--blue-dark); }
-        .curriculum-course-title { color: var(--gray-800); font-weight: 500; flex: 1; }
+        .md-course-badge.grad { background: #6d28d9; }
+        .md-course-name { font-size: 0.82rem; font-weight: 500; color: var(--gray-800); }
+        .md-panel-empty {
+            font-size: 0.85rem; color: var(--gray-400); font-style: italic;
+            padding: 20px; grid-column: 1 / -1;
+        }
 
-        /* Electives preview */
-        .electives-list { margin-bottom: 40px; }
-        .elective-row {
+        /* Electives */
+        .md-electives { margin-bottom: 48px; }
+        .md-electives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 6px;
+        }
+        .md-elective-row {
             display: flex; align-items: center; gap: 10px;
-            padding: 8px 12px; border-radius: 7px;
-            font-size: 0.82rem; color: var(--gray-700);
-            border-bottom: 1px solid var(--gray-100);
-            transition: background 0.1s;
+            padding: 9px 12px; background: white;
+            border: 1px solid var(--gray-200); border-radius: 8px;
+            font-size: 0.8rem; transition: all 0.12s;
         }
-        .elective-row:hover { background: var(--gray-50); }
-        .elective-row i { color: var(--blue); font-size: 0.7rem; flex-shrink: 0; }
-        .elective-code { font-size: 0.72rem; font-weight: 700; color: var(--blue); min-width: 70px; flex-shrink: 0; }
+        .md-elective-row:hover { border-color: #b8d0ed; background: #f0f6ff; }
+        .md-elective-code {
+            font-size: 0.68rem; font-weight: 800; color: var(--blue);
+            min-width: 68px; flex-shrink: 0;
+        }
+        .md-elective-title { color: var(--gray-700); flex: 1; }
 
-        /* Top careers preview */
-        .career-preview-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-        .career-preview-card {
-            display: flex; align-items: center; gap: 16px;
+        /* Career preview cards */
+        .md-careers { margin-bottom: 40px; }
+        .md-career-grid { display: flex; flex-direction: column; gap: 10px; }
+        .md-career-card {
             background: white; border: 1px solid var(--gray-200);
-            border-radius: var(--radius-md); padding: 14px 18px;
-            cursor: pointer; transition: all 0.15s;
+            border-radius: 14px; padding: 18px 20px;
+            cursor: pointer; transition: all 0.18s;
+            position: relative; overflow: hidden;
         }
-        .career-preview-card:hover { border-color: #c5d8f0; box-shadow: var(--shadow-sm); transform: translateX(4px); }
-        .career-preview-title { font-size: 0.925rem; font-weight: 700; color: var(--gray-800); flex: 1; }
-        .career-preview-salary { font-size: 0.82rem; font-weight: 700; color: var(--green); white-space: nowrap; }
-        .career-preview-demand { font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
-        .btn-explore-careers {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: var(--blue); color: white;
-            font-size: 1rem; font-weight: 700;
-            border: none; border-radius: var(--radius-md);
-            padding: 16px 36px; cursor: pointer; font-family: inherit;
-            width: 100%; max-width: 360px; margin: 0 auto;
-            transition: background 0.15s, transform 0.15s;
+        .md-career-card::before {
+            content: ''; position: absolute;
+            left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--accent-color, var(--blue));
+            transform: scaleY(0); transform-origin: bottom;
+            transition: transform 0.2s ease;
         }
-        .btn-explore-careers:hover { background: var(--blue-dark); transform: translateY(-2px); }
+        .md-career-card:hover {
+            border-color: #c5d8f0;
+            box-shadow: 0 6px 24px rgba(0,83,159,0.1);
+            transform: translateY(-2px);
+        }
+        .md-career-card:hover::before { transform: scaleY(1); }
+        .md-career-top {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+        }
+        .md-career-title { font-size: 0.95rem; font-weight: 700; color: var(--gray-800); flex: 1; }
+        .md-career-salary { font-size: 0.85rem; font-weight: 800; color: #059669; white-space: nowrap; }
+        .md-demand-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 0.7rem; font-weight: 700;
+            padding: 3px 9px; border-radius: 999px;
+        }
+        .md-demand-badge.high { background: #dcfce7; color: #166534; }
+        .md-demand-badge.medium { background: #fef3c7; color: #92400e; }
+        .md-demand-badge.low { background: #fee2e2; color: #991b1b; }
+        .md-demand-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: currentColor;
+        }
+        .md-demand-badge.high .md-demand-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+        @keyframes pulseDot {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.5); }
+            50%       { box-shadow: 0 0 0 5px rgba(22,163,74,0); }
+        }
 
+        /* Salary bar */
+        .md-salary-bar-wrap { height: 4px; background: var(--gray-100); border-radius: 999px; overflow: hidden; }
+        .md-salary-bar {
+            height: 100%; border-radius: 999px;
+            background: linear-gradient(90deg, #059669, #34d399);
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* CTA */
+        .md-cta-wrap { text-align: center; padding-top: 8px; }
+        .btn-explore-careers {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: white; font-size: 1rem; font-weight: 700;
+            border: none; border-radius: 14px;
+            padding: 16px 40px; cursor: pointer; font-family: inherit;
+            box-shadow: 0 8px 28px rgba(0,83,159,0.35);
+            transition: all 0.2s;
+        }
+        .btn-explore-careers:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(0,83,159,0.45);
+        }
+        .btn-explore-careers i { transition: transform 0.2s; }
+        .btn-explore-careers:hover i { transform: translateX(4px); }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .major-detail-body { padding: 24px 16px 60px; }
-            .major-detail-hero { gap: 16px; }
-            .major-detail-icon { width: 56px; height: 56px; font-size: 1.3rem; }
-            .major-detail-overview { padding: 18px 20px; }
-            .curriculum-year-tabs { gap: 2px; }
-            .year-tab { font-size: 0.75rem; padding: 7px 8px; }
+            .md-hero { padding: 40px 16px 0; }
+            .md-icon { width: 60px; height: 60px; font-size: 1.4rem; }
+            .md-prog-name { font-size: 1.5rem; }
+            .md-stats-row { grid-template-columns: repeat(2, 1fr); }
+            .md-content { padding: 50px 16px 60px; }
+            .md-year-tab { font-size: 0.72rem; padding: 8px 6px; }
+            .md-year-panel.active { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1964,7 +2138,7 @@
             <button class="back-btn" onclick="backFromDetail()"><i class="fa-solid fa-arrow-left"></i> All Programs</button>
             <div class="jobs-view-title" id="detail-view-title"></div>
         </div>
-        <div class="major-detail-body" id="major-detail-body">
+        <div id="major-detail-body">
             <!-- Rendered by JS -->
         </div>
     </div>
@@ -2564,149 +2738,185 @@
             const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
             const cat = PROG_CATEGORY[prog] || 'tech';
 
-            // Aggregate salary & demand from jobs
+            // Salary aggregates
             const salaryJobs = jobs.filter(j => j.salary_min > 0);
-            const avgMin = salaryJobs.length ? Math.round(salaryJobs.reduce((s, j) => s + j.salary_min, 0) / salaryJobs.length) : 0;
-            const avgMax = salaryJobs.length ? Math.round(salaryJobs.reduce((s, j) => s + j.salary_max, 0) / salaryJobs.length) : 0;
-            const highDemand = jobs.filter(j => j.demand === 'High').length;
-            const avgSalaryStr = avgMin > 0 ? `$${Math.round(avgMin/1000)}k – $${Math.round(avgMax/1000)}k` : 'Varies';
+            const avgMin = salaryJobs.length ? Math.round(salaryJobs.reduce((s,j)=>s+j.salary_min,0)/salaryJobs.length) : 0;
+            const avgMax = salaryJobs.length ? Math.round(salaryJobs.reduce((s,j)=>s+j.salary_max,0)/salaryJobs.length) : 0;
+            const highDemand = jobs.filter(j=>j.demand==='High').length;
+            const avgSalaryStr = avgMin > 0 ? `$${Math.round(avgMin/1000)}k–$${Math.round(avgMax/1000)}k` : 'Varies';
 
-            // Icon gradient by category
-            const catGradients = {
-                tech: 'linear-gradient(135deg, #00539F, #003366)',
-                engineering: 'linear-gradient(135deg, #b45309, #d97706)',
-                business: 'linear-gradient(135deg, #047857, #065f46)',
-                science: 'linear-gradient(135deg, #0e7490, #0891b2)',
-                health: 'linear-gradient(135deg, #dc2626, #e11d48)',
-                social: 'linear-gradient(135deg, #0e7490, #155e75)'
+            // Accent color per category
+            const catColors = {
+                tech: '#2563eb', engineering: '#d97706', business: '#059669',
+                science: '#0891b2', health: '#e11d48', social: '#7c3aed'
             };
-            const iconBg = catGradients[cat] || catGradients.tech;
+            const catGradients = {
+                tech: 'linear-gradient(135deg,#00539F,#003366)',
+                engineering: 'linear-gradient(135deg,#b45309,#d97706)',
+                business: 'linear-gradient(135deg,#047857,#065f46)',
+                science: 'linear-gradient(135deg,#0e7490,#0891b2)',
+                health: 'linear-gradient(135deg,#dc2626,#e11d48)',
+                social: 'linear-gradient(135deg,#6d28d9,#7c3aed)'
+            };
+            const accent = catColors[cat] || catColors.tech;
+            const iconGrad = catGradients[cat] || catGradients.tech;
+            const credits = info.total_credits;
 
             // STEM badge
-            const stemTag = meta.stem ? `<span class="detail-tag stem"><i class="fa-solid fa-atom"></i> DHS STEM Designated</span>` : '';
+            const stemBadge = meta.stem
+                ? `<span class="md-badge stem-glow"><i class="fa-solid fa-atom"></i> DHS STEM</span>` : '';
+
+            // Glass stats
+            const creditsStatHtml = credits
+                ? `<div class="md-stat-glass"><span class="md-stat-glass-icon" style="color:#a78bfa;">🎓</span><div class="md-stat-glass-val">${credits}</div><div class="md-stat-glass-label">Credits Required</div></div>` : '';
 
             // Specializations
-            const specs = (meta.specializations || []).map(s =>
-                `<div class="spec-chip"><i class="fa-solid fa-circle-dot"></i>${s}</div>`
+            const specsHtml = (meta.specializations || []).map((s,i) =>
+                `<div class="md-spec-chip"><span class="md-spec-num">${i+1}</span>${s}</div>`
             ).join('');
 
             // 4-year curriculum
             const corByYear = info.core_by_year || {};
-            const yearLabels = [
-                { key: '1', label: 'Year 1 · Freshman' },
-                { key: '2', label: 'Year 2 · Sophomore' },
-                { key: '3', label: 'Year 3 · Junior' },
-                { key: '4', label: 'Year 4 · Senior' },
-                { key: 'grad', label: 'Graduate' }
-            ].filter(y => (corByYear[y.key] || []).length > 0);
+            const yearDefs = [
+                {key:'1', short:'Year 1', long:'Freshman'},
+                {key:'2', short:'Year 2', long:'Sophomore'},
+                {key:'3', short:'Year 3', long:'Junior'},
+                {key:'4', short:'Year 4', long:'Senior'},
+                {key:'grad', short:'Graduate', long:''}
+            ].filter(y => (corByYear[y.key]||[]).length > 0);
 
-            let curriculumHtml = '';
-            if (yearLabels.length > 0) {
-                const tabsHtml = yearLabels.map((y, i) =>
-                    `<button class="year-tab ${i === 0 ? 'active' : ''}" onclick="switchYearTab('${y.key}', this)">${y.label}</button>`
+            let curriculumBlock = '';
+            if (yearDefs.length > 0) {
+                const tabs = yearDefs.map((y,i) =>
+                    `<button class="md-year-tab ${i===0?'active':''}" onclick="switchMdYearTab('${y.key}',this)">${y.short}${y.long?` · ${y.long}`:''}</button>`
                 ).join('');
-                const panelsHtml = yearLabels.map((y, i) => {
-                    const rows = (corByYear[y.key] || []).map(c => {
-                        const isGrad = y.key === 'grad';
-                        return `<div class="curriculum-course-row">
-                            <span class="curriculum-course-code ${isGrad ? 'grad-code' : ''}">${c.code}</span>
-                            <span class="curriculum-course-title">${c.title || c.code}</span>
-                        </div>`;
-                    }).join('');
-                    return `<div class="year-panel ${i === 0 ? 'active' : ''}" id="year-panel-${y.key}">
-                        ${rows || '<p class="year-panel-empty">No required courses found for this year.</p>'}
-                    </div>`;
+                const panels = yearDefs.map((y,i) => {
+                    const cards = (corByYear[y.key]||[]).map(c =>
+                        `<div class="md-course-card">
+                            <span class="md-course-badge${y.key==='grad'?' grad':''}">${c.code}</span>
+                            <span class="md-course-name">${c.title||c.code}</span>
+                        </div>`
+                    ).join('') || `<p class="md-panel-empty">No required courses found.</p>`;
+                    return `<div class="md-year-panel${i===0?' active':''}" id="mdyp-${y.key}">${cards}</div>`;
                 }).join('');
-                curriculumHtml = `
-                    <div class="detail-section-heading"><i class="fa-solid fa-calendar-days"></i> 4-Year Curriculum</div>
-                    <div class="curriculum-section">
-                        <div class="curriculum-year-tabs">${tabsHtml}</div>
-                        ${panelsHtml}
+                curriculumBlock = `
+                    <div class="md-section-label"><i class="fa-solid fa-calendar-days"></i> 4-Year Curriculum</div>
+                    <div class="md-curriculum">
+                        <div class="md-year-tabs">${tabs}</div>
+                        ${panels}
                     </div>`;
             }
 
-            // Electives preview
+            // Electives grid
             const electives = info.electives || [];
-            let electivesHtml = '';
+            let electivesBlock = '';
             if (electives.length > 0) {
-                const rows = electives.slice(0, 12).map(c =>
-                    `<div class="elective-row">
-                        <i class="fa-solid fa-circle-plus"></i>
-                        <span class="elective-code">${c.code}</span>
-                        <span>${c.title || c.code}</span>
+                const rows = electives.slice(0,18).map(c =>
+                    `<div class="md-elective-row">
+                        <span class="md-elective-code">${c.code}</span>
+                        <span class="md-elective-title">${c.title||c.code}</span>
                     </div>`
                 ).join('');
-                const more = electives.length > 12 ? `<div style="font-size:0.8rem;color:var(--gray-400);padding:8px 12px;">+ ${electives.length - 12} more elective options</div>` : '';
-                electivesHtml = `
-                    <div class="detail-section-heading"><i class="fa-solid fa-list-check"></i> Approved Electives</div>
-                    <div class="electives-list">${rows}${more}</div>`;
+                const more = electives.length > 18
+                    ? `<div style="font-size:0.78rem;color:var(--gray-400);padding:8px 4px;grid-column:1/-1">+ ${electives.length-18} more electives available</div>` : '';
+                electivesBlock = `
+                    <div class="md-section-label"><i class="fa-solid fa-list-check"></i> Approved Electives</div>
+                    <div class="md-electives">
+                        <div class="md-electives-grid">${rows}${more}</div>
+                    </div>`;
             }
 
-            // Top 3 career paths
-            const topJobs = jobs.slice(0, 3);
+            // Top careers with salary bars
+            const topJobs = jobs.slice(0, 4);
+            const MAX_SAL = 220000;
             const careersHtml = topJobs.map(j => {
-                const sal = j.salary_min > 0 ? `$${Math.round(j.salary_min/1000)}k–$${Math.round(j.salary_max/1000)}k` : 'Varies';
-                const demandColor = j.demand === 'High' ? 'var(--green)' : j.demand === 'Low' ? '#dc2626' : '#d97706';
-                return `<div class="career-preview-card" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
-                    <i class="fa-solid fa-briefcase" style="color:var(--blue);font-size:0.9rem;flex-shrink:0;"></i>
-                    <span class="career-preview-title">${j.title}</span>
-                    <span class="career-preview-salary">${sal}</span>
-                    <span class="career-preview-demand" style="color:${demandColor};">${j.demand}</span>
-                    <i class="fa-solid fa-arrow-right" style="color:var(--gray-400);font-size:0.75rem;"></i>
+                const sal = j.salary_min > 0 ? `$${Math.round(j.salary_min/1000)}k – $${Math.round(j.salary_max/1000)}k` : 'Varies';
+                const barPct = j.salary_max > 0 ? Math.min(100, Math.round(j.salary_max / MAX_SAL * 100)) : 40;
+                const demandCls = j.demand === 'High' ? 'high' : j.demand === 'Low' ? 'low' : 'medium';
+                const safeProg = prog.replace(/'/g,"\\'");
+                return `<div class="md-career-card" onclick="openProgram('${safeProg}')">
+                    <div class="md-career-top">
+                        <span class="md-career-title">${j.title}</span>
+                        <span class="md-career-salary">${sal}</span>
+                        <span class="md-demand-badge ${demandCls}"><span class="md-demand-dot"></span>${j.demand}</span>
+                    </div>
+                    <div class="md-salary-bar-wrap"><div class="md-salary-bar" style="width:${barPct}%"></div></div>
                 </div>`;
             }).join('');
 
-            const credits = info.total_credits ? `<div class="major-stat-card"><div class="major-stat-icon"><i class="fa-solid fa-graduation-cap"></i></div><div><div class="major-stat-val">${info.total_credits}</div><div class="major-stat-label">Required Credits</div></div></div>` : '';
+            const safeProg = prog.replace(/'/g,"\\'");
 
             document.getElementById('major-detail-body').innerHTML = `
-                <div class="major-detail-hero">
-                    <div>
-                        <div class="major-detail-icon" style="background:${iconBg};"><i class="fa-solid ${icon}"></i></div>
-                    </div>
-                    <div class="major-detail-meta">
-                        <div class="major-detail-name">${prog}</div>
-                        <div class="major-detail-college"><i class="fa-solid fa-building-columns" style="font-size:0.7rem;margin-right:5px;"></i>${meta.college || 'University of Delaware'}</div>
-                        <div class="major-detail-tags">
-                            <span class="detail-tag"><i class="fa-solid fa-scroll"></i> ${meta.degree || "Bachelor's"}</span>
-                            ${stemTag}
+                <!-- Dark hero -->
+                <div class="md-hero" style="--accent-color:${accent}">
+                    <div class="md-blob md-blob-1" style="--accent-color:${accent}"></div>
+                    <div class="md-blob md-blob-2"></div>
+                    <div class="md-hero-inner">
+                        <div class="md-identity">
+                            <div class="md-icon-wrap">
+                                <div class="md-icon-glow" style="background:${iconGrad}"></div>
+                                <div class="md-icon" style="background:${iconGrad}"><i class="fa-solid ${icon}"></i></div>
+                            </div>
+                            <div class="md-text">
+                                <div class="md-prog-name">${prog}</div>
+                                <div class="md-college-line"><i class="fa-solid fa-building-columns" style="font-size:0.65rem;margin-right:6px;"></i>${meta.college||'University of Delaware'}</div>
+                                <div class="md-badges">
+                                    <span class="md-badge"><i class="fa-solid fa-scroll"></i> ${meta.degree||"Bachelor's"}</span>
+                                    ${stemBadge}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-overview">
+                            <p>"${meta.overview||'Explore career paths, required courses, and electives for this program.'}"</p>
+                        </div>
+                        <div class="md-stats-row">
+                            <div class="md-stat-glass"><span class="md-stat-glass-icon">💼</span><div class="md-stat-glass-val">${jobs.length}</div><div class="md-stat-glass-label">Career Paths</div></div>
+                            <div class="md-stat-glass md-stat-salary"><span class="md-stat-glass-icon" style="color:#4ade80;">💰</span><div class="md-stat-glass-val">${avgSalaryStr}</div><div class="md-stat-glass-label">Avg Salary</div></div>
+                            <div class="md-stat-glass md-stat-demand"><span class="md-stat-glass-icon" style="color:var(--gold);">📈</span><div class="md-stat-glass-val">${highDemand}</div><div class="md-stat-glass-label">High-Demand Roles</div></div>
+                            ${creditsStatHtml}
                         </div>
                     </div>
-                    <div class="major-detail-overview">
-                        <p>"${meta.overview || 'Explore this program to discover career paths and course requirements.'}"</p>
+                </div>
+
+                <!-- Light content -->
+                <div class="md-content">
+                    <div class="md-content-inner">
+                        <div class="md-section-label"><i class="fa-solid fa-compass"></i> Areas of Study</div>
+                        <div class="md-specs-grid">${specsHtml}</div>
+
+                        ${curriculumBlock}
+                        ${electivesBlock}
+
+                        <div class="md-section-label"><i class="fa-solid fa-star"></i> Top Career Paths</div>
+                        <div class="md-careers">
+                            <div class="md-career-grid">${careersHtml}</div>
+                        </div>
+
+                        <div class="md-cta-wrap">
+                            <button class="btn-explore-careers" onclick="openProgram('${safeProg}')">
+                                Explore All ${jobs.length} Careers <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
-
-                <div class="major-stats-row">
-                    <div class="major-stat-card"><div class="major-stat-icon"><i class="fa-solid fa-briefcase"></i></div><div><div class="major-stat-val">${jobs.length}</div><div class="major-stat-label">Career Paths</div></div></div>
-                    <div class="major-stat-card"><div class="major-stat-icon" style="background:#dcfce7;color:#166534;"><i class="fa-solid fa-dollar-sign"></i></div><div><div class="major-stat-val" style="color:var(--green);">${avgSalaryStr}</div><div class="major-stat-label">Avg Salary Range</div></div></div>
-                    <div class="major-stat-card"><div class="major-stat-icon" style="background:#fef3c7;color:#92400e;"><i class="fa-solid fa-chart-line"></i></div><div><div class="major-stat-val">${highDemand}</div><div class="major-stat-label">High-Demand Roles</div></div></div>
-                    ${credits}
-                </div>
-
-                <div class="detail-section-heading"><i class="fa-solid fa-compass"></i> Areas of Study</div>
-                <div class="specializations-grid">${specs}</div>
-
-                ${curriculumHtml}
-                ${electivesHtml}
-
-                <div class="detail-section-heading"><i class="fa-solid fa-star"></i> Top Career Paths</div>
-                <div class="career-preview-grid">${careersHtml}</div>
-                <div style="text-align:center;margin-top:8px;">
-                    <button class="btn-explore-careers" onclick="openProgram('${prog.replace(/'/g,"\\'")}')">
-                        <i class="fa-solid fa-arrow-right"></i> Explore All ${jobs.length} Careers
-                    </button>
-                </div>
             `;
+
+            // Animate salary bars after render
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.md-salary-bar').forEach(bar => {
+                    const w = bar.style.width;
+                    bar.style.width = '0';
+                    requestAnimationFrame(() => { bar.style.width = w; });
+                });
+            });
         }
 
-        function switchYearTab(yearKey, btn) {
-            // Toggle tabs
-            btn.closest('.curriculum-year-tabs').querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+        function switchMdYearTab(yearKey, btn) {
+            btn.closest('.md-year-tabs').querySelectorAll('.md-year-tab').forEach(t => t.classList.remove('active'));
             btn.classList.add('active');
-            // Toggle panels (find sibling panels)
-            const panelContainer = btn.closest('.curriculum-section');
-            panelContainer.querySelectorAll('.year-panel').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById('year-panel-' + yearKey);
+            // panels are siblings after the tabs container
+            btn.closest('.md-curriculum').querySelectorAll('.md-year-panel').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('mdyp-' + yearKey);
             if (target) target.classList.add('active');
         }
 
