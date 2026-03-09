@@ -1864,11 +1864,12 @@
         }
         .md-year-tab:not(.active):hover { color: var(--blue); }
         .md-year-panel { display: none; }
-        .md-year-panel.active {
+        .md-year-panel.active { display: block; animation: panelIn 0.2s ease; }
+        .md-year-panel-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 8px;
-            animation: panelIn 0.2s ease;
+            margin-bottom: 4px;
         }
         @keyframes panelIn {
             from { opacity: 0; transform: translateY(6px); }
@@ -2775,54 +2776,63 @@
                 `<div class="md-spec-chip"><span class="md-spec-num">${i+1}</span>${s}</div>`
             ).join('');
 
-            // 4-year curriculum
-            const corByYear = info.core_by_year || {};
-            const yearDefs = [
-                {key:'1', short:'Year 1', long:'Freshman'},
-                {key:'2', short:'Year 2', long:'Sophomore'},
-                {key:'3', short:'Year 3', long:'Junior'},
-                {key:'4', short:'Year 4', long:'Senior'},
-                {key:'grad', short:'Graduate', long:''}
-            ].filter(y => (corByYear[y.key]||[]).length > 0);
+            // Program requirements — split by level
+            const coreUG   = info.core_undergrad   || [];
+            const coreGrad = info.core_grad         || [];
+            const elecUG   = info.electives_undergrad || [];
+            const elecGrad = info.electives_grad    || [];
 
-            let curriculumBlock = '';
-            if (yearDefs.length > 0) {
-                const tabs = yearDefs.map((y,i) =>
-                    `<button class="md-year-tab ${i===0?'active':''}" onclick="switchMdYearTab('${y.key}',this)">${y.short}${y.long?` · ${y.long}`:''}</button>`
+            function courseGrid(courses, isGrad) {
+                if (!courses.length) return '<p class="md-panel-empty">No courses found.</p>';
+                return courses.map(c =>
+                    `<div class="md-course-card">
+                        <span class="md-course-badge${isGrad?' grad':''}">${c.code}</span>
+                        <span class="md-course-name">${c.title||c.code}</span>
+                    </div>`
                 ).join('');
-                const panels = yearDefs.map((y,i) => {
-                    const cards = (corByYear[y.key]||[]).map(c =>
-                        `<div class="md-course-card">
-                            <span class="md-course-badge${y.key==='grad'?' grad':''}">${c.code}</span>
-                            <span class="md-course-name">${c.title||c.code}</span>
-                        </div>`
-                    ).join('') || `<p class="md-panel-empty">No required courses found.</p>`;
-                    return `<div class="md-year-panel${i===0?' active':''}" id="mdyp-${y.key}">${cards}</div>`;
-                }).join('');
-                curriculumBlock = `
-                    <div class="md-section-label"><i class="fa-solid fa-calendar-days"></i> 4-Year Curriculum</div>
-                    <div class="md-curriculum">
-                        <div class="md-year-tabs">${tabs}</div>
-                        ${panels}
-                    </div>`;
             }
 
-            // Electives grid
-            const electives = info.electives || [];
-            let electivesBlock = '';
-            if (electives.length > 0) {
-                const rows = electives.slice(0,18).map(c =>
+            function elecGrid(courses, isGrad) {
+                if (!courses.length) return '';
+                const rows = courses.map(c =>
                     `<div class="md-elective-row">
                         <span class="md-elective-code">${c.code}</span>
                         <span class="md-elective-title">${c.title||c.code}</span>
                     </div>`
                 ).join('');
-                const more = electives.length > 18
-                    ? `<div style="font-size:0.78rem;color:var(--gray-400);padding:8px 4px;grid-column:1/-1">+ ${electives.length-18} more electives available</div>` : '';
-                electivesBlock = `
-                    <div class="md-section-label"><i class="fa-solid fa-list-check"></i> Approved Electives</div>
-                    <div class="md-electives">
-                        <div class="md-electives-grid">${rows}${more}</div>
+                return `<div class="md-electives-grid">${rows}</div>`;
+            }
+
+            // Build tabs based on what data actually exists
+            const levelDefs = [
+                { key:'ug',   label:'Undergraduate', hasCores: coreUG.length > 0,   coreList: coreUG,   elecList: elecUG,   isGrad: false },
+                { key:'grad', label:'Graduate',       hasCores: coreGrad.length > 0, coreList: coreGrad, elecList: elecGrad, isGrad: true  }
+            ].filter(d => d.hasCores || d.elecList.length > 0);
+
+            let curriculumBlock = '';
+            if (levelDefs.length > 0) {
+                const tabs = levelDefs.map((d, i) =>
+                    `<button class="md-year-tab ${i===0?'active':''}" onclick="switchMdYearTab('${d.key}',this)">${d.label} Courses</button>`
+                ).join('');
+                const panels = levelDefs.map((d, i) => {
+                    const coreHtml = d.hasCores
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">★ Core Required</div>
+                           <div class="md-year-panel-grid">${courseGrid(d.coreList, d.isGrad)}</div>`
+                        : '';
+                    const elecHtml = d.elecList.length > 0
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin:18px 0 10px;">○ Approved Electives</div>
+                           ${elecGrid(d.elecList, d.isGrad)}`
+                        : '';
+                    const empty = !coreHtml && !elecHtml
+                        ? '<p class="md-panel-empty">No course data available for this level.</p>' : '';
+                    return `<div class="md-year-panel${i===0?' active':''}" id="mdyp-${d.key}">${coreHtml}${elecHtml}${empty}</div>`;
+                }).join('');
+
+                curriculumBlock = `
+                    <div class="md-section-label"><i class="fa-solid fa-book-open"></i> Program Requirements</div>
+                    <div class="md-curriculum">
+                        <div class="md-year-tabs">${tabs}</div>
+                        ${panels}
                     </div>`;
             }
 
@@ -2885,7 +2895,6 @@
                         <div class="md-specs-grid">${specsHtml}</div>
 
                         ${curriculumBlock}
-                        ${electivesBlock}
 
                         <div class="md-section-label"><i class="fa-solid fa-star"></i> Top Career Paths</div>
                         <div class="md-careers">

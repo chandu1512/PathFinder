@@ -768,37 +768,32 @@ def _build_program_info():
         core_set = PROG_CORE_COURSES.get(prog_name, set())
         elec_set = PROG_ELECTIVE_COURSES.get(prog_name, set())
 
-        def organize_by_year(codes):
-            years = {'1': [], '2': [], '3': [], '4': [], 'grad': []}
+        def split_by_level(codes):
+            undergrad, grad = [], []
             for code in sorted(codes):
                 title_raw = COURSE_CODE_TO_TITLE.get(code, '')
                 title = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', title_raw)
                 m = re.search(r'\d{3,4}', code)
-                if m:
-                    num = int(m.group())
-                    if num >= 600:
-                        years['grad'].append({'code': code, 'title': title or code})
-                    elif num >= 400:
-                        years['4'].append({'code': code, 'title': title or code})
-                    elif num >= 300:
-                        years['3'].append({'code': code, 'title': title or code})
-                    elif num >= 200:
-                        years['2'].append({'code': code, 'title': title or code})
-                    else:
-                        years['1'].append({'code': code, 'title': title or code})
-            return years
+                entry = {'code': code, 'title': title or code}
+                if m and int(m.group()) >= 600:
+                    grad.append(entry)
+                else:
+                    undergrad.append(entry)
+            return undergrad, grad
 
         prog_reqs = find_program_requirements(prog_name)
         total_credits = None
         if prog_reqs:
             total_credits = prog_reqs[0].get('total_credits')
 
+        core_ug, core_grad = split_by_level(core_set)
+        elec_ug, elec_grad = split_by_level(elec_set)
+
         result[prog_name] = {
-            'core_by_year': organize_by_year(core_set),
-            'electives': [
-                {'code': c, 'title': re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', COURSE_CODE_TO_TITLE.get(c, '') or c)}
-                for c in sorted(elec_set)
-            ][:24],
+            'core_undergrad': core_ug,
+            'core_grad': core_grad,
+            'electives_undergrad': elec_ug[:20],
+            'electives_grad': elec_grad[:20],
             'total_credits': total_credits
         }
     return result
