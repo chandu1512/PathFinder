@@ -353,7 +353,7 @@ PROG_DEPTS = {
     "Finance":                       ["FINC", "ACCT", "ECON", "MATH", "BUAD"],
     "Accounting":                    ["ACCT", "FINC", "BUAD", "LEST"],
     "Business Administration & Management": ["BUAD", "MISY", "ACCT", "FINC", "MKTG"],
-    "Marketing":                     ["MKTG", "BUAD", "COMM", "ECON"],
+    "Marketing":                     ["BUAD", "COMM", "ECON", "MKTG"],
     "Economics":                     ["ECON", "FINC", "MATH", "STAT", "BUAD"],
     "Health Sciences":               ["NURS", "HLTH", "BISC", "CHEM", "HBNS"],
     "Biological Sciences":           ["BISC", "CHEM", "BIOL", "MMSC", "BIOC"],
@@ -763,38 +763,56 @@ def chat():
 
 # ── Pre-compute program info at startup ──
 def _build_program_info():
+    """
+    Build course lists for each program using PROG_DEPTS department mapping.
+    Primary department → "core" courses (the heart of the program).
+    Secondary departments → "elective" courses (related supporting courses).
+    Courses come directly from all_courses.json which has accurate level tags.
+    """
     result = {}
-    for prog_name in PROG_DEPTS:
-        core_set = PROG_CORE_COURSES.get(prog_name, set())
-        elec_set = PROG_ELECTIVE_COURSES.get(prog_name, set())
 
-        def split_by_level(codes):
-            undergrad, grad = [], []
-            for code in sorted(codes):
-                title_raw = COURSE_CODE_TO_TITLE.get(code, '')
-                title = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', title_raw)
-                m = re.search(r'\d{3,4}', code)
-                entry = {'code': code, 'title': title or code}
-                if m and int(m.group()) >= 600:
-                    grad.append(entry)
+    def course_sort_key(entry):
+        m = re.search(r'\d+', entry['code'])
+        return int(m.group()) if m else 0
+
+    def make_entry(c):
+        title_raw = c.get('title', '')
+        title = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', title_raw)
+        return {'code': c.get('code', ''), 'title': title or c.get('code', '')}
+
+    for prog_name, depts in PROG_DEPTS.items():
+        primary_dept = depts[0]
+        secondary_depts = set(depts[1:])
+
+        core_ug, core_grad = [], []
+        elec_ug, elec_grad = [], []
+
+        for c in COURSES_DATA:
+            dept = c.get('dept', '')
+            level = c.get('level', 'undergrad')
+            entry = make_entry(c)
+
+            if dept == primary_dept:
+                if level == 'grad':
+                    core_grad.append(entry)
                 else:
-                    undergrad.append(entry)
-            return undergrad, grad
+                    core_ug.append(entry)
+            elif dept in secondary_depts:
+                if level == 'grad':
+                    elec_grad.append(entry)
+                else:
+                    elec_ug.append(entry)
 
-        prog_reqs = find_program_requirements(prog_name)
-        total_credits = None
-        if prog_reqs:
-            total_credits = prog_reqs[0].get('total_credits')
-
-        core_ug, core_grad = split_by_level(core_set)
-        elec_ug, elec_grad = split_by_level(elec_set)
+        # Sort by course number so 100-level appears before 400-level
+        for lst in (core_ug, core_grad, elec_ug, elec_grad):
+            lst.sort(key=course_sort_key)
 
         result[prog_name] = {
-            'core_undergrad': core_ug,
-            'core_grad': core_grad,
-            'electives_undergrad': elec_ug[:20],
-            'electives_grad': elec_grad[:20],
-            'total_credits': total_credits
+            'core_undergrad': core_ug[:35],
+            'core_grad': core_grad[:25],
+            'electives_undergrad': elec_ug[:30],
+            'electives_grad': elec_grad[:25],
+            'total_credits': None
         }
     return result
 

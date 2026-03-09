@@ -2816,11 +2816,11 @@
                 ).join('');
                 const panels = levelDefs.map((d, i) => {
                     const coreHtml = d.hasCores
-                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">★ Core Required</div>
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">★ Program Courses</div>
                            <div class="md-year-panel-grid">${courseGrid(d.coreList, d.isGrad)}</div>`
                         : '';
                     const elecHtml = d.elecList.length > 0
-                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin:18px 0 10px;">○ Approved Electives</div>
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin:18px 0 10px;">○ Related & Elective Courses</div>
                            ${elecGrid(d.elecList, d.isGrad)}`
                         : '';
                     const empty = !coreHtml && !elecHtml
