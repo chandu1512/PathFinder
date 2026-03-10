@@ -286,6 +286,51 @@
             transition: opacity 0.15s, transform 0.15s;
         }
         .hero-search-btn:hover { opacity: 0.9; transform: translateY(-50%) scale(1.02); }
+        /* ── HERO SEARCH DROPDOWN ── */
+        .hero-suggest-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0; right: 0;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+            z-index: 9999;
+            overflow: hidden;
+            display: none;
+        }
+        .hero-suggest-dropdown.open { display: block; }
+        .hero-suggest-section-label {
+            padding: 8px 16px 4px;
+            font-size: 0.68rem; font-weight: 700; color: var(--gray-400);
+            text-transform: uppercase; letter-spacing: 0.6px;
+            border-top: 1px solid var(--gray-100);
+        }
+        .hero-suggest-section-label:first-child { border-top: none; }
+        .hero-suggest-item {
+            padding: 11px 16px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 10px;
+            color: var(--gray-800);
+            transition: background 0.1s;
+        }
+        .hero-suggest-item:hover { background: var(--gray-50); }
+        .hero-suggest-item .si-icon { font-size: 0.8rem; width: 16px; text-align: center; flex-shrink: 0; }
+        .hero-suggest-item .si-icon.job  { color: var(--blue); }
+        .hero-suggest-item .si-icon.course { color: #7c3aed; }
+        .hero-suggest-item .si-label { flex: 1; font-weight: 500; }
+        .hero-suggest-item .si-meta { font-size: 0.72rem; color: var(--gray-400); white-space: nowrap; }
+        .hero-suggest-item .si-badge {
+            font-size: 0.68rem; font-weight: 600; padding: 2px 7px;
+            border-radius: 99px; background: rgba(124,58,237,0.1); color: #7c3aed;
+            white-space: nowrap;
+        }
+        .hero-suggest-item .si-code {
+            font-size: 0.7rem; font-weight: 700; font-family: monospace;
+            background: var(--gray-100); padding: 2px 6px; border-radius: 4px;
+            color: var(--gray-600); flex-shrink: 0;
+        }
+
         /* Quick search chips */
         .hero-chips {
             display: flex;
@@ -2098,11 +2143,13 @@
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" class="hero-search-input" id="hero-search-input"
                     placeholder="Search careers, courses, skills..."
-                    onkeydown="if(event.key==='Enter') heroSearch()"
+                    oninput="heroSearchLive()"
+                    onkeydown="heroSearchKey(event)"
                     autocomplete="off">
                 <button class="hero-search-btn" onclick="heroSearch()">
                     <i class="fa-solid fa-arrow-right"></i> Search
                 </button>
+                <div class="hero-suggest-dropdown" id="hero-suggest"></div>
             </div>
 
             <!-- Quick-search chips -->
@@ -2607,20 +2654,125 @@
         }
 
         // ── HERO SEARCH ──
-        function heroSearch() {
+        // ── HERO SEARCH LIVE DROPDOWN ──
+        let heroSuggestTimer = null;
+        let heroSuggestIndex = -1;
+
+        function heroSearchLive() {
+            clearTimeout(heroSuggestTimer);
+            heroSuggestTimer = setTimeout(async () => {
+                const q = document.getElementById('hero-search-input').value.trim();
+                const box = document.getElementById('hero-suggest');
+                if (!q || q.length < 2) { box.classList.remove('open'); return; }
+
+                // Job matches (from globalData in memory — instant)
+                const jobMatches = [];
+                for (const [prog, jobs] of Object.entries(globalData)) {
+                    for (const job of jobs) {
+                        if (job.title.toLowerCase().includes(q.toLowerCase())) {
+                            jobMatches.push({ title: job.title, prog });
+                            if (jobMatches.length >= 4) break;
+                        }
+                    }
+                    if (jobMatches.length >= 4) break;
+                }
+
+                // Course matches (from API)
+                let courseMatches = [];
+                try {
+                    const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
+                    const data = await res.json();
+                    courseMatches = (data.courses || []).slice(0, 4);
+                } catch(e) {}
+
+                if (!jobMatches.length && !courseMatches.length) { box.classList.remove('open'); return; }
+
+                let html = '';
+                if (jobMatches.length) {
+                    html += `<div class="hero-suggest-section-label"><i class="fa-solid fa-briefcase" style="margin-right:5px;"></i>Careers</div>`;
+                    html += jobMatches.map(m =>
+                        `<div class="hero-suggest-item" onmousedown="heroPickJob('${m.title.replace(/'/g,"\\'")}')">
+                            <span class="si-icon job"><i class="fa-solid fa-briefcase"></i></span>
+                            <span class="si-label">${m.title}</span>
+                            <span class="si-meta">${m.prog}</span>
+                        </div>`
+                    ).join('');
+                }
+                if (courseMatches.length) {
+                    html += `<div class="hero-suggest-section-label"><i class="fa-solid fa-book-open" style="margin-right:5px;"></i>Courses → See matching jobs</div>`;
+                    html += courseMatches.map(c => {
+                        const parts = c.title.split(' - ');
+                        const name = parts.slice(1).join(' - ') || c.title;
+                        return `<div class="hero-suggest-item" onmousedown="heroPickCourse('${c.code.replace(/'/g,"\\'")}', '${name.replace(/'/g,"\\'")}')">
+                            <span class="si-icon course"><i class="fa-solid fa-book-open"></i></span>
+                            <span class="si-code">${c.code}</span>
+                            <span class="si-label">${name}</span>
+                            <span class="si-badge">See jobs →</span>
+                        </div>`;
+                    }).join('');
+                }
+
+                box.innerHTML = html;
+                box.classList.add('open');
+                heroSuggestIndex = -1;
+            }, 200);
+        }
+
+        function heroPickJob(title) {
+            document.getElementById('hero-search-input').value = title;
+            document.getElementById('hero-suggest').classList.remove('open');
+            heroSearch();
+        }
+
+        function heroPickCourse(code, name) {
+            document.getElementById('hero-suggest').classList.remove('open');
+            showJobsForCourse(code, name);
+        }
+
+        function showJobsForCourse(code, name) {
+            const normalized = code.toLowerCase();
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'flex';
+            document.getElementById('jobs-section').style.display = 'block';
+            document.getElementById('jobs-view-title').textContent = '📚 ' + code + ' — ' + name;
+            renderDashboard(globalData);
+            document.getElementById('searchInput').value = '';
+            filterJobsByCourse(normalized);
+            updateVisibleCount();
+            document.getElementById('jobs-section').scrollIntoView({ behavior: 'instant' });
+        }
+
+        function heroSearchKey(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('hero-suggest').classList.remove('open');
+                heroSearch();
+            } else if (e.key === 'Escape') {
+                document.getElementById('hero-suggest').classList.remove('open');
+            }
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.hero-search-wrap')) {
+                document.getElementById('hero-suggest')?.classList.remove('open');
+            }
+        });
+
+        async function heroSearch() {
             const q = document.getElementById('hero-search-input').value.trim();
             if (!q) return;
+            document.getElementById('hero-suggest').classList.remove('open');
 
-            // Detect course code (e.g. "CISC 637", "cisc637", "MATH 241")
+            // Detect exact course code (e.g. "CISC 637", "cisc637", "MATH 241")
             const courseMatch = q.match(/^([A-Za-z]{2,5})\s*(\d{3,4}[A-Za-z]?)$/);
             if (courseMatch) {
                 const normalized = (courseMatch[1] + ' ' + courseMatch[2]).toLowerCase();
-                // Render ALL programs so we can filter across them
+                const label = (courseMatch[1] + ' ' + courseMatch[2]).toUpperCase();
                 document.getElementById('programs-section').style.display = 'none';
                 document.querySelector('.how-section').style.display = 'none';
                 document.getElementById('jobs-view-header').style.display = 'flex';
                 document.getElementById('jobs-section').style.display = 'block';
-                document.getElementById('jobs-view-title').textContent = 'Course: ' + q.toUpperCase();
+                document.getElementById('jobs-view-title').textContent = '📚 Course: ' + label;
                 renderDashboard(globalData);
                 document.getElementById('searchInput').value = q;
                 filterJobsByCourse(normalized);
@@ -2629,14 +2781,25 @@
                 return;
             }
 
+            // Try matching as a course name via API
+            try {
+                const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
+                const data = await res.json();
+                if (data.courses && data.courses.length > 0) {
+                    const top = data.courses[0];
+                    const parts = top.title.split(' - ');
+                    const name = parts.slice(1).join(' - ') || top.title;
+                    showJobsForCourse(top.code, name);
+                    return;
+                }
+            } catch(e) {}
+
             const jobsVisible = document.getElementById('jobs-section').style.display === 'block';
             if (jobsVisible) {
-                // A program is open — use the in-page search
                 const si = document.getElementById('searchInput');
                 if (si) { si.value = q; onSearchInput(); }
                 document.getElementById('jobs-view-header').scrollIntoView({behavior: 'smooth'});
             } else {
-                // No program open — run AI career search across all programs
                 runAISearch(q);
                 setTimeout(() => {
                     document.getElementById('ai-search-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
