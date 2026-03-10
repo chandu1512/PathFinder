@@ -1254,22 +1254,25 @@
 
         /* ── PROFILE BUTTON ── */
         .btn-profile {
-            width: 36px; height: 36px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             background: rgba(255,255,255,0.15);
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.35);
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 700;
             display: flex; align-items: center; justify-content: center;
-            transition: background 0.15s;
+            transition: all 0.2s;
             position: relative;
+            letter-spacing: 0.5px;
         }
-        .btn-profile:hover { background: rgba(255,255,255,0.25); }
+        .btn-profile:hover { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.55); transform: scale(1.06); }
+        .btn-profile.has-avatar { border-color: rgba(255,255,255,0.7); box-shadow: 0 0 0 3px rgba(255,255,255,0.18); }
         .profile-dot {
             position: absolute;
-            top: -2px; right: -2px;
-            width: 10px; height: 10px;
+            top: -1px; right: -1px;
+            width: 11px; height: 11px;
             background: var(--green);
             border-radius: 50%;
             border: 2px solid white;
@@ -1280,43 +1283,108 @@
         /* ── PROFILE MODAL ── */
         #profile-overlay {
             display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.5); z-index: 10002;
+            background: rgba(0,0,0,0.55); z-index: 10002;
             align-items: center; justify-content: center; padding: 20px;
+            backdrop-filter: blur(4px);
         }
         #profile-overlay.open { display: flex; }
         #profile-modal {
-            background: white; border-radius: var(--radius-lg);
-            width: 100%; max-width: 480px;
-            box-shadow: var(--shadow-lg); overflow: hidden;
+            background: white; border-radius: 24px;
+            width: 100%; max-width: 520px;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.22); overflow: hidden;
+            animation: profileSlideIn 0.22s ease;
         }
-        .profile-header {
+        @keyframes profileSlideIn {
+            from { opacity: 0; transform: translateY(14px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0)   scale(1); }
+        }
+        .profile-avatar-section {
             background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-            color: white; padding: 24px;
-            display: flex; align-items: center; justify-content: space-between;
+            padding: 28px 24px 20px;
+            display: flex; flex-direction: column; align-items: center; gap: 12px;
+            position: relative;
         }
-        .profile-header h2 { font-size: 1.1rem; font-weight: 700; }
-        .profile-header p { font-size: 0.8rem; color: rgba(255,255,255,0.75); margin-top: 2px; }
-        .profile-body { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+        .profile-close-btn {
+            position: absolute; top: 14px; right: 14px;
+            background: rgba(255,255,255,0.15); border: none; color: white;
+            width: 28px; height: 28px; border-radius: 50%;
+            cursor: pointer; font-size: 0.8rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s;
+        }
+        .profile-close-btn:hover { background: rgba(255,255,255,0.3); }
+        .profile-avatar-ring {
+            width: 72px; height: 72px; border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 3px solid rgba(255,255,255,0.55);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.75rem; font-weight: 800; color: white;
+            letter-spacing: 1px; transition: background 0.2s;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+        }
+        .profile-avatar-ring.no-name i { font-size: 1.4rem; }
+        .profile-color-picker { display: flex; gap: 8px; align-items: center; }
+        .color-picker-label { font-size: 0.7rem; color: rgba(255,255,255,0.7); font-weight: 500; }
+        .avatar-color-swatch {
+            width: 22px; height: 22px; border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer; transition: transform 0.15s, border-color 0.15s;
+        }
+        .avatar-color-swatch:hover { transform: scale(1.2); }
+        .avatar-color-swatch.selected { border-color: white; transform: scale(1.25); box-shadow: 0 0 0 2px rgba(255,255,255,0.35); }
+        .profile-modal-title { color: white; text-align: center; }
+        .profile-modal-title h2 { font-size: 1rem; font-weight: 700; }
+        .profile-modal-title p { font-size: 0.78rem; color: rgba(255,255,255,0.72); margin-top: 2px; }
+
+        /* Completeness bar */
+        .profile-completeness { padding: 14px 24px 0; }
+        .completeness-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.7rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.4px; }
+        .completeness-track { height: 5px; background: var(--gray-200); border-radius: 99px; overflow: hidden; }
+        .completeness-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--cyan)); transition: width 0.35s ease; }
+
+        /* Profile body & fields */
+        .profile-body { padding: 16px 24px; display: flex; flex-direction: column; gap: 13px; }
+        .profile-section-label { font-size: 0.68rem; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.6px; }
+        .profile-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .profile-field { display: flex; flex-direction: column; gap: 5px; }
-        .profile-field label { font-size: 0.75rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.4px; }
+        .profile-field label { font-size: 0.73rem; font-weight: 600; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.4px; }
         .profile-field input, .profile-field select {
-            border: 1px solid var(--gray-200); border-radius: var(--radius-sm);
+            border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
             padding: 9px 12px; font-size: 0.875rem; font-family: inherit;
-            outline: none; color: var(--gray-800);
+            outline: none; color: var(--gray-800); background: var(--gray-50);
+            transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
         }
-        .profile-field input:focus, .profile-field select:focus { border-color: var(--blue); }
-        .profile-actions { display: flex; gap: 10px; padding: 0 24px 24px; }
+        .profile-field input:focus, .profile-field select:focus {
+            border-color: var(--blue); background: white;
+            box-shadow: 0 0 0 3px rgba(0,83,159,0.08);
+        }
+
+        /* Career interest chips */
+        .interest-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+        .interest-chip {
+            padding: 5px 12px; border-radius: 99px;
+            border: 1.5px solid var(--gray-200); background: white;
+            font-size: 0.78rem; font-weight: 500; color: var(--gray-600);
+            cursor: pointer; transition: all 0.15s; user-select: none;
+        }
+        .interest-chip:hover { border-color: var(--blue); color: var(--blue); background: rgba(0,83,159,0.04); }
+        .interest-chip.selected { background: var(--blue); color: white; border-color: var(--blue); }
+
+        .profile-actions { display: flex; gap: 10px; padding: 0 24px 22px; }
         .btn-save-profile {
             flex: 1; background: var(--blue); color: white; border: none;
-            border-radius: var(--radius-sm); padding: 10px; font-size: 0.875rem;
+            border-radius: var(--radius-sm); padding: 11px; font-size: 0.875rem;
             font-weight: 600; font-family: inherit; cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
         }
         .btn-save-profile:hover { background: var(--blue-dark); }
+        .btn-save-profile:active { transform: scale(0.98); }
         .btn-clear-profile {
-            background: none; border: 1px solid var(--gray-200); color: var(--gray-600);
-            border-radius: var(--radius-sm); padding: 10px 16px; font-size: 0.875rem;
-            font-family: inherit; cursor: pointer;
+            background: none; border: 1.5px solid var(--gray-200); color: var(--gray-600);
+            border-radius: var(--radius-sm); padding: 11px 16px; font-size: 0.875rem;
+            font-family: inherit; cursor: pointer; transition: border-color 0.15s, color 0.15s;
         }
+        .btn-clear-profile:hover { border-color: #e53e3e; color: #e53e3e; }
 
         /* ── BOOKMARKS ── */
         .btn-bookmark {
@@ -2005,8 +2073,8 @@
             </div>
             <div class="nav-right">
                 <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
-                <button class="btn-profile" onclick="openProfile()" title="My Profile">
-                    <i class="fa-solid fa-user"></i>
+                <button class="btn-profile" id="btn-profile" onclick="openProfile()" title="My Profile">
+                    <span id="profile-btn-content"><i class="fa-solid fa-user"></i></span>
                     <span class="profile-dot" id="profile-dot"></span>
                 </button>
             </div>
@@ -2237,40 +2305,94 @@
     <!-- PROFILE MODAL -->
     <div id="profile-overlay" onclick="if(event.target===this) closeProfile()">
         <div id="profile-modal">
-            <div class="profile-header">
-                <div>
+            <!-- Avatar + color picker -->
+            <div class="profile-avatar-section">
+                <button class="profile-close-btn" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></button>
+                <div class="profile-avatar-ring no-name" id="profile-modal-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="profile-color-picker">
+                    <span class="color-picker-label">Color:</span>
+                    <div class="avatar-color-swatch selected" style="background:#3b82f6" data-color="#3b82f6" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#06b6d4" data-color="#06b6d4" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#16a34a" data-color="#16a34a" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#f59e0b" data-color="#f59e0b" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#ef4444" data-color="#ef4444" onclick="selectAvatarColor(this)"></div>
+                </div>
+                <div class="profile-modal-title">
                     <h2>My Profile</h2>
                     <p>Personalize your PathFinder experience</p>
                 </div>
-                <button class="about-close" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></button>
             </div>
+
+            <!-- Completeness bar -->
+            <div class="profile-completeness">
+                <div class="completeness-label">
+                    <span>Profile Completeness</span>
+                    <span id="completeness-pct">0%</span>
+                </div>
+                <div class="completeness-track">
+                    <div class="completeness-fill" id="completeness-fill" style="width:0%"></div>
+                </div>
+            </div>
+
             <div class="profile-body">
-                <div class="profile-field">
-                    <label>Your Name</label>
-                    <input type="text" id="pf-name" placeholder="e.g. Alex Johnson">
+                <div class="profile-row">
+                    <div class="profile-field">
+                        <label>Your Name</label>
+                        <input type="text" id="pf-name" placeholder="e.g. Alex Johnson" oninput="updateProfilePreview()">
+                    </div>
+                    <div class="profile-field">
+                        <label>GPA (optional)</label>
+                        <input type="number" id="pf-gpa" placeholder="e.g. 3.5" min="0" max="4" step="0.1" oninput="updateCompleteness()">
+                    </div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-field">
+                        <label>Major / Program</label>
+                        <select id="pf-major" onchange="updateCompleteness()"></select>
+                    </div>
+                    <div class="profile-field">
+                        <label>Current Year</label>
+                        <select id="pf-year" onchange="updateCompleteness()">
+                            <option>Freshman</option>
+                            <option>Sophomore</option>
+                            <option>Junior</option>
+                            <option>Senior</option>
+                            <option>Graduate Student</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="profile-field">
-                    <label>Major / Program</label>
-                    <select id="pf-major"></select>
-                </div>
-                <div class="profile-field">
-                    <label>Current Year</label>
-                    <select id="pf-year">
-                        <option>Freshman</option>
-                        <option>Sophomore</option>
-                        <option>Junior</option>
-                        <option>Senior</option>
-                        <option>Graduate Student</option>
+                    <label>Graduation Year (optional)</label>
+                    <select id="pf-gradyear" onchange="updateCompleteness()">
+                        <option value="">Select year…</option>
+                        <option>2025</option><option>2026</option><option>2027</option>
+                        <option>2028</option><option>2029</option><option>2030</option>
                     </select>
+                </div>
+                <div>
+                    <div class="profile-section-label" style="margin-bottom:8px;">Career Interests</div>
+                    <div class="interest-chips" id="interest-chips">
+                        <span class="interest-chip" data-interest="Technology" onclick="toggleInterest(this)">💻 Technology</span>
+                        <span class="interest-chip" data-interest="Business" onclick="toggleInterest(this)">📊 Business</span>
+                        <span class="interest-chip" data-interest="Research" onclick="toggleInterest(this)">🔬 Research</span>
+                        <span class="interest-chip" data-interest="Healthcare" onclick="toggleInterest(this)">🏥 Healthcare</span>
+                        <span class="interest-chip" data-interest="Engineering" onclick="toggleInterest(this)">⚙️ Engineering</span>
+                        <span class="interest-chip" data-interest="Arts & Design" onclick="toggleInterest(this)">🎨 Arts & Design</span>
+                        <span class="interest-chip" data-interest="Education" onclick="toggleInterest(this)">📚 Education</span>
+                        <span class="interest-chip" data-interest="Finance" onclick="toggleInterest(this)">💰 Finance</span>
+                    </div>
                 </div>
                 <div class="profile-field">
                     <label>Completed Courses (comma separated)</label>
-                    <input type="text" id="pf-courses" placeholder="e.g. CISC 108, CISC 181, MATH 241">
+                    <input type="text" id="pf-courses" placeholder="e.g. CISC 108, CISC 181, MATH 241" oninput="updateCompleteness()">
                 </div>
             </div>
             <div class="profile-actions">
                 <button class="btn-save-profile" onclick="saveProfile()"><i class="fa-solid fa-check"></i> Save Profile</button>
-                <button class="btn-clear-profile" onclick="clearProfile()">Clear</button>
+                <button class="btn-clear-profile" onclick="clearProfile()"><i class="fa-solid fa-trash-can"></i> Clear</button>
             </div>
         </div>
     </div>
@@ -3250,8 +3372,78 @@
         }
 
         // ── PROFILE ──
+        let selectedAvatarColor = '#3b82f6';
+
+        function selectAvatarColor(el) {
+            selectedAvatarColor = el.dataset.color;
+            document.querySelectorAll('.avatar-color-swatch').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+            const ring = document.getElementById('profile-modal-avatar');
+            if (ring) ring.style.background = selectedAvatarColor;
+        }
+
+        function updateProfilePreview() {
+            const name = document.getElementById('pf-name').value.trim();
+            const ring = document.getElementById('profile-modal-avatar');
+            if (!ring) return;
+            if (name) {
+                const parts = name.split(' ');
+                const initials = parts.length >= 2
+                    ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+                    : name.slice(0, 2).toUpperCase();
+                ring.innerHTML = initials;
+                ring.classList.remove('no-name');
+            } else {
+                ring.innerHTML = '<i class="fa-solid fa-user"></i>';
+                ring.classList.add('no-name');
+            }
+            ring.style.background = selectedAvatarColor;
+            updateCompleteness();
+        }
+
+        function updateCompleteness() {
+            const fields = [
+                document.getElementById('pf-name')?.value.trim(),
+                document.getElementById('pf-major')?.value,
+                document.getElementById('pf-year')?.value,
+                document.getElementById('pf-courses')?.value.trim(),
+                document.getElementById('pf-gpa')?.value.trim(),
+                document.getElementById('pf-gradyear')?.value,
+                document.querySelectorAll('.interest-chip.selected').length > 0 ? 'yes' : ''
+            ];
+            const filled = fields.filter(Boolean).length;
+            const pct = Math.round((filled / fields.length) * 100);
+            const fill = document.getElementById('completeness-fill');
+            const pctEl = document.getElementById('completeness-pct');
+            if (fill) fill.style.width = pct + '%';
+            if (pctEl) pctEl.textContent = pct + '%';
+        }
+
+        function toggleInterest(el) {
+            el.classList.toggle('selected');
+            updateCompleteness();
+        }
+
+        function updateNavProfileBtn() {
+            const btn = document.getElementById('btn-profile');
+            const content = document.getElementById('profile-btn-content');
+            if (!btn || !content) return;
+            if (userProfile && userProfile.name) {
+                const parts = userProfile.name.split(' ');
+                const initials = parts.length >= 2
+                    ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+                    : userProfile.name.slice(0, 2).toUpperCase();
+                content.textContent = initials;
+                btn.classList.add('has-avatar');
+                btn.style.background = userProfile.avatarColor || '#3b82f6';
+            } else {
+                content.innerHTML = '<i class="fa-solid fa-user"></i>';
+                btn.classList.remove('has-avatar');
+                btn.style.background = '';
+            }
+        }
+
         function openProfile() {
-            // Populate major dropdown
             const sel = document.getElementById('pf-major');
             sel.innerHTML = Object.keys(globalData).map(p => `<option>${p}</option>`).join('');
             if (userProfile) {
@@ -3259,22 +3451,51 @@
                 sel.value = userProfile.major || '';
                 document.getElementById('pf-year').value = userProfile.year || 'Freshman';
                 document.getElementById('pf-courses').value = userProfile.courses || '';
+                document.getElementById('pf-gpa').value = userProfile.gpa || '';
+                document.getElementById('pf-gradyear').value = userProfile.gradYear || '';
+                // Restore avatar color
+                const color = userProfile.avatarColor || '#3b82f6';
+                selectedAvatarColor = color;
+                document.querySelectorAll('.avatar-color-swatch').forEach(s => {
+                    s.classList.toggle('selected', s.dataset.color === color);
+                });
+                // Restore interest chips
+                const interests = userProfile.interests || [];
+                document.querySelectorAll('.interest-chip').forEach(chip => {
+                    chip.classList.toggle('selected', interests.includes(chip.dataset.interest));
+                });
+            } else {
+                // Reset to defaults
+                selectedAvatarColor = '#3b82f6';
+                document.querySelectorAll('.avatar-color-swatch').forEach(s => s.classList.toggle('selected', s.dataset.color === '#3b82f6'));
+                document.querySelectorAll('.interest-chip').forEach(chip => chip.classList.remove('selected'));
+                document.getElementById('pf-gpa').value = '';
+                document.getElementById('pf-gradyear').value = '';
             }
+            updateProfilePreview();
+            updateCompleteness();
             document.getElementById('profile-overlay').classList.add('open');
         }
+
         function closeProfile() {
             document.getElementById('profile-overlay').classList.remove('open');
         }
+
         function saveProfile() {
+            const interests = [...document.querySelectorAll('.interest-chip.selected')].map(c => c.dataset.interest);
             userProfile = {
-                name:    document.getElementById('pf-name').value.trim(),
-                major:   document.getElementById('pf-major').value,
-                year:    document.getElementById('pf-year').value,
-                courses: document.getElementById('pf-courses').value.trim()
+                name:        document.getElementById('pf-name').value.trim(),
+                major:       document.getElementById('pf-major').value,
+                year:        document.getElementById('pf-year').value,
+                courses:     document.getElementById('pf-courses').value.trim(),
+                gpa:         document.getElementById('pf-gpa').value.trim(),
+                gradYear:    document.getElementById('pf-gradyear').value,
+                interests,
+                avatarColor: selectedAvatarColor
             };
             localStorage.setItem('pf_profile', JSON.stringify(userProfile));
+            updateNavProfileBtn();
             closeProfile();
-            // Remove any existing banner then open the user's program
             const existing = document.getElementById('profile-banner');
             if (existing) existing.remove();
             if (userProfile.major && globalData[userProfile.major]) {
@@ -3283,17 +3504,23 @@
                 applyProfileToUI();
             }
         }
+
         function clearProfile() {
             userProfile = null;
             localStorage.removeItem('pf_profile');
             document.getElementById('profile-dot').classList.remove('active');
             document.getElementById('app-container').classList.remove('view-ug', 'view-grad');
-            ['pf-name','pf-courses'].forEach(id => document.getElementById(id).value = '');
+            ['pf-name','pf-courses','pf-gpa'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+            document.getElementById('pf-gradyear').value = '';
+            document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('selected'));
+            updateNavProfileBtn();
+            updateCompleteness();
             clearProfileFilter();
         }
         function applyProfileToUI() {
             if (!userProfile) return;
             document.getElementById('profile-dot').classList.add('active');
+            updateNavProfileBtn();
 
             // Auto-apply course level filter based on year
             const container = document.getElementById('app-container');
@@ -3315,15 +3542,26 @@
                 const banner = document.createElement('div');
                 banner.id = 'profile-banner';
                 banner.style.cssText = 'background:#e8f0fb;border:1px solid #c5d8f0;border-radius:10px;padding:12px 18px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.875rem;';
+                const interestTags = (userProfile.interests || []).map(i =>
+                    `<span style="background:rgba(0,83,159,0.12);color:var(--blue);border-radius:99px;padding:2px 8px;font-size:0.72rem;font-weight:600;">${i}</span>`
+                ).join('');
+                const metaLine = [
+                    userProfile.gpa ? `GPA ${userProfile.gpa}` : '',
+                    userProfile.gradYear ? `Class of ${userProfile.gradYear}` : ''
+                ].filter(Boolean).join(' · ');
                 banner.innerHTML = `
                     <div style="display:flex;align-items:center;gap:10px;">
-                        <i class="fa-solid fa-user-graduate" style="color:var(--blue);font-size:1.1rem;"></i>
+                        <div style="width:36px;height:36px;border-radius:50%;background:${userProfile.avatarColor||'var(--blue)'};display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:white;flex-shrink:0;">
+                            ${userProfile.name ? userProfile.name.split(' ').filter(p=>p).map(p=>p[0]).slice(0,2).join('').toUpperCase() : '<i class="fa-solid fa-user" style="font-size:0.75rem;"></i>'}
+                        </div>
                         <div>
-                            <strong style="color:var(--blue-dark);">Personalized for ${userProfile.name ? userProfile.name + ' — ' : ''}${userProfile.year} in ${major}</strong>
-                            <div style="color:var(--gray-600);font-size:0.8rem;margin-top:2px;">Careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Browse all programs</a></div>
+                            <strong style="color:var(--blue-dark);">${userProfile.name ? userProfile.name + ' · ' : ''}${userProfile.year} in ${major}</strong>
+                            ${metaLine ? `<div style="color:var(--gray-600);font-size:0.75rem;">${metaLine}</div>` : ''}
+                            ${interestTags ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">${interestTags}</div>` : ''}
+                            <div style="color:var(--gray-600);font-size:0.78rem;margin-top:3px;">Showing careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Browse all</a></div>
                         </div>
                     </div>
-                    <button onclick="openProfile()" style="background:var(--blue);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;">Edit Profile</button>`;
+                    <button onclick="openProfile()" style="background:var(--blue);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;flex-shrink:0;">Edit Profile</button>`;
                 document.getElementById('app-container').prepend(banner);
             }
             updateVisibleCount();
