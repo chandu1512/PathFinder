@@ -49,6 +49,14 @@ if os.path.exists(_prog_req_path):
                 PROGRAM_REQUIREMENTS.append(p)
     print(f"  Program requirements loaded: {len(PROGRAM_REQUIREMENTS)}")
 
+# Load real program course lists scraped from UDel Major Finder
+PROGRAM_COURSES = {}
+_prog_courses_path = os.path.join(BASE_DIR, 'program_courses.json')
+if os.path.exists(_prog_courses_path):
+    with open(_prog_courses_path, 'r') as f:
+        PROGRAM_COURSES = json.load(f)
+    print(f"  Program courses loaded: {len(PROGRAM_COURSES)} programs")
+
 # Build core-courses lookup per program (used for ⭐ Core badge)
 # Filled after PROG_DEPTS definition (both dicts populated together)
 PROG_CORE_COURSES = {}
@@ -796,15 +804,53 @@ def chat():
 # ── Pre-compute program info at startup ──
 def _build_program_info():
     """
-    Build course lists for each program using PROG_DEPTS department mapping.
-    Primary department → "core" courses (the heart of the program).
-    Secondary departments → "elective" courses (related supporting courses).
-    Courses come directly from all_courses.json which has accurate level tags.
+    Build accurate course lists for each program using:
+    1. Undergrad: real scraped data from program_courses.json (UDel Major Finder)
+    2. Grad: real scraped data from program_requirements.json (UDel Grad Catalog)
+    Falls back to dept-based filtering only when no scraped data is available.
     """
-    result = {}
 
-    def course_sort_key(entry):
-        m = re.search(r'\d+', entry['code'])
+    # Build fast code → course lookup
+    code_to_course = {}
+    for c in COURSES_DATA:
+        code = c.get('code', '').strip()
+        if code:
+            code_to_course[code] = c
+
+    # Build grad course lookup: program name keywords → courses mentioned
+    GRAD_PROGRAM_KEYWORDS = {
+        "Computer Science":              ["Computer Science (MS)", "Computer Science (PhD)", "Computer and Information Sciences"],
+        "Artificial Intelligence":       ["Artificial Intelligence", "Machine Learning", "Computer Science (MS)"],
+        "Cybersecurity Engineering":     ["Cybersecurity", "Computer and Information Sciences (MS)"],
+        "Data Science":                  ["Data Science", "Statistics Data Science", "Applied Statistics"],
+        "Computer Engineering":          ["Computer Engineering", "Electrical and Computer Engineering"],
+        "Electrical Engineering":        ["Electrical Engineering", "Electrical and Computer Engineering"],
+        "Mechanical Engineering":        ["Mechanical Engineering (MSME)", "Mechanical Engineering (PhD)"],
+        "Civil Engineering":             ["Civil Engineering", "Civil and Environmental Engineering"],
+        "Chemical Engineering":          ["Chemical Engineering", "Chemical and Biomolecular Engineering"],
+        "Biomedical Engineering":        ["Biomedical Engineering", "Biomechanics and Movement Science"],
+        "Management Information Systems":["Information Systems", "Business Analytics", "Management Information"],
+        "Finance":                       ["Finance (MBA)", "Finance Certificate", "Financial Planning"],
+        "Accounting":                    ["Accounting (MS)", "Accounting Information Systems", "Accounting Practice"],
+        "Business Administration & Management": ["Business Administration (MBA)", "Management (MS)", "Organizational Leadership"],
+        "Marketing":                     ["Marketing (MS)", "Business Administration (MBA)"],
+        "Economics":                     ["Economics (MA)", "Economics (PhD)", "Agricultural and Resource Economics"],
+        "Health Sciences":               ["Health Promotion", "Health Behavior", "Behavioral Health", "Nursing"],
+        "Biological Sciences":           ["Biological Sciences", "Cell and Organ Systems", "Molecular Biology"],
+        "Chemistry":                     ["Chemistry (MS)", "Chemistry (PhD)", "Chemical and Biomolecular"],
+        "Education":                     ["Education (MEd)", "Teaching and Learning", "Educational Leadership"],
+        "Communication":                 ["Communication (MA)", "Journalism", "Communication Studies"],
+        "Political Science & Public Policy": ["Political Science", "Public Policy", "Urban Affairs"],
+        "Psychology":                    ["Psychological and Brain Sciences", "Clinical Psychology", "Psychology (PhD)"],
+        "Environmental Science":         ["Environmental Science", "Marine Studies", "Earth Sciences"],
+        "Agricultural Sciences":         ["Animal and Food Sciences", "Plant and Soil Sciences", "Agricultural Sciences"],
+        "Criminal Justice":              ["Criminology", "Criminal Justice", "Sociology (MA)"],
+    }
+
+    NOISE_CODES = {'HELP 2025', 'HELP 2026', 'HELP 2024'}
+
+    def sort_key(entry):
+        m = re.search(r'\d+', entry.get('code', ''))
         return int(m.group()) if m else 0
 
     def make_entry(c):
@@ -812,40 +858,97 @@ def _build_program_info():
         title = re.sub(r'^[A-Z]{2,5}\s+\d{3,4}[A-Z]?\s*[-–]\s*', '', title_raw)
         return {'code': c.get('code', ''), 'title': title or c.get('code', '')}
 
-    for prog_name, depts in PROG_DEPTS.items():
-        primary_dept = depts[0]
-        secondary_depts = set(depts[1:])
+    def codes_to_entries(codes):
+        """Convert list of course codes to course entry dicts, using all_courses.json for titles."""
+        entries = []
+        seen = set()
+        for code in codes:
+            if code in NOISE_CODES or code in seen:
+                continue
+            seen.add(code)
+            if code in code_to_course:
+                entries.append(make_entry(code_to_course[code]))
+            else:
+                # Code not in our DB — still show it with code only
+                entries.append({'code': code, 'title': code})
+        return sorted(entries, key=sort_key)
 
-        core_ug, core_grad = [], []
-        elec_ug, elec_grad = [], []
+    def get_grad_courses(prog_name):
+        """Get grad required courses from program_requirements.json."""
+        keywords = GRAD_PROGRAM_KEYWORDS.get(prog_name, [])
+        all_codes = []
+        seen_progs = set()
+        for req in PROGRAM_REQUIREMENTS:
+            if req.get('level_type') != 'grad':
+                continue
+            req_name = req.get('name', '')
+            if req_name in seen_progs:
+                continue
+            if '4+1' in req_name:
+                continue
+            if any(kw.lower() in req_name.lower() for kw in keywords):
+                codes = [c for c in req.get('courses_mentioned', []) if c not in NOISE_CODES]
+                all_codes.extend(codes)
+                seen_progs.add(req_name)
+                if len(seen_progs) >= 3:
+                    break
 
-        for c in COURSES_DATA:
-            dept = c.get('dept', '')
-            level = c.get('level', 'undergrad')
-            entry = make_entry(c)
+        # Deduplicate while preserving order
+        seen = set()
+        unique = []
+        for c in all_codes:
+            if c not in seen:
+                seen.add(c)
+                unique.append(c)
 
-            if dept == primary_dept:
-                if level == 'grad':
-                    core_grad.append(entry)
-                else:
-                    core_ug.append(entry)
-            elif dept in secondary_depts:
-                if level == 'grad':
-                    elec_grad.append(entry)
-                else:
-                    elec_ug.append(entry)
+        # Filter to only grad-level codes (500+)
+        grad_only = []
+        for c in unique:
+            m = re.search(r'(\d{3,4})', c)
+            if m and int(m.group(1)) >= 500:
+                grad_only.append(c)
 
-        # Sort by course number so 100-level appears before 400-level
-        for lst in (core_ug, core_grad, elec_ug, elec_grad):
-            lst.sort(key=course_sort_key)
+        return codes_to_entries(grad_only[:30])
+
+    result = {}
+    for prog_name in PROG_DEPTS:
+        # ── Undergrad: use real scraped data ──
+        prog_data = PROGRAM_COURSES.get(prog_name, {})
+        ug_codes = prog_data.get('undergrad', [])
+
+        if ug_codes:
+            ug_entries = codes_to_entries(ug_codes)
+            # Split into "core" (dept-primary courses) and "elective" (support courses)
+            primary_dept = PROG_DEPTS[prog_name][0]
+            core_ug = [e for e in ug_entries if e['code'].startswith(primary_dept)]
+            elec_ug = [e for e in ug_entries if not e['code'].startswith(primary_dept)]
+        else:
+            # Fallback: dept-based filtering
+            primary_dept = PROG_DEPTS[prog_name][0]
+            secondary_depts = set(PROG_DEPTS[prog_name][1:])
+            core_ug, elec_ug = [], []
+            for c in COURSES_DATA:
+                if c.get('level', 'undergrad') != 'undergrad':
+                    continue
+                dept = c.get('dept', '')
+                if dept == primary_dept:
+                    core_ug.append(make_entry(c))
+                elif dept in secondary_depts:
+                    elec_ug.append(make_entry(c))
+            core_ug = sorted(core_ug, key=sort_key)[:25]
+            elec_ug = sorted(elec_ug, key=sort_key)[:20]
+
+        # ── Grad: use real program requirements ──
+        grad_entries = get_grad_courses(prog_name)
 
         result[prog_name] = {
-            'core_undergrad': core_ug[:35],
-            'core_grad': core_grad[:25],
-            'electives_undergrad': elec_ug[:30],
-            'electives_grad': elec_grad[:25],
+            'core_undergrad': core_ug,
+            'electives_undergrad': elec_ug,
+            'core_grad': grad_entries,
+            'electives_grad': [],
             'total_credits': None
         }
+
     return result
 
 PROGRAM_INFO_CACHE = _build_program_info()
