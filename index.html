@@ -4325,8 +4325,11 @@
             const body      = document.getElementById('roadmap-body');
 
             btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating...';
-            body.innerHTML = '<div class="placeholder">Building your personalized roadmap with AI...</div>';
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Building your plan...';
+            body.innerHTML = `<div class="placeholder" style="padding:48px 0;">
+                <i class="fa-solid fa-circle-notch fa-spin" style="font-size:1.6rem;color:var(--blue);display:block;margin-bottom:14px;"></i>
+                AI is designing your semester-by-semester plan for <strong>${roadmapCareer}</strong>…
+            </div>`;
 
             try {
                 const res = await fetch('/api/roadmap', {
@@ -4335,62 +4338,50 @@
                     body: JSON.stringify({ major: roadmapMajor, career: roadmapCareer, year, completed_courses: completed })
                 });
                 const data = await res.json();
-                if (data.roadmap) {
-                    body.innerHTML = renderRoadmapTimeline(data.roadmap);
+                if (data.roadmap_json) {
+                    body.innerHTML = renderRoadmapJSON(data.roadmap_json);
+                } else if (data.roadmap) {
+                    body.innerHTML = renderRoadmapFallback(data.roadmap);
                 } else {
                     body.innerHTML = '<div class="placeholder">Could not generate roadmap. Try again.</div>';
                 }
             } catch (e) {
-                body.innerHTML = '<div class="placeholder">Server error. Make sure app.py is running.</div>';
+                body.innerHTML = '<div class="placeholder">Server error — please try again.</div>';
             }
 
             btn.disabled = false;
-            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Generate';
+            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Regenerate';
         }
 
-        function renderRoadmapTimeline(text) {
-            const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
-            const semesters = [];
-            let current = null;
-            let outlookLines = [];
+        function renderRoadmapJSON(data) {
+            const semesters = data.semesters || [];
+            const outlook   = data.outlook || '';
 
-            for (const line of lines) {
-                // Semester header: **Year X – Fall** or **Year X — Spring**
-                const semMatch = line.match(/\*\*(.*(Year|Semester|Fall|Spring|Summer)[^*]*)\*\*/i);
-                if (semMatch) {
-                    if (current) semesters.push(current);
-                    const label = semMatch[1].replace(/\*\*/g, '');
-                    const isFall = /fall/i.test(label);
-                    const isSpring = /spring/i.test(label);
-                    const tag = isFall ? 'Fall' : isSpring ? 'Spring' : /summer/i.test(label) ? 'Summer' : '';
-                    current = { label, tag, courses: [] };
-                    continue;
-                }
-                // Course line: - DEPT XXX - Course Name: reason
-                const courseMatch = line.match(/^[-•]\s*([A-Z]{2,5}\s+\d{3,4}[A-Z]?)\s*[-–]\s*([^:]+)(?::(.*))?/);
-                if (courseMatch && current) {
-                    current.courses.push({
-                        code: courseMatch[1].trim(),
-                        name: courseMatch[2].trim(),
-                        why: (courseMatch[3] || '').trim()
-                    });
-                    continue;
-                }
-                // Non-semester, non-course → career outlook
-                if (!current || (current && current.courses.length > 0)) {
-                    const clean = line.replace(/\*\*/g, '').replace(/^[-•]\s*/, '');
-                    if (clean.length > 20) outlookLines.push(clean);
-                }
-            }
-            if (current) semesters.push(current);
+            if (!semesters.length) return '<div class="placeholder">No semesters returned. Try again.</div>';
 
-            if (!semesters.length) {
-                // Fallback: plain render
-                return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            }
+            const totalCourses  = semesters.reduce((s, sem) => s + (sem.courses||[]).length, 0);
+            const totalCredits  = semesters.reduce((s, sem) =>
+                s + (sem.courses||[]).reduce((cs, c) => cs + (parseInt(c.credits)||3), 0), 0);
 
-            let html = '<div class="roadmap-timeline">';
-            semesters.forEach((sem, i) => {
+            let html = `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;">
+                <div style="background:#e8f0fb;border:1px solid #c5d8f0;border-radius:8px;padding:8px 16px;font-size:0.8rem;color:var(--blue-dark);">
+                    <strong>${semesters.length}</strong> Semesters
+                </div>
+                <div style="background:#e8f0fb;border:1px solid #c5d8f0;border-radius:8px;padding:8px 16px;font-size:0.8rem;color:var(--blue-dark);">
+                    <strong>${totalCourses}</strong> Courses
+                </div>
+                <div style="background:#e8f0fb;border:1px solid #c5d8f0;border-radius:8px;padding:8px 16px;font-size:0.8rem;color:var(--blue-dark);">
+                    <strong>~${totalCredits}</strong> Credits
+                </div>
+            </div>`;
+
+            html += '<div class="roadmap-timeline">';
+            semesters.forEach((sem) => {
+                const courses = sem.courses || [];
+                const semCredits = courses.reduce((s, c) => s + (parseInt(c.credits)||3), 0);
+                const season = sem.season || '';
+                const icon = season === 'Fall' ? 'leaf' : season === 'Spring' ? 'seedling' : 'sun';
+
                 html += `<div class="roadmap-semester">
                     <div class="roadmap-semester-spine">
                         <div class="roadmap-spine-dot"></div>
@@ -4398,29 +4389,46 @@
                     </div>
                     <div class="roadmap-semester-card">
                         <div class="roadmap-sem-header">
-                            <i class="fa-solid fa-${sem.tag === 'Fall' ? 'leaf' : sem.tag === 'Spring' ? 'seedling' : 'sun'}"></i>
-                            ${sem.label.replace(/\*\*/g,'')}
-                            ${sem.tag ? `<span class="sem-tag">${sem.tag}</span>` : ''}
-                            <span style="margin-left:auto;font-size:0.7rem;opacity:0.75;">${sem.courses.length} courses</span>
+                            <i class="fa-solid fa-${icon}"></i>
+                            ${sem.label}
+                            ${season ? `<span class="sem-tag">${season}</span>` : ''}
+                            <span style="margin-left:auto;font-size:0.7rem;opacity:0.8;">${courses.length} courses · ${semCredits} credits</span>
                         </div>
                         <div class="roadmap-courses-list">`;
-                sem.courses.forEach(c => {
+
+                courses.forEach(c => {
                     html += `<div class="roadmap-course-item">
                         <span class="roadmap-course-code">${c.code}</span>
                         <div class="roadmap-course-info">
-                            <div class="roadmap-course-name">${c.name}</div>
-                            ${c.why ? `<div class="roadmap-course-why">${c.why}</div>` : ''}
+                            <div class="roadmap-course-name">${c.name}
+                                <span style="font-size:0.68rem;font-weight:500;color:var(--gray-400);margin-left:6px;">${c.credits||3} cr</span>
+                            </div>
+                            ${c.why ? `<div class="roadmap-course-why"><i class="fa-solid fa-circle-right" style="font-size:0.6rem;margin-right:4px;color:var(--blue);"></i>${c.why}</div>` : ''}
                         </div>
                     </div>`;
                 });
+
                 html += `</div></div></div>`;
             });
             html += '</div>';
 
-            if (outlookLines.length) {
-                html += `<div class="roadmap-outlook"><strong>Career Outlook:</strong> ${outlookLines.join(' ')}</div>`;
+            if (outlook) {
+                html += `<div class="roadmap-outlook">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                        <i class="fa-solid fa-chart-line" style="color:var(--green);"></i>
+                        <strong>Career Outlook for ${roadmapCareer}</strong>
+                    </div>
+                    ${outlook}
+                </div>`;
             }
             return html;
+        }
+
+        function renderRoadmapFallback(text) {
+            // Simple readable fallback if JSON fails
+            return '<div style="white-space:pre-wrap;font-size:0.875rem;line-height:1.8;">' +
+                text.replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--blue-dark)">$1</strong>') +
+                '</div>';
         }
 
         // ── DARK MODE ──

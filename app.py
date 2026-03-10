@@ -647,34 +647,66 @@ def roadmap():
                 f"RULE: Schedule CORE courses first — they are mandatory. Fill elective slots with courses aligned to {career}.\n"
             )
 
-        prompt = f"""A University of Delaware student wants a semester-by-semester course roadmap.
+        year_map = {"Freshman": 1, "Sophomore": 2, "Junior": 3, "Senior": 4, "Graduate Student": 1}
+        start_year = year_map.get(year, 1)
+        is_grad = year == "Graduate Student"
+        semesters_needed = 2 if is_grad else max(1, (5 - start_year) * 2)
 
-Student Profile:
+        prompt = f"""You are an academic advisor at the University of Delaware. Build a precise, realistic semester-by-semester course roadmap for a student targeting a specific career.
+
+STUDENT PROFILE:
 - Major: {major}
 - Target Career: {career}
-- Current Year: {year}
-- Completed Courses: {courses if courses else 'None listed'}
+- Current Academic Standing: {year}
+- Courses Already Completed: {courses if courses else 'None'}
 {req_context}
-Rules:
-- Use ONLY real UDel course codes from the official program data above
-- Respect prerequisites — intro courses before advanced ones
-- Do NOT include courses already completed
-- Start from {year} through graduation
+STRICT RULES:
+1. ONLY use real UDel course codes from the official program data provided above. NEVER invent codes.
+2. Respect prerequisites — easier courses must come before advanced ones.
+3. Do NOT include courses the student already completed.
+4. Plan exactly {semesters_needed} semesters starting from {year}.
+5. Each semester: 4-5 courses, realistic credit load (12-18 credits).
+6. Core/required courses take priority. Fill remaining slots with career-aligned electives.
+7. Be specific about WHY each course matters for {career} (one clear sentence).
 
-Format EXACTLY like this:
-**Year X – Fall/Spring**
-- DEPT XXX - Course Name: [one sentence why this matters for {career}]
-
-Include 4-5 courses per semester. End with a 2-sentence career outlook for {career}."""
+Return ONLY valid JSON in this exact structure, no markdown, no extra text:
+{{
+  "semesters": [
+    {{
+      "label": "Year 1 – Fall",
+      "season": "Fall",
+      "year": 1,
+      "courses": [
+        {{
+          "code": "DEPT 101",
+          "name": "Full Course Name",
+          "credits": 3,
+          "why": "One sentence explaining how this course prepares you for {career}."
+        }}
+      ]
+    }}
+  ],
+  "outlook": "2-3 sentences about career prospects, typical starting salary, and growth path for {career} graduates from UDel."
+}}"""
 
         client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
         response = client.messages.create(
             model="claude-sonnet-4-6",
-            max_tokens=2000,
+            max_tokens=3000,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": prompt}]
         )
-        return jsonify({"roadmap": response.content[0].text})
+        raw = response.content[0].text.strip()
+        # Strip markdown code fences if present
+        if raw.startswith("```"):
+            raw = re.sub(r'^```[a-z]*\n?', '', raw)
+            raw = re.sub(r'\n?```$', '', raw.strip())
+        try:
+            data = json.loads(raw)
+            return jsonify({"roadmap_json": data})
+        except Exception:
+            # Fallback: return raw text for client-side parsing
+            return jsonify({"roadmap": raw})
     except Exception as e:
         print(f"ROADMAP ERROR: {e}")
         return jsonify({"error": str(e)}), 500
