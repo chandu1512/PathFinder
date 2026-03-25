@@ -1,0 +1,2467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathFinder | UDel Career Mapper</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announce-bar">
+        <strong>New:</strong> PathFinder AI now answers any question — career advice, course planning, and more.
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-brand" onclick="openAbout(); return false;" title="About PathFinder">
+                <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
+                <span class="nav-brand-text">Path<span>Finder</span></span>
+            </a>
+            <div class="nav-center">
+                <a href="#" id="nav-home" class="active" onclick="showHome(); return false;">Home</a>
+                <a href="#" id="nav-courses-link" onclick="showCoursesPage(); return false;">Courses</a>
+                <a href="#" id="nav-careers-link" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'}); return false;">Careers</a>
+            </div>
+            <div class="nav-right">
+                <span class="btn-ghost" style="font-size:0.8rem; color:var(--gray-400);">University of Delaware</span>
+<button class="btn-dark-toggle" id="btn-dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">
+                    <i class="fa-solid fa-moon" id="dark-icon"></i>
+                </button>
+                <button class="btn-profile" id="btn-profile" onclick="openProfile()" title="My Profile">
+                    <span id="profile-btn-content"><i class="fa-solid fa-user"></i></span>
+                    <span class="profile-dot" id="profile-dot"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid-overlay"></div>
+        <!-- Animated mesh blobs -->
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fa-solid fa-bolt"></i> AI-Powered Career Mapping · University of Delaware</div>
+            <h1>Map Your <span class="grad-text">Career</span><br>From Every Course</h1>
+            <p class="hero-sub">PathFinder connects every UDel course to real-world careers — explore <span id="hero-job-count">520</span>+ roles, get AI roadmaps, and discover what your degree can do.</p>
+
+            <!-- Central search bar -->
+            <div class="hero-search-wrap">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" class="hero-search-input" id="hero-search-input"
+                    placeholder="Search careers, courses, skills..."
+                    oninput="heroSearchLive()"
+                    onkeydown="heroSearchKey(event)"
+                    autocomplete="off">
+                <button class="hero-search-btn" onclick="heroSearch()">
+                    <i class="fa-solid fa-arrow-right"></i> Search
+                </button>
+                <div class="hero-suggest-dropdown" id="hero-suggest"></div>
+            </div>
+
+            <!-- Quick-search chips -->
+            <div class="hero-chips">
+                <button class="hero-chip" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'})" style="border-color:rgba(255,210,0,0.4);color:var(--gold);">
+                    <i class="fa-solid fa-compass" style="margin-right:5px;"></i> Explore All Jobs
+                </button>
+                <button class="hero-chip" onclick="heroSearchTerm('Software Engineer')">Software Engineer</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Data Scientist')">Data Scientist</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Cybersecurity Analyst')">Cybersecurity</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Financial Analyst')">Finance</button>
+                <button class="hero-chip" onclick="heroSearchTerm('Machine Learning')">ML / AI</button>
+            </div>
+
+            <!-- Animated stat counters -->
+            <div class="hero-stats-pills">
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-jobs" data-target="520">520</div>
+                    <div class="hero-stat-label">Career Paths</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-courses" data-target="8355">8,355</div>
+                    <div class="hero-stat-label">UDel Courses</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num" id="stat-majors" data-target="46">46</div>
+                    <div class="hero-stat-label">Programs</div>
+                </div>
+                <div class="hero-stat-item">
+                    <div class="hero-stat-num">AI</div>
+                    <div class="hero-stat-label">Online Now</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+        <div class="section-label">How PathFinder Works</div>
+        <h2 class="section-title">From Student to Professional in 3 Steps</h2>
+        <p class="section-sub">PathFinder connects your coursework to real careers using AI — no guesswork, no generic advice.</p>
+        <div class="steps-grid">
+            <div class="steps-connector"></div>
+            <div class="step-card">
+                <div class="step-num"><i class="fa-solid fa-user-pen"></i></div>
+                <h3>Set Your Profile</h3>
+                <p>Tell PathFinder your major, year, and courses you've already taken. Everything personalizes around you instantly.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                <h3>Explore Career Paths</h3>
+                <p>Browse 520+ roles across every industry. See required courses, salary ranges, and job market demand for each career.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num"><i class="fa-solid fa-route"></i></div>
+                <h3>Get Your Roadmap</h3>
+                <p>Click any career and generate a personalized semester-by-semester course plan — AI-built, prerequisite-aware, tailored to you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS GRID -->
+    <section class="programs-section" id="programs-section">
+        <div class="section-label">All Programs</div>
+        <h2 class="section-title">Pick Your Program to Explore Jobs</h2>
+        <p class="section-sub">46 programs across every college at UDel — click any card to see degree details, curriculum, and career paths.</p>
+        <div class="programs-search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="programs-search-input" placeholder="Search programs — e.g. Computer Science, Nursing, Finance..." oninput="filterProgramsBySearch(this.value)" autocomplete="off">
+        </div>
+        <div class="category-filters" id="category-filters">
+            <button class="cat-pill active" data-cat="all" onclick="filterPrograms('all')"><i class="fa-solid fa-grip"></i> All <span class="cat-count" id="cat-count-all"></span></button>
+            <button class="cat-pill" data-cat="tech" onclick="filterPrograms('tech')"><i class="fa-solid fa-code"></i> Tech <span class="cat-count" id="cat-count-tech"></span></button>
+            <button class="cat-pill" data-cat="engineering" onclick="filterPrograms('engineering')"><i class="fa-solid fa-gear"></i> Engineering <span class="cat-count" id="cat-count-engineering"></span></button>
+            <button class="cat-pill" data-cat="business" onclick="filterPrograms('business')"><i class="fa-solid fa-briefcase"></i> Business <span class="cat-count" id="cat-count-business"></span></button>
+            <button class="cat-pill" data-cat="science" onclick="filterPrograms('science')"><i class="fa-solid fa-flask"></i> Science <span class="cat-count" id="cat-count-science"></span></button>
+            <button class="cat-pill" data-cat="health" onclick="filterPrograms('health')"><i class="fa-solid fa-heart-pulse"></i> Health <span class="cat-count" id="cat-count-health"></span></button>
+            <button class="cat-pill" data-cat="social" onclick="filterPrograms('social')"><i class="fa-solid fa-users"></i> Social &amp; Arts <span class="cat-count" id="cat-count-social"></span></button>
+        </div>
+        <div id="programs-no-results" style="display:none;text-align:center;padding:48px 0;color:var(--gray-400);font-size:0.95rem;">
+            <i class="fa-solid fa-magnifying-glass" style="font-size:2rem;margin-bottom:12px;display:block;opacity:0.4;"></i>
+            No programs match your search.
+        </div>
+        <div class="programs-grid" id="programs-grid">
+            <!-- Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- MAJOR DETAIL SECTION -->
+    <div id="major-detail-section">
+        <div id="major-detail-body">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+
+    <!-- JOBS VIEW HEADER (hidden by default) -->
+    <div class="jobs-view-header" id="jobs-view-header" style="display:none;">
+        <div class="jobs-view-title" id="jobs-view-title"></div>
+        <div class="search-wrap" style="max-width:340px;flex:1;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search careers..." oninput="onSearchInput()" onkeydown="handleSearchKey(event)" autocomplete="off">
+            <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+        <span class="jobs-view-count" id="jobs-view-count"></span>
+    </div>
+
+    <!-- AI SEARCH RESULTS PANEL -->
+    <div id="ai-search-panel">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="ai-search-header">
+                <div class="ai-search-intent">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span id="ai-search-intent-text">Searching...</span>
+                </div>
+                <button class="btn-clear-search" onclick="clearAISearch()">
+                    <i class="fa-solid fa-xmark"></i> Clear AI search
+                </button>
+            </div>
+            <div class="ai-results-grid" id="ai-results-grid"></div>
+        </div>
+    </div>
+
+    <!-- JOBS SECTION (hidden until program clicked) -->
+    <div id="jobs-section" style="display:none;">
+        <!-- UG/GRAD FILTER TABS -->
+        <div class="filter-section" style="padding:16px 32px;">
+            <div class="filter-tabs">
+                <button class="filter-tab active" id="tab-all" onclick="setView('all')">All Courses</button>
+                <button class="filter-tab" id="tab-ug" onclick="setView('ug')">Undergraduate</button>
+                <button class="filter-tab" id="tab-grad" onclick="setView('grad')">Graduate</button>
+                <button class="filter-tab" id="tab-bookmarks" onclick="setView('bookmarks')"><i class="fa-solid fa-star" style="font-size:0.75rem;margin-right:4px;"></i>Saved</button>
+            </div>
+            <div class="gpa-filter-wrap">
+                <span class="gpa-filter-label"><i class="fa-solid fa-graduation-cap" style="margin-right:3px;"></i>GPA</span>
+                <select class="gpa-filter-select" id="gpa-filter" onchange="applyGpaFilter()">
+                    <option value="any">Any</option>
+                    <option value="3.0">3.0+</option>
+                    <option value="3.3">3.3+</option>
+                    <option value="3.5">3.5+</option>
+                </select>
+            </div>
+            <div class="filter-right">Showing <span class="results-count" id="visible-count">—</span> careers</div>
+        </div>
+        <main class="main" id="app-container">
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Loading career paths from UDel catalog...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- COURSES EXPLORER -->
+    <div id="courses-section">
+        <div class="courses-toolbar">
+            <div class="courses-search-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="course-search" placeholder="Search by name or code — e.g. CISC 481, machine learning..." oninput="debounceCourseSearch()">
+            </div>
+            <select class="courses-select" id="course-dept" onchange="loadCourses(1)">
+                <option value="">All Departments</option>
+            </select>
+            <select class="courses-select" id="course-level" onchange="loadCourses(1)">
+                <option value="">All Levels</option>
+                <option value="undergrad">Undergraduate</option>
+                <option value="grad">Graduate</option>
+            </select>
+            <div class="courses-count"><strong id="course-total">—</strong> courses found</div>
+        </div>
+        <div class="courses-grid" id="courses-grid"></div>
+        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+            <button class="btn-load-more" id="btn-load-more" onclick="loadMoreCourses()">
+                <i class="fa-solid fa-circle-plus"></i> Load More Courses
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM TAB BAR -->
+    <div class="mobile-tab-bar" id="mobile-tab-bar">
+        <div class="mobile-tab-bar-inner">
+            <button class="mobile-tab active" id="mtab-home" onclick="showHome(); setMobileTab('home')">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </button>
+            <button class="mobile-tab" id="mtab-courses" onclick="showCoursesPage(); setMobileTab('courses')">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Courses</span>
+            </button>
+            <button class="mobile-tab" id="mtab-careers" onclick="document.getElementById('programs-section').scrollIntoView({behavior:'instant'}); setMobileTab('careers')">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Careers</span>
+            </button>
+            <button class="mobile-tab" id="mtab-chat" onclick="toggleChat(); setMobileTab('chat')">
+                <i class="fa-solid fa-comment-dots"></i>
+                <span>AI Chat</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo"><i class="fa-solid fa-map-location-dot"></i></div>
+                Path<span style="color:var(--gold);">Finder</span>
+            </div>
+            <div class="footer-copy">Built for every University of Delaware student — whatever your major, wherever your ambition leads.</div>
+            <div class="footer-links">
+                <a href="#" onclick="openAbout(); return false;">About</a>
+                <a href="#" onclick="showCoursesPage(); return false;">Courses</a>
+                <a href="#" onclick="showHome(); return false;">Careers</a>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <p class="footer-bottom">&copy; 2026 PathFinder &mdash; Data sourced from the University of Delaware Course Catalog</p>
+    </footer>
+
+    <!-- PROFILE MODAL -->
+    <div id="profile-overlay" onclick="if(event.target===this) closeProfile()">
+        <div id="profile-modal">
+            <!-- Avatar + color picker -->
+            <div class="profile-avatar-section">
+                <button class="profile-close-btn" onclick="closeProfile()"><i class="fa-solid fa-xmark"></i></button>
+                <div class="profile-avatar-ring no-name" id="profile-modal-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="profile-color-picker">
+                    <span class="color-picker-label">Color:</span>
+                    <div class="avatar-color-swatch selected" style="background:#3b82f6" data-color="#3b82f6" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#8b5cf6" data-color="#8b5cf6" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#06b6d4" data-color="#06b6d4" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#16a34a" data-color="#16a34a" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#f59e0b" data-color="#f59e0b" onclick="selectAvatarColor(this)"></div>
+                    <div class="avatar-color-swatch" style="background:#ef4444" data-color="#ef4444" onclick="selectAvatarColor(this)"></div>
+                </div>
+                <div class="profile-modal-title">
+                    <h2>My Profile</h2>
+                    <p>Personalize your PathFinder experience</p>
+                </div>
+            </div>
+
+            <!-- Completeness bar -->
+            <div class="profile-completeness">
+                <div class="completeness-label">
+                    <span>Profile Completeness</span>
+                    <span id="completeness-pct">0%</span>
+                </div>
+                <div class="completeness-track">
+                    <div class="completeness-fill" id="completeness-fill" style="width:0%"></div>
+                </div>
+            </div>
+
+            <div class="profile-body">
+                <div class="profile-row">
+                    <div class="profile-field">
+                        <label>Your Name</label>
+                        <input type="text" id="pf-name" placeholder="e.g. Alex Johnson" oninput="updateProfilePreview()">
+                    </div>
+                    <div class="profile-field">
+                        <label>GPA (optional)</label>
+                        <input type="number" id="pf-gpa" placeholder="e.g. 3.5" min="0" max="4" step="0.1" oninput="updateCompleteness()">
+                    </div>
+                </div>
+                <div class="profile-row">
+                    <div class="profile-field">
+                        <label>Major / Program</label>
+                        <select id="pf-major" onchange="updateCompleteness()"></select>
+                    </div>
+                    <div class="profile-field">
+                        <label>Current Year</label>
+                        <select id="pf-year" onchange="updateCompleteness()">
+                            <option>Freshman</option>
+                            <option>Sophomore</option>
+                            <option>Junior</option>
+                            <option>Senior</option>
+                            <option>Graduate Year 1</option>
+                            <option>Graduate Year 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="profile-field">
+                    <label>Graduation Year (optional)</label>
+                    <select id="pf-gradyear" onchange="updateCompleteness()">
+                        <option value="">Select year…</option>
+                        <option>2025</option><option>2026</option><option>2027</option>
+                        <option>2028</option><option>2029</option><option>2030</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="profile-section-label" style="margin-bottom:8px;">Career Interests</div>
+                    <div class="interest-chips" id="interest-chips">
+                        <span class="interest-chip" data-interest="Technology" onclick="toggleInterest(this)">💻 Technology</span>
+                        <span class="interest-chip" data-interest="Business" onclick="toggleInterest(this)">📊 Business</span>
+                        <span class="interest-chip" data-interest="Research" onclick="toggleInterest(this)">🔬 Research</span>
+                        <span class="interest-chip" data-interest="Healthcare" onclick="toggleInterest(this)">🏥 Healthcare</span>
+                        <span class="interest-chip" data-interest="Engineering" onclick="toggleInterest(this)">⚙️ Engineering</span>
+                        <span class="interest-chip" data-interest="Arts & Design" onclick="toggleInterest(this)">🎨 Arts & Design</span>
+                        <span class="interest-chip" data-interest="Education" onclick="toggleInterest(this)">📚 Education</span>
+                        <span class="interest-chip" data-interest="Finance" onclick="toggleInterest(this)">💰 Finance</span>
+                    </div>
+                </div>
+                <div class="profile-field">
+                    <label>Completed Courses (comma separated)</label>
+                    <input type="text" id="pf-courses" placeholder="e.g. CISC 108, CISC 181, MATH 241" oninput="updateCompleteness()">
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="btn-save-profile" onclick="saveProfile()"><i class="fa-solid fa-check"></i> Save Profile</button>
+                <button class="btn-clear-profile" onclick="clearProfile()"><i class="fa-solid fa-trash-can"></i> Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT MODAL -->
+    <div id="about-overlay" onclick="if(event.target===this) closeAbout()">
+        <div id="about-modal">
+            <div class="about-header">
+                <button class="about-close" onclick="closeAbout()"><i class="fa-solid fa-xmark"></i></button>
+                <h2>Path<span>Finder</span></h2>
+                <p>AI-powered career mapping for University of Delaware students</p>
+            </div>
+            <div class="about-body">
+                <div class="about-stats-row">
+                    <div class="about-stat"><div class="num" id="about-stat-jobs">—</div><div class="lbl">Career Paths</div></div>
+                    <div class="about-stat"><div class="num" id="about-stat-courses">—</div><div class="lbl">UDel Courses</div></div>
+                    <div class="about-stat"><div class="num" id="about-stat-programs">—</div><div class="lbl">Programs</div></div>
+                </div>
+                <div class="about-features">
+                    <div class="about-feat">
+                        <i class="fa-solid fa-route"></i>
+                        <h4>Course Mapping</h4>
+                        <p>See exactly which UDel courses — undergrad and graduate — align with your target career, ranked by relevance.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <h4>AI Roadmaps</h4>
+                        <p>Get a personalized semester-by-semester plan from where you are now all the way to graduation.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-robot"></i>
+                        <h4>AI Chat Agent</h4>
+                        <p>Ask anything — course advice, career questions, study tips, or general knowledge. Powered by Claude AI.</p>
+                    </div>
+                    <div class="about-feat">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h4>Salary & Demand</h4>
+                        <p>Real salary ranges and job market demand data for every career role, sourced from BLS and industry data.</p>
+                    </div>
+                </div>
+                <p class="about-footer-note">Data sourced from the University of Delaware Course Catalog &mdash; updated 2025&ndash;2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROADMAP MODAL -->
+    <div id="roadmap-overlay" onclick="if(event.target===this) closeRoadmap()">
+        <div id="roadmap-modal">
+            <div id="roadmap-header">
+                <div>
+                    <h2 id="roadmap-title">Semester Roadmap</h2>
+                    <p id="roadmap-subtitle">Personalized course plan for your career goal</p>
+                </div>
+                <button id="roadmap-close" onclick="closeRoadmap()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="roadmap-form">
+                <div class="roadmap-field">
+                    <label>Current Year</label>
+                    <select id="roadmap-year">
+                        <option>Freshman</option>
+                        <option>Sophomore</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                        <option>Graduate Year 1</option>
+                        <option>Graduate Year 2</option>
+                    </select>
+                </div>
+                <div class="roadmap-field" style="flex:2">
+                    <label>Courses Already Completed (optional)</label>
+                    <input type="text" id="roadmap-completed" placeholder="e.g. CISC 108, CISC 181, MATH 241">
+                </div>
+                <button id="btn-gen-roadmap" onclick="generateRoadmap()">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+                </button>
+            </div>
+            <div id="roadmap-body">
+                <div class="placeholder">Fill in your details above and click Generate to get your personalized roadmap.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHARE TOAST -->
+    <div id="share-toast"><i class="fa-solid fa-check-circle"></i> Link copied to clipboard!</div>
+
+    <!-- COMPARE BAR -->
+    <div id="compare-bar">
+        <div style="font-size:0.78rem;font-weight:700;color:var(--blue);white-space:nowrap;"><i class="fa-solid fa-scale-balanced" style="margin-right:5px;"></i>Compare</div>
+        <div class="compare-bar-slots">
+            <div class="compare-slot" id="compare-slot-0"><i class="fa-solid fa-plus" style="font-size:0.65rem;"></i> Select a career</div>
+            <div class="compare-slot" id="compare-slot-1"><i class="fa-solid fa-plus" style="font-size:0.65rem;"></i> Select a career</div>
+        </div>
+        <button class="btn-do-compare" id="btn-do-compare" onclick="openCompare()" disabled>Compare →</button>
+        <button onclick="clearCompare()" style="background:none;border:none;color:var(--gray-400);cursor:pointer;font-size:0.8rem;padding:4px;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- COMPARE MODAL -->
+    <div id="compare-overlay" onclick="if(event.target===this) closeCompare()">
+        <div id="compare-modal">
+            <div class="compare-header">
+                <h2><i class="fa-solid fa-scale-balanced" style="margin-right:8px;"></i>Career Comparison</h2>
+                <button class="profile-close-btn" onclick="closeCompare()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="compare-body">
+                <div class="compare-grid" id="compare-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHAT WIDGET -->
+    <button id="chat-toggle" onclick="toggleChat()" title="Ask PathFinder AI">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <div id="chat-window">
+        <div id="chat-header">
+            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+            <div class="chat-header-info">
+                <div class="chat-header-name">PathFinder AI</div>
+                <div class="chat-header-status"><span class="chat-status-dot"></span> Online &mdash; Ask me anything</div>
+            </div>
+            <button id="chat-close-btn" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages">
+            <div class="chat-msg-row assistant">
+                <div class="chat-msg-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div class="chat-msg assistant">Hi! I'm PathFinder AI. Ask me about UDel courses, careers, roadmaps, or anything else.</div>
+            </div>
+        </div>
+        <div id="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Ask anything..." onkeydown="if(event.key==='Enter') sendMessage()" />
+            <button id="chat-send" onclick="sendMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        let globalData = {};
+        let chatHistory = [];
+        let chatOpen = false;
+        let currentView = 'all';
+        let bookmarks = JSON.parse(localStorage.getItem('pf_bookmarks') || '[]');
+        let userProfile = JSON.parse(localStorage.getItem('pf_profile') || 'null');
+
+        // ── PROGRAM METADATA (College, Overview, Specializations, STEM) ──
+        const PROG_METADATA = {
+            'Computer Science': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Build the software systems that power the modern world — from apps to AI.', specializations: ['Software Development', 'Artificial Intelligence & ML', 'Systems & Networks', 'Database Systems', 'Human-Computer Interaction'] },
+            'Artificial Intelligence': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Create intelligent machines that learn, reason, and solve complex real-world problems.', specializations: ['Machine Learning', 'Computer Vision', 'Natural Language Processing', 'Robotics & Autonomous Systems', 'Cognitive Computing'] },
+            'Cybersecurity Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Defend critical infrastructure and data against sophisticated digital threats.', specializations: ['Network Security', 'Application Security', 'Digital Forensics', 'Cloud Security', 'Cryptography'] },
+            'Data Science': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Transform raw data into actionable intelligence that drives business decisions.', specializations: ['Machine Learning', 'Data Analytics', 'Statistical Modeling', 'Big Data Engineering', 'Business Intelligence'] },
+            'Management Information Systems': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: true, overview: 'Bridge the gap between technology and business strategy to drive organizational success.', specializations: ['Business Analytics', 'Enterprise Systems (ERP/SAP)', 'IT Project Management', 'Cybersecurity for Business', 'Data Warehousing'] },
+            'Computer Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Design the hardware-software systems that power every modern device.', specializations: ['Embedded Systems', 'FPGA & Hardware Design', 'Computer Architecture', 'IoT Systems', 'VLSI Design'] },
+            'Electrical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Power, connect, and automate the world through electrical systems and devices.', specializations: ['Power Systems & Electronics', 'Signal Processing', 'Microelectronics', 'Control Systems', 'RF & Communications'] },
+            'Mechanical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Engineer solutions for the physical world — from nanoscale devices to large infrastructure.', specializations: ['Thermodynamics & Fluid Mechanics', 'Robotics & Controls', 'Manufacturing & Materials', 'Structural Analysis', 'Aerospace Systems'] },
+            'Civil Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Design the bridges, roads, and water systems that society depends on every day.', specializations: ['Structural Engineering', 'Transportation Engineering', 'Environmental Engineering', 'Geotechnical Engineering', 'Construction Management'] },
+            'Chemical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Apply chemistry, physics, and math to transform raw materials into valuable products.', specializations: ['Process Engineering', 'Environmental & Sustainability', 'Bioprocess Engineering', 'Materials Science', 'Energy Systems'] },
+            'Biomedical Engineering': { college: 'College of Engineering & Applied Science', degree: "Bachelor's / Master's", stem: true, overview: 'Merge engineering principles with medical science to design life-saving technologies.', specializations: ['Medical Devices & Implants', 'Tissue Engineering', 'Biomechanics', 'Medical Imaging', 'Neural Engineering'] },
+            'Finance': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Navigate global capital markets and drive strategic financial decisions at scale.', specializations: ['Investment Banking', 'Corporate Finance', 'Financial Analysis & Modeling', 'Risk Management', 'FinTech & Quantitative Finance'] },
+            'Accounting': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Master the language of business — from financial reporting to strategic advisory.', specializations: ['Public Accounting (CPA Track)', 'Managerial & Cost Accounting', 'Auditing & Assurance', 'Taxation', 'Forensic Accounting'] },
+            'Marketing': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's", stem: false, overview: 'Connect brands with the people who need them through data-driven creative strategy.', specializations: ['Digital & Social Media Marketing', 'Brand Management', 'Market Research & Analytics', 'Consumer Behavior', 'Advertising & Campaigns'] },
+            'Economics': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Understand and shape how societies allocate scarce resources and create lasting value.', specializations: ['Quantitative & Financial Economics', 'Public Policy & Regulation', 'International Economics', 'Behavioral Economics', 'Labor & Environmental Economics'] },
+            'Business Administration & Management': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / MBA", stem: false, overview: 'Lead organizations, drive strategy, and build ventures across every industry.', specializations: ['Entrepreneurship & Innovation', 'Operations & Supply Chain', 'International Business', 'Human Resources Management', 'Corporate Strategy'] },
+            'Health Sciences': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Prepare for careers that directly improve human health and well-being.', specializations: ['Pre-Medical & Clinical Sciences', 'Public Health & Epidemiology', 'Health Policy & Administration', 'Clinical Research', 'Nutrition & Exercise Science'] },
+            'Biological Sciences': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Explore life at every scale — from molecules and cells to ecosystems and evolution.', specializations: ['Molecular Biology & Genetics', 'Ecology & Conservation', 'Microbiology & Virology', 'Neuroscience', 'Cell Biology & Biochemistry'] },
+            'Chemistry': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Understand matter and reactions at the molecular level to create new materials and medicines.', specializations: ['Organic & Medicinal Chemistry', 'Biochemistry', 'Environmental Chemistry', 'Materials Chemistry', 'Analytical & Computational Chemistry'] },
+            'Environmental Science': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: true, overview: "Protect and restore the planet's natural systems through science-driven solutions.", specializations: ['Environmental Policy & Law', 'Conservation Biology', 'Atmospheric & Climate Science', 'Water Resources & Hydrology', 'Sustainability & Renewable Energy'] },
+            'Agricultural Sciences': { college: 'College of Agriculture and Natural Resources', degree: "Bachelor's / Master's", stem: true, overview: 'Advance global food security, sustainable farming, and animal health.', specializations: ['Animal & Veterinary Sciences', 'Plant & Crop Sciences', 'Food Safety & Technology', 'Agricultural Business & Policy', 'Precision Agriculture & AgTech'] },
+            'Education': { college: 'College of Education and Human Development', degree: "Bachelor's / Master's", stem: false, overview: 'Shape the next generation of learners and lead meaningful change in schools and communities.', specializations: ['Early Childhood Education', 'Secondary Education', 'Special Education & Inclusion', 'Educational Leadership & Policy', 'STEM & Technology Education'] },
+            'Communication': { college: 'College of Arts and Sciences', degree: "Bachelor's", stem: false, overview: 'Tell powerful stories and connect people through compelling media and strategic messaging.', specializations: ['Journalism & News Media', 'Public Relations & Corporate Communication', 'Digital & Social Media', 'Film & Video Production', 'Strategic Communication'] },
+            'Political Science & Public Policy': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Analyze power, governance, and policy to understand and change the world.', specializations: ['American Politics & Law', 'International Relations & Diplomacy', 'Public Administration', 'Policy Analysis & Research', 'Environmental & Social Policy'] },
+            'Psychology': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: false, overview: 'Understand human behavior, thought, and emotion to help people and organizations thrive.', specializations: ['Clinical & Counseling Psychology', 'Cognitive Psychology & Neuroscience', 'Behavioral & Social Psychology', 'Industrial-Organizational Psychology', 'Developmental Psychology'] },
+            'Criminal Justice': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Pursue justice, public safety, and rehabilitation through law, policy, and social science.', specializations: ['Criminology & Crime Analysis', 'Law Enforcement & Policing', 'Corrections & Rehabilitation', 'Forensic Psychology', 'Cybercrime & Digital Investigations'] },
+            'Nursing': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Provide compassionate, evidence-based patient care across hospitals, clinics, and communities worldwide.', specializations: ['Clinical Nursing Practice', 'Acute & Critical Care', 'Community & Public Health Nursing', 'Pediatric & Family Care', 'Nurse Practitioner Track'] },
+            'Kinesiology': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: true, overview: 'Study human movement to optimize athletic performance, rehabilitation, and health outcomes.', specializations: ['Exercise Physiology', 'Biomechanics', 'Athletic Training & Sports Medicine', 'Physical Therapy Pre-Track', 'Strength & Conditioning'] },
+            'Statistics': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: true, overview: 'Extract meaning from data using mathematical models and statistical reasoning.', specializations: ['Applied Statistics', 'Biostatistics', 'Computational Statistics', 'Statistical Machine Learning', 'Survey Methodology'] },
+            'Applied Mathematics': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: true, overview: 'Use mathematical modeling to solve real-world problems in science, engineering, and finance.', specializations: ['Numerical Analysis & Computation', 'Mathematical Modeling', 'Optimization & Operations Research', 'Financial Mathematics', 'Differential Equations'] },
+            'Neuroscience': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Decode the brain and nervous system to unlock breakthroughs in medicine and human cognition.', specializations: ['Cognitive Neuroscience', 'Behavioral Neuroscience', 'Molecular & Cellular Neuroscience', 'Clinical Neuroscience', 'Computational Neuroscience'] },
+            'Entrepreneurship': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / MBA", stem: false, overview: 'Launch and scale ventures by mastering ideation, funding, operations, and growth strategies.', specializations: ['Startup Founding & Launch', 'Venture Capital & Funding', 'Product & Innovation Management', 'Social Entrepreneurship', 'Small Business & Family Enterprise'] },
+            'Information Systems': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: true, overview: 'Design and manage technology systems that drive business strategy and organizational efficiency.', specializations: ['Enterprise Systems & ERP', 'Business Analytics & BI', 'IT Governance & Compliance', 'Cloud & Infrastructure Management', 'Digital Transformation'] },
+            'Physics': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Uncover the fundamental laws governing matter, energy, space, and time.', specializations: ['Theoretical & Computational Physics', 'Condensed Matter Physics', 'Astrophysics & Cosmology', 'Optics & Photonics', 'Biophysics'] },
+            'Philosophy': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Develop rigorous critical thinking about ethics, logic, knowledge, and the nature of reality.', specializations: ['Ethics & Applied Ethics', 'Logic & Formal Reasoning', 'Epistemology & Metaphysics', 'Philosophy of Mind & AI', 'Political Philosophy'] },
+            'English': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Master the craft of writing and critical analysis to excel in media, law, education, and beyond.', specializations: ['Creative Writing & Fiction', 'Literary Criticism & Theory', 'Technical & Professional Writing', 'Publishing & Editing', 'Rhetoric & Composition'] },
+            'History': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Understand the past to shape the future — from ancient civilizations to contemporary global events.', specializations: ['American History & Politics', 'World History & Colonialism', 'Digital & Public History', 'Legal History', 'Social & Cultural History'] },
+            'Sociology': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Study how societies, institutions, and human behavior interact to shape our world.', specializations: ['Social Inequality & Stratification', 'Race, Class & Gender Studies', 'Urban Sociology', 'Criminology', 'Health & Medicine Sociology'] },
+            'Biochemistry': { college: 'College of Arts and Sciences', degree: "Bachelor's / PhD", stem: true, overview: 'Investigate the molecular chemistry of living organisms to drive advances in medicine and biotech.', specializations: ['Protein Structure & Function', 'Metabolic Biochemistry', 'Molecular Biology & Genomics', 'Drug Discovery & Pharmacology', 'Structural Biology'] },
+            'Marine Science': { college: 'College of Arts and Sciences', degree: "Bachelor's / Master's", stem: true, overview: 'Explore ocean systems, marine ecosystems, and coastal environments to advance sustainability.', specializations: ['Physical & Chemical Oceanography', 'Marine Biology & Ecology', 'Coastal Engineering', 'Marine Policy & Conservation', 'Deep-Sea Exploration'] },
+            'Nutrition & Dietetics': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Apply nutritional science to promote health, prevent disease, and support clinical care.', specializations: ['Clinical Dietetics & Therapeutics', 'Sports Nutrition', 'Community & Public Health Nutrition', 'Food Science & Technology', 'Pediatric Nutrition'] },
+            'Sport Management': { college: 'College of Health Sciences', degree: "Bachelor's / Master's", stem: false, overview: 'Lead teams, leagues, and sports organizations through business and marketing strategy.', specializations: ['Sports Marketing & Sponsorship', 'Athletic Administration', 'Event Management', 'Sports Law & Ethics', 'Stadium & Venue Operations'] },
+            'Hospitality Management': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's / Master's", stem: false, overview: 'Build global careers managing hotels, resorts, restaurants, and travel enterprises.', specializations: ['Hotel & Resort Operations', 'Food & Beverage Management', 'Tourism & Event Planning', 'Revenue Management & Analytics', 'Luxury Brand & Experience'] },
+            'Fashion & Design': { college: 'College of Arts and Sciences', degree: "Bachelor's", stem: false, overview: 'Merge creativity with business acumen to lead in design, retail, and the fashion industry.', specializations: ['Fashion Design & Technical Skills', 'Retail Merchandising & Buying', 'Sustainable & Ethical Fashion', 'Fashion Marketing & Branding', 'Textile Science'] },
+            'Landscape Architecture': { college: 'College of Agriculture and Natural Resources', degree: "Bachelor's / Master's", stem: false, overview: 'Design sustainable outdoor environments — from urban parks to ecological restoration projects.', specializations: ['Urban & Community Design', 'Ecological Restoration', 'Sustainable Site Design', 'Urban Planning & Policy', 'Digital Design & GIS'] },
+            'Actuarial Sciences': { college: 'Alfred Lerner College of Business and Economics', degree: "Bachelor's", stem: true, overview: 'Apply mathematics and probability to assess financial risk for insurance, finance, and consulting.', specializations: ['Life & Health Insurance Actuarial', 'Property & Casualty Actuarial', 'Pension & Retirement Systems', 'Financial Risk Modeling', 'Quantitative Finance'] },
+        };
+
+        let programInfoData = {};
+        let currentDetailProg = '';
+
+        const MAJOR_ICONS = {
+            'Computer Science': 'fa-code',
+            'Artificial Intelligence': 'fa-brain',
+            'Cybersecurity Engineering': 'fa-shield-halved',
+            'Data Science': 'fa-chart-bar',
+            'Management Information Systems': 'fa-sitemap',
+            'Business Administration & Management': 'fa-briefcase',
+            'Finance': 'fa-dollar-sign',
+            'Accounting': 'fa-calculator',
+            'Marketing': 'fa-bullhorn',
+            'Economics': 'fa-chart-line',
+            'Computer Engineering': 'fa-microchip',
+            'Electrical Engineering': 'fa-bolt',
+            'Mechanical Engineering': 'fa-gear',
+            'Civil Engineering': 'fa-building',
+            'Chemical Engineering': 'fa-flask',
+            'Biomedical Engineering': 'fa-heart-pulse',
+            'Health Sciences': 'fa-stethoscope',
+            'Biological Sciences': 'fa-dna',
+            'Chemistry': 'fa-atom',
+            'Education': 'fa-chalkboard-user',
+            'Communication': 'fa-comments',
+            'Political Science & Public Policy': 'fa-landmark',
+            'Psychology': 'fa-brain',
+            'Environmental Science': 'fa-leaf',
+            'Agricultural Sciences': 'fa-seedling',
+            'Criminal Justice': 'fa-scale-balanced',
+            'Nursing': 'fa-user-nurse',
+            'Kinesiology': 'fa-person-running',
+            'Statistics': 'fa-chart-simple',
+            'Applied Mathematics': 'fa-square-root-variable',
+            'Neuroscience': 'fa-brain',
+            'Entrepreneurship': 'fa-rocket',
+            'Information Systems': 'fa-database',
+            'Physics': 'fa-atom',
+            'Philosophy': 'fa-infinity',
+            'English': 'fa-book-open',
+            'History': 'fa-landmark',
+            'Sociology': 'fa-people-group',
+            'Biochemistry': 'fa-dna',
+            'Marine Science': 'fa-water',
+            'Nutrition & Dietetics': 'fa-apple-whole',
+            'Sport Management': 'fa-trophy',
+            'Hospitality Management': 'fa-hotel',
+            'Fashion & Design': 'fa-shirt',
+            'Landscape Architecture': 'fa-tree',
+            'Actuarial Sciences': 'fa-calculator',
+        };
+
+        // ── DATA LOAD ──
+        async function loadData() {
+            try {
+                const [careerRes, infoRes] = await Promise.all([
+                    fetch('/api/career-paths'),
+                    fetch('/api/program-info')
+                ]);
+                globalData = await careerRes.json();
+                programInfoData = await infoRes.json();
+                renderPrograms();
+                updateStats();
+                applyProfileToUI();
+            } catch (error) {
+                document.getElementById('app-container').innerHTML =
+                    '<div class="loading-state" style="color:#d93025;"><i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;margin-bottom:12px;display:block;"></i><p>Could not connect to the PathFinder server.<br>Make sure <strong>app.py</strong> is running.</p></div>';
+            }
+        }
+
+        // ── COUNTER ANIMATION ──
+        function animateCounter(el, target, duration = 1400) {
+            const start = Date.now();
+            const startVal = 0;
+            function tick() {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const val = Math.round(startVal + (target - startVal) * ease);
+                el.textContent = val.toLocaleString();
+                if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function initCounters() {
+            document.querySelectorAll('[data-target]').forEach(el => {
+                const target = parseInt(el.getAttribute('data-target'));
+                if (!isNaN(target)) animateCounter(el, target);
+            });
+        }
+
+        // ── HERO SEARCH ──
+        // ── HERO SEARCH LIVE DROPDOWN ──
+        let heroSuggestTimer = null;
+        let heroSuggestIndex = -1;
+
+        function heroSearchLive() {
+            clearTimeout(heroSuggestTimer);
+            heroSuggestTimer = setTimeout(async () => {
+                const q = document.getElementById('hero-search-input').value.trim();
+                const box = document.getElementById('hero-suggest');
+                if (!q || q.length < 2) { box.classList.remove('open'); return; }
+
+                // Job matches (from globalData in memory — instant)
+                const jobMatches = [];
+                for (const [prog, jobs] of Object.entries(globalData)) {
+                    for (const job of jobs) {
+                        if (job.title.toLowerCase().includes(q.toLowerCase())) {
+                            jobMatches.push({ title: job.title, prog });
+                            if (jobMatches.length >= 4) break;
+                        }
+                    }
+                    if (jobMatches.length >= 4) break;
+                }
+
+                // Course matches (from API)
+                let courseMatches = [];
+                try {
+                    const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
+                    const data = await res.json();
+                    courseMatches = (data.courses || []).slice(0, 4);
+                } catch(e) {}
+
+                if (!jobMatches.length && !courseMatches.length) { box.classList.remove('open'); return; }
+
+                let html = '';
+                if (jobMatches.length) {
+                    html += `<div class="hero-suggest-section-label"><i class="fa-solid fa-briefcase" style="margin-right:5px;"></i>Careers</div>`;
+                    html += jobMatches.map(m =>
+                        `<div class="hero-suggest-item" onmousedown="heroPickJob('${m.title.replace(/'/g,"\\'")}')">
+                            <span class="si-icon job"><i class="fa-solid fa-briefcase"></i></span>
+                            <span class="si-label">${m.title}</span>
+                            <span class="si-meta">${m.prog}</span>
+                        </div>`
+                    ).join('');
+                }
+                if (courseMatches.length) {
+                    html += `<div class="hero-suggest-section-label"><i class="fa-solid fa-book-open" style="margin-right:5px;"></i>Courses → See matching jobs</div>`;
+                    html += courseMatches.map(c => {
+                        const parts = c.title.split(' - ');
+                        const name = parts.slice(1).join(' - ') || c.title;
+                        return `<div class="hero-suggest-item" onmousedown="heroPickCourse('${c.code.replace(/'/g,"\\'")}', '${name.replace(/'/g,"\\'")}')">
+                            <span class="si-icon course"><i class="fa-solid fa-book-open"></i></span>
+                            <span class="si-code">${c.code}</span>
+                            <span class="si-label">${name}</span>
+                            <span class="si-badge">See jobs →</span>
+                        </div>`;
+                    }).join('');
+                }
+
+                box.innerHTML = html;
+                box.classList.add('open');
+                heroSuggestIndex = -1;
+            }, 200);
+        }
+
+        function heroPickJob(title) {
+            document.getElementById('hero-search-input').value = title;
+            document.getElementById('hero-suggest').classList.remove('open');
+            heroSearch();
+        }
+
+        function heroPickCourse(code, name) {
+            document.getElementById('hero-suggest').classList.remove('open');
+            showJobsForCourse(code, name);
+        }
+
+        function showJobsForCourse(code, name) {
+            const normalized = code.toLowerCase();
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'flex';
+            document.getElementById('jobs-section').style.display = 'block';
+            document.getElementById('jobs-view-title').textContent = '📚 ' + code + ' — ' + name;
+            renderDashboard(globalData);
+            document.getElementById('searchInput').value = '';
+            filterJobsByCourse(normalized);
+            updateVisibleCount();
+            document.getElementById('jobs-section').scrollIntoView({ behavior: 'instant' });
+        }
+
+        function heroSearchKey(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('hero-suggest').classList.remove('open');
+                heroSearch();
+            } else if (e.key === 'Escape') {
+                document.getElementById('hero-suggest').classList.remove('open');
+            }
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.hero-search-wrap')) {
+                document.getElementById('hero-suggest')?.classList.remove('open');
+            }
+        });
+
+        async function heroSearch() {
+            const q = document.getElementById('hero-search-input').value.trim();
+            if (!q) return;
+            document.getElementById('hero-suggest').classList.remove('open');
+
+            // Detect exact course code (e.g. "CISC 637", "cisc637", "MATH 241")
+            const courseMatch = q.match(/^([A-Za-z]{2,5})\s*(\d{3,4}[A-Za-z]?)$/);
+            if (courseMatch) {
+                const normalized = (courseMatch[1] + ' ' + courseMatch[2]).toLowerCase();
+                const label = (courseMatch[1] + ' ' + courseMatch[2]).toUpperCase();
+                document.getElementById('programs-section').style.display = 'none';
+                document.querySelector('.how-section').style.display = 'none';
+                document.getElementById('jobs-view-header').style.display = 'flex';
+                document.getElementById('jobs-section').style.display = 'block';
+                document.getElementById('jobs-view-title').textContent = '📚 Course: ' + label;
+                renderDashboard(globalData);
+                document.getElementById('searchInput').value = q;
+                filterJobsByCourse(normalized);
+                updateVisibleCount();
+                document.getElementById('jobs-section').scrollIntoView({behavior: 'instant'});
+                return;
+            }
+
+            // Try matching as a course name via API
+            try {
+                const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
+                const data = await res.json();
+                if (data.courses && data.courses.length > 0) {
+                    const top = data.courses[0];
+                    const parts = top.title.split(' - ');
+                    const name = parts.slice(1).join(' - ') || top.title;
+                    showJobsForCourse(top.code, name);
+                    return;
+                }
+            } catch(e) {}
+
+            const jobsVisible = document.getElementById('jobs-section').style.display === 'block';
+            if (jobsVisible) {
+                const si = document.getElementById('searchInput');
+                if (si) { si.value = q; onSearchInput(); }
+                document.getElementById('jobs-view-header').scrollIntoView({behavior: 'smooth'});
+            } else {
+                runAISearch(q);
+                setTimeout(() => {
+                    document.getElementById('ai-search-panel').scrollIntoView({behavior: 'smooth', block: 'start'});
+                }, 200);
+            }
+        }
+
+        function heroSearchTerm(term) {
+            document.getElementById('hero-search-input').value = term;
+            document.getElementById('hero-search-input').focus();
+        }
+
+        // ── MOBILE TAB BAR ──
+        function setMobileTab(tab) {
+            document.querySelectorAll('.mobile-tab').forEach(t => t.classList.remove('active'));
+            const el = document.getElementById('mtab-' + tab);
+            if (el) el.classList.add('active');
+        }
+
+        async function updateStats() {
+            let totalJobs = 0;
+            const majors = Object.keys(globalData).length;
+            Object.values(globalData).forEach(jobs => totalJobs += jobs.length);
+            document.getElementById('stat-jobs').setAttribute('data-target', totalJobs);
+            document.getElementById('stat-majors').setAttribute('data-target', majors);
+
+            try {
+                const res = await fetch('/api/stats');
+                const s = await res.json();
+                document.getElementById('stat-courses').setAttribute('data-target', s.courses);
+                document.getElementById('hero-job-count').textContent = s.jobs.toLocaleString();
+                document.getElementById('about-stat-jobs').textContent = s.jobs.toLocaleString();
+                document.getElementById('about-stat-courses').textContent = s.courses.toLocaleString();
+                document.getElementById('about-stat-programs').textContent = s.programs;
+            } catch(e) {}
+            initCounters();
+        }
+
+        function updateVisibleCount() {
+            const visible = document.querySelectorAll('.job-card:not(.hidden)').length;
+            document.getElementById('visible-count').textContent = visible;
+        }
+
+        // ── VIEW FILTER ──
+        function setView(viewType) {
+            currentView = viewType;
+            ['all','ug','grad','bookmarks'].forEach(v => {
+                document.getElementById('nav-' + v)?.classList.remove('active');
+                document.getElementById('tab-' + v)?.classList.remove('active');
+            });
+            document.getElementById('nav-' + viewType)?.classList.add('active');
+            document.getElementById('tab-' + viewType)?.classList.add('active');
+
+            const container = document.getElementById('app-container');
+            container.classList.remove('view-ug', 'view-grad');
+            if (viewType === 'ug') container.classList.add('view-ug');
+            if (viewType === 'grad') container.classList.add('view-grad');
+
+            // Handle bookmarks view
+            document.querySelectorAll('.major-section').forEach(section => {
+                if (viewType === 'bookmarks') {
+                    let hasBookmarked = false;
+                    section.querySelectorAll('.job-card').forEach(card => {
+                        const key = card.getAttribute('data-bookmark-key');
+                        const isBookmarked = bookmarks.includes(key);
+                        card.classList.toggle('hidden', !isBookmarked);
+                        if (isBookmarked) hasBookmarked = true;
+                    });
+                    section.classList.toggle('hidden', !hasBookmarked);
+                } else {
+                    section.classList.remove('hidden');
+                    section.querySelectorAll('.job-card').forEach(card => card.classList.remove('hidden'));
+                    filterJobs();
+                }
+            });
+            updateVisibleCount();
+        }
+
+        // ── ACCORDION ──
+        function toggleCourses(jobId) {
+            const card = document.getElementById('card-' + jobId);
+            const courseList = document.getElementById(jobId);
+            if (!card || !courseList) return;
+            const isOpen = courseList.style.display === 'block';
+            if (isOpen) {
+                courseList.style.display = 'none';
+                card.classList.remove('active');
+            } else {
+                courseList.style.display = 'block';
+                card.classList.add('active');
+            }
+        }
+
+        // ── PROGRAM CATEGORIES ──
+        const PROG_CATEGORY = {
+            'Computer Science': 'tech', 'Artificial Intelligence': 'tech',
+            'Cybersecurity Engineering': 'tech', 'Data Science': 'tech',
+            'Management Information Systems': 'tech',
+            'Computer Engineering': 'engineering', 'Electrical Engineering': 'engineering',
+            'Mechanical Engineering': 'engineering', 'Civil Engineering': 'engineering',
+            'Chemical Engineering': 'engineering', 'Biomedical Engineering': 'engineering',
+            'Finance': 'business', 'Accounting': 'business', 'Marketing': 'business',
+            'Economics': 'business', 'Business Administration & Management': 'business',
+            'Health Sciences': 'health', 'Biological Sciences': 'science',
+            'Chemistry': 'science', 'Environmental Science': 'science',
+            'Agricultural Sciences': 'science',
+            'Education': 'social', 'Communication': 'social',
+            'Political Science & Public Policy': 'social', 'Psychology': 'social',
+            'Criminal Justice': 'social',
+            'Nursing': 'health', 'Kinesiology': 'health',
+            'Nutrition & Dietetics': 'health', 'Sport Management': 'health',
+            'Statistics': 'science', 'Applied Mathematics': 'science',
+            'Neuroscience': 'science', 'Physics': 'science',
+            'Biochemistry': 'science', 'Marine Science': 'science',
+            'Entrepreneurship': 'business', 'Information Systems': 'tech',
+            'Hospitality Management': 'business', 'Actuarial Sciences': 'business',
+            'Philosophy': 'social', 'English': 'social',
+            'History': 'social', 'Sociology': 'social',
+            'Fashion & Design': 'social', 'Landscape Architecture': 'engineering',
+        };
+
+        // ── RENDER ──
+        // ── PROGRAMS GRID ──
+        let currentCategoryFilter = 'all';
+
+        let programSearchQuery = '';
+
+        function renderPrograms() {
+            const grid = document.getElementById('programs-grid');
+            if (!grid) return;
+
+            // Count per category
+            const catCounts = { all: 0, tech: 0, engineering: 0, business: 0, science: 0, health: 0, social: 0 };
+            Object.entries(globalData).forEach(([prog]) => {
+                const cat = PROG_CATEGORY[prog] || 'tech';
+                catCounts.all++;
+                if (catCounts[cat] !== undefined) catCounts[cat]++;
+            });
+            Object.entries(catCounts).forEach(([cat, n]) => {
+                const el = document.getElementById('cat-count-' + cat);
+                if (el) el.textContent = n;
+            });
+
+            grid.innerHTML = Object.entries(globalData).map(([prog, jobs]) => {
+                const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
+                const cat = PROG_CATEGORY[prog] || 'tech';
+                const meta = PROG_METADATA[prog] || {};
+                const college = meta.college || 'University of Delaware';
+                const stemBadge = meta.stem ? '<span class="stem-badge">STEM</span>' : '';
+                const shortCollege = college.replace('College of ', '').replace('Alfred Lerner ', '').replace(' and Economics', '');
+                const catMatch = currentCategoryFilter === 'all' || cat === currentCategoryFilter;
+                const searchMatch = !programSearchQuery || prog.toLowerCase().includes(programSearchQuery.toLowerCase());
+                const hidden = (!catMatch || !searchMatch) ? 'style="display:none"' : '';
+                return `<div class="program-card prog-cat-${cat}" data-cat="${cat}" data-name="${prog.toLowerCase()}" onclick="openMajorDetail('${prog.replace(/'/g,"\\'")}')\" ${hidden}>
+                    <div class="program-card-icon"><i class="fa-solid ${icon}"></i></div>
+                    <div class="program-card-college">${shortCollege}${stemBadge}</div>
+                    <div class="program-card-name">${prog}</div>
+                    <div class="program-card-count"><i class="fa-solid fa-briefcase"></i> ${jobs.length} careers</div>
+                </div>`;
+            }).join('');
+            updateProgramsNoResults();
+        }
+
+        function updateProgramsNoResults() {
+            const visible = document.querySelectorAll('.program-card:not([style*="display:none"])').length;
+            const noResults = document.getElementById('programs-no-results');
+            if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        function filterPrograms(cat) {
+            currentCategoryFilter = cat;
+            document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
+            document.querySelectorAll('.program-card').forEach(card => {
+                const catMatch = cat === 'all' || card.dataset.cat === cat;
+                const searchMatch = !programSearchQuery || card.dataset.name.includes(programSearchQuery.toLowerCase());
+                card.style.display = (catMatch && searchMatch) ? '' : 'none';
+            });
+            updateProgramsNoResults();
+        }
+
+        function filterProgramsBySearch(query) {
+            programSearchQuery = query.trim();
+            document.querySelectorAll('.program-card').forEach(card => {
+                const catMatch = currentCategoryFilter === 'all' || card.dataset.cat === currentCategoryFilter;
+                const searchMatch = !programSearchQuery || card.dataset.name.includes(programSearchQuery.toLowerCase());
+                card.style.display = (catMatch && searchMatch) ? '' : 'none';
+            });
+            updateProgramsNoResults();
+        }
+
+        function openProgram(prog, noPush) {
+            // Hide major detail if open
+            document.getElementById('major-detail-section').classList.remove('open');
+            // Show jobs section, hide programs
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'flex';
+            document.getElementById('jobs-section').style.display = 'block';
+            document.getElementById('jobs-view-title').textContent = prog;
+
+            // Render only this program's jobs
+            const filtered = { [prog]: globalData[prog] };
+            renderDashboard(filtered);
+            updateVisibleCount();
+            document.getElementById('jobs-section').scrollIntoView({ behavior: 'smooth' });
+            applyProfileToUI();
+            initFuse();
+            if (!noPush) history.pushState({ view: 'jobs', prog }, '', '#jobs-' + encodeURIComponent(prog));
+        }
+
+        function backToPrograms() {
+            document.getElementById('programs-section').style.display = 'block';
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
+            document.getElementById('searchInput').value = '';
+            clearAISearch();
+            document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openMajorDetail(prog, noPush) {
+            currentDetailProg = prog;
+            document.getElementById('programs-section').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.add('open');
+            renderMajorDetail(prog);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!noPush) history.pushState({ view: 'detail', prog }, '', '#' + encodeURIComponent(prog));
+        }
+
+        function backFromDetail() {
+            document.getElementById('major-detail-section').classList.remove('open');
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('programs-section').style.display = 'block';
+            document.getElementById('programs-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderMajorDetail(prog) {
+            const jobs = globalData[prog] || [];
+            const info = programInfoData[prog] || {};
+            const meta = PROG_METADATA[prog] || {};
+            const icon = MAJOR_ICONS[prog] || 'fa-layer-group';
+            const cat = PROG_CATEGORY[prog] || 'tech';
+
+            // Salary aggregates
+            const salaryJobs = jobs.filter(j => j.salary_min > 0);
+            const avgMin = salaryJobs.length ? Math.round(salaryJobs.reduce((s,j)=>s+j.salary_min,0)/salaryJobs.length) : 0;
+            const avgMax = salaryJobs.length ? Math.round(salaryJobs.reduce((s,j)=>s+j.salary_max,0)/salaryJobs.length) : 0;
+            const highDemand = jobs.filter(j=>j.demand==='High').length;
+            const avgSalaryStr = avgMin > 0 ? `$${Math.round(avgMin/1000)}k–$${Math.round(avgMax/1000)}k` : 'Varies';
+
+            // Accent color per category
+            const catColors = {
+                tech: '#2563eb', engineering: '#d97706', business: '#059669',
+                science: '#0891b2', health: '#e11d48', social: '#7c3aed'
+            };
+            const catGradients = {
+                tech: 'linear-gradient(135deg,#00539F,#003366)',
+                engineering: 'linear-gradient(135deg,#b45309,#d97706)',
+                business: 'linear-gradient(135deg,#047857,#065f46)',
+                science: 'linear-gradient(135deg,#0e7490,#0891b2)',
+                health: 'linear-gradient(135deg,#dc2626,#e11d48)',
+                social: 'linear-gradient(135deg,#6d28d9,#7c3aed)'
+            };
+            const accent = catColors[cat] || catColors.tech;
+            const iconGrad = catGradients[cat] || catGradients.tech;
+            const credits = info.total_credits;
+
+            // STEM badge
+            const stemBadge = meta.stem
+                ? `<span class="md-badge stem-glow"><i class="fa-solid fa-atom"></i> DHS STEM</span>` : '';
+
+            // Glass stats
+            const creditsStatHtml = credits
+                ? `<div class="md-stat-glass"><span class="md-stat-glass-icon" style="color:#a78bfa;">🎓</span><div class="md-stat-glass-val">${credits}</div><div class="md-stat-glass-label">Credits Required</div></div>` : '';
+
+            // Specializations
+            const specsHtml = (meta.specializations || []).map((s,i) =>
+                `<div class="md-spec-chip"><span class="md-spec-num">${i+1}</span>${s}</div>`
+            ).join('');
+
+            // Program requirements — split by level
+            const coreUG   = info.core_undergrad      || [];
+            const coreGrad = info.core_grad            || [];
+            const elecUG   = info.electives_undergrad  || [];
+            const elecGrad = info.electives_grad       || [];
+
+            function courseGrid(courses, isGrad) {
+                if (!courses.length) return '<p class="md-panel-empty">No courses found.</p>';
+                return courses.map(c =>
+                    `<div class="md-course-card">
+                        <span class="md-course-badge${isGrad?' grad':''}">${c.code}</span>
+                        <span class="md-course-name">${c.title||c.code}</span>
+                    </div>`
+                ).join('');
+            }
+
+            function elecGrid(courses, isGrad) {
+                if (!courses.length) return '';
+                const rows = courses.map(c =>
+                    `<div class="md-elective-row">
+                        <span class="md-elective-code">${c.code}</span>
+                        <span class="md-elective-title">${c.title||c.code}</span>
+                    </div>`
+                ).join('');
+                return `<div class="md-electives-grid">${rows}</div>`;
+            }
+
+            // Build tabs based on what data actually exists
+            const levelDefs = [
+                { key:'ug',   label:'Undergraduate', hasCores: coreUG.length > 0,   coreList: coreUG,   elecList: elecUG,   isGrad: false },
+                { key:'grad', label:'Graduate',       hasCores: coreGrad.length > 0, coreList: coreGrad, elecList: elecGrad, isGrad: true  }
+            ].filter(d => d.hasCores || d.elecList.length > 0);
+
+            let curriculumBlock = '';
+            if (levelDefs.length > 0) {
+                const tabs = levelDefs.map((d, i) =>
+                    `<button class="md-year-tab ${i===0?'active':''}" onclick="switchMdYearTab('${d.key}',this)">${d.label} Courses</button>`
+                ).join('');
+                const panels = levelDefs.map((d, i) => {
+                    const coreHtml = d.hasCores
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">★ Program Courses</div>
+                           <div class="md-year-panel-grid">${courseGrid(d.coreList, d.isGrad)}</div>`
+                        : '';
+                    const elecHtml = d.elecList.length > 0
+                        ? `<div style="font-size:0.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-400);margin:18px 0 10px;">○ Related & Elective Courses</div>
+                           ${elecGrid(d.elecList, d.isGrad)}`
+                        : '';
+                    const empty = !coreHtml && !elecHtml
+                        ? '<p class="md-panel-empty">No course data available for this level.</p>' : '';
+                    return `<div class="md-year-panel${i===0?' active':''}" id="mdyp-${d.key}">${coreHtml}${elecHtml}${empty}</div>`;
+                }).join('');
+
+                curriculumBlock = `
+                    <div class="md-section-label"><i class="fa-solid fa-book-open"></i> Program Requirements</div>
+                    <div class="md-curriculum">
+                        <div class="md-year-tabs">${tabs}</div>
+                        ${panels}
+                    </div>`;
+            }
+
+            // Top careers with salary bars
+            const topJobs = jobs.slice(0, 4);
+            const MAX_SAL = 220000;
+            const careersHtml = topJobs.map(j => {
+                const sal = j.salary_min > 0 ? `$${Math.round(j.salary_min/1000)}k – $${Math.round(j.salary_max/1000)}k` : 'Varies';
+                const barPct = j.salary_max > 0 ? Math.min(100, Math.round(j.salary_max / MAX_SAL * 100)) : 40;
+                const demandCls = j.demand === 'High' ? 'high' : j.demand === 'Low' ? 'low' : 'medium';
+                const safeProg = prog.replace(/'/g,"\\'");
+                return `<div class="md-career-card" onclick="openProgram('${safeProg}')">
+                    <div class="md-career-top">
+                        <span class="md-career-title">${j.title}</span>
+                        <span class="md-career-salary">${sal}</span>
+                        <span class="md-demand-badge ${demandCls}"><span class="md-demand-dot"></span>${j.demand}</span>
+                    </div>
+                    <div class="md-salary-bar-wrap"><div class="md-salary-bar" style="width:${barPct}%"></div></div>
+                </div>`;
+            }).join('');
+
+            const safeProg = prog.replace(/'/g,"\\'");
+
+            document.getElementById('major-detail-body').innerHTML = `
+                <!-- Dark hero -->
+                <div class="md-hero" style="--accent-color:${accent}">
+                    <div class="md-blob md-blob-1" style="--accent-color:${accent}"></div>
+                    <div class="md-blob md-blob-2"></div>
+                    <div class="md-hero-inner">
+                        <div class="md-identity">
+                            <div class="md-icon-wrap">
+                                <div class="md-icon-glow" style="background:${iconGrad}"></div>
+                                <div class="md-icon" style="background:${iconGrad}"><i class="fa-solid ${icon}"></i></div>
+                            </div>
+                            <div class="md-text">
+                                <div class="md-prog-name">${prog}</div>
+                                <div class="md-college-line"><i class="fa-solid fa-building-columns" style="font-size:0.65rem;margin-right:6px;"></i>${meta.college||'University of Delaware'}</div>
+                                <div class="md-badges">
+                                    <span class="md-badge"><i class="fa-solid fa-scroll"></i> ${meta.degree||"Bachelor's"}</span>
+                                    ${stemBadge}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md-overview">
+                            <p>"${meta.overview||'Explore career paths, required courses, and electives for this program.'}"</p>
+                        </div>
+                        <div class="md-stats-row">
+                            <div class="md-stat-glass"><span class="md-stat-glass-icon">💼</span><div class="md-stat-glass-val">${jobs.length}</div><div class="md-stat-glass-label">Career Paths</div></div>
+                            <div class="md-stat-glass md-stat-salary"><span class="md-stat-glass-icon" style="color:#4ade80;">💰</span><div class="md-stat-glass-val">${avgSalaryStr}</div><div class="md-stat-glass-label">Avg Salary</div></div>
+                            <div class="md-stat-glass md-stat-demand"><span class="md-stat-glass-icon" style="color:var(--gold);">📈</span><div class="md-stat-glass-val">${highDemand}</div><div class="md-stat-glass-label">High-Demand Roles</div></div>
+                            ${creditsStatHtml}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Light content -->
+                <div class="md-content">
+                    <div class="md-content-inner">
+                        <div class="md-section-label"><i class="fa-solid fa-compass"></i> Areas of Study</div>
+                        <div class="md-specs-grid">${specsHtml}</div>
+
+                        ${curriculumBlock}
+
+                        <div class="md-section-label"><i class="fa-solid fa-star"></i> Top Career Paths</div>
+                        <div class="md-careers">
+                            <div class="md-career-grid">${careersHtml}</div>
+                        </div>
+
+                        <div class="md-cta-wrap">
+                            <button class="btn-explore-careers" onclick="openProgram('${safeProg}')">
+                                Explore All ${jobs.length} Careers <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Animate salary bars after render
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.md-salary-bar').forEach(bar => {
+                    const w = bar.style.width;
+                    bar.style.width = '0';
+                    requestAnimationFrame(() => { bar.style.width = w; });
+                });
+                // Always default to Undergraduate tab
+                const ugTab = document.getElementById('mdyp-ug');
+                const firstTab = document.querySelector('.md-year-tabs .md-year-tab');
+                if (ugTab && firstTab) {
+                    document.querySelectorAll('.md-year-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.md-year-panel').forEach(p => p.classList.remove('active'));
+                    firstTab.classList.add('active');
+                    ugTab.classList.add('active');
+                }
+            });
+        }
+
+        function switchMdYearTab(yearKey, btn) {
+            btn.closest('.md-year-tabs').querySelectorAll('.md-year-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            // panels are siblings after the tabs container
+            btn.closest('.md-curriculum').querySelectorAll('.md-year-panel').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('mdyp-' + yearKey);
+            if (target) target.classList.add('active');
+        }
+
+        function renderDashboard(data) {
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+            let jobIdCounter = 0;
+
+            for (const [major, jobs] of Object.entries(data)) {
+                const icon = MAJOR_ICONS[major] || 'fa-layer-group';
+                const sectionId = major.replace(/[\s()&/]+/g, '-');
+
+                let ugHtmlAll = '', gradHtmlAll = '';
+
+                let jobsHtml = '';
+                jobs.forEach(job => {
+                    const jobId = `job-${jobIdCounter++}`;
+
+                    let ugHtml = '<div class="ug-section">';
+                    ugHtml += '<div class="course-section-label"><i class="fa-solid fa-book"></i> Undergraduate Recommendations</div>';
+                    if (job.undergrad_courses && job.undergrad_courses.length > 0) {
+                        job.undergrad_courses.forEach(c => {
+                            const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                            ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
+                        });
+                    } else {
+                        ugHtml += `<p class="no-match">No undergraduate course matches found.</p>`;
+                    }
+                    ugHtml += '</div>';
+
+                    let gradHtml = '<div class="grad-section">';
+                    gradHtml += '<div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-graduation-cap"></i> Graduate Recommendations</div>';
+                    if (job.grad_courses && job.grad_courses.length > 0) {
+                        job.grad_courses.forEach(c => {
+                            const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                            gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
+                        });
+                    } else {
+                        gradHtml += `<p class="no-match">No graduate course matches found.</p>`;
+                    }
+                    gradHtml += '</div>';
+
+                    // Salary + demand
+                    const salaryStr = (job.salary_min && job.salary_max && job.salary_min > 0)
+                        ? `$${(job.salary_min/1000).toFixed(0)}k – $${(job.salary_max/1000).toFixed(0)}k`
+                        : 'Varies';
+                    const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
+
+                    const bookmarkKey = `${major}::${job.title}`;
+                    const isBookmarked = bookmarks.includes(bookmarkKey);
+
+                    const courseCodeStr = [...(job.undergrad_courses||[]),...(job.grad_courses||[])].map(c=>(c.code||'').toLowerCase()).join(' ');
+                    // Estimate GPA requirement
+                    const gpaReq = /research|scientist|phd|postdoc|professor|quant|actuar/i.test(job.title) ? 3.5
+                        : /analyst|consultant|finance|investment|law|audit/i.test(job.title) ? 3.3
+                        : 3.0;
+                    jobsHtml += `
+                        <div class="job-card" id="card-${jobId}" data-search="${job.title.toLowerCase()} ${job.description.toLowerCase()}" data-courses="${courseCodeStr}" data-bookmark-key="${bookmarkKey}" data-gpa="${gpaReq}" data-major="${major}" data-job-title="${job.title.replace(/"/g,'&quot;')}" data-salary-min="${job.salary_min||0}" data-salary-max="${job.salary_max||0}" data-demand="${job.demand||''}">
+                            <div class="job-card-header" onclick="toggleCourses('${jobId}')" style="cursor:pointer;">
+                                <h3 class="job-title">${job.title}</h3>
+                                <button class="btn-bookmark ${isBookmarked ? 'saved' : ''}" onclick="event.stopPropagation(); toggleBookmark('${bookmarkKey}', this)" title="${isBookmarked ? 'Remove bookmark' : 'Save job'}">
+                                    <i class="fa-${isBookmarked ? 'solid' : 'regular'} fa-star"></i>
+                                </button>
+                                <i class="fa-solid fa-chevron-down job-chevron"></i>
+                            </div>
+                            <p class="job-desc">${job.description}</p>
+                            <div class="job-meta">
+                                <span class="meta-salary"><i class="fa-solid fa-dollar-sign"></i> ${salaryStr}</span>
+                                <span class="meta-demand" style="color:${demandColor}"><i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> ${job.demand} Demand</span>
+                                <button class="btn-share" onclick="event.stopPropagation(); shareCareer('${major.replace(/'/g,"\\'")}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-share-nodes"></i> Share
+                                </button>
+                                <button class="btn-compare" id="cmp-${jobId}" onclick="event.stopPropagation(); toggleCompare('${jobId}', '${major.replace(/'/g,"\\'")}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-scale-balanced"></i> Compare
+                                </button>
+                                <button class="btn-roadmap" onclick="event.stopPropagation(); openRoadmap('${major}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-route"></i> Roadmap
+                                </button>
+                            </div>
+                            <div class="course-list" id="${jobId}" onclick="event.stopPropagation()">
+                                <button class="btn-ai-match" id="ai-btn-${jobId}" onclick="event.stopPropagation(); getAIMatch('${jobId}', '${major}', '${job.title.replace(/'/g,"\\'")}')">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI Course Match
+                                    <span class="ai-match-badge">Smarter</span>
+                                </button>
+                                ${ugHtml}
+                                ${gradHtml}
+                            </div>
+                        </div>`;
+                });
+
+                container.innerHTML += `
+                    <div class="major-section" id="section-${sectionId}">
+                        <div class="major-header">
+                            <div class="major-icon"><i class="fa-solid ${icon}"></i></div>
+                            <h2 class="major-title">${major}</h2>
+                            <span class="major-count">${jobs.length} careers</span>
+                        </div>
+                        <div class="jobs-grid">${jobsHtml}</div>
+                    </div>`;
+            }
+        }
+
+        // ── SEARCH ──
+        let fuseInstance = null;
+        let aiSearchTimer = null;
+        let aiSearchActive = false;
+
+        function initFuse() {
+            const jobs = [];
+            for (const [prog, jobList] of Object.entries(globalData)) {
+                jobList.forEach(job => jobs.push({
+                    title: job.title,
+                    description: job.description,
+                    program: prog
+                }));
+            }
+            fuseInstance = new Fuse(jobs, {
+                keys: [
+                    { name: 'title', weight: 0.7 },
+                    { name: 'description', weight: 0.2 },
+                    { name: 'program', weight: 0.1 }
+                ],
+                threshold: 0.4,  // tolerates typos
+                includeScore: true
+            });
+        }
+
+        function onSearchInput() {
+            const query = document.getElementById('searchInput').value.trim();
+            showSuggestions();
+
+            if (!query) {
+                clearAISearch();
+                showAllCards();
+                return;
+            }
+
+            // Detect course code pattern e.g. "CISC 637", "MATH241", "cisc637"
+            const courseCodeMatch = query.match(/^([A-Za-z]{2,5})\s*(\d{3,4}[A-Za-z]?)$/);
+            if (courseCodeMatch) {
+                const normalized = (courseCodeMatch[1] + ' ' + courseCodeMatch[2]).toLowerCase();
+                filterJobsByCourse(normalized);
+                return;
+            }
+
+            // Always do instant fuzzy filter
+            filterJobsFuzzy(query);
+
+            // Debounce AI search for natural language queries
+            clearTimeout(aiSearchTimer);
+            const wordCount = query.split(/\s+/).length;
+            const isNaturalLanguage = wordCount >= 4 || /[?!,]/.test(query) ||
+                /\b(want|like|love|help|pay|salary|remote|government|creative|fast|easy|hard)\b/i.test(query);
+
+            if (isNaturalLanguage && query.length > 8) {
+                aiSearchTimer = setTimeout(() => runAISearch(query), 1500);
+            }
+        }
+
+        function filterJobsByCourse(courseCode) {
+            clearAISearch();
+            const noSpace = courseCode.replace(/\s/g, '');
+            let totalVisible = 0;
+
+            // First pass: filter whatever is currently rendered
+            document.querySelectorAll('.major-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.job-card').forEach(card => {
+                    const codes = card.getAttribute('data-courses') || '';
+                    const match = codes.includes(courseCode) || codes.includes(noSpace);
+                    card.classList.toggle('hidden', !match);
+                    if (match) { hasVisible = true; totalVisible++; }
+                });
+                section.classList.toggle('hidden', !hasVisible);
+            });
+
+            // If nothing found in current program, expand to all programs and re-filter
+            if (totalVisible === 0 && Object.keys(globalData).length > 0) {
+                const currentTitle = document.getElementById('jobs-view-title').textContent;
+                document.getElementById('jobs-view-title').textContent = 'Course: ' + courseCode.toUpperCase();
+                renderDashboard(globalData);
+                totalVisible = 0;
+                document.querySelectorAll('.major-section').forEach(section => {
+                    let hasVisible = false;
+                    section.querySelectorAll('.job-card').forEach(card => {
+                        const codes = card.getAttribute('data-courses') || '';
+                        const match = codes.includes(courseCode) || codes.includes(noSpace);
+                        card.classList.toggle('hidden', !match);
+                        if (match) { hasVisible = true; totalVisible++; }
+                    });
+                    section.classList.toggle('hidden', !hasVisible);
+                });
+            }
+
+            document.getElementById('visible-count').textContent = totalVisible;
+        }
+
+        function filterJobsFuzzy(query) {
+            if (!fuseInstance || !query) { showAllCards(); return; }
+            const results = fuseInstance.search(query);
+            const matchedTitles = new Set(results.map(r => r.item.title));
+
+            document.querySelectorAll('.major-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.job-card').forEach(card => {
+                    const title = card.querySelector('.job-title')?.textContent || '';
+                    const match = matchedTitles.has(title);
+                    card.classList.toggle('hidden', !match);
+                    if (match) hasVisible = true;
+                });
+                section.classList.toggle('hidden', !hasVisible);
+            });
+            updateVisibleCount();
+        }
+
+        function showAllCards() {
+            document.querySelectorAll('.major-section').forEach(s => {
+                s.classList.remove('hidden');
+                s.querySelectorAll('.job-card').forEach(c => c.classList.remove('hidden'));
+            });
+            updateVisibleCount();
+        }
+
+        function filterJobs() {
+            onSearchInput();
+        }
+
+        async function runAISearch(query) {
+            const panel = document.getElementById('ai-search-panel');
+            const grid = document.getElementById('ai-results-grid');
+            panel.classList.add('open');
+            grid.innerHTML = '<div class="ai-searching"><i class="fa-solid fa-circle-notch fa-spin" style="font-size:1.5rem;color:var(--blue);display:block;margin-bottom:10px;"></i>AI is understanding what you mean...</div>';
+            document.getElementById('ai-search-intent-text').textContent = 'Analyzing your search...';
+            aiSearchActive = true;
+
+            try {
+                const res = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+                const data = await res.json();
+                if (!aiSearchActive) return;
+
+                document.getElementById('ai-search-intent-text').innerHTML =
+                    `<strong>AI understood:</strong> ${data.interpreted_as || query}`;
+
+                if (!data.results?.length) {
+                    grid.innerHTML = '<div class="ai-searching">No results found. Try a different search.</div>';
+                    return;
+                }
+
+                grid.innerHTML = data.results.map(job => {
+                    const salary = job.salary_min ? `$${Math.round(job.salary_min/1000)}k–$${Math.round(job.salary_max/1000)}k` : 'Varies';
+                    const demandColor = job.demand === 'High' ? 'var(--green)' : job.demand === 'Low' ? '#dc2626' : '#d97706';
+                    return `<div class="ai-result-card" onclick="scrollToJob('${job.title.replace(/'/g,"\\'")}', '${(job.program||'').replace(/'/g,"\\'")}')">
+                        <div class="ai-result-title">${job.title}</div>
+                        <div class="ai-result-prog"><i class="fa-solid fa-graduation-cap" style="font-size:0.65rem;"></i> ${job.program}</div>
+                        <div class="ai-result-desc">${job.description}</div>
+                        <div class="ai-result-meta">
+                            <span style="color:var(--green);">${salary}</span>
+                            <span style="color:${demandColor};">${job.demand} Demand</span>
+                        </div>
+                    </div>`;
+                }).join('');
+            } catch (e) {
+                grid.innerHTML = '<div class="ai-searching">Search failed. Try again.</div>';
+            }
+        }
+
+        function scrollToJob(title, program) {
+            clearAISearch();
+            // Find the card by title in already-rendered cards
+            let target = null;
+            document.querySelectorAll('.job-card').forEach(card => {
+                const t = card.querySelector('.job-title')?.textContent?.trim();
+                if (t === title) target = card;
+            });
+            if (target) {
+                target.classList.remove('hidden');
+                target.closest('.major-section')?.classList.remove('hidden');
+                setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            } else if (program && globalData[program]) {
+                // Job is in a different program — open that program then scroll to the card
+                openProgram(program);
+                setTimeout(() => {
+                    let card = null;
+                    document.querySelectorAll('.job-card').forEach(c => {
+                        const t = c.querySelector('.job-title')?.textContent?.trim();
+                        if (t === title) card = c;
+                    });
+                    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 400);
+            }
+        }
+
+        function clearAISearch() {
+            aiSearchActive = false;
+            document.getElementById('ai-search-panel').classList.remove('open');
+        }
+
+        // ── CHAT ──
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            const win = document.getElementById('chat-window');
+            const btn = document.getElementById('chat-toggle');
+            win.style.display = chatOpen ? 'flex' : 'none';
+            btn.innerHTML = chatOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-comment-dots"></i>';
+            if (chatOpen) document.getElementById('chat-input').focus();
+        }
+
+        function renderMarkdown(text) {
+            // Escape HTML first
+            let s = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            // Strip horizontal rules
+            s = s.replace(/^---+$/gm, '<hr>');
+            // Headings ## and ###
+            s = s.replace(/^###\s+(.+)$/gm, '<h3>$1</h3>');
+            s = s.replace(/^##\s+(.+)$/gm, '<h3>$1</h3>');
+            s = s.replace(/^#\s+(.+)$/gm, '<h3>$1</h3>');
+            // Bold **text** and __text__
+            s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            s = s.replace(/__(.+?)__/g, '<strong>$1</strong>');
+            // Italic *text*
+            s = s.replace(/\*(.+?)\*/g, '<em>$1</em>');
+            // Course codes like CISC 681 → styled tag
+            s = s.replace(/\b([A-Z]{2,5})\s+(\d{3,4})\b/g, '<span class="course-tag">$1 $2</span>');
+            // Bullet lists (- item or • item)
+            s = s.replace(/^[\-•○]\s+(.+)$/gm, '<li>$1</li>');
+            s = s.replace(/(<li>.*<\/li>)/s, (m) => '<ul>' + m + '</ul>');
+            // Wrap consecutive <li> blocks
+            s = s.replace(/(<\/li>\n?<li>)/g, '</li><li>');
+            s = s.replace(/(?<!<ul>)(<li>)/g, '<ul><li>').replace(/(<\/li>)(?!<\/ul>|<li>)/g, '</li></ul>');
+            // Paragraphs from double newlines
+            const parts = s.split(/\n{2,}/);
+            s = parts.map(p => {
+                p = p.trim();
+                if (!p) return '';
+                if (/^<(h3|ul|hr|li)/.test(p)) return p;
+                p = p.replace(/\n/g, '<br>');
+                return `<p>${p}</p>`;
+            }).join('');
+            return s;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            input.value = '';
+            appendMsg('user', text);
+            chatHistory.push({ role: 'user', content: text });
+
+            const sendBtn = document.getElementById('chat-send');
+            sendBtn.disabled = true;
+            const typingEl = appendMsg('assistant', null, true);
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ messages: chatHistory })
+                });
+                const data = await res.json();
+                const reply = data.reply || data.error || 'Something went wrong.';
+                typingEl.classList.remove('typing');
+                typingEl.innerHTML = renderMarkdown(reply);
+                chatHistory.push({ role: 'assistant', content: reply });
+            } catch (e) {
+                typingEl.innerHTML = 'Could not reach the server.';
+            }
+
+            sendBtn.disabled = false;
+            input.focus();
+        }
+
+        function appendMsg(role, text, isTyping = false) {
+            const msgs = document.getElementById('chat-messages');
+            const row = document.createElement('div');
+            row.className = `chat-msg-row ${role}`;
+
+            const avatarEl = document.createElement('div');
+            avatarEl.className = 'chat-msg-avatar';
+            avatarEl.innerHTML = role === 'user'
+                ? '<i class="fa-solid fa-user"></i>'
+                : '<i class="fa-solid fa-robot"></i>';
+
+            const bubble = document.createElement('div');
+            bubble.className = `chat-msg ${role}${isTyping ? ' typing' : ''}`;
+
+            if (isTyping) {
+                bubble.innerHTML = '<div class="chat-typing-dots"><span></span><span></span><span></span></div>';
+            } else if (role === 'assistant') {
+                bubble.innerHTML = renderMarkdown(text);
+            } else {
+                bubble.textContent = text;
+            }
+
+            if (role === 'user') {
+                row.appendChild(avatarEl);
+                row.insertBefore(bubble, avatarEl);
+            } else {
+                row.appendChild(avatarEl);
+                row.appendChild(bubble);
+            }
+
+            msgs.appendChild(row);
+            msgs.scrollTop = msgs.scrollHeight;
+            return bubble;
+        }
+
+        // ── PROFILE ──
+        let selectedAvatarColor = '#3b82f6';
+
+        function selectAvatarColor(el) {
+            selectedAvatarColor = el.dataset.color;
+            document.querySelectorAll('.avatar-color-swatch').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+            const ring = document.getElementById('profile-modal-avatar');
+            if (ring) ring.style.background = selectedAvatarColor;
+        }
+
+        function updateProfilePreview() {
+            const name = document.getElementById('pf-name').value.trim();
+            const ring = document.getElementById('profile-modal-avatar');
+            if (!ring) return;
+            if (name) {
+                const parts = name.split(' ');
+                const initials = parts.length >= 2
+                    ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+                    : name.slice(0, 2).toUpperCase();
+                ring.innerHTML = initials;
+                ring.classList.remove('no-name');
+            } else {
+                ring.innerHTML = '<i class="fa-solid fa-user"></i>';
+                ring.classList.add('no-name');
+            }
+            ring.style.background = selectedAvatarColor;
+            updateCompleteness();
+        }
+
+        function updateCompleteness() {
+            const fields = [
+                document.getElementById('pf-name')?.value.trim(),
+                document.getElementById('pf-major')?.value,
+                document.getElementById('pf-year')?.value,
+                document.getElementById('pf-courses')?.value.trim(),
+                document.getElementById('pf-gpa')?.value.trim(),
+                document.getElementById('pf-gradyear')?.value,
+                document.querySelectorAll('.interest-chip.selected').length > 0 ? 'yes' : ''
+            ];
+            const filled = fields.filter(Boolean).length;
+            const pct = Math.round((filled / fields.length) * 100);
+            const fill = document.getElementById('completeness-fill');
+            const pctEl = document.getElementById('completeness-pct');
+            if (fill) fill.style.width = pct + '%';
+            if (pctEl) pctEl.textContent = pct + '%';
+        }
+
+        function toggleInterest(el) {
+            el.classList.toggle('selected');
+            updateCompleteness();
+        }
+
+        function updateNavProfileBtn() {
+            const btn = document.getElementById('btn-profile');
+            const content = document.getElementById('profile-btn-content');
+            if (!btn || !content) return;
+            if (userProfile && userProfile.name) {
+                const parts = userProfile.name.split(' ');
+                const initials = parts.length >= 2
+                    ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+                    : userProfile.name.slice(0, 2).toUpperCase();
+                content.textContent = initials;
+                btn.classList.add('has-avatar');
+                btn.style.background = userProfile.avatarColor || '#3b82f6';
+            } else {
+                content.innerHTML = '<i class="fa-solid fa-user"></i>';
+                btn.classList.remove('has-avatar');
+                btn.style.background = '';
+            }
+        }
+
+        function openProfile() {
+            const sel = document.getElementById('pf-major');
+            sel.innerHTML = Object.keys(globalData).map(p => `<option>${p}</option>`).join('');
+            if (userProfile) {
+                document.getElementById('pf-name').value = userProfile.name || '';
+                sel.value = userProfile.major || '';
+                document.getElementById('pf-year').value = userProfile.year || 'Freshman';
+                document.getElementById('pf-courses').value = userProfile.courses || '';
+                document.getElementById('pf-gpa').value = userProfile.gpa || '';
+                document.getElementById('pf-gradyear').value = userProfile.gradYear || '';
+                // Restore avatar color
+                const color = userProfile.avatarColor || '#3b82f6';
+                selectedAvatarColor = color;
+                document.querySelectorAll('.avatar-color-swatch').forEach(s => {
+                    s.classList.toggle('selected', s.dataset.color === color);
+                });
+                // Restore interest chips
+                const interests = userProfile.interests || [];
+                document.querySelectorAll('.interest-chip').forEach(chip => {
+                    chip.classList.toggle('selected', interests.includes(chip.dataset.interest));
+                });
+            } else {
+                // Reset to defaults
+                selectedAvatarColor = '#3b82f6';
+                document.querySelectorAll('.avatar-color-swatch').forEach(s => s.classList.toggle('selected', s.dataset.color === '#3b82f6'));
+                document.querySelectorAll('.interest-chip').forEach(chip => chip.classList.remove('selected'));
+                document.getElementById('pf-gpa').value = '';
+                document.getElementById('pf-gradyear').value = '';
+            }
+            updateProfilePreview();
+            updateCompleteness();
+            document.getElementById('profile-overlay').classList.add('open');
+        }
+
+        function closeProfile() {
+            document.getElementById('profile-overlay').classList.remove('open');
+        }
+
+        function saveProfile() {
+            const interests = [...document.querySelectorAll('.interest-chip.selected')].map(c => c.dataset.interest);
+            userProfile = {
+                name:        document.getElementById('pf-name').value.trim(),
+                major:       document.getElementById('pf-major').value,
+                year:        document.getElementById('pf-year').value,
+                courses:     document.getElementById('pf-courses').value.trim(),
+                gpa:         document.getElementById('pf-gpa').value.trim(),
+                gradYear:    document.getElementById('pf-gradyear').value,
+                interests,
+                avatarColor: selectedAvatarColor
+            };
+            localStorage.setItem('pf_profile', JSON.stringify(userProfile));
+            updateNavProfileBtn();
+            closeProfile();
+            const existing = document.getElementById('profile-banner');
+            if (existing) existing.remove();
+            if (userProfile.major && globalData[userProfile.major]) {
+                openProgram(userProfile.major);
+            } else {
+                applyProfileToUI();
+            }
+        }
+
+        function clearProfile() {
+            userProfile = null;
+            localStorage.removeItem('pf_profile');
+            document.getElementById('profile-dot').classList.remove('active');
+            document.getElementById('app-container').classList.remove('view-ug', 'view-grad');
+            ['pf-name','pf-courses','pf-gpa'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+            document.getElementById('pf-gradyear').value = '';
+            document.querySelectorAll('.interest-chip').forEach(c => c.classList.remove('selected'));
+            updateNavProfileBtn();
+            updateCompleteness();
+            clearProfileFilter();
+        }
+        function applyProfileToUI() {
+            if (!userProfile) return;
+            document.getElementById('profile-dot').classList.add('active');
+            updateNavProfileBtn();
+
+            // Auto-apply course level filter based on year
+            const container = document.getElementById('app-container');
+            container.classList.remove('view-ug', 'view-grad');
+            if (userProfile.year === 'Graduate Student') {
+                container.classList.add('view-grad');
+                document.getElementById('tab-grad')?.classList.add('active');
+                document.getElementById('tab-all')?.classList.remove('active');
+            }
+
+            const major = userProfile.major;
+            if (!major) return;
+
+            // Only show the banner if jobs section is visible
+            if (document.getElementById('jobs-section').style.display !== 'block') return;
+
+            const existing = document.getElementById('profile-banner');
+            if (!existing) {
+                const banner = document.createElement('div');
+                banner.id = 'profile-banner';
+                banner.style.cssText = 'background:#e8f0fb;border:1px solid #c5d8f0;border-radius:10px;padding:12px 18px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.875rem;';
+                const interestTags = (userProfile.interests || []).map(i =>
+                    `<span style="background:rgba(0,83,159,0.12);color:var(--blue);border-radius:99px;padding:2px 8px;font-size:0.72rem;font-weight:600;">${i}</span>`
+                ).join('');
+                const metaLine = [
+                    userProfile.gpa ? `GPA ${userProfile.gpa}` : '',
+                    userProfile.gradYear ? `Class of ${userProfile.gradYear}` : ''
+                ].filter(Boolean).join(' · ');
+                banner.innerHTML = `
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <div style="width:36px;height:36px;border-radius:50%;background:${userProfile.avatarColor||'var(--blue)'};display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:white;flex-shrink:0;">
+                            ${userProfile.name ? userProfile.name.split(' ').filter(p=>p).map(p=>p[0]).slice(0,2).join('').toUpperCase() : '<i class="fa-solid fa-user" style="font-size:0.75rem;"></i>'}
+                        </div>
+                        <div>
+                            <strong style="color:var(--blue-dark);">${userProfile.name ? userProfile.name + ' · ' : ''}${userProfile.year} in ${major}</strong>
+                            ${metaLine ? `<div style="color:var(--gray-600);font-size:0.75rem;">${metaLine}</div>` : ''}
+                            ${interestTags ? `<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;">${interestTags}</div>` : ''}
+                            <div style="color:var(--gray-600);font-size:0.78rem;margin-top:3px;">Showing careers for your program. <a href="#" onclick="clearProfileFilter(); return false;" style="color:var(--blue);">Browse all</a></div>
+                        </div>
+                    </div>
+                    <button onclick="openProfile()" style="background:var(--blue);color:white;border:none;border-radius:6px;padding:6px 12px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:inherit;flex-shrink:0;">Edit Profile</button>`;
+                document.getElementById('app-container').prepend(banner);
+            }
+            updateVisibleCount();
+        }
+
+        function clearProfileFilter() {
+            document.querySelectorAll('.major-section').forEach(s => s.classList.remove('hidden'));
+            const banner = document.getElementById('profile-banner');
+            if (banner) banner.remove();
+            updateVisibleCount();
+        }
+
+        // ── BOOKMARKS ──
+        function toggleBookmark(key, btn) {
+            const idx = bookmarks.indexOf(key);
+            if (idx === -1) {
+                bookmarks.push(key);
+                btn.classList.add('saved');
+                btn.innerHTML = '<i class="fa-solid fa-star"></i>';
+            } else {
+                bookmarks.splice(idx, 1);
+                btn.classList.remove('saved');
+                btn.innerHTML = '<i class="fa-regular fa-star"></i>';
+                if (currentView === 'bookmarks') {
+                    btn.closest('.job-card').classList.add('hidden');
+                    updateVisibleCount();
+                }
+            }
+            localStorage.setItem('pf_bookmarks', JSON.stringify(bookmarks));
+        }
+
+        // ── AI COURSE MATCH ──
+        async function getAIMatch(jobId, major, jobTitle) {
+            const btn = document.getElementById(`ai-btn-${jobId}`);
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Matching with AI...';
+
+            try {
+                const res = await fetch('/api/ai-match', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ job_title: jobTitle, program: major })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+
+                const container = document.getElementById(jobId);
+
+                // Rebuild course sections with AI results
+                let ugHtml = '<div class="ug-section"><div class="course-section-label"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--blue)"></i> AI-Matched Undergraduate Courses</div>';
+                if (data.undergrad_courses?.length) {
+                    data.undergrad_courses.forEach(c => {
+                        const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                        ugHtml += `<div class="course-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
+                    });
+                } else {
+                    ugHtml += '<p class="no-match">No undergraduate matches found.</p>';
+                }
+                ugHtml += '</div>';
+
+                let gradHtml = '<div class="grad-section"><div class="course-section-label" style="margin-top:14px;"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--blue)"></i> AI-Matched Graduate Courses</div>';
+                if (data.grad_courses?.length) {
+                    data.grad_courses.forEach(c => {
+                        const coreBadge = c.is_core ? `<span class="core-badge">&#11088; Core</span>` : '';
+                        gradHtml += `<div class="course-chip grad-chip"><i class="fa-solid fa-circle-dot"></i>${c.title}${coreBadge}</div>`;
+                    });
+                } else {
+                    gradHtml += '<p class="no-match">No graduate matches found.</p>';
+                }
+                gradHtml += '</div>';
+
+                btn.outerHTML = '<div style="font-size:0.75rem;color:var(--blue);font-weight:600;margin-bottom:10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-powered matches</div>';
+                container.querySelectorAll('.ug-section, .grad-section').forEach(el => el.remove());
+                container.insertAdjacentHTML('beforeend', ugHtml + gradHtml);
+            } catch (e) {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> AI Course Match <span class="ai-match-badge">Retry</span>';
+            }
+        }
+
+        loadData();
+
+        // Run counter animation when hero scrolls into view
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { initCounters(); heroObserver.disconnect(); } });
+        }, { threshold: 0.3 });
+        const heroEl = document.querySelector('.hero');
+        if (heroEl) heroObserver.observe(heroEl);
+
+        // ── PAGE NAVIGATION ──
+        const homeSections = ['hero-section', 'how-section-el', 'programs-section'];
+
+        function showHome(noPush) {
+            document.getElementById('courses-section').classList.remove('open');
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('.how-section').style.display = 'block';
+            document.getElementById('programs-section').style.display = 'block';
+            document.getElementById('nav-home').classList.add('active');
+            document.getElementById('nav-courses-link').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!noPush) history.pushState({ view: 'home' }, '', '/');
+        }
+
+        function showCoursesPage(noPush) {
+            // Hide home sections
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.how-section').style.display = 'none';
+            document.getElementById('programs-section').style.display = 'none';
+            document.getElementById('jobs-section').style.display = 'none';
+            document.getElementById('jobs-view-header').style.display = 'none';
+            document.getElementById('major-detail-section').classList.remove('open');
+            // Show courses
+            document.getElementById('courses-section').classList.add('open');
+            document.getElementById('nav-home').classList.remove('active');
+            document.getElementById('nav-courses-link').classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (!coursesLoaded) loadCourses(1);
+            if (!noPush) history.pushState({ view: 'courses' }, '', '#courses');
+        }
+
+        // Browser back/forward support
+        window.addEventListener('popstate', function(e) {
+            const state = e.state || { view: 'home' };
+            if (state.view === 'home') showHome(true);
+            else if (state.view === 'courses') showCoursesPage(true);
+            else if (state.view === 'detail') openMajorDetail(state.prog, true);
+            else if (state.view === 'jobs') openProgram(state.prog, true);
+        });
+
+        // Set initial history state on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            history.replaceState({ view: 'home' }, '', window.location.pathname);
+        });
+
+        // ── COURSES EXPLORER ──
+        let coursesLoaded = false;
+        let currentCoursePage = 1;
+        let totalCoursePages = 1;
+        let courseSearchTimer = null;
+
+        async function loadCourses(page) {
+            currentCoursePage = page;
+            const q     = document.getElementById('course-search').value.trim();
+            const dept  = document.getElementById('course-dept').value;
+            const level = document.getElementById('course-level').value;
+
+            const grid = document.getElementById('courses-grid');
+            if (page === 1) {
+                grid.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>Loading courses...</p></div>';
+            }
+
+            const params = new URLSearchParams({ page, q, dept, level });
+            const res = await fetch(`/api/courses?${params}`);
+            const data = await res.json();
+
+            coursesLoaded = true;
+            totalCoursePages = data.pages;
+            document.getElementById('course-total').textContent = data.total.toLocaleString();
+
+            // Populate dept dropdown on first load
+            if (page === 1 && data.depts?.length) {
+                const sel = document.getElementById('course-dept');
+                const current = sel.value;
+                sel.innerHTML = '<option value="">All Departments</option>' +
+                    data.depts.map(d => `<option value="${d}" ${d === current ? 'selected' : ''}>${d}</option>`).join('');
+            }
+
+            const cards = data.courses.map(c => {
+                const isGrad = c.level === 'grad';
+                const parts = c.title.split(' - ');
+                const titlePart = parts.slice(1).join(' - ') || c.title;
+                const desc = c.description
+                    ? `<p class="course-card-desc">${c.description}</p>`
+                    : `<p class="course-card-desc no-desc">No description available.</p>`;
+                return `<div class="course-card">
+                    <div class="course-card-header">
+                        <span class="course-code-badge ${isGrad ? 'grad' : ''}">${c.code}</span>
+                        <div class="course-card-title">${titlePart}</div>
+                    </div>
+                    ${desc}
+                    <div class="course-card-dept"><i class="fa-solid fa-building-columns" style="font-size:0.65rem;"></i> ${c.dept} · ${isGrad ? 'Graduate' : 'Undergraduate'}</div>
+                </div>`;
+            }).join('');
+
+            if (page === 1) {
+                grid.innerHTML = cards || '<div class="loading-state"><p>No courses found.</p></div>';
+            } else {
+                grid.insertAdjacentHTML('beforeend', cards);
+            }
+
+            const wrap = document.getElementById('load-more-wrap');
+            const btn = document.getElementById('btn-load-more');
+            if (data.pages > page) {
+                wrap.style.display = 'block';
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fa-solid fa-circle-plus"></i> Load More (${data.total - page * 48 > 0 ? data.total - page * 48 : ''} remaining)`;
+            } else {
+                wrap.style.display = data.total > 48 ? 'block' : 'none';
+                btn.disabled = true;
+                btn.innerHTML = 'All courses loaded';
+            }
+        }
+
+        function loadMoreCourses() {
+            loadCourses(currentCoursePage + 1);
+        }
+
+        function debounceCourseSearch() {
+            clearTimeout(courseSearchTimer);
+            courseSearchTimer = setTimeout(() => loadCourses(1), 400);
+        }
+
+        // ── ABOUT MODAL ──
+        function openAbout() {
+            document.getElementById('about-overlay').classList.add('open');
+        }
+        function closeAbout() {
+            document.getElementById('about-overlay').classList.remove('open');
+        }
+
+        // ── SEARCH SUGGESTIONS ──
+        let suggestionIndex = -1;
+
+        function showSuggestions() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const box = document.getElementById('search-suggestions');
+            if (!query || query.length < 2) { box.classList.remove('open'); return; }
+
+            const matches = [];
+            for (const [prog, jobs] of Object.entries(globalData)) {
+                for (const job of jobs) {
+                    if (job.title.toLowerCase().includes(query)) {
+                        matches.push({ title: job.title, prog });
+                        if (matches.length >= 8) break;
+                    }
+                }
+                if (matches.length >= 8) break;
+            }
+
+            if (!matches.length) { box.classList.remove('open'); return; }
+
+            box.innerHTML = matches.map((m, i) =>
+                `<div class="suggestion-item" onmousedown="selectSuggestion('${m.title.replace(/'/g,"\\'")}')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    ${m.title}
+                    <span class="suggestion-prog">${m.prog}</span>
+                </div>`
+            ).join('');
+            box.classList.add('open');
+            suggestionIndex = -1;
+        }
+
+        function selectSuggestion(title) {
+            document.getElementById('searchInput').value = title;
+            document.getElementById('search-suggestions').classList.remove('open');
+            filterJobs();
+        }
+
+        function handleSearchKey(e) {
+            const box = document.getElementById('search-suggestions');
+            const items = box.querySelectorAll('.suggestion-item');
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                suggestionIndex = Math.min(suggestionIndex + 1, items.length - 1);
+                items.forEach((el, i) => el.style.background = i === suggestionIndex ? 'var(--gray-100)' : '');
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                suggestionIndex = Math.max(suggestionIndex - 1, -1);
+                items.forEach((el, i) => el.style.background = i === suggestionIndex ? 'var(--gray-100)' : '');
+            } else if (e.key === 'Enter' && suggestionIndex >= 0) {
+                items[suggestionIndex]?.dispatchEvent(new MouseEvent('mousedown'));
+            } else if (e.key === 'Escape') {
+                box.classList.remove('open');
+            }
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.search-wrap')) {
+                document.getElementById('search-suggestions').classList.remove('open');
+            }
+        });
+
+        // ── ROADMAP ──
+        let roadmapMajor = '', roadmapCareer = '';
+
+        function openRoadmap(major, career) {
+            roadmapMajor = major;
+            roadmapCareer = career;
+            document.getElementById('roadmap-title').textContent = career;
+            document.getElementById('roadmap-subtitle').textContent = `${major} → ${career}`;
+            document.getElementById('roadmap-body').innerHTML = '<div class="placeholder">Fill in your details above and click Generate to get your personalized roadmap.</div>';
+            // Pre-fill from profile
+            if (userProfile) {
+                document.getElementById('roadmap-year').value = userProfile.year || 'Freshman';
+                document.getElementById('roadmap-completed').value = userProfile.courses || '';
+            }
+            document.getElementById('roadmap-overlay').classList.add('open');
+        }
+
+        function closeRoadmap() {
+            document.getElementById('roadmap-overlay').classList.remove('open');
+        }
+
+        async function generateRoadmap() {
+            const year      = document.getElementById('roadmap-year').value;
+            const completed = document.getElementById('roadmap-completed').value;
+            const btn       = document.getElementById('btn-gen-roadmap');
+            const body      = document.getElementById('roadmap-body');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Building your plan...';
+            body.innerHTML = `<div class="placeholder" style="padding:48px 0;">
+                <i class="fa-solid fa-circle-notch fa-spin" style="font-size:1.6rem;color:var(--blue);display:block;margin-bottom:14px;"></i>
+                AI is designing your semester-by-semester plan for <strong>${roadmapCareer}</strong>…
+            </div>`;
+
+            try {
+                const res = await fetch('/api/roadmap', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ major: roadmapMajor, career: roadmapCareer, year, completed_courses: completed })
+                });
+                const data = await res.json();
+                if (data.roadmap_json) {
+                    body.innerHTML = renderRoadmapJSON(data.roadmap_json, year);
+                } else if (data.roadmap) {
+                    body.innerHTML = renderRoadmapFallback(data.roadmap);
+                } else if (data.error) {
+                    body.innerHTML = `<div class="placeholder">${data.error}</div>`;
+                } else {
+                    body.innerHTML = '<div class="placeholder">Could not generate roadmap. Try again.</div>';
+                }
+            } catch (e) {
+                body.innerHTML = '<div class="placeholder">Server error — please try again.</div>';
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> Regenerate';
+        }
+
+        function renderRoadmapJSON(data, yearLabel) {
+            const semesters = data.semesters || [];
+            const outlook   = data.outlook || '';
+
+            if (!semesters.length) return '<div class="placeholder">No semesters returned. Try again.</div>';
+
+            const totalCourses = semesters.reduce((s, sem) => s + (sem.courses||[]).length, 0);
+            const totalCredits = semesters.reduce((s, sem) =>
+                s + (sem.courses||[]).reduce((cs, c) => cs + (parseInt(c.credits)||3), 0), 0);
+
+            const yearIcons = {
+                'Freshman': 'seedling', 'Sophomore': 'book-open', 'Junior': 'graduation-cap',
+                'Senior': 'star', 'Graduate Year 1': 'flask', 'Graduate Year 2': 'microscope'
+            };
+            const icon = yearIcons[yearLabel] || 'calendar';
+            const displayLabel = yearLabel || 'Your Year';
+
+            let html = `<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:18px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">
+                <i class="fa-solid fa-${icon}"></i>
+            </div>
+            <div>
+                <div style="font-size:1rem;font-weight:800;color:var(--blue-dark);letter-spacing:-0.3px;">${displayLabel} Course Plan</div>
+                <div style="font-size:0.75rem;color:var(--gray-400);margin-top:1px;">AI-generated · UDel courses only</div>
+            </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <div style="background:#f0f6ff;border:1px solid #c5d8f0;border-radius:8px;padding:5px 12px;font-size:0.75rem;font-weight:600;color:var(--blue-dark);">${semesters.length} Semesters</div>
+            <div style="background:#f0f6ff;border:1px solid #c5d8f0;border-radius:8px;padding:5px 12px;font-size:0.75rem;font-weight:600;color:var(--blue-dark);">${totalCourses} Courses</div>
+            <div style="background:#f0f6ff;border:1px solid #c5d8f0;border-radius:8px;padding:5px 12px;font-size:0.75rem;font-weight:600;color:var(--blue-dark);">~${totalCredits} Credits</div>
+        </div>
+    </div>`;
+
+            html += '<div class="roadmap-timeline">';
+            semesters.forEach((sem) => {
+                const courses = sem.courses || [];
+                const semCredits = courses.reduce((s, c) => s + (parseInt(c.credits)||3), 0);
+                const season = sem.season || '';
+                const isFall = season === 'Fall';
+                const icon2 = isFall ? 'leaf' : season === 'Spring' ? 'seedling' : 'sun';
+                const headerClass = isFall ? 'fall-header' : 'spring-header';
+
+                html += `<div class="roadmap-semester">
+            <div class="roadmap-semester-card">
+                <div class="roadmap-sem-header ${headerClass}">
+                    <div class="sem-left">
+                        <i class="fa-solid fa-${icon2}"></i>
+                        ${sem.label}
+                    </div>
+                    <span class="sem-tag">${courses.length} courses · ${semCredits} cr</span>
+                </div>
+                <div class="roadmap-courses-list">`;
+
+                courses.forEach(course => {
+                    const cr = parseInt(course.credits) || 3;
+                    html += `<div class="roadmap-course-item">
+                <div class="roadmap-course-item-top">
+                    <span class="roadmap-course-code">${course.code || ''}</span>
+                    <span class="roadmap-course-name">${course.name || ''}</span>
+                    <span class="roadmap-course-credits">${cr} cr</span>
+                </div>
+                ${course.why ? `<div class="roadmap-course-why">${course.why}</div>` : ''}
+            </div>`;
+                });
+
+                html += `</div></div></div>`;
+            });
+
+            html += '</div>';
+
+            if (outlook) {
+                html += `<div class="roadmap-outlook">
+            <div class="roadmap-outlook-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div><strong>Career Outlook:</strong> ${outlook}</div>
+        </div>`;
+            }
+
+            return html;
+        }
+
+        function renderRoadmapFallback(text) {
+            // Simple readable fallback if JSON fails
+            return '<div style="white-space:pre-wrap;font-size:0.875rem;line-height:1.8;">' +
+                text.replace(/\*\*(.+?)\*\*/g, '<strong style="color:var(--blue-dark)">$1</strong>') +
+                '</div>';
+        }
+
+        // ── DARK MODE ──
+function toggleDarkMode() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const next = isDark ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('pf_theme', next);
+            document.getElementById('dark-icon').className = next === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+        (function initTheme() {
+            const saved = localStorage.getItem('pf_theme');
+            if (saved === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('dark-icon').className = 'fa-solid fa-sun';
+            }
+        })();
+
+        // ── SHARE CAREER ──
+        function shareCareer(major, job) {
+            const url = new URL(window.location.href.split('?')[0]);
+            url.searchParams.set('program', major);
+            url.searchParams.set('job', job);
+            navigator.clipboard.writeText(url.toString()).then(() => showShareToast());
+        }
+        function showShareToast() {
+            const t = document.getElementById('share-toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+        // Auto-open from URL params
+        (function checkUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const prog = params.get('program');
+            const job  = params.get('job');
+            if (prog) {
+                setTimeout(() => {
+                    if (globalData[prog]) {
+                        openProgram(prog);
+                        if (job) {
+                            setTimeout(() => {
+                                document.querySelectorAll('.job-card').forEach(card => {
+                                    if (card.getAttribute('data-job-title') === job) {
+                                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                        card.style.boxShadow = '0 0 0 3px var(--blue)';
+                                        setTimeout(() => card.style.boxShadow = '', 2000);
+                                    }
+                                });
+                            }, 600);
+                        }
+                    }
+                }, 800);
+            }
+        })();
+
+        // ── GPA FILTER ──
+        function applyGpaFilter() {
+            const val = document.getElementById('gpa-filter').value;
+            const minGpa = val === 'any' ? 0 : parseFloat(val);
+            document.querySelectorAll('.major-section').forEach(section => {
+                let hasVisible = false;
+                section.querySelectorAll('.job-card').forEach(card => {
+                    const cardGpa = parseFloat(card.getAttribute('data-gpa') || '3.0');
+                    const hidden = card.classList.contains('hidden');
+                    if (!hidden) {
+                        const pass = minGpa === 0 || cardGpa <= minGpa + 0.49;
+                        card.classList.toggle('gpa-hidden', !pass);
+                        if (pass) hasVisible = true;
+                    } else {
+                        card.classList.remove('gpa-hidden');
+                    }
+                });
+                if (minGpa > 0) section.classList.toggle('hidden', !hasVisible);
+            });
+            updateVisibleCount();
+        }
+
+        // ── COMPARE CAREERS ──
+        let compareItems = [null, null];
+
+        function toggleCompare(jobId, major, title) {
+            const btn = document.getElementById('cmp-' + jobId);
+            const card = document.getElementById('card-' + jobId);
+            const alreadyIdx = compareItems.findIndex(c => c && c.jobId === jobId);
+
+            if (alreadyIdx !== -1) {
+                // Deselect
+                compareItems[alreadyIdx] = null;
+                btn.classList.remove('selected');
+            } else {
+                // Select into first empty slot
+                const emptyIdx = compareItems.indexOf(null);
+                if (emptyIdx === -1) {
+                    showShareToast(); // reuse toast as generic feedback
+                    document.getElementById('share-toast').querySelector('span') && null;
+                    const t = document.getElementById('share-toast');
+                    t.innerHTML = '<i class="fa-solid fa-info-circle"></i> Remove one career first to add another';
+                    t.classList.add('show');
+                    setTimeout(() => { t.classList.remove('show'); t.innerHTML = '<i class="fa-solid fa-check-circle"></i> Link copied to clipboard!'; }, 2000);
+                    return;
+                }
+                compareItems[emptyIdx] = {
+                    jobId, major, title,
+                    salaryMin: parseInt(card.getAttribute('data-salary-min')||0),
+                    salaryMax: parseInt(card.getAttribute('data-salary-max')||0),
+                    demand: card.getAttribute('data-demand')||'',
+                    gpa: card.getAttribute('data-gpa')||'3.0',
+                    courses: [...card.querySelectorAll('.course-chip')].map(c => c.textContent.trim()).slice(0,6)
+                };
+                btn.classList.add('selected');
+            }
+            updateCompareBar();
+        }
+
+        function updateCompareBar() {
+            const bar = document.getElementById('compare-bar');
+            const hasAny = compareItems.some(Boolean);
+            bar.classList.toggle('visible', hasAny);
+
+            compareItems.forEach((item, i) => {
+                const slot = document.getElementById('compare-slot-' + i);
+                if (item) {
+                    slot.className = 'compare-slot filled';
+                    slot.innerHTML = `<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.title}</span>
+                        <span class="remove-slot" onclick="removeCompareSlot(${i})"><i class="fa-solid fa-xmark"></i></span>`;
+                } else {
+                    slot.className = 'compare-slot';
+                    slot.innerHTML = '<i class="fa-solid fa-plus" style="font-size:0.65rem;"></i> Select a career';
+                }
+            });
+
+            document.getElementById('btn-do-compare').disabled = compareItems.filter(Boolean).length < 2;
+        }
+
+        function removeCompareSlot(idx) {
+            const item = compareItems[idx];
+            if (item) {
+                const btn = document.getElementById('cmp-' + item.jobId);
+                if (btn) btn.classList.remove('selected');
+            }
+            compareItems[idx] = null;
+            updateCompareBar();
+        }
+
+        function clearCompare() {
+            compareItems = [null, null];
+            document.querySelectorAll('.btn-compare.selected').forEach(b => b.classList.remove('selected'));
+            document.getElementById('compare-bar').classList.remove('visible');
+        }
+
+        function openCompare() {
+            const [a, b] = compareItems.filter(Boolean);
+            if (!a || !b) return;
+
+            function col(item) {
+                const salary = item.salaryMin > 0
+                    ? `$${Math.round(item.salaryMin/1000)}k – $${Math.round(item.salaryMax/1000)}k`
+                    : 'Varies';
+                const demandClass = item.demand === 'High' ? 'high' : item.demand === 'Low' ? 'low' : 'med';
+                const coursesList = item.courses.length
+                    ? item.courses.map(c => `<div class="compare-course-chip">${c}</div>`).join('')
+                    : '<div style="color:var(--gray-400);font-size:0.78rem;">Open courses section first</div>';
+                return `<div class="compare-col">
+                    <div class="compare-col-title">${item.title}</div>
+                    <div class="compare-row"><div class="compare-row-label">Program</div><div class="compare-row-value">${item.major}</div></div>
+                    <div class="compare-row"><div class="compare-row-label">Salary Range</div><div class="compare-row-value compare-salary">${salary}</div></div>
+                    <div class="compare-row"><div class="compare-row-label">Job Demand</div><div class="compare-row-value compare-demand-${demandClass}">${item.demand || '—'}</div></div>
+                    <div class="compare-row"><div class="compare-row-label">Est. GPA Requirement</div><div class="compare-row-value">${item.gpa}+</div></div>
+                    <div class="compare-row"><div class="compare-row-label">Key Courses</div><div class="compare-courses-list">${coursesList}</div></div>
+                </div>`;
+            }
+
+            document.getElementById('compare-grid').innerHTML = col(a) + col(b);
+            document.getElementById('compare-overlay').classList.add('open');
+        }
+
+        function closeCompare() {
+            document.getElementById('compare-overlay').classList.remove('open');
+        }
+    </script>
+</body>
+</html>

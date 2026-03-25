@@ -1,0 +1,148 @@
+import json
+
+
+def build_career_database():
+    print("Building 60-Job Curated Database...")
+
+    career_paths = {
+        "Computer Science": [
+            {"title": "Software Engineer", "description": "Design and test scalable software.", "skills": [
+                "software engineering", "programming", "algorithms", "data structures", "cisc 275"]},
+            {"title": "Full Stack Developer", "description": "Handle frontend UI and backend server architecture.",
+                "skills": ["web applications", "frontend", "backend", "databases", "programming", "html"]},
+            {"title": "Systems Programmer", "description": "Write low-level code that interacts with hardware.", "skills": [
+                "systems programming", "compiler design", "assembly language", "machine organization", "hardware", "operating systems"]},
+            {"title": "Cloud Solutions Architect", "description": "Design cloud computing architecture.",
+                "skills": ["cloud computing", "distributed computing", "networks", "parallel computing"]},
+            {"title": "Game Developer", "description": "Build interactive 2D and 3D gaming experiences.",
+                "skills": ["games", "graphics", "game development", "c++", "interactive media"]},
+            {"title": "DevOps Engineer", "description": "Automate software deployment and infrastructure.",
+                "skills": ["devops", "automation", "software testing", "maintenance", "operating systems"]},
+            {"title": "Database Engineer", "description": "Architect and manage large-scale data storage.",
+                "skills": ["database systems", "sql", "data structures", "storage"]},
+            {"title": "Mobile App Developer", "description": "Design applications for iOS or Android.",
+                "skills": ["mobile", "applications", "user interface", "java"]},
+            {"title": "API Developer", "description": "Build secure interfaces between software platforms.",
+                "skills": ["api", "web applications", "software engineering", "networks"]},
+            {"title": "Embedded Software Engineer", "description": "Write code for specialized hardware devices.",
+                "skills": ["embedded systems", "c programming", "microprocessor", "hardware"]}
+        ],
+        "Artificial Intelligence": [
+            {"title": "AI Engineer", "description": "Develop intelligent algorithms and ML models.",
+                "skills": ["artificial intelligence", "machine learning", "neural networks", "logic"]},
+            {"title": "Computer Vision Engineer", "description": "Build AI systems that process digital images.",
+                "skills": ["computer vision", "image processing", "graphics", "artificial intelligence"]},
+            {"title": "NLP Engineer", "description": "Develop systems that understand human language.", "skills": [
+                "natural language processing", "linguistics", "text analytics", "artificial intelligence"]},
+            {"title": "AI Research Scientist", "description": "Conduct advanced research in deep learning.",
+                "skills": ["multi-agent systems", "theory of computation", "research", "machine learning"]},
+            {"title": "Robotics Programmer", "description": "Program the logic and vision that power robots.",
+                "skills": ["computer vision", "machine learning", "systems programming", "hardware"]},
+            {"title": "Data Miner", "description": "Use AI to extract patterns from giant datasets.",
+                "skills": ["data mining", "algorithms", "artificial intelligence", "big data"]},
+            {"title": "Machine Learning Ops (MLOps)", "description": "Deploy AI models into production servers.", "skills": [
+                "machine learning", "devops", "cloud computing", "deployment"]},
+            {"title": "Algorithm Engineer", "description": "Design hyper-efficient mathematical algorithms.",
+                "skills": ["algorithms", "computational mathematics", "theory of computation"]},
+            {"title": "Cognitive Computing Engineer", "description": "Simulate human thought processes in software.",
+                "skills": ["artificial intelligence", "logic", "human-computer interaction"]},
+            {"title": "Autonomous Systems Engineer", "description": "Build software for self-driving technology.",
+                "skills": ["multi-agent systems", "computer vision", "parallel computing"]}
+        ],
+        "Cybersecurity Engineering": [
+            {"title": "Penetration Tester", "description": "Ethical hackers who simulate cyberattacks.", "skills": [
+                "penetration testing", "reverse engineering", "vulnerabilities", "system hardening"]},
+            {"title": "SOC Analyst", "description": "Monitor enterprise networks for security breaches.", "skills": [
+                "network security", "cybersecurity", "threats", "monitoring", "intrusion detection"]},
+            {"title": "Application Security Engineer", "description": "Ensure software is designed securely.", "skills": [
+                "secure software design", "web applications security", "coding", "vulnerability assessment"]},
+            {"title": "Digital Forensics Investigator", "description": "Investigate digital devices related to cybercrime.",
+                "skills": ["digital forensics", "operating systems", "data recovery", "malware"]},
+            {"title": "Cryptography Engineer", "description": "Develop algorithms to encrypt sensitive data.",
+                "skills": ["applied cryptography", "encryption", "mathematics", "security protocols"]},
+            {"title": "Cloud Security Architect", "description": "Secure cloud infrastructure.", "skills": [
+                "cloud computing", "security", "distributed computing", "risk management"]},
+            {"title": "IAM Engineer", "description": "Manage user identities and access control.",
+                "skills": ["access control", "authentication", "networks", "systems administration"]},
+            {"title": "Incident Responder", "description": "First responders to contain cyber breaches.",
+                "skills": ["incident response", "malware analysis", "forensics", "system hardening"]},
+            {"title": "Network Security Engineer", "description": "Design secure network architectures.",
+                "skills": ["computer networks", "firewalls", "protocols", "telecommunication networks"]},
+            {"title": "Malware Analyst", "description": "Analyze malicious software.", "skills": [
+                "malware", "reverse engineering", "assembly language", "threat intelligence"]}
+        ],
+        "Data Science": [
+            {"title": "Data Scientist", "description": "Extract insights from massive datasets.", "skills": [
+                "data mining", "machine learning", "big data", "causal inference", "statistics"]},
+            {"title": "Data Engineer", "description": "Build pipelines to process data.", "skills": [
+                "database systems", "cloud computing", "pipelines", "architecture"]},
+            {"title": "Machine Learning Engineer", "description": "Optimize ML models for production.",
+                "skills": ["machine learning", "algorithms", "deployment", "optimization"]},
+            {"title": "Data Analyst", "description": "Find trends and create visualizations.", "skills": [
+                "data analysis", "visualization", "statistics", "business intelligence"]},
+            {"title": "BI Developer", "description": "Design data reporting tools.", "skills": [
+                "business intelligence", "dashboards", "data warehousing", "database management"]},
+            {"title": "Bioinformatics Scientist", "description": "Solve genetic problems computationally.",
+                "skills": ["computational biology", "bioinformatics", "data analysis", "biology"]},
+            {"title": "Quantitative Analyst", "description": "Apply math to financial risk.",
+                "skills": ["computational mathematics", "statistics", "finance", "modeling"]},
+            {"title": "Data Architect", "description": "Design organization data frameworks.",
+                "skills": ["enterprise architecture", "data modeling", "infrastructure"]},
+            {"title": "Big Data Engineer", "description": "Manage massive, unstructured datasets.",
+                "skills": ["big data", "unstructured data analytics", "cloud computing"]},
+            {"title": "Statistician", "description": "Apply statistical theory to tech data.",
+                "skills": ["statistics", "computational mathematics", "data analysis"]}
+        ],
+        "Management Information Systems (MIS)": [
+            {"title": "IT Project Manager", "description": "Oversee agile technology projects.", "skills": [
+                "project management", "agile", "organizational effectiveness", "leadership"]},
+            {"title": "Systems Analyst", "description": "Design IT solutions for efficiency.", "skills": [
+                "analyzing and designing it solutions", "systems analysis", "requirements gathering"]},
+            {"title": "Network Administrator", "description": "Manage computer networks.", "skills": [
+                "data communication and network infrastructure", "telecommunication networks", "hardware"]},
+            {"title": "IT Auditor", "description": "Evaluate IT policies and operations.", "skills": [
+                "information security and risk management", "auditing", "compliance", "ethics"]},
+            {"title": "Tech Product Manager", "description": "Guide software product strategy.", "skills": [
+                "agile development", "user experience", "product strategy", "business analytics"]},
+            {"title": "ERP Consultant", "description": "Implement Enterprise Resource Planning systems.",
+                "skills": ["enterprise resource planning", "business applications", "integration"]},
+            {"title": "IT Consultant", "description": "Advise on digital transformation.",
+                "skills": ["digital transformation", "consulting", "enterprise architecture"]},
+            {"title": "Security Risk Manager", "description": "Manage organizational cyber risk.",
+                "skills": ["information security", "risk management", "policies", "compliance"]},
+            {"title": "Database Administrator", "description": "Secure enterprise databases.",
+                "skills": ["database management", "infrastructure", "sql", "networks"]},
+            {"title": "Chief Information Officer (CIO)", "description": "Executive IT leadership track.", "skills": [
+                "technology management", "enterprise architecture", "leadership", "strategy"]}
+        ],
+        "Business Analytics & Information Management": [
+            {"title": "Business Intelligence Analyst", "description": "Analyze data for strategic decisions.",
+                "skills": ["business analytics", "business intelligence", "data mining", "reporting"]},
+            {"title": "Data Storyteller", "description": "Translate complex data for executives.",
+                "skills": ["visualization", "business intelligence", "reporting", "communication"]},
+            {"title": "Operations Analyst", "description": "Optimize business supply chains.",
+                "skills": ["business processes", "data analysis", "enterprise resource planning"]},
+            {"title": "Financial Data Analyst", "description": "Analyze market and financial data.",
+                "skills": ["finance", "statistics", "data analysis", "modeling"]},
+            {"title": "Marketing Analytics Manager", "description": "Track digital campaign success.",
+                "skills": ["analytics", "reporting", "data visualization", "business intelligence"]},
+            {"title": "Pricing Strategy Analyst", "description": "Use data to optimize pricing models.",
+                "skills": ["causal inference", "statistics", "business analytics"]},
+            {"title": "Supply Chain Data Engineer", "description": "Build pipelines for logistics data.",
+                "skills": ["database systems", "integration", "enterprise architecture"]},
+            {"title": "Data Governance Manager", "description": "Ensure data quality and compliance.",
+                "skills": ["information security", "risk management", "ethics", "compliance"]},
+            {"title": "Chief Data Officer (CDO) Track", "description": "Executive leadership over all company data.", "skills": [
+                "technology management", "strategy", "enterprise architecture", "leadership"]},
+            {"title": "Analytics Consultant", "description": "External advisor on business data strategy.",
+                "skills": ["consulting", "digital transformation", "business analytics", "data mining"]}
+        ]
+    }
+
+    with open('curated_jobs.json', 'w') as file:
+        json.dump(career_paths, file, indent=4)
+
+    print("SUCCESS! 'curated_jobs.json' built with 60 jobs.")
+
+
+build_career_database()

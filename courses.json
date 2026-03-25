@@ -1,0 +1,742 @@
+[
+    {
+        "title": "CISC 101\u00a0-\u00a0Principles of Computing",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682083",
+        "description": "CISC 101 - Principles of Computing Credit(s): 3PRINCIPLES OF COMPUTINGComponent: LectureIntroduces students to the central ideas of computing and computer science including programs, algorithms, abstraction, the internet, and information systems. Instills ideas and practices of computational thinking and engages students in activities that show how computing and computer science change the world. Explores computing as a creative activity and empowers students to apply computational thinking to all disciplines including the arts, humanities, business, social and physical sciences, health, and entertainment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option University Breadth: Mathematics, Natural Sciences and Technology College of Arts and Sciences Breadth: GROUP D: A&S Math, Nat Sci & Technology Course Typically Offered: Verify offering with Dept.General Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 103\u00a0-\u00a0Introduction to Computer Science with Web Applications",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682084",
+        "description": "CISC 103 - Introduction to Computer Science with Web Applications Credit(s): 3INTRO COMP SCI WITH WEB APPSComponent: LecturePrinciples of computer science illustrated through programming in scripting languages such as JavaScript and VBScript. Topics include control structures, arrays, functions, and procedures. Programming projects illustrate web-based applications.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Open to non-majors.University Breadth: Mathematics, Natural Sciences and Technology College of Arts and Sciences Breadth: GROUP D: A&S Math, Nat Sci & Technology Course Typically Offered: Verify offering with Dept.General Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 104\u00a0-\u00a0Introduction to Programming in Games",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685096",
+        "description": "CISC 104 - Introduction to Programming in Games Credit(s): 3INTRO TO PROGRAMMING IN GAMESComponent: LecturePrinciples of computer science illustrated through programming in the domain of game design and development to the fundamentals of computing through problem solving, abstraction, and algorithmic design. Topics include control structures, arrays, functions, and procedures. Programming projects illustrate the design and implementation of game applications. Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Students who received credit in CISC 103 , CISC 106 , or CISC 108 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 106\u00a0-\u00a0General Computer Science for Engineers",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682085",
+        "description": "CISC 106 - General Computer Science for Engineers Credit(s): 3GEN COMPUTER SCIEN FOR ENGNRComponent: LecturePrinciples of computer science illustrated and applied through programming in a general-purpose language. Programming projects illustrate computational problems, styles, and issues that arise in engineering.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option COREQ: MATH 231 or MATH 241 or any MATH course higher than MATH 241 . ANTIREQ: Students who received credit in CISC 108 are not eligible to take this course without permission. University Breadth: Mathematics, Natural Sciences and Technology College of Arts and Sciences Breadth: GROUP D: A&S Math, Nat Sci & Technology Course Typically Offered: Fall, Summer and SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 108\u00a0-\u00a0Introduction to Computer Science I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682917",
+        "description": "CISC 108 - Introduction to Computer Science I Credit(s): 3INTRO TO COMPUTER SCIENCE IComponent: LectureComputing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option COREQ: MATH 115 , MATH 117 , or higher math course or math placement. RESTRICTIONS: Students who received credit in CISC 106 are not eligible to take this course without permissionUniversity Breadth: Mathematics, Natural Sciences and Technology College of Arts and Sciences Breadth: GROUP D: A&S Math, Nat Sci & Technology Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 166\u00a0-\u00a0SPECIAL PROBLEM",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682086",
+        "description": "CISC 166 - SPECIAL PROBLEM Credit(s): 1-3SPECIAL PROBLEMComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CISC 167\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684005",
+        "description": "CISC 167 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CISC 181\u00a0-\u00a0Introduction to Computer Science II",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682087",
+        "description": "CISC 181 - Introduction to Computer Science II Credit(s): 3INTRO TO COMPUTER SCIENCE IIComponent: LecturePrinciples of computer science illustrated and applied through programming in an object oriented language. Programming projects illustrate computational problems, styles and issues that arise in computer systems development and in all application areas of computation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: Grade of C- or better in CISC 108 or CISC 106 . COREQ: MATH 221 , MATH 231 , MATH 241 , a math course higher than MATH 221 , or math placement. University Breadth: Mathematics, Natural Sciences and Technology College of Arts and Sciences Breadth: GROUP D: A&S Math, Nat Sci & Technology Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 187\u00a0-\u00a0Vertically Integrated Projects I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684774",
+        "description": "CISC 187 - Vertically Integrated Projects I Credit(s): 1VIP IComponent: LectureThe Vertically-Integrated Projects (VIP) Program operates in a research and development context. Undergraduate students that join VIP teams earn academic credit for their participation in design/discovery efforts that assist faculty and graduate students with research and development issues in their areas of expertise. Repeatable for Credit: Y Allowed Units: 2 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 187 . Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 204\u00a0-\u00a0Introduction to Game Development",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685097",
+        "description": "CISC 204 - Introduction to Game Development Credit(s): 3INTRO TO GAME DEVELOPMENTComponent: LectureIntroduction to Game Development builds on previous programming experiences to have students build simple but functional games to get a thorough grounding in the basics of real game design. Via lectures and hands-on projects, the course explores principles of 2D and 3D graphics, animation, sound, user interaction, menus, data organization, physics, and collision detection. Students will work in small teams and collaborate meaningfully.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: GAME 201 , and one of CISC 104 , CISC 106 , or CISC 108 . Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 210\u00a0-\u00a0Introduction to Systems Programming",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684467",
+        "description": "CISC 210 - Introduction to Systems Programming Credit(s): 3INTRO TO SYSTEMS PROGRAMMINGComponent: LecturePrinciples of computer systems programming for software and hardware platforms to achieve efficient resource usage. Topics include the C programming language, memory management, and awareness of system constraints and interfacing. Projects include programming embedded systems and interactive objects.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A grade of C- or better in CISC 106 or CISC 108 . COREQ: MATH 221, MATH231, MATH 241, a math course higher than MATH 221 , or a math placement. Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 220\u00a0-\u00a0Data Structures",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682088",
+        "description": "CISC 220 - Data Structures Credit(s): 3DATA STRUCTURESComponent: LectureReview of data type abstraction, recursion, arrays, stacks, queues, multiple stacks and linked lists. Emphasis on dynamic storage management, garbage collection, trees, graphs, tables, sorting and searching.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CISC 210 . COREQ: MATH 210 or MATH 241, or MATH 231 .or MATH 221 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 250\u00a0-\u00a0Business Telecommunication Networks",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682089",
+        "description": "CISC 250 - Business Telecommunication Networks Credit(s): 3BUSINESS TELECOMM NETWORKSComponent: LectureExamines technologies of information transmission currently utilized in the business environments and the implications of these technologies upon the development and implementation of information systems. Provides a basic background in the convergence of voice, data and video services into common digital networks. Security issues also considered.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 181 or MISY 160 . Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 260\u00a0-\u00a0Machine Organization and Assembly Language",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682090",
+        "description": "CISC 260 - Machine Organization and Assembly Language Credit(s): 3MACH ORGANZTN & ASSEMBLY LANGComponent: LectureIntroduction to the basics of machine organization. Programming tools and techniques at the machine and assembly levels. Assembly language programming and computer arithmetic techniques.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CISC 210 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 266\u00a0-\u00a0SPECIAL PROBLEM",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682091",
+        "description": "CISC 266 - SPECIAL PROBLEM Credit(s): 1-3SPECIAL PROBLEMComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CISC 267\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684006",
+        "description": "CISC 267 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CISC 275\u00a0-\u00a0Introduction to Software Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682916",
+        "description": "CISC 275 - Introduction to Software Engineering Credit(s): 3INTRO TO SOFTWARE ENGINEERINGComponent: LectureObject oriented software design and development through use of an object oriented programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (e.g., integrated development environments, version control, build management, bug tracking, automated testing).Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: Minimum grade of C- in CISC 181 and CISC 220 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2B: Communicate Orally GE2C: Communicate Through Creative Expression GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 287\u00a0-\u00a0Vertically Integrated Projects II",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684775",
+        "description": "CISC 287 - Vertically Integrated Projects II Credit(s): 1-2VIP IIComponent: LectureThe Vertically-Integrated Projects (VIP) Program operates in a research and development context. Undergraduate students that join VIP teams earn academic credit for their participation in design/discovery efforts that assist faculty and graduate students with research and development issues in their areas of expertise. Repeatable for Credit: Y Allowed Units: 2 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 287 . Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 303\u00a0-\u00a0Automata Theory",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682092",
+        "description": "CISC 303 - Automata Theory Credit(s): 3AUTOMATA THEORYComponent: LectureAutomata and formal language theory. Background for advanced applications in compilers, computer networks, operating systems, and natural language processing. Finite automata and regular languages. Push down automata and context free grammars. Turing machines.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in both MATH 210 and CISC 220 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 304\u00a0-\u00a0Logic for Programming",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682093",
+        "description": "CISC 304 - Logic for Programming Credit(s): 3LOGIC FOR PROGRAMMINGComponent: LecturePropositional and predicate logic for general reasoning and advanced applications in knowledge representation in artificial intelligence and database, program correctness and programming semantics. Models, resolution, logic programming, and natural deduction.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 , MATH 210 (with minimum C- grade in both). Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 320\u00a0-\u00a0Introduction to Algorithms",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682094",
+        "description": "CISC 320 - Introduction to Algorithms Credit(s): 3INTRODUCTION TO ALGORITHMSComponent: LectureDesign and analysis of algorithms: worst/average case analysis, proofs for correctness and performance of algorithms. Algorithmic strategies (divide and conquer, greedy methods, dynamic programming, etc.). Algorithms for searching, forming and traversal of strings, trees and graphs. Categorization of computational problems: classes P and NP. NP completeness.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MATH 210 and a minimum grade of C- in CISC 220 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 334\u00a0-\u00a0Development of Assistive Technology",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685578",
+        "description": "CISC 334 - Development of Assistive Technology Credit(s): 3DEVELOPMENT OF ASSISTIVE TECHComponent: LectureIntroduction to and development of Assistive Technology for users with disabilities/differing abilities. A project based course in which students will be learning about the state of the art in Assistive Technology, where general technology currently stands (including successes and failures) and the current needs and desires of people with disabilities/differing abilities in order to develop solutions that address accessibility issues.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 355\u00a0-\u00a0Computers, Ethics and Society",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682115",
+        "description": "CISC 355 - Computers, Ethics and Society Credit(s): 3COMPUTERS, ETHICS AND SOCIETYComponent: LectureExplains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers. Topics include ethics for computer professionals, computer impact on factory work, office work, personal privacy and social power distribution. Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Cannot be used as a technical elective for CISC or INSY majors or minors.University Breadth: Creative Arts and Humanities College of Arts and Sciences Breadth: GROUP A: A&S Creative Arts & Humanities Sustainability Sustainability Investigations Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3B: Work Independently Across Cultures GE4: Critically Evaluate Ethical Implications"
+    },
+    {
+        "title": "CISC 356\u00a0-\u00a0Intellectual Property in the Digital Age",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682920",
+        "description": "CISC 356 - Intellectual Property in the Digital Age Credit(s): 3DIGITAL INTELLECTUAL PROPERTYComponent: LectureExplore economic, philosophical, social, and technical approaches to intellectual property (1500 BCE to present) then will research contemporary IP issues in software, entertainment, the Internet, and biotechnology.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Junior or Senior standing. Cannot be used as a technical elective for CISC or INSY majors or minors.University Breadth: Social and Behavioral Sciences College of Arts and Sciences Breadth: GROUP C: A&S Social & Behavioral Sci Course Typically Offered: SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE4: Critically Evaluate Ethical Implications"
+    },
+    {
+        "title": "CISC 357\u00a0-\u00a0Engaging Youth in Computing",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682923",
+        "description": "CISC 357 - Engaging Youth in Computing Credit(s): 1-3ENGAGING YOUTH IN COMPUTINGComponent: Lecture Develop communication, leadership, and teaching skills while working with youth to broaden participation in computing. With training, student teams assist in after-school programs and K-12 classes to engage youth in computational thinking. Focus on low-entry technologies for creating interactive stories, games, websites, and robotics projects. Repeatable for Credit: Y Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 101 or CISC 103 or CISC 106 or CISC 108 . RESTRICTIONS: Student must have sufficient time in their schedule to visit schools weekly between 9am and 3pm. Students must pass a background check that clears them for teaching. Cannot be used as a technical elective by CISC or INSY majors. Requirement Designations: Discovery Learning Experience Course Typically Offered: Fall and SpringGeneral Education Objectives: GE2B: Communicate Orally"
+    },
+    {
+        "title": "CISC 358\u00a0-\u00a0Introduction to Computer Science Research",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685092",
+        "description": "CISC 358 - Introduction to Computer Science Research Credit(s): 3INTRO TO COMP SCIENCE RESEARCHComponent: LecturePrepares students to conduct computer science research. Topics: research methodology: literature reviews; identifying important research problems; problem solving/progress tracking; designing/conducting evaluation studies; oral/written communications of research; and research ethics.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE2C: Communication Through Creative Expression GE3A: Work Collaboratively Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 360\u00a0-\u00a0Computer Architecture",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682095",
+        "description": "CISC 360 - Computer Architecture Credit(s): 3COMPUTER ARCHITECTUREComponent: LecturePrinciples and techniques used in the architecture of digital computers. Machine elements and their interrelation. Instruction sets, risc vs cisc, registers, busses and switches.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CISC 220 and CISC 260 (or equivalent courses). Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 361\u00a0-\u00a0Operating Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682096",
+        "description": "CISC 361 - Operating Systems Credit(s): 3OPERATING SYSTEMSComponent: LecturePrinciples and techniques employed in the development of operating systems and their control programs. Includes management of memory, processors, I/O devices.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in both CISC 220 and CISC 260 . CPEG 222 may be substituted for CISC 260 . RESTRICTIONS: CISC 360 recommended as a prerequisite. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 362\u00a0-\u00a0Cloud Computing and Big Data",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685093",
+        "description": "CISC 362 - Cloud Computing and Big Data Credit(s): 3CLOUD COMPUTING AND BIG DATAComponent: LectureCovers the core concepts of cloud computing and distributed systems. Gain the foundational knowledge required for understanding cloud computing and big data, various cloud services (IaaS, PaaS, SaaS), and the key components of a cloud infrastructure (Virtualization, Distributed File Systems, MapReduce, Resource Management such as YARN, and more). Includes hands-on tutorials on prominent cloud providers (e.g., AWS, Microsoft Azure, Google Cloud, Oracle Cloud).Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 366\u00a0-\u00a0Independent Study",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682097",
+        "description": "CISC 366 - Independent Study Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 367\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684007",
+        "description": "CISC 367 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CISC 372\u00a0-\u00a0Parallel Computing",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682098",
+        "description": "CISC 372 - Parallel Computing Credit(s): 3PARALLEL COMPUTINGComponent: LectureIntroduction to parallel computing concepts, methodologies, and tools. Programming and algorithmic techniques for code that will run simultaneously on parallel computing architectures. Topics include: single and multi-core parallelism, shared and distributed memory architectures, concurrency, program decomposition, data distribution, communication, load balancing, scalability, locality, granularity, debugging, performance evaluation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: C- or better in both CISC 220 and CISC 260 . Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 374\u00a0-\u00a0Educational Game Development",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682921",
+        "description": "CISC 374 - Educational Game Development Credit(s): 3EDUCATIONAL GAME DEVELOPMENTComponent: LectureExperience the software engineering process through creating educational games for youth; open-ended, project-oriented team learning while assisting regional teachers in integrating computing and computational thinking into the classroom; interact with teachers as clients, hone communication skills and experience design-studio-based critiques of your ideas.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . Requirement Designations: Discovery Learning Experience Course Typically Offered: SpringGeneral Education Objectives: GE1C: Engage in Constructive Ideation GE2B: Communicate Orally GE2C: Communicate Through Creative Expression GE3A: Work Collaboratively Across Cultures GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 375\u00a0-\u00a0DevOps & Software Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685535",
+        "description": "CISC 375 - DevOps & Software Engineering Credit(s): 3DEVOPS & SOFT+WARE ENGINEERINGComponent: LectureDevOps & Software Engineering bridges the gap between CISC275: Software Engineering I and CISC498: Senior Design I, focusing on advanced software engineering principles and the challenges of inheriting and managing large, complex, and poorly documented codebases. Students will learn to organize, document, and improve such codebases while applying test-driven design using various testing suites and solutions. The course introduces DevOps concepts, particularly in continuous delivery (CD) environments, and incorporates industry-standard tools for enhanced project management, code review, and documentation. By emphasizing practical skills and industry tools, this course prepares students for the complexities of real-world software development.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 387\u00a0-\u00a0Vertically Integrated Projects III",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684776",
+        "description": "CISC 387 - Vertically Integrated Projects III Credit(s): 1-3VIP IIIComponent: LectureThe Vertically-Integrated Projects (VIP) Program operates in a research and development context. Undergraduate students that join VIP teams earn academic credit for their participation in design/discovery efforts that assist faculty and graduate students with research and development issues in their areas of expertise. Repeatable for Credit: Y Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 387 . Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 401\u00a0-\u00a0Elements of the Theory of Computation",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682099",
+        "description": "CISC 401 - Elements of the Theory of Computation Credit(s): 3ELEMENTS OF THRY OF COMPUTATNComponent: LectureGeneral models of computation, formal languages and automata theory and algorithmic unsolvability.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 303 . RESTRICTIONS: Students who received credit in CISC601 are not eligible to take this course without permission. Course Typically Offered: Verify offering with Dept.General Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 404\u00a0-\u00a0Logic in Computer Science",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682101",
+        "description": "CISC 404 - Logic in Computer Science Credit(s): 3LOGIC IN COMPUTER SCIENCEComponent: LectureFormal introduction to first-order logic with emphasis on its relevance to computer science. Syntax, semantics, models, formal proofs and results on soundness, consistency, completeness, compactness and undecidability. Automated theorem proving also covered.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 304 . RESTRICTIONS: Students who received credit in CISC604 are not eligible to take this course without permission. Course Typically Offered: Verify offering with Dept.General Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 410\u00a0-\u00a0Computational Mathematics I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=680971",
+        "description": "CISC 410 - Computational Mathematics I Credit(s): 3COMPUTATIONAL MATHEMATICS IComponent: LectureFloating point numbers; conditioning and stability; LU, Cholesky, and QR factorizations; square and overdetermined linear systems; Newton and quasi- Newton rootfinding methods; piecewise polynomials for interpolation, integration, and finite differences; explicit methods for initial-value problems.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with MATH 426 . PREREQ: MATH 305 or MATH 351 or MATH 349 . RESTRICTIONS: Requires familiarity with computing (e.g., programming language). Students may not receive credit for both MATH 353 and MATH 426 . General Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 411\u00a0-\u00a0Computational Mathematics II",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=680973",
+        "description": "CISC 411 - Computational Mathematics II Credit(s): 3COMPUTATIONAL MATHEMATICS IIComponent: LectureEigenvalue and singular-value decompositions; power and Krylov subspace iterations; global interpolation and quadrature; methods for boundary-value problems and Poisson\u2019s equation; implicit solvers for stiff problems; method of lines for partial differential equations; diffusion and advection problems.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with MATH 428 . PREREQ: MATH 426 or CISC 410 or MATH 353 . General Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 414\u00a0-\u00a0Formal Methods in Software Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682100",
+        "description": "CISC 414 - Formal Methods in Software Engineering Credit(s): 3FORMAL METHODS SOFTWARE ENGComponent: LectureFormal approaches to the specification, verification, and design of software systems. Topics include representing programs as transition systems; liveness and safety properties; state space reachability; explicit, symbolic and automata-based model checking; temporal logics; symbolic execution; automated theorem-proving; and relational calculus. Learn to use state-of-the-art tools based on these methods, such as the model checker Spin.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 304 or equivalent course. RESTRICTIONS: Students who received credit in CISC614 are not eligible to take this course without permission. Course Typically Offered: Verify offering with Dept.General Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 415\u00a0-\u00a0Software Testing and Maintenance",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685099",
+        "description": "CISC 415 - Software Testing and Maintenance Credit(s): 3SOFTWARE TESTING AND MAINTComponent: LectureStudy of software testing and maintenance methodologies for modern software. Topics include approaches to automatic test case generation, test oracles, test coverage analysis, regression testing, program understanding, and software maintenance tools. A primary focus will be automation in software testing and maintenance approaches.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 . RESTRICTIONS: Students who received credit in CISC615 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 436\u00a0-\u00a0Computational Biology and Bioinformatics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682914",
+        "description": "CISC 436 - Computational Biology and Bioinformatics Credit(s): 3COMP BIOL AND BIOINFORMATICSComponent: LectureConcepts, methodologies, and tools in bioinformatics. Abstraction of biological problems for computational solutions. Genome sequencing and assembly, bio-sequence analysis and comparison and database search, dynamics programming, hidden Markov models, and phylogenetic trees.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . ANTIREQ: Students who received credit in CISC 636 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 437\u00a0-\u00a0Database Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682102",
+        "description": "CISC 437 - Database Systems Credit(s): 3DATABASE SYSTEMSComponent: LecturePhysical and logical organization of databases. Data retrieval languages, relational database languages, security and integrity, concurrency, distributed databases.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CISC 220 . RESTRICTIONS: Students who received credit in CISC637 are not eligible to take this course without permission. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 440\u00a0-\u00a0Computer Graphics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682103",
+        "description": "CISC 440 - Computer Graphics Credit(s): 3COMPUTER GRAPHICSComponent: LectureComputer graphics technology, two- and three-dimensional systems, graphics software systems, modeling and object hierarchy, and animation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 and MATH 241 . RESTRICTIONS: Students who received credit in CISC640 are not eligible to take this course without permission. Course Typically Offered: Verify offering with Dept.General Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 442\u00a0-\u00a0Introduction to Computer Vision",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682919",
+        "description": "CISC 442 - Introduction to Computer Vision Credit(s): 3INTRO TO COMPUTER VISIONComponent: LectureAnalysis of images and video to recognize, reconstruct, model, and otherwise infer static and dynamic properties of objects in the three-dimensional world. Geometry of image formation; image processing such as smoothing, edge and feature detection, color, and texture; segmentation; shape representation including deformable templates; stereo vision; motion estimation and tracking; techniques for 3-D reconstruction; image registration methods.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . RESTRICTIONS: Students who received credit in CISC642 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 449\u00a0-\u00a0Topics in Computer Applications",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682104",
+        "description": "CISC 449 - Topics in Computer Applications Credit(s): 3TPCS:COMPUTER APPLICATIONSComponent: LectureContents will vary to coincide with the interests of students and current faculty.Repeatable for Credit: Y Allowed Units: 12 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Students who received credit in CISC649 are not eligible to take this course without permission. General Education Objectives:"
+    },
+    {
+        "title": "CISC 450\u00a0-\u00a0Computer Networks I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682105",
+        "description": "CISC 450 - Computer Networks I Credit(s): 3COMPUTER NETWORKS IComponent: LectureFoundation principles, architectures and techniques employed in computer and communication networks. Focuses on mechanisms used in TCP/IP protocol suite. Topics include connection management, end-to-end reliable data transfer, sliding window protocols, quality of service, flow control, congestion control, routing, LANs, framing, error control, analog versus digital transmission, packet versus circuit switching, multiplexing.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with CPEG 419 . PREREQ: CISC 260 or CPEG 222 . RESTRICTIONS: Knowledge of probability and statistics recommended. Students who received credit in CISC 250 , CPEG 419 , CISC650, or ELEG651 are not eligible to take this course without permission. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 453\u00a0-\u00a0Simulation of Computer Networks",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682915",
+        "description": "CISC 453 - Simulation of Computer Networks Credit(s): 3SIMULATION OF COMPUTER NETWORKComponent: LectureModeling and computer simulation of discrete systems using discrete event simulation techniques. Application to the performance evaluation and modeling of computer networks and networking protocols. Study and use of simulation systems such as OPNET, Qualnet, and ns-2.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 450 , or equivalent. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 459\u00a0-\u00a0Topics in Communications, Distributed Computing and Networks",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682106",
+        "description": "CISC 459 - Topics in Communications, Distributed Computing and Networks Credit(s): 3TPCS: COMM, DIST, COMP & NETWKComponent: LectureContents vary to coincide with the interests of students and current faculty.Repeatable for Credit: Y Allowed Units: 6 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 450 . RESTRICTIONS: Students who received credit in CISC659 are not eligible to take this course without permission. General Education Objectives:"
+    },
+    {
+        "title": "CISC 464\u00a0-\u00a0Introduction to Network Security",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682913",
+        "description": "CISC 464 - Introduction to Network Security Credit(s): 3INTRO TO NETWORK SECURITYComponent: LecturePractical introduction to network security field. Covers material on cryptography, intrusions, denial-of-service attacks, worms, honeynets and other hot topics in network security.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 450 or equivalent. ANTIREQ: Students who received credit in CISC664 are not eligible to take this course without permission RESTRICTIONS: . Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 465\u00a0-\u00a0Introduction to Cybersecurity",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682955",
+        "description": "CISC 465 - Introduction to Cybersecurity Credit(s): 3INTRODUCTION TO CYBERSECURITYComponent: LectureThis cybersecurity course is an introduction to computer and network security and covers the foundation security policies and methods to provide confidentiality, integrity, and availability, as well as cryptography, auditing, and user security. Topics are reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with CPEG 465 , ELEG 465 , MISY 465 . RESTRICTIONS: Students who have received credit in CPEG 365 ,CISC665, CPEG 465 , CPEG665, ELEG 465 , ELEG665, MISY 465 or MISY665 are not eligible to take this course without permission. General Education Objectives: GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 466\u00a0-\u00a0Independent Study",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682107",
+        "description": "CISC 466 - Independent Study Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 467\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684008",
+        "description": "CISC 467 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 468\u00a0-\u00a0Research",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685788",
+        "description": "HELP\n2025-2026 Undergraduate Catalog \nPrint-Friendly Page (opens a new window)\n\n\nFacebook this Page (opens a new window)\n\n\n\n\nTweet this Page (opens a new window)\n\n \n\n\nCISC  468\u00a0-\u00a0Research Credit(s): 1-12RESEARCHComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: N Grading Basis: Student Option General Education Objectives:  \n\u00a0Back to Top | Print-Friendly Page (opens a new window)\n\n\nFacebook this Page (opens a new window)\n\n\n\n\nTweet this Page (opens a new window)"
+    },
+    {
+        "title": "CISC 469\u00a0-\u00a0Computer Security Principles and Practice",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685100",
+        "description": "CISC 469 - Computer Security Principles and Practice Credit(s): 3COMPUTER SECURITY PRINC PRACTComponent: LectureCovers both the principles and practice of computer security, including hands-on experience exploring vulnerabilities and defenses in a laboratory environment, with the purpose of understating real-world and Internet-wide threats. Topics include the security of computer systems (e.g., buffer overflow, side/covert channels), hacking fundamentals (e.g., scanning, spoofing), network (e.g., TCP, DDoS), mobile and Internet-of-Things devices (e.g., Android). Students are expected to finish several lab assignments using Linux, C, and python.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 361 ; knowledge of computer networks is recommended. RESTRICTIONS: Students who received credit in CISC669 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE2B: Communicate Orally"
+    },
+    {
+        "title": "CISC 471\u00a0-\u00a0Compiler Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682108",
+        "description": "CISC 471 - Compiler Design Credit(s): 3COMPILER DESIGNComponent: LectureIntroduction to the design and implementation of compilers, with a focus on lexical analysis, parsing and syntax directed translation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 260 and CISC 303 . ANTIREQ: Students who received credit in CISC672 are not eligible to take this course without permission. RESTRICTIONS: Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 472\u00a0-\u00a0Web Applications Security",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684770",
+        "description": "CISC 472 - Web Applications Security Credit(s): 3WEB APPLICATIONS SECURITYComponent: LectureThis seminar-style cybersecurity course covers one specific discipline of information security known as application security. This discipline (APPSEC) refers to the development of software that can continue to function correctly even under constant scrutiny and attack by determined adversaries.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with CPEG 470 . RESTRICTIONS: Programming experience in a high level language (e.g. C, C++, java, python). General Education Objectives:"
+    },
+    {
+        "title": "CISC 473\u00a0-\u00a0Computer Science Projects",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682109",
+        "description": "CISC 473 - Computer Science Projects Credit(s): 3COMPUTER SCIENCE PROJECTSComponent: Independent StudyExperimental, theoretical and literature studies of computer science problems.Repeatable for Credit: Y Allowed Units: 6 Multiple Term Enrollment: Y Grading Basis: Student Option RESTRICTIONS: Open to majors only. Requires permission of instructor. May be taken twice for credit when topics vary. General Education Objectives:"
+    },
+    {
+        "title": "CISC 474\u00a0-\u00a0Advanced Web Technologies",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682110",
+        "description": "CISC 474 - Advanced Web Technologies Credit(s): 3ADVANCED WEB TECHNOLOGIESComponent: LectureProgramming and architecture of web servers and the technologies for implementing high performance, sophisticated web sites for applications like e-commerce. Students learn how to install and set-up a web server, how to write and install programs for a web server, and how to design and implement multi-tier client/server applications with database backends.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 . Course Typically Offered: Verify offering with Dept.General Education Objectives: GE1C: Engage in Constructive Ideation GE2C: Communicate Through Creative Expression"
+    },
+    {
+        "title": "CISC 475\u00a0-\u00a0Software Engineering Principles and Practices",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682111",
+        "description": "CISC 475 - Software Engineering Principles and Practices Credit(s): 3SOFT ENG PRINCIPLES PRACTICESComponent: LectureExplores the major topics of modern software engineering research and practice. Topics include: software engineering processes and methodologies; requirements analysis and specification; software design principles, patterns, and formalisms; object-oriented design; implementation, documentation, and traceability; unit, integration, and systems-level testing; coverage metrics; test-case development strategies; test automation; software verification and formal methods.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 . CISC 361 is recommended. RESTRICTIONS: Students who received credit in CISC675 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE2C: Communication Through Creative Expression GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 476\u00a0-\u00a0Secure Software Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684771",
+        "description": "CISC 476 - Secure Software Design Credit(s): 3SECURE SOFTWARE DESIGNComponent: LectureThis cybersecurity course introduce the theory and practices used to help make a computer program secure and provide the skills needed to implement programs that are free from vulnerabilities.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with CPEG 476 . RESTRICTIONS: Programming experience in a high level language (e.g. C, C++, java, python). Graduate or upper level software course (design, etc.) recommended. General Education Objectives:"
+    },
+    {
+        "title": "CISC 479\u00a0-\u00a0Topics in Architecture and Software",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682112",
+        "description": "CISC 479 - Topics in Architecture and Software Credit(s): 3-6TOPICS IN ARCHITECTURE & SOFTWComponent: LectureContents will vary to coincide with the interests of students and faculty.Repeatable for Credit: Y Allowed Units: 6 Multiple Term Enrollment: Y Grading Basis: Student Option PREREQ: CISC 361 . RESTRICTIONS: Students who received credit in CISC679 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 481\u00a0-\u00a0Artificial Intelligence",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682113",
+        "description": "CISC 481 - Artificial Intelligence Credit(s): 3ARTIFICIAL INTELLIGENCEComponent: LectureProgramming techniques for problems not amenable to algorithmic solutions. Problem formulation, search strategies, state spaces, applications of logic, knowledge representation, planning and application areas.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with CGSC 481 . PREREQ: CISC 220 with a minimum grade of C-, CISC 304 . RESTRICTIONS: Students who received credit in CISC681 are not eligible to take this course without permission. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 482\u00a0-\u00a0Introduction to Human-Computer Interaction",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684755",
+        "description": "CISC 482 - Introduction to Human-Computer Interaction Credit(s): 3INTRO HUMAN-COMP INTERACTIONComponent: LectureResearch and theoretical methods for the study, design, implementation, and evaluation of effective user-interactive systems, including requirements for gathering, survey design, and rapid prototyping. Hands-on group projects supplement theoretical knowledge.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 . RESTRICTIONS: Students who received credit in CISC682 are not eligible to take this course without permission. General Education Objectives: GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE2C: Communicate Through Creative Expression GE3A: Work Collaboratively Across Cultures GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 483\u00a0-\u00a0Introduction to Data Mining",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682918",
+        "description": "CISC 483 - Introduction to Data Mining Credit(s): 3INTRODUCTION TO DATA MININGComponent: LectureConcepts, techniques, and algorithms for mining large data sets to discover structural patterns that can be used to make subsequent predictions. Emphasis on practical approaches and empirical evaluation. Use of a workbench of data mining tools, such as the Weka toolkit.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 , and MATH 205 or MATH 350 . ANTIREQ: Students who received credit in CISC683 are not eligible to take this course without permission. RESTRICTIONS: Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 484\u00a0-\u00a0Introduction to Machine Learning",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682922",
+        "description": "CISC 484 - Introduction to Machine Learning Credit(s): 3MACHINE LEARNINGComponent: LectureDevelopment of methods to learn to solve a task using examples. Explore different machine learning algorithms/techniques and discuss their strengths and weaknesses and situations they are or are not suited for.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 , and MATH 205 or MATH 350 . RESTRICTIONS: Students who received credit in CISC684 are not eligible to take this course without permission. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 486\u00a0-\u00a0Introduction to Multi-Agent Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685094",
+        "description": "CISC 486 - Introduction to Multi-Agent Systems Credit(s): 3INTRO MULTI-AGENT SYSTEMSComponent: LectureA multi-agent system is one composed of multiple, distributed, interacting software components known as agents, which are typically capable of cooperating or competing to solve problems that are beyond the abilities of any individual member. Topics include: theory and construction of computational agents; distributed cooperation and shared problem-solving; self-interested agents and computational game theory; distributed decision-making, coalition formation, voting, resource allocation, incentive design, negotiation, electronic commerce, multi-agent learning.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 . RESTRICTIONS: Students who have received credit in CISC686 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 487\u00a0-\u00a0Vertically Integrated Projects IV",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684777",
+        "description": "CISC 487 - Vertically Integrated Projects IV Credit(s): 1-3VIP IVComponent: LectureThe Vertically-Integrated Projects (VIP) Program operates in a research and development context. Undergraduate students that join VIP teams earn academic credit for their participation in design/discovery efforts that assist faculty and graduate students with research and development issues in their areas of expertise. Repeatable for Credit: Y Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 487 . Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CISC 488\u00a0-\u00a0Introduction to Natural Language Processing",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685098",
+        "description": "CISC 488 - Introduction to Natural Language Processing Credit(s): 3INTRO TO NLPComponent: LectureAn introductory course in natural language processing that will cover topics from text processing to a variety of applications including language models, document classification, topic detection, information extraction, question answering, summarization, sentiment analysis and translation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 and experience programming in Python. A first course in probability or statistics is recommended. RESTRICTIONS: Students who received credit in CISC688 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 489\u00a0-\u00a0Topics: Artificial Intelligence",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682114",
+        "description": "CISC 489 - Topics: Artificial Intelligence Credit(s): 3TOPICS: ARTIFICIAL INTELLIGENCComponent: LectureContents vary to coincide with the interests of students and current faculty.Repeatable for Credit: Y Allowed Units: 6 Multiple Term Enrollment: Y Grading Basis: Student Option RESTRICTIONS: Students who received credit in CISC689 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CISC 498\u00a0-\u00a0Computer Science Senior Design Project I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684483",
+        "description": "CISC 498 - Computer Science Senior Design Project I Credit(s): 3COMP SCI SENIOR DESIGN IComponent: LectureFirst semester of two-semester senior software design course. Students work in teams to develop solutions to real-world problems for a client. Application of a modern software engineering process; requirement solicitation, analysis, and specification; prototyping; design; incremental development; testing and verification; client interaction; and presentation. Offered in Fall only.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 275 . Requirement Designations: Discovery Learning Experience Capstone: Design Project Course Typically Offered: FallGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CISC 499\u00a0-\u00a0Computer Science Senior Design Project II",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684484",
+        "description": "CISC 499 - Computer Science Senior Design Project II Credit(s): 3COMP SCI SENIOR DESIGN IIComponent: PracticumContinuation of CISC 498 .Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 320 and CISC 498 . Requirement Designations: Discovery Learning Experience Capstone: Design Project Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 166\u00a0-\u00a0Special Problem",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685688",
+        "description": "HELP\n2025-2026 Undergraduate Catalog \nPrint-Friendly Page (opens a new window)\n\n\nFacebook this Page (opens a new window)\n\n\n\n\nTweet this Page (opens a new window)\n\n \n\n\nCPEG  166\u00a0-\u00a0Special Problem Credit(s): 1-3SPECIAL PROBLEMRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:  \n\u00a0Back to Top | Print-Friendly Page (opens a new window)\n\n\nFacebook this Page (opens a new window)\n\n\n\n\nTweet this Page (opens a new window)"
+    },
+    {
+        "title": "CPEG 202\u00a0-\u00a0Introduction to Digital Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682934",
+        "description": "CPEG 202 - Introduction to Digital Systems Credit(s): 3INTRO TO DIGITAL SYSTEMSComponent: LectureAnalysis and design of logic circuits. Topics include: Boolean algebra and its application to switching circuits, simplification of switching functions, design of logic circuits at gate level and with MSI and LSI components. Analysis and design of synchronous and asynchronous sequential state machines.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 222\u00a0-\u00a0Microprocessor Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682155",
+        "description": "CPEG 222 - Microprocessor Systems Credit(s): 4MICROPROCESSOR SYSTEMSComponent: LectureIntroduction to microprocessors as embedded devices. Emphasizes Input/Output techniques, interrupts, real-time operation, high-level code debugging and interfacing to various types of sensors and actuators. Projects that address various embedded applications are a major part of the course.Repeatable for Credit: N Allowed Units: 4 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CPEG 202 and CISC 210 . Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 266\u00a0-\u00a0SPECIAL PROBLEM",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682156",
+        "description": "CPEG 266 - SPECIAL PROBLEM Credit(s): 1-3SPECIAL PROBLEMComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "CPEG 267\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684018",
+        "description": "CPEG 267 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 298\u00a0-\u00a0ECE Design Challenges",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684019",
+        "description": "CPEG 298 - ECE Design Challenges Credit(s): 3ECE DESIGN CHALLENGESComponent: LectureCourse includes a series of learning modules including electrical safety, use of test equipment, and interfacing microprocessors to sensors. Students complete a design assignment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 298 . PREREQ: ELEG 205 , CPEG 222 . General Education Objectives:"
+    },
+    {
+        "title": "CPEG 301\u00a0-\u00a0Cybersecurity Scholars",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684820",
+        "description": "CPEG 301 - Cybersecurity Scholars Credit(s): 1CYBERSECURITY SCHOLARSComponent: LectureThe Cybersecurity Scholars Program will integrate with any major and train you to become a thought leader in cybersecurity! You will collaboratively assess the most pressing cyber-defense questions and develop both cultural and technical solutions.Repeatable for Credit: Y Allowed Units: 8 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 302\u00a0-\u00a0Lead a Cybersecurity Scholars Project",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685198",
+        "description": "CPEG 302 - Lead a Cybersecurity Scholars Project Credit(s): 0LEAD A CYBERSECURITY SCHOLARSComponent: Independent StudyThe purpose of the Cybersecurity Scholars Project is for the scholar to gain meaningful experience leading a multidisciplinary team. To satisfy this requirement, a student must engage with the same project, focused on a defined Cybersecurity area (e.g., Critical Infrastructure, Protecting Institutions, Educating, or Community Outreach), for at least two semesters during their upperclassmen years. In rare circumstances, students may change their project after one semester with instructor\u2019s permission and propose a new project (the duration of the new project will be two semesters).Repeatable for Credit: Y Allowed Units: 0 Multiple Term Enrollment: N Grading Basis: Pass/Not Pass Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 323\u00a0-\u00a0Introduction to Computer Systems Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682157",
+        "description": "CPEG 323 - Introduction to Computer Systems Engineering Credit(s): 3INTRO TO CMPUTER SYSTM ENGINERComponent: LectureStudies general purpose, special purpose and embedded computer architecture. Principles of digital system design introduced including an introduction to tools for automated design and use of programmable logic devices.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: A minimum grade of C- in CPEG 222 . Course Typically Offered: FallGeneral Education Objectives: GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 324\u00a0-\u00a0Computer Systems Design I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682158",
+        "description": "CPEG 324 - Computer Systems Design I Credit(s): 3COMPUTER SYSTEMS DESIGN IComponent: LecturePrinciples of computer system design are studied emphasizing tradeoffs involving cost, performance, testability, reliability and manufacturability. Topics include timing analysis, component and subsystem interconnect, noise effects debugging techniques, boundary scan testing and printed circuit layout. Laboratory work involves design and implementation of a computer subsystem.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 323 . Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 365\u00a0-\u00a0Introduction to Cybersecurity Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685199",
+        "description": "CPEG 365 - Introduction to Cybersecurity Engineering Credit(s): 3INTRODUCTION TO CYBERSECURITYComponent: LectureThe course offers an introduction to computer and network security and covers the foundation security policies and methods to provide confidentiality, integrity, and availability, as well as cryptography, auditing, and user security. Topics are reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 106 , CPEG 222 . RESTRICTIONS: Students who have received credit in CISC 465 , CISC665, CPEG 465 , CPEG665, ELEG 465 , ELEG665, MISY 465 or MISY665 are not eligible to take this course without permission. Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 366\u00a0-\u00a0INDEPENDENT STUDY",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682159",
+        "description": "CPEG 366 - INDEPENDENT STUDY Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 367\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684020",
+        "description": "CPEG 367 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 398\u00a0-\u00a0ECE Design & Entrepreneurship",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684021",
+        "description": "CPEG 398 - ECE Design & Entrepreneurship Credit(s): 3ECE DESIGN & ENTRPRENEURSHIPComponent: LectureStudents work in small teams on various design challenges. The teams explore entrepreneurship opportunities by forming fictitious companies and selling their ideas.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 398 . PREREQ: ELEG 298 or MATH 219 Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 406\u00a0-\u00a0Career and Success Development",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685542",
+        "description": "CPEG 406 - Career and Success Development Credit(s): 1CAREER AND SUCCESS DEVELOPMENTComponent: LectureThis course is designed to help students develop the skills and strategies necessary for achieving academic and career success. The course will cover topics such as self-awareness, goal setting, time management, communication, teamwork, networking, resume writing, interviewing, and ethics. The course will also provide opportunities for students to explore their interests, values, strengths, and career options.Repeatable for Credit: Y Allowed Units: 2 Multiple Term Enrollment: Y Grading Basis: Pass/Not Pass Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 419\u00a0-\u00a0Computer Networks I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682116",
+        "description": "CPEG 419 - Computer Networks I Credit(s): 3COMPUTER NETWORKS IComponent: LectureFoundation principles, architectures and techniques employed in computer and communication networks. Focuses on mechanisms used in TCP/IP protocol suite. Topics include connection management, end-to-end reliable data transfer, sliding window protocols, quality of service, flow control, congestion control, routing, LANs, framing, error control, analog versus digital transmission, packet versus circuit switching, multiplexing.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with CISC 450 . PREREQ: CISC 260 or CPEG 222 . RESTRICTIONS: Knowledge of probability and statistics recommended. Students who received credit in CISC250, CPEG419, CISC650, or ELEG651 are not eligible to take this course without permission. Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "CPEG 421\u00a0-\u00a0Compiler Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682160",
+        "description": "CPEG 421 - Compiler Design Credit(s): 3COMPILER DESIGNComponent: LectureIntroduction to compiler design, systax and semantics, code generation and optimization. Design of high performance computers together with high performance optimizing compilers as an integral unit. Software/hardware tradeoffs in pipelined computers, superscaler computers and computers embedded in other systems.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 323 and CISC 361 . Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 422\u00a0-\u00a0Embedded Systems Hardware/Software Co-Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682161",
+        "description": "CPEG 422 - Embedded Systems Hardware/Software Co-Design Credit(s): 3EMBEDDED SYSTEM DESIGNComponent: LectureCourse covers hardware/software co-design approaches for building embedded systems. Topics include, but are not limited to: microprocessors and FPGAs; VHD,; C, and Phython; gate-level, register transfer leve, and IP level design; hardware/software co-design; memory, bus, and IO ports; IP cores and customization; hardware accelerators, and cyber security.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Students should have previous knowledge of VHDL programming language. Requirement Designations: Discovery Learning Experience Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 423\u00a0-\u00a0PCB & FPGA Hardware Prototyping",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682949",
+        "description": "CPEG 423 - PCB & FPGA Hardware Prototyping Credit(s): 3PCB & FPGA PROTOTYPINGComponent: LectureThis course focuses on the design, fabrication, and construction of Printed Circuit Boards and on using FPGA design kits.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CISC 220 CPEG 222 . Course Typically Offered: Fall, Summer and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE2C: Communicate Through Creative Expression GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 424\u00a0-\u00a0Analog Integrated Circuit Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684892",
+        "description": "CPEG 424 - Analog Integrated Circuit Design Credit(s): 4ANALOG IC DESIGNComponent: LectureCourse content will include: Advanced current mirrors, voltage references, amplifiers, frequency compensation, negative feedback systems and stability, Opamps, IC layout. Repeatable for Credit: N Allowed Units: 4 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: ELEG 309 . Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 425\u00a0-\u00a0Advanced PCB Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685566",
+        "description": "CPEG 425 - Advanced PCB Design Credit(s): 3ADVANCED PCB DESIGNComponent: LectureSignal and power integrity of PCBs. Emphasizes transmission lines, differential signals, serial buses, ESD, EMI, layout, PCB stackup, thermal design, scope bandwidth, and probing techniques. Introduction to Altium Designer emphasizing the use of netclasses and other design rules. Student supplied PC with 64bit Win10 or Win11, i5 or better, 4GB ram, and 16GB available disk space is required.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 222 Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 455\u00a0-\u00a0High-Performance Computing with Commodity Hardware",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682939",
+        "description": "CPEG 455 - High-Performance Computing with Commodity Hardware Credit(s): 3HIGH-PERF COMPUTING CMDTY HDW.Component: LectureNew commodity computing devices, e.g., GPUs, bring the originally elite highperformance computing into the reach of general public. Principles of program optimization, GPU and IBM Cell architecture, along with concepts and techniques for optimizing general purpose computing on the new hardware.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 457\u00a0-\u00a0Search and Data Mining",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682940",
+        "description": "CPEG 457 - Search and Data Mining Credit(s): 3SEARCH AND DATA MININGComponent: LectureWith the increasing amount of textual information, it is important to develop effective search engines, such as Google, to help users manage and exploit the information. Examine the underlying technologies of search engines and get hands-on project experience. Requires good programming skills.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 460\u00a0-\u00a0Introduction to VLSI Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682162",
+        "description": "CPEG 460 - Introduction to VLSI Systems Credit(s): 3INTRODUCTION TO VLSI SYSTEMSComponent: LectureStudy of CMOS VLSI devices, circuits and systems implemented in VLSI. CAD tools for the design and simulation of VLSI. Topics include the performance and limitations of VLSI systems, low level circuit design and system design with an emphasis on digital systems. Major chip design project required.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option RESTRICTIONS: Students should have previous knowledge of logic design and MOS transistor operation. Requirement Designations: Discovery Learning Experience Course Typically Offered: Fall, Summer and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE2C: Communicate Through Creative Expression GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 465\u00a0-\u00a0Introduction to Cybersecurity",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682956",
+        "description": "CPEG 465 - Introduction to Cybersecurity Credit(s): 3INTRODUCTION TO CYBERSECURITYComponent: LectureThis cybersecurity course is an introduction to computer and network security and covers the foundation security policies and methods to provide confidentiality, integrity, and availability, as well as cryptography, auditing, and user security. Topics are reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with CISC 465 , ELEG 465 , MISY 465 . RESTRICTIONS: Students who have received credit in CPEG 365 , CISC 465 , CISC665, CPEG665, ELEG 465 , ELEG665, MISY 465 or MISY665 are not eligible to take this course without permission. Course Typically Offered: Verify offering with DeptGeneral Education Objectives: GE1B: Analyze Arguments and Information GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 466\u00a0-\u00a0INDEPENDENT STUDY",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682163",
+        "description": "CPEG 466 - INDEPENDENT STUDY Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 467\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684022",
+        "description": "CPEG 467 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 470\u00a0-\u00a0Web Applications Security",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682963",
+        "description": "CPEG 470 - Web Applications Security Credit(s): 3WEB APPLICATIONS SECURITYComponent: LectureThis seminar-style cybersecurity course covers one specific discipline of information security known as application security. This discipline (APPSEC) refers to the development of software that can continue to function correctly even under constant scrutiny and attack by determined adversaries.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with CISC 472 . RESTRICTIONS: Programming experience in a high level language (e.g. C, C++, java, python). General Education Objectives:"
+    },
+    {
+        "title": "CPEG 471\u00a0-\u00a0Pen Test and Reverse Engineering",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682964",
+        "description": "CPEG 471 - Pen Test and Reverse Engineering Credit(s): 3PEN TEST AND REVERSE ENGINEERIComponent: LectureThis cybersecurity course introduces techniques used to (1) identify strengths and exploit weaknesses in networked systems or hosts, and (2) reverse engineer programs of unknown origin and identify their function so to classify them as malware and highlight the level of risk that they represent.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 465 /CPEG665 or CPEG 494 /CPEG694 or CPEG 365 Programming experience in assembly language (CISC 260 , CPEG 222 , or equivalent). Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 472\u00a0-\u00a0Applied Cryptography",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682966",
+        "description": "CPEG 472 - Applied Cryptography Credit(s): 3APPLIED CRYPTOGRAPHYComponent: LectureThis cybersecurity course explores modern Cryptography covering algorithms and cryptosystems, cryptanalysis, and best practices for application and implementation of crypto in software systems.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG465 /CPEG665 or CPEG 365 or MATH549 or equivalent. RESTRICTIONS: Programming experience in a high level language (e.g. C, C++, java, python). Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 473\u00a0-\u00a0Cloud Computing and Security",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682965",
+        "description": "CPEG 473 - Cloud Computing and Security Credit(s): 3CLOUD COMPUTING AND SECURITYComponent: LectureThis cybersecurity course introduces the virtualization and cloud computing technologies used in most modern online services. The unique and conventional security issues related to protecting these types of systems are addressed and reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 465 /CPEG 665, ELEG 465 /ELEG 665, CISC 465 /CISC665, MISY 465 /MISY 665 or CPEG 494 /CPEG 694, ELEG 494 /ELEG 694 or experience with virtualization and computer networking. General Education Objectives:"
+    },
+    {
+        "title": "CPEG 475\u00a0-\u00a0IoT and Embedded Systems Security",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682969",
+        "description": "CPEG 475 - IoT and Embedded Systems Security Credit(s): 3IOT & EMBEDDED SYSTEMS SECURITComponent: LectureThe main emphasis of this course is cybersecurity for embedded systems devices and Internet of Things. The major topics covered include the instruction set and CPUs of embedded devices, the design of secure computing architectures from assembly program design to operating systems. Additional emphasis is given to Internet of Things applications, such as smart homes, embedded microprocessors and automotive systems.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 222 , CPEG 465/CPEG665 or CPEG365 Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 476\u00a0-\u00a0Secure Software Design",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682967",
+        "description": "CPEG 476 - Secure Software Design Credit(s): 3SECURE SOFTWARE DESIGNComponent: LectureThis cybersecurity course introduce the theory and practices used to help make a computer program secure and provide the skills needed to implement programs that are free from vulnerabilities.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with CISC 476 . RESTRICTIONS: Programming experience in a high level language (e.g. C, C++, java, python). Graduate or upper level software course (design, etc.) recommended. General Education Objectives:"
+    },
+    {
+        "title": "CPEG 494\u00a0-\u00a0System Hardening and Protection",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682959",
+        "description": "CPEG 494 - System Hardening and Protection Credit(s): 3SYSTEM HARDENING & PROTECTIONComponent: LecturePractical treatment of the defensive techniques used to harden computer systems to make them less vulnerable to cyber-attacks. Defect management, configuration/hardening, account control, logs/auditing, and risk assessment are covered and reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with ELEG 494 . Course Typically Offered: FallGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 495\u00a0-\u00a0Digital Forensics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682952",
+        "description": "CPEG 495 - Digital Forensics Credit(s): 3DIGITAL FORENSICSComponent: LectureIntroduction to digital forensics as used to analyze criminal evidence in computer systems and digital media. Forensic tools and techniques for storage and memory analysis of windows/linux, network traffic, documentation are covered and reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with ELEG 495 . Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 496\u00a0-\u00a0Topics in Cybersecurity",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682961",
+        "description": "CPEG 496 - Topics in Cybersecurity Credit(s): 3TOPICS IN CYBERSECURITYComponent: LectureExplore varied topics in cybersecurity to coincide with the interests of students and current faculty. Potential topics include: (1) applications, web or cloud security, (2) risk management and incident response, (3) malware and reverse engineering, or (4) wireless, smartphone, or SCADA security.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with ELEG 496 . Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "CPEG 497\u00a0-\u00a0Advanced Cybersecurity",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682968",
+        "description": "CPEG 497 - Advanced Cybersecurity Credit(s): 3ADVANCED CYBERSECURITYComponent: LectureThis seminar course explores areas in advanced computer and network security not covered in introductory cybersecurity classes. Provides insight into realistic complex defensive and offensive cybersecurity topics such as DoS attacks, DNS security, Email spam, On-line Authentication, Phishing, Cloud Security, Malware, and Web security.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: CPEG 465 /CPEG665. Familiarity with basic networking protocols and operating systems. General Education Objectives:"
+    },
+    {
+        "title": "CPEG 498\u00a0-\u00a0Senior Design I",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682944",
+        "description": "CPEG 498 - Senior Design I Credit(s): 3SENIOR DESIGN IComponent: LectureStudents apply their accumulated classroom knowledge to an electrical and computer engineering design problem. Students work in small teams and must present their finished designs at the end of the term.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 498 . Requirement Designations: Discovery Learning Experience Capstone: Design Project Course Typically Offered: FallGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "CPEG 499\u00a0-\u00a0Senior Design II",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682946",
+        "description": "CPEG 499 - Senior Design II Credit(s): 3SENIOR DESIGN IIComponent: LectureStudents apply their accumulated classroom knowledge to an electrical and computer engineering design problem. Students work in small teams and must present their finished designs at the end of the term.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ELEG 499 . Requirement Designations: Discovery Learning Experience Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 160\u00a0-\u00a0Business Computing Fundamentals",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681590",
+        "description": "MISY 160 - Business Computing Fundamentals Credit(s): 3BUS. COMPUT: TOOLS & CONCEPTSComponent: LectureIntroduction to using computer applications as effective tools for problem solving and data analysis. Emphasis on using Excel to analyze and explore real world data. Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives: GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 166\u00a0-\u00a0SPECIAL PROBLEM",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682621",
+        "description": "MISY 166 - SPECIAL PROBLEM Credit(s): 1-3SPECIAL PROBLEMComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "MISY 225\u00a0-\u00a0Introduction to Programming",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682619",
+        "description": "MISY 225 - Introduction to Programming Credit(s): 3INTRO. TO PROG. BUS. APPS.Component: LectureCovers principles of programming to perform data analytics and visualization, and their applications in various fields (including, but not limited to, business analytics, financial services, management science, and accounting).Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 250\u00a0-\u00a0Data Communication and Network Infrastructure",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684661",
+        "description": "MISY 250 - Data Communication and Network Infrastructure Credit(s): 3DATA COMMUNICATIONSComponent: LectureFamiliarizes students with principles and concepts related to data communication, computer networks, and the Internet. The connections among technologies and business implications will be emphasized. Students will be expected to master the terminology, basic applications, and an overall picture of business communication networks.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 160 . Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 261\u00a0-\u00a0Introduction to Management Information Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681591",
+        "description": "MISY 261 - Introduction to Management Information Systems Credit(s): 3MANAGEMENT INFORMATION SYSTEMSComponent: LectureMISY261 focuses on how to use analytical strategies and tools for problem solving and data analysis. Students will use the data analytics process to plan business objectives, understand data, prepare data for analysis, model and evaluate data, and communicate useful business insights.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 160 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 262\u00a0-\u00a0Fundamentals of Business Analytics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684220",
+        "description": "MISY 262 - Fundamentals of Business Analytics Credit(s): 3FUNDAMENTALS OF BUS. ANALYTICSComponent: LectureIntroduction to the basic tools and methods of data analytics for business. Topics include inferential statistics, predictive models, business processes, and methods of presenting results. Includes light programming.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: STAT 200 . Course Typically Offered: Fall, Summer and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 266\u00a0-\u00a0SPECIAL PROBLEM",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682622",
+        "description": "MISY 266 - SPECIAL PROBLEM Credit(s): 1-3SPECIAL PROBLEMComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "MISY 267\u00a0-\u00a0Seminar",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684221",
+        "description": "MISY 267 - Seminar Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 305\u00a0-\u00a0Information Security and Risk Management",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684222",
+        "description": "MISY 305 - Information Security and Risk Management Credit(s): 3INFORMTN SECURITY & RISK MGMTComponent: LectureThis course introduces the fundamental concepts of information and cybersecurity. It covers how to protect the confidentiality, integrity, and availability of data and information systems that modern organizations depend upon. The domains examined include network security, risk management, governance, physical security, cryptography, business continuity, and legal issues. Special consideration is given to studying major information security incidents and cybersecurity trends. You will learn about the threats and vulnerabilities facing computer systems and tools and techniques used to secure them. Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with ACCT 305 . PREREQ: MISY 160 Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 330\u00a0-\u00a0Database Management",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681592",
+        "description": "MISY 330 - Database Management Credit(s): 3DATABASE DESIGN & IMPLEMENTATNComponent: LectureStudents will learn how to design and extract information from enterprise databases. Extensive hands-on experience will be on conceptual, logical, and physical modeling, as well as SQL. Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 261 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE3A: Work Collaboratively Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 331\u00a0-\u00a0Machine Learning for Business",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684804",
+        "description": "MISY 331 - Machine Learning for Business Credit(s): 3MACHINE LEARNING FOR BUSINESSComponent: LectureData is a critical type of business capital, and data mining is essential to unleash the value of data for business analytics. Students will learn state-of-the-art data mining methods and theories. We will also discuss the applications of data mining methods to solve real-world business problems in a wide range of areas such as marketing, finance, and healthcare.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 225 or CISC 108 . Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE3B: Work Independently Across Cultures GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 350\u00a0-\u00a0Business Application Development",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685247",
+        "description": "MISY 350 - Business Application Development Credit(s): 3BUSINESS APPLICATIN DEVELOP IIComponent: LectureStudents will develop an understanding of fundamental programming logic and learn to use basic programming structures to solve business problems. Students are introduced to the object-oriented paradigm, program development cycle, and programming principles. Upon completion, students should be able to design, code, test, and debug programs based on business requirements.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 225 or CISC 108 and MISY 330 . Course Typically Offered: FallGeneral Education Objectives: GE2B: Communicate Orally"
+    },
+    {
+        "title": "MISY 360\u00a0-\u00a0Agile Development and User Experience",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685276",
+        "description": "MISY 360 - Agile Development and User Experience Credit(s): 3AGILE DEVELOPMENTComponent: LectureThis hands-on course will introduce students to the principles, processes, and practices of user-centric agile development. Students will learn to apply the agile framework to development projects and design technology products that create an engaging user experience. Through a semester-long project, students will use the agile methodology to plan and develop a technology prototype that integrates user experience principles.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 261 Course Typically Offered: FallGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 364\u00a0-\u00a0Management Information Systems in Practice",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682624",
+        "description": "MISY 364 - Management Information Systems in Practice Credit(s): 3MIS IN PRACTICEComponent: LectureRequires at least 120 hours of MIS-related assignments in an internship, verified by the hiring company. A term paper relating the real world duties and responsibilities of the internship to principles learned in traditional MIS classes is required.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 330 Requirement Designations: Discovery Learning Experience Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 366\u00a0-\u00a0Independent Study",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682623",
+        "description": "MISY 366 - Independent Study Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 367\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684223",
+        "description": "MISY 367 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 402\u00a0-\u00a0Big Data Technologies",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684907",
+        "description": "MISY 402 - Big Data Technologies Credit(s): 3BIG DATA TECHNOLOGIESComponent: LectureExposes students to the different phases of big data projects: discovery, collection, enrichment, analysis, and decision making. Students learn how to implement Big Data solutions.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ACCT 402 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 403\u00a0-\u00a0Cybersecurity Management",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685225",
+        "description": "MISY 403 - Cybersecurity Management Credit(s): 3CYBERSECURITY MANAGEMENTComponent: LectureThis course is a broad introduction to managerial issues of cybersecurity. The topics of the class range widely, including technical (e.g., cryptography), managerial (e.g., defense methods for organizations), physical (e.g., door locks), and psychological (e.g., social engineering) issues. A key objective of the class is to develop a security mindset, in which one learns to think like an attacker for ways to exploit a system.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 405\u00a0-\u00a0Current Issues in Management Information Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684766",
+        "description": "MISY 405 - Current Issues in Management Information Systems Credit(s): 3CURRENT ISSUES IN MISComponent: LectureAddresses current information technology challenges in today\u2019s business environment. Although content will constantly change to reflect current technology and emerging issues, topics include: big data, openness in today\u2019s information systems, the cloud computing environment, the role of XML, digital financial reporting, ERP and Web services, the interoperability of information systems, and the Resource Description Framework.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with ACCT 405 . Course Typically Offered: FallGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 407\u00a0-\u00a0Data-Driven Causal Inference",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685226",
+        "description": "MISY 407 - Data-Driven Causal Inference Credit(s): 3DATA DRIVEN CAUSAL INFERENCEComponent: LectureData-driven analytics have climbed to the top of the corporate agenda. Many managers, however, lack real-world experience working with data, above and beyond the basics of spreadsheet analysis. They may either perform inadequate evaluations of the data themselves, or turn the data over to statisticians who may lack the relevant institutional/domain knowledge. As a result, managers do not gain valuable insights for their business decision making. Focusing on data-driven experimentation and causal inference, this course aims to combine both skills (data analysis and business expertise).Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Spring and SummerGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 408\u00a0-\u00a0Data & Analytics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684657",
+        "description": "MISY 408 - Data & Analytics Credit(s): 3DATA & ANALYTICSComponent: LectureExplores the role of analytics in guiding business decision-making. Topics will include machine learning concepts, such as unsupervised and supervised learning techniques. The course will also allow students to gain expertise in manipulating and preparing data for machine learning & data analytics.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 262 (preferred) or MATH 202 , and MISY 225 or CISC 108 . Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 427\u00a0-\u00a0Information Technology and Organizational Effectiveness",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681593",
+        "description": "MISY 427 - Information Technology and Organizational Effectiveness Credit(s): 3INFO TECH AND ORG EFFECTComponent: LectureExplores practical applications of information technology in all aspects of management including organizational behavior, human resource management, international management and strategic decision making. Issues of managing emerging technologies, integrating technologies with people, organizational culture and structure and strategic decision making will be discussed.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: BUAD 309 or ACCT 364 or MISY 364 or BUAD 364 or ECON 364 or ENTR 364 or FINC 364 or HOSP 364 . Course Typically Offered: Fall and SpringGeneral Education Objectives: GE2B: Communicate Orally"
+    },
+    {
+        "title": "MISY 430\u00a0-\u00a0Analyzing and Designing IT Solutions",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681594",
+        "description": "MISY 430 - Analyzing and Designing IT Solutions Credit(s): 3ANALYZE/DESIGN IT SOLUTIONSComponent: LectureThis course addresses the challenges involved in developing new software applications and systems. Students will learn to identify and define system requirements, analyze system-related problems, and design effective solutions. The course provides a comprehensive understanding of the software development lifecycle, from initial concept to final implementation.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 330 or CISC 437 . Course Typically Offered: FallGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE3A: Work Collaboratively Across Cultures GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 431\u00a0-\u00a0MIS Capstone: IT Project Management",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681595",
+        "description": "MISY 431 - MIS Capstone: IT Project Management Credit(s): 3MIS PROJECT MANAGEMENTComponent: LectureMISY431 and MISY 432 serve as the MIS program capstone. Students learn project management techniques, and working in teams, apply this knowledge by developing technology-based business solutions for various enterprises.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 430 COREQ: MISY 432 ANTIREQ: Students who have received credit in BUAD 429 are not eligible to take this course without permission. Requirement Designations: Discovery Learning Experience Course Typically Offered: SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 432\u00a0-\u00a0MIS Capstone: Projects",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=681596",
+        "description": "MISY 432 - MIS Capstone: Projects Credit(s): 3MIS PROJECTSComponent: LectureMISY431 and MISY432 serve as the MIS program capstone. IN MISY432, students will incorporate project management best practices while working with a real-world client on a semester-long project.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 430 . COREQ: MISY 431 . RESTRICTIONS: MIS majors and minors only Capstone: Field Experience Course Typically Offered: SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 435\u00a0-\u00a0Advanced Data Technologies",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684806",
+        "description": "MISY 435 - Advanced Data Technologies Credit(s): 3ADVANCED DATA TECHNOLOGIESComponent: LectureThis course covers essential knowledge of processing big data. Suggested topics include the distributed file system for storing big data, the MapReduce framework for processing big data and its realization such as Hadoop, as well as the ETL process (i.e., extracting, transforming and loading data).Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 330 . General Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE2A: Communicate Effectively in Writing GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 436\u00a0-\u00a0Unstructured Data Analytics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684805",
+        "description": "MISY 436 - Unstructured Data Analytics Credit(s): 3UNSTRUCTURED DATA ANALYTICSComponent: LectureWhile the data mining course focus on predicting from structured data, this new course covers topics on analyzing and predicting from unstructured data. Suggested topics include natural language processing for mining textual data and deep learning models for analyzing audio and video data.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 225 or CISC 108 . Course Typically Offered: SpringGeneral Education Objectives: GE1A: Read Critically GE1B: Analyze Arguments and Information GE2B: Communicate Orally GE3A: Work Collaboratively Across Cultures GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 441\u00a0-\u00a0Data Mining for Business Analytics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685134",
+        "description": "MISY 441 - Data Mining for Business Analytics Credit(s): 3DATA MINING BUS ANALYTICSComponent: LectureIntroduces fundamental strategies and methodologies for data mining along with the concepts underlying them, and will provide hands-on experience with a variety of different techniques in a business setting. Students will learn to use data mining tools.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 262 . Course Typically Offered: SpringGeneral Education Objectives: GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 445\u00a0-\u00a0Business Analytics Capstone",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684673",
+        "description": "MISY 445 - Business Analytics Capstone Credit(s): 3BUSINESS ANALYTICS CAPSTONEComponent: LectureAnalytics leverages both the proliferation of data and the advancement of computational tools to bring a new level of sophistication to business decision making. As a capstone experience, this course places students in the role of \u2018Business Data Analyst.\u2019 Students will work on large real-world datasets to recommend courses of action to businesses. All phases of the analytics process from data capture to creation of an analytics-driven recommendation or prototype solution will be practiced.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with BUAD 445 . PREREQ: BUAD 345 Requirement Designations: Discovery Learning Experience Capstone: Field Experience Course Typically Offered: SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 447\u00a0-\u00a0Digital Transformation",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685402",
+        "description": "MISY 447 - Digital Transformation Credit(s): 3DIGITAL TRANSFORMATIONComponent: LectureThe course aims to help understand how to accelerate efforts at transforming businesses processes digitally. Robotic Process Automation can automate business workflows especially those that are repetitive and manual, to improve efficiency. Students will build their own business process using RPA platforms.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: May be crosslisted with ACCT 447 . PREREQ: MISY 261 Course Typically Offered: Fall and SpringGeneral Education Objectives: GE1B: Analyze Arguments and Information GE1C: Engage in Constructive Ideation GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 448\u00a0-\u00a0Business Intelligence and Analytics",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=685133",
+        "description": "MISY 448 - Business Intelligence and Analytics Credit(s): 3BUSINESS INTELL & ANALYTICSComponent: LectureLearn to structure and define complex business decision problems; the analytical framework and techniques required to understand the problem; where the data needed for the analysis resides in the organization and the tools and techniques needed to obtain it. Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: SpringGeneral Education Objectives: GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally"
+    },
+    {
+        "title": "MISY 450\u00a0-\u00a0Enterprise Architecture",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684663",
+        "description": "MISY 450 - Enterprise Architecture Credit(s): 3ENTERPRISE ARCHITECTUREComponent: LectureExplore key components of corporate IT Enterprise Architecture (EA) and how the environment transforms business creating sustainable IT value.&nbsp;Examine contemporary EA models and platforms: ERP, CRM, cloud, social & mobile computing, e-commerce, supply chain, data governance, mashups, big data, & data centers.&nbsp;IT risk management and business continuity are also covered.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 330 . Course Typically Offered: FallGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 455\u00a0-\u00a0Ethics in Technology Management",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684871",
+        "description": "MISY 455 - Ethics in Technology Management Credit(s): 3ETHICS IN TECH MANAGEMENTComponent: LectureThis course offers extensive and topical coverage of the legal, ethical, and societal implications of information technology. Students will learn about issues such as file sharing, infringement of intellectual property, security risks, Internet crime, identity theft, employee surveillance, privacy, compliance, social networking, and ethics of IT corporations. Students will gain an excellent foundation in ethical decision making for current and future business managers and IT professionals.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option Course Typically Offered: Fall and SpringGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 465\u00a0-\u00a0Introduction to Cybersecurity",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682958",
+        "description": "MISY 465 - Introduction to Cybersecurity Credit(s): 3INTRODUCTION TO CYBERSECURITYComponent: LectureThis cybersecurity course is an introduction to computer and network security and covers the foundation security policies and methods to provide confidentiality, integrity, and availability, as well as cryptography, auditing, and user security. Topics are reinforced with hands-on exercises run in a virtual machine environment.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student OptionCrosslisted: Crosslisted with CPEG 465 , CISC 465 , ELEG 465 . RESTRICTIONS: Students who have received credit in CPEG 365 , CISC 465 , CISC665, CPEG 465 , CPEG665, ELEG 465 , ELEG665, or MISY665 are not eligible to take this course without permission. General Education Objectives: GE1B: Analyze Arguments and Information GE2A: Communicate Effectively in Writing GE4: Critically Evaluate Ethical Implications GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    },
+    {
+        "title": "MISY 466\u00a0-\u00a0Independent Study",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682625",
+        "description": "MISY 466 - Independent Study Credit(s): 1-6INDEPENDENT STUDYComponent: Independent StudyRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option Course Typically Offered: Verify offering with DeptGeneral Education Objectives:"
+    },
+    {
+        "title": "MISY 467\u00a0-\u00a0SEMINAR",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=684224",
+        "description": "MISY 467 - SEMINAR Credit(s): 1-6SEMINARComponent: LectureRepeatable for Credit: Y Allowed Units: 99 Multiple Term Enrollment: Y Grading Basis: Student Option General Education Objectives:"
+    },
+    {
+        "title": "MISY 480\u00a0-\u00a0Enterprise Resource Planning Systems",
+        "url": "https://catalog.udel.edu/preview_course_nopop.php?catoid=94&coid=682626",
+        "description": "MISY 480 - Enterprise Resource Planning Systems Credit(s): 3ERP SYSTEMSComponent: LectureEnterprise Resource Planning (ERP) systems are complex, general-purpose software with capabilities to support a wide variety of companies and industries. Students will use the SAP software to configure two companies to support their organizational structures and business processes.Repeatable for Credit: N Allowed Units: 3 Multiple Term Enrollment: N Grading Basis: Student Option PREREQ: MISY 225 or MISY 261 or CISC 108 . Course Typically Offered: FallGeneral Education Objectives: GE3B: Work Independently Across Cultures GE5A: Reason Quantitatively GE5B: Reason Computationally GE5C: Reason Scientifically"
+    }
+]

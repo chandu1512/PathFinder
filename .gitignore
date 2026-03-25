@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+.DS_Store
+node_modules/
+pathfinder_db/
+*.xlsx
+*.csv
+.claude/
