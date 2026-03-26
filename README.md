@@ -1,10 +1,10 @@
-# 🧭 PathFinder — UDel Career Mapper
+# PathFinder — UDel Career Mapper
 
 **PathFinder** is an AI-powered career exploration platform built exclusively for University of Delaware students. It connects **8,354 UDel courses** across **46 academic programs** to **920+ real-world career paths**, helping students make data-driven decisions about their academic journey.
 
-🔗 **Live App:** Deployed on Railway
-🎓 **University:** University of Delaware
-📊 **Data:** Scraped directly from the official UDel Course Catalog (2025–2026)
+ **Live App:** Deployed on Railway
+ **University:** University of Delaware
+ **Data:** Scraped directly from the official UDel Course Catalog (2025–2026)
 
 ---
 
