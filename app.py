@@ -2,9 +2,11 @@ from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 from flask_compress import Compress
 import json
+import logging
 import os
 import re
-import anthropic
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
 # Load .env file if present (local development)
 try:
@@ -26,7 +28,6 @@ def index():
     return app.send_static_file('index.html')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 
 # In-memory cache for AI course matches (persists across requests)
 AI_MATCH_CACHE = {}
@@ -529,34 +530,34 @@ def smart_search():
         if not query:
             return jsonify({"results": [], "interpreted_as": ""})
 
-        prompt = (
-            f'A University of Delaware student searched PathFinder for: "{query}"\n\n'
-            f'Understand their INTENT — handle typos, natural language, vague requests:\n'
-            f'- "high paying jobs" → prioritize High demand + high salary\n'
-            f'- "I like helping people" → healthcare, education, social work\n'
-            f'- "data engneer" (typo) → Data Engineer\n'
-            f'- "something creative" → marketing, communication, design roles\n'
-            f'- "government jobs" → policy, criminal justice, public sector\n\n'
-            f'Available careers (520 total):\n{COMPACT_JOB_INDEX_JSON}\n\n'
-            f'Return the top 10 most relevant careers. Also write 1 sentence explaining what you understood.\n'
-            f'Respond ONLY with JSON:\n'
-            f'{{"results": ["Job Title 1", "Job Title 2", ...], "interpreted_as": "I understood you want..."}}'
-        )
+        from rag.retriever import search_careers as faiss_search_careers
 
-        text = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY).messages.create(model="claude-haiku-4-5-20251001", max_tokens=300, messages=[{"role":"user","content":prompt}]).content[0].text.strip()
-        if text.startswith("```"):
-            text = text.split("```")[1]
-            if text.startswith("json"): text = text[4:]
-        parsed = json.loads(text.strip())
+        # FAISS semantic retrieval — over-fetch to allow title-level dedup
+        raw_results = faiss_search_careers(query, k=40)
 
-        # Enrich results with full job data
-        title_to_job = {j["title"]: j for j in JOB_INDEX}
-        enriched = []
-        for title in parsed.get("results", []):
-            if title in title_to_job:
-                enriched.append(title_to_job[title])
+        # Deduplicate by title (same job title can appear in multiple programs),
+        # keeping the highest-scoring occurrence
+        seen: dict[str, dict] = {}
+        for career in raw_results:
+            title = career.get("title", "")
+            if title not in seen or career["score"] > seen[title]["score"]:
+                seen[title] = career
 
-        return jsonify({"results": enriched, "interpreted_as": parsed.get("interpreted_as", "")})
+        top_results = sorted(seen.values(), key=lambda x: -x["score"])[:10]
+
+        enriched = [
+            {
+                "title": c.get("title", ""),
+                "program": c.get("program", ""),
+                "description": c.get("description", ""),
+                "demand": c.get("demand", "Medium"),
+                "salary_min": c.get("salary_min", 0),
+                "salary_max": c.get("salary_max", 0),
+            }
+            for c in top_results
+        ]
+
+        return jsonify({"results": enriched, "interpreted_as": f"Showing careers related to: {query}"})
     except Exception as e:
         print(f"SEARCH ERROR: {e}")
         return jsonify({"error": str(e)}), 500
@@ -610,51 +611,42 @@ def ai_match():
         if not job:
             return jsonify({"error": "Job not found"}), 404
 
-        # Send ALL courses from preferred departments — Claude picks freely
+        from rag.retriever import search_courses as faiss_search_courses
+
         preferred = PROG_DEPTS.get(program, [])
-        preferred_lower = [d.lower() for d in preferred]
+        core_set = PROG_CORE_COURSES.get(program, set())
 
-        ug_pool, grad_pool = [], []
-        for c in COURSES_DATA:
-            dept = (c.get('dept', '') or '').lower()
-            if not any(p in dept for p in preferred_lower):
-                continue
-            title = c.get('title', '')
-            num = course_num(c)
-            if num >= 600:
-                grad_pool.append(title)
-            elif num >= 100:
-                ug_pool.append(title)
+        # Build semantic query from job skills + description
+        skills_str = ", ".join(job.get("skills", []))
+        query = f"{job_title} {skills_str} {job.get('description', '')[:200]}"
 
-        prompt = (
-            f'You are a UDel academic advisor. A student is pursuing "{job_title}" ({program}).\n'
-            f'Job description: {job.get("description", "")}\n'
-            f'Key skills needed: {", ".join(job.get("skills", []))}\n\n'
-            f'From the FULL UDel course catalog for this program below, select the BEST 8 undergraduate '
-            f'and BEST 8 graduate courses that genuinely prepare a student for this career.\n'
-            f'Choose courses that build real, job-relevant skills — not just intro courses.\n\n'
-            f'Undergraduate courses available ({len(ug_pool)} total):\n{json.dumps(ug_pool)}\n\n'
-            f'Graduate courses available ({len(grad_pool)} total):\n{json.dumps(grad_pool)}\n\n'
-            f'Respond ONLY with valid JSON, no markdown:\n'
-            f'{{"undergrad": ["exact title from list", ...], "grad": ["exact title from list", ...]}}'
+        # FAISS retrieval filtered by preferred departments and level
+        ug_results = faiss_search_courses(
+            query, k=8,
+            filters={"level": "undergrad", "preferred_depts": preferred},
+        )
+        grad_results = faiss_search_courses(
+            query, k=8,
+            filters={"level": "grad", "preferred_depts": preferred},
         )
 
-        text = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY).messages.create(model="claude-haiku-4-5-20251001", max_tokens=800, messages=[{"role":"user","content":prompt}]).content[0].text.strip()
-        if text.startswith("```"):
-            text = text.split("```")[1]
-            if text.startswith("json"): text = text[4:]
-        parsed = json.loads(text.strip())
-
-        ug_set   = set(ug_pool)
-        grad_set = set(grad_pool)
-        core_set = PROG_CORE_COURSES.get(program, set())
         result = {
-            "undergrad_courses": [{"title": t, "score": 99,
-                                   "is_core": COURSE_TITLE_TO_CODE.get(t, '') in core_set}
-                                  for t in parsed.get("undergrad", []) if t in ug_set],
-            "grad_courses":      [{"title": t, "score": 99,
-                                   "is_core": COURSE_TITLE_TO_CODE.get(t, '') in core_set}
-                                  for t in parsed.get("grad", []) if t in grad_set]
+            "undergrad_courses": [
+                {
+                    "title": c.get("title", ""),
+                    "score": 99,
+                    "is_core": c.get("code", "") in core_set,
+                }
+                for c in ug_results
+            ],
+            "grad_courses": [
+                {
+                    "title": c.get("title", ""),
+                    "score": 99,
+                    "is_core": c.get("code", "") in core_set,
+                }
+                for c in grad_results
+            ],
         }
         AI_MATCH_CACHE[cache_key] = result
         return jsonify(result)
@@ -763,21 +755,12 @@ Return ONLY valid JSON, no markdown, no explanation:
   "outlook": "2–3 sentences on career prospects, typical starting salary, and growth path for {career} graduates from UDel."
 }}"""
 
-        raw = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY).messages.create(model="claude-haiku-4-5-20251001", max_tokens=3500, system=SYSTEM_PROMPT, messages=[{"role":"user","content":prompt}]).content[0].text.strip()
-        # Strip markdown code fences if present
-        if "```" in raw:
-            raw = re.sub(r'^```[a-z]*\n?', '', raw)
-            raw = re.sub(r'\n?```$', '', raw.strip())
-        # Extract JSON object even if model adds extra text around it
-        m = re.search(r'\{[\s\S]*\}', raw)
-        if m:
-            raw = m.group(0)
-        try:
-            data = json.loads(raw)
-            return jsonify({"roadmap_json": data})
-        except Exception as je:
-            print(f"ROADMAP JSON ERROR: {je} | RAW: {raw[:300]}")
-            return jsonify({"error": "Could not generate roadmap. Please try again."}), 500
+        from rag import pipeline as rag_pipeline
+        data = rag_pipeline.generate_roadmap(prompt, SYSTEM_PROMPT, career, major)
+        return jsonify({"roadmap_json": data})
+    except ValueError as ve:
+        print(f"ROADMAP JSON ERROR: {ve}")
+        return jsonify({"error": "Could not generate roadmap. Please try again."}), 500
     except Exception as e:
         err = str(e)
         print(f"ROADMAP ERROR: {err}")
@@ -854,7 +837,8 @@ def chat():
 
         system = SYSTEM_PROMPT + program_context
 
-        reply = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY).messages.create(model="claude-sonnet-4-6", max_tokens=1024, system=system, messages=messages).content[0].text
+        from rag import pipeline as rag_pipeline
+        reply = rag_pipeline.answer_chat(last_user_msg, {}, messages, system)
         return jsonify({"reply": reply})
     except Exception as e:
         print(f"CHAT ERROR: {e}")
