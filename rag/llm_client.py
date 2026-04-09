@@ -30,7 +30,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 ROADMAP_MODEL = os.getenv("ROADMAP_MODEL", "openai/gpt-oss-120b")
-CHAT_MODEL    = os.getenv("CHAT_MODEL",    "qwen/qwen3-32b")
+CHAT_MODEL    = os.getenv("CHAT_MODEL",    "llama-3.3-70b-versatile")
 FALLBACK_MODEL = os.getenv("FALLBACK_MODEL", "llama-3.1-8b-instant")
 
 # ---------------------------------------------------------------------------

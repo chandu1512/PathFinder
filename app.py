@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, jsonify, request, Response
 from flask_cors import CORS
 from flask_compress import Compress
