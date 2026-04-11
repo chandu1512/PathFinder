@@ -658,6 +658,15 @@ def ai_match():
 
 
 # ── API: Roadmap ──
+
+ROADMAP_SYSTEM_PROMPT = """You are a University of Delaware academic advisor.
+Your job: build a 2-semester course plan in valid JSON format.
+Rules:
+- Use ONLY course codes provided in the user prompt's CORE/ELECTIVES lists.
+- Never invent course codes.
+- Output valid JSON only — no markdown, no explanation, no preamble.
+- Match the exact JSON schema in the user prompt."""
+
 @app.route('/api/roadmap', methods=['POST'])
 def roadmap():
     try:
@@ -758,7 +767,7 @@ Return ONLY valid JSON, no markdown, no explanation:
 }}"""
 
         from rag import pipeline as rag_pipeline
-        data = rag_pipeline.generate_roadmap(prompt, SYSTEM_PROMPT, career, major)
+        data = rag_pipeline.generate_roadmap(prompt, ROADMAP_SYSTEM_PROMPT, career, major)
         return jsonify({"roadmap_json": data})
     except ValueError as ve:
         print(f"ROADMAP JSON ERROR: {ve}")

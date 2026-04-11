@@ -135,7 +135,7 @@ def generate_roadmap(
 
     try:
         rag_query = f"{career} {major} university courses skills"
-        top_courses = search_courses(rag_query, k=15)
+        top_courses = search_courses(rag_query, k=5)
 
         if top_courses:
             rag_note = (
