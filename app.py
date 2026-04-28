@@ -431,7 +431,12 @@ PROG_DEPTS = {
     "Actuarial Sciences":            ["MATH", "STAT", "FINC", "ECON"],
 }
 
-# Build PROG_CORE_COURSES and PROG_ELECTIVE_COURSES using text parsing
+# Build PROG_CORE_COURSES and PROG_ELECTIVE_COURSES.
+# Primary source: text-parsed program_requirements.json (catches grad programs well).
+# Supplemental source: program_courses.json undergrad + grad_core fields, which are
+# scraped directly from the UDel Major Finder and are authoritative for undergrad programs.
+# find_program_requirements() tends to match grad catalog entries for most program names,
+# so without the supplement, undergrad core courses are systematically under-represented.
 for _prog_name in PROG_DEPTS:
     _core = set()
     _elec = set()
@@ -439,6 +444,16 @@ for _prog_name in PROG_DEPTS:
         _pc, _pe = extract_core_elective_codes(_p)
         _core.update(_pc)
         _elec.update(_pe)
+
+    # Supplement with official scraped curriculum from program_courses.json
+    _prog_data = PROGRAM_COURSES.get(_prog_name, {})
+    _ug_codes = _prog_data.get('undergrad', [])
+    if len(_ug_codes) >= 10:          # only trust when data is sufficiently complete
+        _core.update(_ug_codes)
+    _core.update(_prog_data.get('grad_core', []))     # grad core is always reliable
+    _elec.update(_prog_data.get('grad_electives', []))
+    _elec.update(_prog_data.get('undergrad_electives', []))
+
     PROG_CORE_COURSES[_prog_name]     = _core
     PROG_ELECTIVE_COURSES[_prog_name] = _elec - _core  # guarantee no overlap
 
