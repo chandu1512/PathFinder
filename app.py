@@ -194,7 +194,7 @@ def extract_enrolled_program(text):
     """
     lower = text.lower()
     # Match "masters/phd/bs/mba in [PROGRAM]" and stop before conjunctions/intent words
-    stop = r'(?:\s+and\b|\s+but\b|\s+want\b|\s+interest|\s+toward|\s+i\s|\s*,|$)'
+    stop = r'(?:\s+(?:and|but|want|interest\w*|toward|at|who|that|to|from|the)\b|\s*,|$)'
     patterns = [
         # "doing/pursuing/studying my masters in [program]"
         r'(?:doing|pursuing|studying|in)\s+(?:my\s+)?'
@@ -202,8 +202,12 @@ def extract_enrolled_program(text):
         r'([\w][\w ]{1,35}?)' + stop,
         # "masters/phd in [program]"
         r'(?:masters?|ms\b|phd|mba|bachelors?|bs\b)\s+in\s+([\w][\w ]{1,35}?)' + stop,
-        # "I'm a [program] student/graduate"
-        r"i(?:'m|\s+am)\s+a\s+([\w][\w ]{1,30?})\s+(?:student|graduate|grad\b)",
+        # "graduate/grad student in [program]"
+        r'(?:graduate|grad)\s+student\s+in\s+([\w][\w ]{1,35}?)' + stop,
+        # "enrolled in [program]" / "studying [program]"
+        r'(?:enrolled in|studying)\s+([\w][\w ]{1,35}?)' + stop,
+        # "I'm a [program] student/graduate" — but NOT "graduate student" (captured above)
+        r"i(?:'m|\s+am)\s+a\s+([\w][\w ]{2,30?})\s+(?:student|grad\b)",
     ]
     for pat in patterns:
         m = re.search(pat, lower)
@@ -229,10 +233,17 @@ def find_program_requirements(query):
         words = [w for w in re.findall(r'\w+', query_lower) if len(w) > 3]
         score = sum(1 for w in words if w in name_lower)
         if score > 0:
-            # Small penalty for long/combined program names so simple
-            # "Finance (MS)" beats "Business Analytics/Finance 4+1 (BS/MS)"
+            # Heavy penalty for combined/joint/certificate programs so simple
+            # "Cybersecurity (MS)" beats "Computer Engineering/Cybersecurity 4+1 (BCpE/MS)"
+            combined_penalty = 0.0
+            if '4+1' in name_lower or '3+2' in name_lower:
+                combined_penalty = 3.0
+            elif '/' in p['name']:
+                combined_penalty = 2.0
+            elif 'certificate' in name_lower:
+                combined_penalty = 1.5
             length_penalty = len(name_lower) / 300.0
-            matches.append((score - length_penalty, p))
+            matches.append((score - length_penalty - combined_penalty, p))
     matches.sort(key=lambda x: -x[0])
     return [m[1] for m in matches[:5]]
 
@@ -264,10 +275,15 @@ CRITICAL BEHAVIOR RULES — FOLLOW THESE STRICTLY:
    You have the official UDel program data injected below — use it.
 3. When a student asks about COURSES, answer with COURSES. Do NOT list jobs unless they specifically asked.
 4. When a student asks what courses to take to pivot to a different field:
-   → List their ★ CORE courses first (mandatory, no choice)
+   → List their ★ CORE courses first (mandatory, no choice) — USE THE EXACT CODES FROM THE ★ CORE LIST
    → Then list their ○ ELECTIVE options that best align with the target field
    → Be specific with course codes and names
 5. NEVER say "masters and grad are different" — they are the same thing.
+6. CRITICAL — CORE COURSES RULE: When OFFICIAL UDEL PROGRAM DATA is injected below with a ★ CORE list,
+   those ARE the student's mandatory required courses for THEIR enrolled program.
+   NEVER replace those core courses with courses from a different program (e.g., do NOT list AI/ML program
+   core courses for a Cybersecurity student). The student stays in their enrolled program.
+   Core courses = what their program requires. Electives = how they shape toward their career goal.
 
 You have deep knowledge of UDel's full course catalog ({len(COURSES_DATA):,} courses) and {_total_jobs} career roles across {len(JOBS_DATA)} programs.
 
@@ -814,21 +830,37 @@ def chat():
         # First: try to extract the program the student is ENROLLED IN specifically
         # (avoids matching their target interest like "data science" over their actual program)
         enrolled_kw = extract_enrolled_program(search_text)
+        SKIP_MARKERS = ('4+1', '3+2', 'Certificate')
         if enrolled_kw:
             for p in find_program_requirements(enrolled_kw):
                 if p['name'] not in seen_prog_names:
+                    if any(m in p['name'] for m in SKIP_MARKERS):
+                        continue
+                    if '/' in p['name']:
+                        continue
                     seen_prog_names.add(p['name'])
                     unique_progs.append(p)
 
         # Also add any additional programs mentioned (target field, etc.)
         for p in find_program_requirements(search_text):
             if p['name'] not in seen_prog_names:
+                if any(m in p['name'] for m in SKIP_MARKERS):
+                    continue
+                # Skip joint programs (contain "/") — they muddy course advice
+                if '/' in p['name']:
+                    continue
                 seen_prog_names.add(p['name'])
                 unique_progs.append(p)
 
+        # If we clearly identified the enrolled program, inject just that program.
+        # This prevents unrelated programs from bleeding in via keyword matches
+        # (e.g., "AI/ML Engineer" matching "Ocean Engineering").
+        # Without an enrolled match, inject up to 3 programs for broader context.
+        max_progs = 1 if enrolled_kw and unique_progs else 3
+
         if unique_progs:
             program_context = "\n\n=== OFFICIAL UDEL PROGRAM DATA (USE THESE ONLY — DO NOT INVENT COURSES) ===\n"
-            for p in unique_progs[:3]:
+            for p in unique_progs[:max_progs]:
                 core_codes, elec_codes = extract_core_elective_codes(p)
                 program_context += f"\n**{p['name']}** ({p['level_type']})"
                 if p.get('total_credits'):

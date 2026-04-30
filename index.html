@@ -787,21 +787,35 @@
                 return;
             }
 
-            // Try matching as a course name via API
-            try {
-                const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
-                const data = await res.json();
-                if (data.courses && data.courses.length > 0) {
-                    const top = data.courses[0];
-                    const parts = top.title.split(' - ');
-                    const name = parts.slice(1).join(' - ') || top.title;
-                    showJobsForCourse(top.code, name);
-                    return;
-                }
-            } catch(e) {}
+            // Try matching as a course name via API — but skip if query looks like a job title
+            const JOB_TITLE_RE = /\b(engineer|developer|analyst|scientist|manager|specialist|designer|architect|consultant|administrator|coordinator|director|officer|lead|programmer|researcher|technician|therapist|nurse|counselor|accountant)\b/i;
+            if (!JOB_TITLE_RE.test(q)) {
+                try {
+                    const res = await fetch(`/api/courses?q=${encodeURIComponent(q)}&page=1`);
+                    const data = await res.json();
+                    if (data.courses && data.courses.length > 0) {
+                        const top = data.courses[0];
+                        // Only treat as course match if the query appears in the course TITLE
+                        // (not just in description — avoids "Software Engineer" matching ANTH 222)
+                        const topTitle = top.title.toLowerCase();
+                        const qLower = q.toLowerCase();
+                        const qWords = qLower.split(/\s+/).filter(w => w.length > 2);
+                        const titleMatch = qWords.every(w => topTitle.includes(w));
+                        if (titleMatch) {
+                            const parts = top.title.split(' - ');
+                            const name = parts.slice(1).join(' - ') || top.title;
+                            showJobsForCourse(top.code, name);
+                            return;
+                        }
+                    }
+                } catch(e) {}
+            }
 
             const jobsVisible = document.getElementById('jobs-section').style.display === 'block';
             if (jobsVisible) {
+                // Reset any stale course-filter title and ensure all cards are rendered
+                document.getElementById('jobs-view-title').textContent = '🔍 Results: ' + q;
+                renderDashboard(globalData);
                 const si = document.getElementById('searchInput');
                 if (si) { si.value = q; onSearchInput(); }
                 document.getElementById('jobs-view-header').scrollIntoView({behavior: 'smooth'});
