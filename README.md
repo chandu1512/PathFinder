@@ -4,6 +4,7 @@
 
 **Live App:** Deployed on Railway
 **University:** University of Delaware
+**Course:** CPEG 657 (Search & Data Mining) — Spring 2026 Final Project
 **Data:** Scraped directly from the official UDel Course Catalog (2025–2026)
 
 ---
@@ -231,6 +232,10 @@ PathFinder/
 |       |-- careers.faiss       # Career vector index
 |       +-- careers_meta.json   # Career metadata sidecar
 |
+|-- evaluation/                 # Retrieval evaluation
+|   |-- test_set.json           # 50 hand-labeled student queries
+|   +-- run_eval.py             # Scores retrieval@5 and retrieval@10
+|
 |-- all_courses.json            # 8,354 UDel courses (undergrad + grad)
 |-- all_jobs.json               # 920 career roles across 46 programs
 |-- program_courses.json        # Official curriculum course codes
@@ -290,6 +295,24 @@ Open `http://localhost:5000` in your browser.
 
 ---
 
+## Evaluation
+
+A hand-labeled test set of 50 student-style queries with expected courses lives in `evaluation/test_set.json`. To reproduce our retrieval numbers:
+
+```bash
+python evaluation/run_eval.py
+```
+
+The script embeds each query with `BAAI/bge-small-en-v1.5`, searches the FAISS course index, and computes:
+
+- **retrieval@5** — percentage of queries where at least one expected course appears in the top 5 results
+- **retrieval@10** — same metric at top 10
+- A failure-case breakdown grouped by query type (precise, vague, multi-intent)
+
+Reported result on our 50-query test set: **>90% retrieval@5**, with most failures concentrated in very short (1–2 word) queries and queries that mention multiple intents at once.
+
+---
+
 ## Deployment
 
 Deployed on **Railway** using Gunicorn:
@@ -302,6 +325,13 @@ The app loads all JSON data into memory at startup and pre-computes career path 
 
 ---
 
+## AI Tool Usage
+
+In accordance with the CPEG 657 generative-AI policy, this project used Anthropic's Claude as a technical assistant during development (RAG pipeline debugging, FAISS index migration from ChromaDB, prompt engineering iterations, and Railway deployment troubleshooting). All architecture decisions, scraper logic, evaluation methodology, and final code were written and reviewed by the authors. See the accompanying `AI_Disclosure.docx` submitted with this project for full details.
+
+---
+
 ## Built By
 
-**Chandu Darapaneni** — Graduate student at the University of Delaware
+- **Chandra Chowdary Darapaneni** — M.S. Cybersecurity, University of Delaware
+- **Lakshmi Nagendra Neelakantam** — M.S. Cybersecurity, University of Delaware
