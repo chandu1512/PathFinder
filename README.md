@@ -309,7 +309,7 @@ The script embeds each query with `BAAI/bge-small-en-v1.5`, searches the FAISS c
 - **retrieval@10** — same metric at top 10
 - A failure-case breakdown grouped by query type (precise, vague, multi-intent)
 
-Reported result on our 50-query test set: **>90% retrieval@5**, with most failures concentrated in very short (1–2 word) queries and queries that mention multiple intents at once.
+Reported result on our 50-query test set: **86% retrieval@5 (43 of 50)**, with most failures concentrated in very short (1–2 word) queries and queries that mention multiple intents at once.
 
 ---
 
